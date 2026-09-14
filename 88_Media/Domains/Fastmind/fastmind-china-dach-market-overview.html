@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="de" data-active-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fastmind GmbH — China ⇄ DACH Markt- und Sourcing-Analyse 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-1:#04111f;
+    --navy-2:#0a1e36;
+    --navy-3:#102847;
+    --navy-4:#16365a;
+    --gold:#d3ad67;
+    --gold-2:#ebcd95;
+    --text:#eef4fc;
+    --muted:#abb9cc;
+    --line:rgba(255,255,255,.10);
+    --max:1280px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy-1);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6;
+  }
+  html[data-active-lang="zh"] body{
+    font-family:"Noto Sans SC",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  h1,h2,.serif{ font-family:"DM Serif Display",serif; font-weight:500; }
+  html[data-active-lang="zh"] h1, html[data-active-lang="zh"] h2, html[data-active-lang="zh"] .serif{
+    font-family:"Noto Sans SC",serif; font-weight:700;
+  }
+  a{color:inherit;}
+
+  /* language toggling — !important so no component class can override the hide/show state */
+  .i18n{display:none !important;}
+  html[data-active-lang="de"] .i18n.lang-de{display:block !important;}
+  html[data-active-lang="en"] .i18n.lang-en{display:block !important;}
+  html[data-active-lang="zh"] .i18n.lang-zh{display:block !important;}
+  html[data-active-lang="de"] span.i18n.lang-de{display:inline-block !important;}
+  html[data-active-lang="en"] span.i18n.lang-en{display:inline-block !important;}
+  html[data-active-lang="zh"] span.i18n.lang-zh{display:inline-block !important;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(4,17,31,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .logo{ font-family:"DM Serif Display",serif; font-size:22px; letter-spacing:.02em; }
+  .logo b{ color:var(--gold); font-weight:400; }
+  .langsw{ display:flex; gap:6px; border:1px solid var(--line); border-radius:999px; padding:4px; }
+  .langsw button{
+    font-family:inherit; font-size:13px; font-weight:600; color:var(--muted);
+    background:transparent; border:none; padding:7px 14px; border-radius:999px; cursor:pointer;
+    transition:all .15s ease;
+  }
+  .langsw button.active{ background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:var(--navy-1); }
+
+  .hero{ padding:72px 0 48px; border-bottom:1px solid var(--line); }
+  .eyebrow{
+    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); border:1px solid rgba(211,173,103,.35); background:rgba(211,173,103,.08);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  h1{ font-size:44px; line-height:1.15; margin:0 0 20px; max-width:820px; }
+  html[data-active-lang="zh"] h1{ font-size:38px; }
+  .lede{ font-size:17px; color:var(--muted); max-width:760px; margin:0; }
+
+  .sectors{ padding:56px 0 80px; }
+  .sectors-head{ display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:32px; flex-wrap:wrap;}
+  .sectors-head h2{ font-size:30px; margin:0; }
+  .sectors-head p{ color:var(--muted); margin:0; font-size:14px; max-width:420px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  @media (max-width:860px){ .grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--navy-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 26px 24px;
+    box-shadow:0 18px 28px rgba(0,0,0,.22);
+  }
+  .card-top{ display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+  .badge{
+    flex:0 0 auto; width:40px; height:40px; border-radius:10px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:var(--navy-1); font-weight:700; font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .card h3{ margin:0; font-size:19px; font-weight:600; color:var(--text); }
+  .kv{ margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+  .kv:first-of-type{ border-top:none; margin-top:4px; padding-top:0; }
+  .kv .label{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .kv p{ margin:0; font-size:14.5px; color:var(--muted); }
+  .kv.lever p{ color:var(--text); }
+
+  footer{ border-top:1px solid var(--line); padding:36px 0 46px; }
+  footer .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  footer .fine{ font-size:13px; color:var(--muted); }
+  .mailbtn{
+    display:inline-block; font-weight:700; font-size:14px; padding:11px 22px; border-radius:999px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:var(--navy-1); text-decoration:none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">fastmind<b>.</b></div>
+    <div class="langsw" role="group" aria-label="Language switch">
+      <button type="button" data-lang="de" class="active">DE</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow i18n lang-de">Strategische Marktanalyse · 2026</span>
+    <span class="eyebrow i18n lang-en">Strategic Market Analysis · 2026</span>
+    <span class="eyebrow i18n lang-zh">战略市场分析 · 2026</span>
+
+    <h1 class="i18n lang-de">China ⇄ DACH<br>Markt- &amp; Sourcing-Analyse</h1>
+    <h1 class="i18n lang-en">China ⇄ DACH<br>Market &amp; Sourcing Analysis</h1>
+    <h1 class="i18n lang-zh">中国 ⇄ DACH<br>跨国市场与采购战略分析</h1>
+
+    <p class="lede i18n lang-de">Die fastmind GmbH agiert als hocheffiziente, binationale Schnittstelle auf der Achse China ⇄ DACH (Deutschland, Österreich, Schweiz). Geführt von zwei Muttersprachlern, überwindet Fastmind nicht nur Sprachbarrieren, sondern auch kulturelle und regulatorische Hürden, die über 70&nbsp;% sino-europäischer Kooperationen scheitern lassen. Dieses Papier liefert eine strategische Analyse aller 9&nbsp;Produktbereiche.</p>
+    <p class="lede i18n lang-en">fastmind GmbH acts as a highly efficient, bilateral interface on the China ⇄ DACH (Germany, Austria, Switzerland) axis. Led by two native speakers, Fastmind bridges not only language barriers but also the cultural and regulatory hurdles that cause over 70% of Sino-European joint ventures to fail. This document provides a strategic market analysis of all 9 product sectors.</p>
+    <p class="lede i18n lang-zh">fastmind GmbH（德国快智有限公司）是中国 ⇄ DACH（德国、奥地利、瑞士）双边合作轴心上高效的跨国桥梁。在两位母语专业人士的引领下，Fastmind 致力于消除语言障碍，解决导致 70% 以上中欧合作项目折戟的文化与监管壁垒。本报告针对公司旗下 9 大产品板块进行深度市场战略分析。</p>
+  </div>
+</section>
+
+<section class="sectors">
+  <div class="wrap">
+    <div class="sectors-head">
+      <h2 class="i18n lang-de">Die 9 Sektoren</h2>
+      <h2 class="i18n lang-en">The 9 Sectors</h2>
+      <h2 class="i18n lang-zh">九大板块</h2>
+      <p class="i18n lang-de">Marktchance, regulatorisches Nadelöhr und der Fastmind-Hebel — je Sektor.</p>
+      <p class="i18n lang-en">Market opportunity, regulatory bottleneck and the Fastmind leverage — per sector.</p>
+      <p class="i18n lang-zh">按板块列出市场机遇、监管瓶颈与 Fastmind 核心杠杆。</p>
+    </div>
+
+    <div class="grid" id="sector-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fine i18n lang-de">© 2026 fastmind GmbH · Düsseldorf · Interne strategische Analyse</div>
+    <div class="fine i18n lang-en">© 2026 fastmind GmbH · Düsseldorf · Internal strategic analysis</div>
+    <div class="fine i18n lang-zh">© 2026 fastmind GmbH · 杜塞尔多夫 · 内部战略分析文件</div>
+    <a class="mailbtn" href="mailto:info@fast-mind.de">info@fast-mind.de</a>
+  </div>
+</footer>
+
+<script>
+const LABELS = {
+  de: { opp:"Marktchance im DACH-Raum", bottleneck:"Regulatorisches Nadelöhr", lever:"Der Fastmind-Hebel" },
+  en: { opp:"DACH Market Opportunity", bottleneck:"Regulatory Bottleneck", lever:"The Fastmind Leverage" },
+  zh: { opp:"DACH 市场机遇", bottleneck:"监管瓶颈", lever:"Fastmind 的核心杠杆" }
+};
+
+const SECTORS = [
+{
+  title:{de:"Grüne Energie",en:"Green Energy",zh:"绿色能源"},
+  opp:{
+    de:"Das Investitionsvolumen in saubere Energien, Netze und Speicher erreicht global 2,2 Billionen USD. Deutschland treibt PV und Onshore-Windkraft massiv voran. Chinesische Hersteller dominieren die Lieferkette für Solarmodule und Batteriespeicher.",
+    en:"Global investments in clean energy, grids, and storage are surging to USD 2.2 trillion. Germany is aggressively expanding onshore wind and PV. Chinese manufacturers dominate the global supply chain for solar modules and battery storage.",
+    zh:"全球清洁能源、电网和储能领域的投资额已攀升至 2.2 万亿美元。德国正大力推进陆上风电和光伏（PV）建设。中国制造企业在光伏组件和电池储能的全球供应链中占据主导地位。"
+  },
+  bottleneck:{
+    de:"Lokale Einspeise- und Netzkriterien im DACH-Raum erfordern präzise technische Nachweise.",
+    en:"Local grid-connection criteria and feed-in regulations in the DACH region require strict technical documentation.",
+    zh:"DACH 地区的本地并网标准和馈电法规极其严苛，需要提供极其精确的技术证明和合规文件。"
+  },
+  lever:{
+    de:"Wir validieren lokale Netzanschlussbedingungen für chinesische Technologieanbieter und sichern die vertragliche Abwicklung direkt mit DACH-Netzbetreibern ab.",
+    en:"We validate local grid compliance for Chinese technology providers and secure direct contracts with DACH grid operators.",
+    zh:"我们帮助中国技术提供商进行本地并网合规性验证，并协助与 DACH 地区电网运营商直接签署商业合同。"
+  }
+},
+{
+  title:{de:"Emissionsreduktion",en:"Emission Reduction",zh:"碳减排"},
+  opp:{
+    de:"Durch das Lieferkettensorgfaltspflichtengesetz (LkSG) und ESG-Richtlinien müssen DACH-Konzerne CO2-Emissionen lückenlos entlang der gesamten Lieferkette nachweisen.",
+    en:"Driven by the Supply Chain Due Diligence Act (LkSG) and ESG directives, DACH corporations must rigorously prove CO2 reduction across their entire supply chain.",
+    zh:"受德国《供应链尽职调查法》（LkSG）和 ESG 准则的推动，DACH 地区的大型企业必须严格证明其整个供应链中的碳减排合规情况。"
+  },
+  bottleneck:{
+    de:"Chinesische Zulieferer (Tier-N) stehen vor der Herausforderung, komplexe deutsche ESG-Audits und CO2-Fußabdruckberechnungen bereitzustellen.",
+    en:"Chinese suppliers (Tier-N) struggle to meet complex European ESG audits and calculate specific carbon footprints.",
+    zh:"中国供应商（Tier-N）面临着提供复杂的欧洲 ESG 审计报告和计算特定碳足迹的巨大挑战。"
+  },
+  lever:{
+    de:"Fastmind führt Audits vor Ort in China in Landessprache durch, übersetzt die Anforderungen rechtssicher und erstellt LkSG-konforme Berichte.",
+    en:"Fastmind conducts on-site audits in China in Chinese, translates compliance requirements into legally secure frameworks, and delivers LkSG-compliant reports.",
+    zh:"Fastmind 直接在中国当地使用中文进行现场审计，将欧洲的合规要求转化为可执行方案，并出具符合 LkSG 标准的专业报告。"
+  }
+},
+{
+  title:{de:"Faserinnovation",en:"Fiber Innovation",zh:"纤维创新"},
+  opp:{
+    de:"Hoher Bedarf an Leichtbau- und Hochleistungsfaserverbundwerkstoffen in der Automobilindustrie (E-Mobilität, 25&nbsp;% BEV-Marktanteil in DE) und für Windkraft-Rotorblätter.",
+    en:"High demand for lightweight, high-performance fiber composites in the automotive industry (E-Mobility, 25% BEV share in Germany) and wind turbine rotor blades.",
+    zh:"汽车工业（电动汽车在德国的市场份额已达 25%）以及风力发电机叶片对轻量化、高性能纤维复合材料有着极为迫切的需求。"
+  },
+  bottleneck:{
+    de:"DACH-Kunden fordern extrem hohe Werkstoffzertifizierungen und konstante Chargenqualität.",
+    en:"DACH customers demand extremely rigorous material certifications and absolute consistency in batch quality.",
+    zh:"DACH 地区的客户对材料认证要求极高，且要求每批次产品的质量必须保持绝对一致。"
+  },
+  lever:{
+    de:"Wir binden führende chinesische Spezialfaser-Produzenten an deutsche Forschungscluster an und koordinieren die technische Freigabe.",
+    en:"We connect leading Chinese specialty fiber producers with German research clusters and coordinate technical approvals.",
+    zh:"我们将中国顶尖的特种纤维生产商与德国的先进研发集群对接，并全程协调技术准入与释放流程。"
+  }
+},
+{
+  title:{de:"Pipelinesysteme",en:"Pipeline Systems",zh:"管道系统"},
+  opp:{
+    de:"Der Umbau des Gasnetzes auf grünen Wasserstoff erfordert Milliardeninvestitionen in Spezialarmaturen und Rohrleitungen.",
+    en:"Upgrading gas grids for green hydrogen requires multi-billion-dollar investments in specialty valves, fittings, and pipelines.",
+    zh:"针对绿色氢能的天然气管网改造需要巨额投资于特种阀门、配件和管道系统。"
+  },
+  bottleneck:{
+    de:"Wasserstofftauglichkeit erfordert extrem anspruchsvolle Werkstoffprüfungen (Korrosionsschutz, Drucktests).",
+    en:"Hydrogen compatibility demands highly complex material testing, corrosion protection, and pressure validation.",
+    zh:"氢能兼容性要求极高的材料测试（防腐、高压测试），技术壁垒极高。"
+  },
+  lever:{
+    de:"Fastmind validiert und auditiert spezialisierte chinesische Ventil- und Rohrfabriken vor Ort, um Lieferengpässe der DACH-Versorger zu lösen.",
+    en:"Fastmind validates and audits specialized Chinese valve and pipe factories on-site, bypassing supply bottlenecks for DACH utility companies.",
+    zh:"Fastmind 在中国现场对专业的阀门和管道制造厂进行严格审计与验证，帮助 DACH 地区的公用事业企业绕过供应瓶颈。"
+  }
+},
+{
+  title:{de:"Maritime Technologien",en:"Maritime Technologies",zh:"海洋技术"},
+  opp:{
+    de:"Starker Fokus auf „Green Shipping&quot; und den massiven Ausbau der Offshore-Windinfrastruktur in Nord- und Ostsee.",
+    en:"Strong focus on \"Green Shipping\" and the massive expansion of offshore wind infrastructure in the North and Baltic Seas.",
+    zh:"欧洲高度关注“绿色航运”以及北海和东海海上风电基础设施的大规模扩张。"
+  },
+  bottleneck:{
+    de:"Strengste maritime Sicherheitsstandards und Klassifikationsvorgaben (DNV, Lloyd's Register) in Europa.",
+    en:"Strictest maritime safety standards and European classification guidelines (e.g., DNV, Lloyd's Register).",
+    zh:"欧洲实行最严苛的海事安全标准和船级社规范（如 DNV、英国劳氏船级社）。"
+  },
+  lever:{
+    de:"Wir sichern die Lieferketten-Resilienz für europäische Werften durch direkte, rechtssichere Verhandlung mit erstklassigen chinesischen Werften.",
+    en:"We secure supply chain resilience for European shipyards through direct, legally secure negotiations with premium Chinese shipbuilders.",
+    zh:"我们通过与中国优质船厂及零部件供应商进行直接、合规的商务谈判，为欧洲船厂保障供应链的强韧性。"
+  }
+},
+{
+  title:{de:"Robotik",en:"Robotics",zh:"机器人技术"},
+  opp:{
+    de:"Fusion von Agentic AI und Robotik. Roboterassistierte Chirurgie wächst bis 2030 auf 20&nbsp;Mrd. USD (BVMed-Fachbereich Robotik).",
+    en:"Convergence of Agentic AI and robotics. Robotic-assisted surgery is projected to reach USD 20 billion by 2030 (BVMed's dedicated robotics division).",
+    zh:"具身智能与机器人技术的深度融合。手术辅助机器人预计到 2030 年全球规模将达 200 亿美元（德国 BVMed 机器人专委会推动）。"
+  },
+  bottleneck:{
+    de:"Der Halbleitermarkt steuert auf 1&nbsp;Billion USD zu; KI-Hyperscaler absorbieren NAND/DRAM-Kapazitäten — Chipknappheit bei europäischen Robotik-KMU.",
+    en:"The global semiconductor market is nearing USD 1 trillion; AI hyperscalers absorb NAND/DRAM capacities, causing severe component shortages for DACH robotics SMEs.",
+    zh:"全球半导体市场规模正逼近 1 万亿美元；AI 超算巨头吞噬了大量 NAND/DRAM 产能，导致 DACH 机器人中小企业面临“芯片荒”。"
+  },
+  lever:{
+    de:"Fastmind vermittelt hochpräzise mechatronische Komponenten und Halbleiter-Bezugsquellen direkt aus chinesischen Hightech-Hubs (Shenzhen/Shanghai).",
+    en:"Fastmind sources alternative, high-precision mechatronic components and semiconductor pathways directly from Chinese high-tech hubs (Shenzhen/Shanghai).",
+    zh:"Fastmind 能够直接从中国的高科技产业集聚区（深圳/上海）为欧洲 OEM 厂商对接和采购替代性的高精度机电一体化零部件及半导体渠道。"
+  }
+},
+{
+  title:{de:"Medizinische Geräte",en:"Medical Devices",zh:"医疗器械"},
+  opp:{
+    de:"Deutschland ist der größte Gesundheitsmarkt Europas. Der MedTech-M&amp;A-Markt boomt (Schweiz: 8–14× EBITDA).",
+    en:"Germany is Europe's largest and most lucrative healthcare market. The MedTech M&amp;A market is thriving (Switzerland: 8-14x EBITDA).",
+    zh:"德国是欧洲最大、资金最雄厚的医疗健康市场。医疗器械并购市场极为活跃（瑞士并购估值倍数高达 8–14 倍 EBITDA）。"
+  },
+  bottleneck:{
+    de:"Die EU-MDR erhöht Compliance-Kosten um 30–50&nbsp;%. Klasse-I-Sonderprodukte erfordern eine Benannte Stelle; der Zugang zum Erstattungssystem (EBM/DRG) ist hochkomplex.",
+    en:"The EU-MDR increases compliance costs by 30–50%. Specific Class I products require a Notified Body; navigating German reimbursement (EBM/DRG) is highly intricate.",
+    zh:"欧盟医疗器械法规（EU-MDR）使制造商合规成本大幅飙升 30%–50%。特殊 I 类产品强制要求公告机构参与，德国医保报销体系极其错综复杂。"
+  },
+  lever:{
+    de:"Fastmind führt chinesische MedTech-Unternehmen durch den MDR-Prozess und öffnet den direkten GTM-Zugang zum DACH-Markt.",
+    en:"Fastmind guides Chinese MedTech firms through the MDR maze and unlocks direct market access (Go-to-Market) to the DACH region.",
+    zh:"Fastmind 协助中国医疗器械企业通过 MDR 认证流程，并打通进入 DACH 市场的直接通道。"
+  }
+},
+{
+  title:{de:"Bildung",en:"Education",zh:"教育"},
+  opp:{
+    de:"Drastischer Mangel an MINT-Fachkräften und regulatorischen Experten (z.&nbsp;B. PRRC nach Art. 15 MDR) in DACH-Unternehmen.",
+    en:"Severe shortage of STEM professionals and regulatory experts (e.g., PRRC under Art. 15 MDR) in DACH tech companies.",
+    zh:"DACH 地区的科技企业面临严重的 MINT（理工科）人才及法规合规专家短缺。"
+  },
+  bottleneck:{
+    de:"Wissensdefizite bei ausländischen Herstellern bezüglich deutscher Qualitätsstandards (ISO 13485) und europäischer Gesetzgebung.",
+    en:"Knowledge gaps among foreign manufacturers regarding German quality standards (ISO 13485) and European legislation.",
+    zh:"境外制造商对德国质量标准（ISO 13485）和欧洲法律法规存在巨大的认知鸿沟。"
+  },
+  lever:{
+    de:"Fastmind konzipiert zweisprachige Trainings (QMS, MDR) direkt in China, um Fehler- und Abstimmungskosten vor dem EU-Import zu senken.",
+    en:"Fastmind designs and conducts bilingual training programs (QMS, MDR) in China, reducing compliance-related errors and coordination costs prior to import.",
+    zh:"Fastmind 直接在中国当地为中方团队设计并开展双语专业培训，在产品出口欧洲前将合规错误和沟通成本降至最低。"
+  }
+},
+{
+  title:{de:"Kultur",en:"Culture",zh:"文化"},
+  opp:{
+    de:"Steigende M&amp;A-Deals und Kooperationen zwischen China und DACH zur geopolitischen Risikominimierung (De-Risking).",
+    en:"Rising M&amp;A deals and strategic joint ventures between China and the DACH region aimed at geopolitical de-risking.",
+    zh:"中欧之间旨在进行地缘政治防范（De-Risking）的并购交易与战略合作日益增多。"
+  },
+  bottleneck:{
+    de:"Über 70&nbsp;% aller sino-europäischen Projekte scheitern an kulturellen Missverständnissen, Guanxi-Management oder unzureichender Post-Merger-Integration.",
+    en:"Over 70% of Sino-European projects fail due to cultural misunderstandings, poor relationship management (Guanxi), or lack of Post-Merger Integration.",
+    zh:"超过 70% 的中欧跨国项目因文化冲突、人脉关系（Guanxi）管理不当或缺乏有效的投后整合而宣告失败。"
+  },
+  lever:{
+    de:"Fastmind agiert als „kultureller Schutzschild&quot; bei Vertragsverhandlungen und führt professionelle Post-Merger-Kultur-Integrationen durch.",
+    en:"Fastmind acts as a \"Cultural Shield\" during negotiations and executes structured Post-Merger Integration to protect know-how in DACH SMEs.",
+    zh:"Fastmind 在商务谈判中充当“文化护盾”，并主导专业的投后文化整合，防止 DACH 中小企业核心技术流失。"
+  }
+}
+];
+
+const grid = document.getElementById('sector-grid');
+SECTORS.forEach((s, i) => {
+  const n = String(i+1).padStart(2,'0');
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-top">
+      <div class="badge">${n}</div>
+      ${['de','en','zh'].map(l => `<h3 class="i18n lang-${l}">${s.title[l]}</h3>`).join('')}
+    </div>
+    ${['de','en','zh'].map(l => `
+      <div class="i18n lang-${l}">
+        <div class="kv"><div class="label">${LABELS[l].opp}</div><p>${s.opp[l]}</p></div>
+        <div class="kv"><div class="label">${LABELS[l].bottleneck}</div><p>${s.bottleneck[l]}</p></div>
+        <div class="kv lever"><div class="label">${LABELS[l].lever}</div><p>${s.lever[l]}</p></div>
+      </div>
+    `).join('')}
+  `;
+  grid.appendChild(card);
+});
+
+document.querySelectorAll('.langsw button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    document.documentElement.setAttribute('data-active-lang', lang);
+    document.querySelectorAll('.langsw button').forEach(b => b.classList.toggle('active', b === btn));
+  });
+});
+</script>
+</body>
+</html>
