@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind Weekly Summary — 2026-W37</title>
+<style>
+:root{
+  --navy:#0f2140; --navy2:#1b3560; --gold:#c9a227; --gold-lt:#e7c85a;
+  --ink:#16202f; --muted:#5d6b80; --line:#dfe4ec; --bg:#f6f7fa; --card:#ffffff;
+  --ok:#1d7a4c; --warn:#b26a00; --bad:#a52a2a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.62;-webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 64px}
+
+header.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:28px 0 24px;margin-bottom:0}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin:0 0 6px}
+h1{font-size:25px;line-height:1.25;margin:0 0 8px;font-weight:700}
+.sub{color:#c3cde0;font-size:14px;margin:0}
+.rule{height:3px;background:var(--gold);border:0;margin:18px 0 0}
+
+nav.langbar{position:sticky;top:0;z-index:20;background:var(--navy);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+nav.langbar .wrap{display:flex;gap:8px;flex-wrap:wrap}
+.langbtn{flex:1 1 auto;min-width:84px;background:transparent;color:#cfd8e8;border:1px solid rgba(255,255,255,.28);
+  border-radius:6px;padding:9px 10px;font-size:14px;font-weight:600;cursor:pointer}
+.langbtn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+
+.meta{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;
+  padding:14px 16px;margin:20px 0;font-size:14px}
+.meta div{margin:3px 0}
+.meta b{color:var(--navy)}
+
+h2{font-size:19px;color:var(--navy);margin:32px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--gold);font-weight:700}
+h3{font-size:16px;color:var(--navy2);margin:22px 0 6px;font-weight:700}
+h4{font-size:15px;color:var(--navy2);margin:16px 0 4px;font-weight:700}
+p{margin:9px 0}
+ul{margin:8px 0;padding-left:20px}
+li{margin:5px 0}
+small{color:var(--muted)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+.sig{border-left:4px solid var(--navy2)}
+.sig.hi{border-left-color:var(--gold)}
+.sigttl{font-weight:700;color:var(--navy);margin:0 0 6px;font-size:15px}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:3px 8px;border-radius:99px;background:#eef1f7;color:var(--navy2);border:1px solid var(--line)}
+.tag.h{background:#e7f3ec;color:var(--ok);border-color:#bfe0cd}
+.tag.m{background:#fbf1de;color:var(--warn);border-color:#eeddb8}
+.src{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:italic;word-break:break-word}
+
+.callout{background:#0f2140;color:#f1f4fa;border-radius:8px;padding:16px;margin:16px 0;border-left:4px solid var(--gold)}
+.callout .k{color:var(--gold-lt);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+.callout p{margin:6px 0}
+
+.alert{background:#fdf3f3;border:1px solid #f0cfcf;border-left:4px solid var(--bad);border-radius:8px;padding:14px 16px;margin:14px 0}
+.alert b{color:var(--bad)}
+.note{background:#fbf7ec;border:1px solid #eadfc2;border-left:4px solid var(--gold);border-radius:8px;padding:14px 16px;margin:14px 0}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:460px}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 11px;font-weight:600;font-size:12.5px}
+td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fafbfd}
+.ok{color:var(--ok);font-weight:700}
+.wn{color:var(--warn);font-weight:700}
+.bd{color:var(--bad);font-weight:700}
+
+.kpigrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:8px;padding:12px;text-align:center}
+.kpi .n{font-size:24px;font-weight:700;color:var(--navy);line-height:1.15}
+.kpi .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+
+footer{margin-top:40px;padding-top:16px;border-top:2px solid var(--gold);font-size:12.5px;color:var(--muted)}
+
+[data-lang]{display:none}
+body.en [data-lang="en"],body.de [data-lang="de"],body.zh [data-lang="zh"]{display:block}
+li[data-lang],td[data-lang],span[data-lang]{display:none}
+body.en li[data-lang="en"],body.de li[data-lang="de"],body.zh li[data-lang="zh"]{display:list-item}
+
+@media (max-width:600px){
+  h1{font-size:21px} h2{font-size:17px} body{font-size:15.5px}
+  .wrap{padding:0 13px 48px}
+  .kpi .n{font-size:21px}
+}
+@media print{
+  nav.langbar{display:none}
+  body{background:#fff;font-size:11pt}
+  body.en [data-lang="de"],body.en [data-lang="zh"]{display:none}
+  h2{page-break-after:avoid} .card,.callout,.tablewrap{page-break-inside:avoid}
+}
+</style>
+</head>
+<body class="en">
+
+<header class="hero">
+  <div class="wrap">
+    <p class="brand">Fastmind GmbH · Düsseldorf · Dual-Gateway</p>
+    <h1>Fastmind Weekly Summary — 2026-W37</h1>
+    <p class="sub">Strategic synthesis of 8 real partner outputs · window read: 2026-09-08 → 2026-09-14</p>
+    <hr class="rule">
+  </div>
+</header>
+
+<nav class="langbar">
+  <div class="wrap">
+    <button class="langbtn" data-set="en" aria-pressed="true">English</button>
+    <button class="langbtn" data-set="de" aria-pressed="false">Deutsch</button>
+    <button class="langbtn" data-set="zh" aria-pressed="false">中文</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="meta">
+  <div><b>Week / Woche / 周次:</b> 2026-W37 (ISO 8601)</div>
+  <div><b>Period / Zeitraum / 期间:</b> W37 = 07.09.–13.09. · gelesen / read: 2026-09-08 → 2026-09-14</div>
+  <div><b>Run / Lauf / 运行:</b> 2026-09-14, 05:30 Berlin · <code>fastmind-weekly-summary</code></div>
+  <div><b>Data / Daten / 数据:</b> Hanna 4 runs · Amy 4 runs — 8/8 files read</div>
+  <div><b>Status:</b> <span class="ok">✓ Erfolg</span> · MD + HTML + PDF</div>
+</div>
+
+<!-- ============================ EN ============================ -->
+<div data-lang="en">
+
+<div class="callout">
+  <span class="k">Key finding of the week</span>
+  <p><b>The publicly visible deadline is not the binding one — and the bottleneck is no longer access, it is absorption.</b></p>
+  <p>Both gateways produced the same structural insight independently, in different domains. Partner A found it twice: the AI Act delay (to 02.08.2028 for embedded AI) masks the Machinery Regulation, which bites 19 months earlier on 20.01.2027; and the Digital Product Passport (2028/29) masks EmpCo, which applies in 13 days with no transition period. Partner B found the mirror image: the awaited Work-and-Stay-Agentur has no start date a year after cabinet approval, while the already-effective extension of the recognition residence permit (18 → up to 24, in cases 36 months) is the usable window right now.</p>
+  <p>On volume: China will ship ~2/3 of global cobots by 2030 and foreign MINT employment in Germany grew +156.9 % / +225.5 %. Access opens by itself. What fails is DACH <i>demand</i> on one side and <i>first-year retention</i> on the other.</p>
+</div>
+
+<h2>1 · Executive Context</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">8/8</div><div class="l">Partner files read</div></div>
+  <div class="kpi"><div class="n">34</div><div class="l">Signal entries</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l">Customer contacts</div></div>
+  <div class="kpi"><div class="n">6</div><div class="l">Data conflicts open</div></div>
+</div>
+<p><b>Key initiative:</b> Dual-Gateway positioning — Partner A (Hanna): Tech-Compliance &amp; Robotics · Partner B (Amy): Education &amp; Culture.</p>
+<div class="note"><b>Reporting window — documented deviation.</b> This report is labelled <b>W37</b> but was produced from a window that does not exactly match it. The reporting week was defined on 14.09. as the completed previous calendar week, Monday to Sunday — for a Monday run that is <b>07.09.–13.09.</b> This run still executed under the earlier rolling-window rule and read <b>08.09.–14.09.</b> Consequently the partner outputs of <b>Sunday 07.09. are missing</b>, while those of <b>Monday 14.09. are included although they belong to W38</b> — they will appear again in the next report. Deliberate decision (Bruno, 14.09.): relabel and document rather than regenerate. Background: this was the first execution of the scheduled task and it fired late (10:31 instead of 05:36 Berlin) as a catch-up; the earlier W37 report in this folder was a manual validation run and now carries the <code>_Probe_</code> marker.</div>
+
+<h2>2 · Partner A — Industry &amp; Tech-Compliance (Hanna)</h2>
+
+<div class="card sig hi">
+  <p class="sigttl">A-1 · TÜV Rheinland certifies Chinese robotics products at IFA 2026</p>
+  <p>On 10.09.2026 TÜV Rheinland handed certificates to several Chinese robotics companies at IFA 2026, framed explicitly as support for their global expansion. The counter-evidence: many Chinese makers cannot market in Europe today — missing EU Declaration of Conformity, CE/RED radio approval, ProdSG documentation <b>in German</b>, plus reported unfiltered telemetry outflow (potential GDPR / AI Act breach).</p>
+  <p><b>Why it matters:</b> the gap between <i>certifiable</i> and <i>certified</i>. First dated, verifiable proof that the compliance route works and that most do not take it — the strongest external validation of the robotics thesis this week.</p>
+  <div class="tagrow"><span class="tag h">Confidence: High</span><span class="tag">Reinforces USP #2</span></div>
+  <small class="src">Source: Fastmind-Hanna-2026-09-14.md</small>
+</div>
+
+<div class="card sig hi">
+  <p class="sigttl">A-2 · Machinery Regulation (EU) 2023/1230 — 128 days, no transition period</p>
+  <p>Two hard dates in range: <b>20.10.2026</b> (member states must have notified national penalty regimes, Art. 50(1)) and <b>20.01.2027</b> (full application, Directive 2006/42/EC repealed, <b>no transition and no sell-off period</b>). Safety-relevant software now counts as a safety component; cybersecurity tightened; machines with AI showing "self-evolving behaviour" require a <b>notified body</b> — self-declaration is gone. Importers, online distributors and authorised representatives are named as duty-holders in their own right.</p>
+  <p><b>Why it matters:</b> turns China market access from a sales question into a legal one, cutting both ways at once. The real constraint is notified-body capacity, not documentation.</p>
+  <div class="tagrow"><span class="tag h">Confidence: High</span><span class="tag">Hardest deadline</span></div>
+  <small class="src">Sources: Fastmind-Hanna-2026-09-11.md, Fastmind-Hanna-2026-09-14.md</small>
+</div>
+
+<div class="card sig hi">
+  <p class="sigttl">A-3 · EmpCo (EU) 2024/825 applies 27.09.2026 — the textile deadline everyone missed</p>
+  <p>A self-correction by Partner A. Earlier runs recorded that the fibre side "has no deadline". Wrong: the first binding textile deadline comes from the Empowering Consumers Directive, applying from <b>27 September 2026</b>. Banned: generic environmental claims without proof, non-certified sustainability labels, offset-based climate-neutrality claims, and whole-product claims true only of parts. <b>No transition, existing stock included.</b></p>
+  <p><b>Caveat that must be respected:</b> EmpCo is B2C consumer protection. A fibre supplier is affected <i>indirectly</i>, via the brand customer who must substantiate claims and pushes evidence down the chain. Presenting it as a direct compliance duty would be factually wrong.</p>
+  <div class="tagrow"><span class="tag h">Legal fact: High</span><span class="tag m">Business impact: Medium</span><span class="tag">13 days out</span></div>
+  <small class="src">Source: Fastmind-Hanna-2026-09-13.md</small>
+</div>
+
+<div class="card sig">
+  <p class="sigttl">A-4 · The bottleneck is DACH demand, not market access</p>
+  <p>~58,000 cobots shipped globally in 2025 → 120,000 projected by 2030 (CAGR ~17 %), but <b>Germany −0.3 % in 2026</b> and 3.7 % annual growth to 2030, against India 12.5 % and APAC 7.1 %. China's share of global cobots: &gt;50 % in 2025, ~2/3 by 2030. VDMA expects a second consecutive decline: <b>−5 % to €14.1bn</b> after −7 %. Orders January 2026 real −6 %; four-month split <b>domestic −4 %, export +2 %</b>. Installations still +7 % to 28,355 units, <b>42 % automotive</b>; density 449 per 10,000 employees (rank 3).</p>
+  <p><b>Why it matters:</b> access opens anyway; the shrinking part of the equation is DACH demand. The domestic/export scissor is the usable detail — both movements need the same competence. The 42 % automotive concentration explains why non-automotive Mittelstand stays under-served.</p>
+  <div class="tagrow"><span class="tag m">Confidence: Medium</span><span class="tag">Conflict #6 open</span><span class="tag">IFR report 24.09</span></div>
+  <small class="src">Sources: Fastmind-Hanna-2026-09-13.md, -09-14.md, -09-09.md</small>
+</div>
+
+<div class="card sig">
+  <p class="sigttl">A-5 · Certification has become the European competitor's sales weapon</p>
+  <p>Franka Robotics argues openly that as a German manufacturer it meets essentially all standards and is TÜV-certified — "not all Chinese manufacturers are, and accordingly cannot sell in Europe." The counter-sample: AgiBot (humanoid market leader, ~5,000 units by end-2025) enters Europe from Munich prioritising "long-term partnerships", and on regulation mentions only GDPR — <b>CE marking, Machinery Regulation and notified body do not appear at all</b>.</p>
+  <p><b>Use:</b> the competitor quote verbatim as a China-side opener — "this is how your German competitor is arguing against you right now. What is your answer?"</p>
+  <div class="tagrow"><span class="tag h">Quotes: High</span><span class="tag m">Interpretation: Medium</span></div>
+  <small class="src">Source: Fastmind-Hanna-2026-09-13.md</small>
+</div>
+
+<h3>Further Partner A findings</h3>
+<ul>
+  <li><b>Three documented EU entry models:</b> (a) full localisation — Estun (Swiss AG Aug 2024, subsidiary Cloos, Polish plant live October 2026, rail link to Nanjing ~6 weeks, target 5–10 % EU share); (b) legal entity without production — Inovance Technology Europe GmbH, Pleidelsheim; (c) partnerships without structure — AgiBot. Efficiency lies in the choice of legal role, not in the test procedure.</li>
+  <li><b>Two dated access windows:</b> AMB Stuttgart 15–19.09.2026 (~1,500 exhibitors, &gt;90,000 expected visitors, Physical/Embodied AI as editorial theme — pre-coverage, not a post-fair balance) and ITMA ASIA + CITME Shanghai 20–24.11.2026 (1,240+ exhibitors, ~65,000 visitors). Ten weeks apart with the 20.10.2026 date between them.</li>
+  <li><b>Fibre innovation runs on funding, not deadlines:</b> EU project Aladin started May 2026, coordinated by DITF Denkendorf; carbon-fibre recycling at ITA RWTH Aachen awarded the VDMA Walter-Reiners-Stiftung prize 2026. European money flows to local, digitally controlled, circular production — entry via traceability and recyclability, not unit cost.</li>
+</ul>
+
+<h3>Regulatory timeline</h3>
+<div class="tablewrap"><table>
+<tr><th>Date</th><th>Instrument</th><th>What applies</th><th>Field</th></tr>
+<tr><td>since 07/2026</td><td>ESPR 2024/1781</td><td>Destruction ban, unsold clothing (large companies)</td><td>Textile</td></tr>
+<tr><td>since 02.08.2026</td><td>EU AI Act</td><td>Transparency obligations</td><td>Robotics</td></tr>
+<tr><td><b>27.09.2026</b></td><td><b>EmpCo 2024/825</b></td><td><b>Generic environmental claims banned — no transition, incl. stock</b></td><td>Textile</td></tr>
+<tr><td>20.10.2026</td><td>Machinery Reg., Art. 50(1)</td><td>National penalty regimes notified</td><td>Robotics</td></tr>
+<tr><td><b>20.01.2027</b></td><td><b>Machinery Reg. 2023/1230</b></td><td><b>Full application, no sell-off; notified body for self-evolving AI</b></td><td>Robotics</td></tr>
+<tr><td>Q2 2027 <span class="wn">(conflicting)</span></td><td>ESPR</td><td>Delegated act textiles (DPP)</td><td>Textile</td></tr>
+<tr><td>02.12.2027</td><td>AI Act (Digital Omnibus)</td><td>Annex III high-risk (moved from 02.08.2026)</td><td>Robotics</td></tr>
+<tr><td>02.08.2028</td><td>AI Act (Digital Omnibus)</td><td>Annex I — AI in regulated products</td><td>Robotics</td></tr>
+<tr><td>2028/29</td><td>ESPR</td><td>DPP obligation textiles/apparel</td><td>Textile</td></tr>
+<tr><td>07/2027 or 07/2028 <span class="wn">(conflicting)</span></td><td>CSDDD / LkSG after Omnibus I</td><td>German transposition; scope cut to &gt;5,000 staff &amp; &gt;€1.5bn</td><td>Cross-sector</td></tr>
+</table></div>
+<div class="note"><b>Substantive correction:</b> supply-chain regulation became <b>weaker</b> through Omnibus I, not stronger. Selling LkSG as a door-opener today argues against the legal position. The pressure point has moved to the Machinery Regulation.</div>
+
+<h2>3 · Partner B — Education &amp; Culture (Amy)</h2>
+
+<div class="card sig hi">
+  <p class="sigttl">B-1 · Immigration now carries the MINT labour market — the problem has moved to retention</p>
+  <p>MINT-Frühjahrsreport 2026 (IW Köln, 05.05.2026): gap ~133,900 as of March 2026 despite ~three years of weak economy. The decisive figure is the growth split — MINT skilled trades <b>+13.8 % German vs +156.9 % foreign</b>; MINT expert occupations <b>+44.0 % vs +225.5 %</b>. In the city states plus Hesse, Baden-Württemberg and Bavaria, immigrant skilled workers make up to <b>21 %</b> of the core working-age population. The report explicitly recommends faster procedures <i>and</i> permanent expansion of support measures.</p>
+  <p><b>Why it matters:</b> support, not procedure, is literally Amy's field — and it now appears in an institutional report as a lever in its own right.</p>
+  <div class="tagrow"><span class="tag h">Confidence: High</span><span class="tag">Reinforces USP #5</span></div>
+  <small class="src">Source: Fastmind-Amy-2026-09-14.md</small>
+</div>
+
+<div class="card sig hi">
+  <p class="sigttl">B-2 · Intercultural competence declared a retention instrument — with a cost centre attached</p>
+  <p>A trade piece of 16.01.2026 states intercultural competence is "no longer a soft skill but a hard hiring requirement", citing Cartus 2026 (safety and sense of belonging are international employees' top priorities), Stepstone Dec 2025 (<b>70 %</b> of recruiting teams under pressure to improve hiring <i>quality</i>), IW Köln (~7,000 missing software specialists). The core argument: this is a <b>retention strategy against the "revolving-door" effect</b> — international employees leave because of cultural isolation <b>within the first year</b>.</p>
+  <p><b>Why it matters:</b> the justification switched from politeness to <b>turnover cost</b>. Guanxi/Mianzi competence becomes attachable to a quantifiable cost centre for the first time. Position the offer as <i>12-month retention rate</i>, not "cultural training".</p>
+  <div class="tagrow"><span class="tag m">Confidence: Medium-High</span><span class="tag">Monetises USP #5</span></div>
+  <small class="src">Source: Fastmind-Amy-2026-09-14.md</small>
+</div>
+
+<div class="card sig hi">
+  <p class="sigttl">B-3 · Work-and-Stay-Agentur: one year on, still no start date</p>
+  <p>As of 03.09.2026, almost a year after cabinet key points (04.11.2025), there is <b>no operational timetable</b>, and fundamentals are open. The Nationaler Normenkontrollrat warns it may amount to no more than an IT platform. Anchor figure: one skilled-worker visa application <b>passes through at least seven authorities</b>. Germany needs ~400,000 skilled workers per year; for 2026 only the tendering of central IT components is planned.</p>
+  <p><b>Why it matters:</b> while the state process is neither central nor plannable, the bottleneck stays <b>organisational</b> — and organisational bottlenecks are paid to service providers. Describe Amy as pilotage through seven authorities, not as placement.</p>
+  <div class="tagrow"><span class="tag h">Confidence: High</span><span class="tag">Most robust signal of its run</span></div>
+  <small class="src">Source: Fastmind-Amy-2026-09-13.md</small>
+</div>
+
+<div class="card sig">
+  <p class="sigttl">B-4 · Visa rejection rates for Chinese researchers are now classified</p>
+  <p>The federal government classifies rejection rates for research visas from China as "Nur für den Dienstgebrauch", answering a written question by MP Marcel Emmerich. Application volumes remain public: 2021: 2,147 · 2024: 3,273 · 2025: 2,627 · H1 2026: 856. What is new is not the practice but <b>its intransparency as an official position</b>.</p>
+  <p><b>Why it matters:</b> every school, provider and company planning a China exchange now carries a non-quantifiable failure risk. Risk that cannot be calculated is managed through trust. Position as <b>failure insurance</b> — profile pre-screening, plan B, realistic timelines: "we tell you in advance what is shaky."</p>
+  <div class="tagrow"><span class="tag m">Confidence: Medium-High</span><span class="tag">Figures need primary check</span></div>
+  <small class="src">Source: Fastmind-Amy-2026-09-11.md</small>
+</div>
+
+<div class="card sig">
+  <p class="sigttl">B-5 · Germany does not produce bridge-builders — 0.1 % against France's 46,000</p>
+  <p>119 schools offer Chinese (2023, up from 86 in 2017), ~5,000 pupils nationwide = <b>0.1 %</b> of all pupils, against <b>46,000</b> Chinese learners in France. GOVET/BIBB: China competence is "only punctually anchored". Mirror figure from DAAD (22.04.2026): German students in China <b>~8,000 (2019) → ~1,700 (2023)</b>, −79 %, against ~38,600 Chinese students in Germany — a ratio of ~<b>1:23</b>; ~2,500 sinology students in all of Germany; 8 of the 10 research-strongest universities in the Leiden Ranking 2025 are Chinese.</p>
+  <p><b>Why it matters:</b> the structural justification for the whole business model — and it identifies an <b>empty counter-direction</b>: Germany → China is nearly vacated while China → Germany is crowded.</p>
+  <div class="tagrow"><span class="tag m">School figures: 2023 survey</span><span class="tag h">DAAD figures: High</span></div>
+  <small class="src">Sources: Fastmind-Amy-2026-09-13.md, -09-11.md, -09-09.md</small>
+</div>
+
+<h3>Further Partner B findings</h3>
+<ul>
+  <li><b>The MINT gap sits with skilled workers, not academics:</b> of 133,900 unfillable posts — ~77,400 skilled trades, ~44,200 academic experts, ~12,300 specialists/master craftsmen. ~58 % at training, not university, level. Replacement demand rises within five years to &gt;70,000 academics and ~295,000 skilled workers per year.</li>
+  <li><b>The legal window has widened:</b> the residence permit for recognition / adaptation qualification extended from 18 to <b>up to 24 months</b>, in cases up to <b>three years</b>, with full effect from 2026 — exactly the period in which cultural support happens.</li>
+  <li><b>A working corridor already exists:</b> SeniVita Sozial gGmbH with Shenyang Medical University — bilingual theory in China, practice at the vocational nursing school in Eggolsheim, up to 100 students/year; first cohort from 2015: 8 graduates, <b>all 8</b> passed the German nursing examination. Logged as a reference case, not a current event.</li>
+  <li><b>The direction is reversing:</b> HWK Oldenburg and a Changshu delegation marked ten years of cooperation in May 2026; the new element is Chinese skilled workers visiting German craft businesses. Yangzhou runs a dual-training pilot to German standard with an IHK certificate.</li>
+  <li><b>Research Security has a date:</b> conference "Cooperation with China — Developing Competences and Structures in European Higher Education", 28–29.09.2026, University of Würzburg (China Kompetenzzentrum + KoWinChi). Target group is deliberately <i>not</i> sinologists but International Offices, research funding, management and administration. <b>Free of charge.</b></li>
+  <li><b>NRW is the home advantage:</b> IHK Düsseldorf is NRW's focus chamber for Greater China; Greater China Day 24.06.2026; China-Tag Ruhr-Niederrhein 07.07.2026; Konfuzius-Institut Düsseldorf; Chinafest Duisburg 04–06.09.2026. These dates are past — a network map, not attendance opportunities.</li>
+  <li><b>Business holds and localises:</b> AHK Greater China Business Confidence Survey 2025/26 (627 firms, Dec 2025) — 93 % stay engaged, ~65 % confident about five years, &gt;half raising investment; price pressure 60 %, weak Chinese demand 52 %, "Buy China" 32 %. Business deepens exactly as the education system retreats.</li>
+</ul>
+
+<h2>4 · Customer Search Progress</h2>
+<div class="alert">
+  <p><b>Headline finding: zero customer-search activity is recorded in any of the eight partner outputs.</b> No inquiry, no warm lead, no conversation, no named prospect. Both routines are performing <i>market observation</i>, not acquisition — neither partner prompt asks for contact logging. But it means the Kundensuche funnel is currently <b>empty and untracked</b>.</p>
+</div>
+<h3>Robotics segment (Partner A)</h3>
+<ul>
+  <li><b>Profiles touched:</b> matches the Steckbrief (DACH robotics SMEs, 50–1,000 employees, mechanical engineering / medtech / automation) — as a described segment, not as named prospects. New: Partner A argues the profile should be narrowed to <i>non-automotive</i> Mittelstand, since 42 % of installations are automotive.</li>
+  <li><b>Channels identified, not yet activated:</b> AMB Stuttgart (begins tomorrow) · ITMA Asia Shanghai (November) · notified-body / TÜV ecosystem · IHK network via the Machinery Regulation gap analysis.</li>
+  <li><b>Companies named are market actors, not leads:</b> Estun (+Cloos), Inovance Technology Europe GmbH, AgiBot, Franka Robotics, TÜV Rheinland, TÜV SÜD.</li>
+  <li><b>Inquiries / warm leads:</b> none reported. <b>Blockers:</b> no collateral referenced, no pipeline record exists, and the AMB opportunity expires this week with no attendance decision on record.</li>
+</ul>
+<h3>Education segment (Partner B)</h3>
+<ul>
+  <li><b>Profiles touched:</b> DACH schools with a Chinese offering or MINT profile; vocational providers and chambers with existing China relationships; care institutions; HR in Mittelstand with Chinese staff on site.</li>
+  <li><b>Sharpest target group this week:</b> schools whose "Einsteigerprojekte China" applications were <b>approved in spring 2026</b> — funded, time-pressured, partnerless.</li>
+  <li><b>Channels identified:</b> Würzburg Research Security conference (free, decision-makers in the room) · IHK Düsseldorf, DCW, C-NET RNR · chambers with running China cooperations (HWK Oldenburg/Changshu, ZAW Leipzig, iMOVE) · Bildungsnetzwerk China ecosystem (&gt;100 schools).</li>
+  <li><b>Inquiries / warm leads:</b> none reported. <b>Blockers:</b> the 2026 funding window closed 31.05.2026, so school outreach is a <b>Q1 2027 lead-time business</b>; Würzburg registration status is undocumented and needs checking now.</li>
+</ul>
+
+<h2>5 · USP Validation &amp; Sharpening</h2>
+<div class="tablewrap"><table>
+<tr><th>#</th><th>USP</th><th>Verdict</th><th>Evidence</th></tr>
+<tr><td>1</td><td><b>Dual-Gateway Access</b><br>China↔DACH unfiltered, single POC</td><td class="wn">⚠ Partially contradicted</td><td>Both partners report access is <i>not</i> the scarce factor. China &gt;50 % → ~2/3 of global cobots by 2030; foreign MINT employment +156.9 % / +225.5 %. The doors are open.</td></tr>
+<tr><td>2</td><td><b>Compliance Cost Reduction</b><br>30–50 % via audits + translation</td><td class="ok">✅ Strongly reinforced</td><td>Machinery Regulation 20.01.2027 without transition; notified body for self-evolving AI; EmpCo 27.09.2026; documented chronic gaps (DoC, CE/RED, German-language ProdSG docs, telemetry/GDPR).</td></tr>
+<tr><td>3</td><td><b>Semiconductor / Component Sourcing</b><br>Partner A, robotics-specific</td><td class="bd">❌ No evidence at all</td><td><b>Zero signals across all eight files.</b> Neither semiconductors, component scarcity nor sourcing appears anywhere this week.</td></tr>
+<tr><td>4</td><td><b>Bilingual Regulatory Training QMS/MDR</b><br>Partner B, education-specific</td><td class="wn">🟡 Indirect; MDR unvalidated</td><td>Supported by the German-language documentation duty and GOVET's vocational push. But <b>EU-MDR appears in no output this week</b> — the medtech leg is unevidenced.</td></tr>
+<tr><td>5</td><td><b>Cultural Shield</b><br>native-speaker negotiation</td><td class="ok">✅ Reinforced &amp; newly monetisable</td><td>Intercultural competence framed openly as retention strategy against first-year attrition; Germany produces 0.1 % of France's bridge-builders; business localises while education retreats.</td></tr>
+</table></div>
+<h3>Suggested sharpening</h3>
+<ul>
+  <li><b>Rewrite USP #1 from access to absorption.</b> Proposed wording to test: <i>"Dual-Gateway Absorption — we do not open the market, we make it land."</i></li>
+  <li><b>Put USP #3 on watch or retire it.</b> A USP with no supporting signal across eight research outputs is a liability in a customer conversation. Decision for Bruno — no action taken.</li>
+  <li><b>Split USP #4.</b> The QMS/training half is supported; the MDR/medtech half is not. Separate them so a weak leg does not discredit a strong one.</li>
+  <li><b>Promote the "masked deadline" pattern to a named offering.</b> Four instances across two domains — the most distinctive, hardest-to-copy asset produced this period, and genuine Fastmind IP rather than researchable general knowledge.</li>
+  <li><b>The 70 % failure-rate claim needs a source.</b> It appears in the USP set but in <i>no</i> partner output; the closest supporting finding rests on an April 2023 survey Amy itself flags as not currently citable.</li>
+</ul>
+<p><b>Partners' feedback on USP clarity: none received.</b> All USP statements in the partner files are marked as context from the Dual-Gateway document, explicitly not as research findings — the confidentiality boundary was observed in all eight runs.</p>
+
+<h2>6 · Market Opportunity Assessment</h2>
+<h3>DACH robotics</h3>
+<p>Stock is high, investment is not. Density 449/10,000 (rank 3), stock 278,900 units (+4 %), ~40 % of all EU factory robots — but VDMA expects −5 % revenue to €14.1bn in 2026 after −7 %, and German cobot deliveries −0.3 % while the world market grows ~17 % p.a. Orders January 2026 real −6 %; four-month split domestic −4 %, export +2 %. Installations nonetheless +7 % to 28,355 with 42 % automotive — the growth that exists is concentrated where Fastmind is not positioned. Compliance cost drivers: notified-body capacity before 20.01.2027, German-language ProdSG documentation, CE/RED approval, telemetry/GDPR evidence.</p>
+<h3>DACH education &amp; talent</h3>
+<p>~133,900 unfillable MINT posts, ~58 % at skilled-worker level; replacement demand rising to &gt;70,000 academics and ~295,000 skilled workers per year within five years. Recognition permits extended to 24–36 months (window widens), Work-and-Stay-Agentur stalled (bottleneck stays organisational), visa rejection data classified (risk becomes unquantifiable). Willingness to engage with China-sourced talent is <b>bifurcated</b>: business is willing and localising (93 % of 627 AHK-surveyed firms stay engaged) while the education system retreats (German students in China −79 %; 0.1 % of pupils learning Chinese). The opportunity sits in the gap — and in the near-empty counter-direction Germany → China.</p>
+<h3>Sino-European dynamics</h3>
+<p>Two movements run against each other and need the same competence. Chinese manufacturers build European legal and industrial substance (Estun's Polish plant live October 2026; Inovance's German GmbH; AgiBot from Munich) while German manufacturers sell better abroad than at home. European vendors have converted certification into an explicit anti-China sales argument, yet a European notified body is publicly certifying Chinese robotics at a European consumer fair — the compliance route is being institutionalised, not closed. On the talent side the political temperature rises quietly: research-visa rejection rates are classified, and Research Security has moved from security debate into university administration.</p>
+<h3>Risk factors</h3>
+<ul>
+  <li><b>Notified-body capacity</b> before 20.01.2027 — the binding constraint, and it cannot be compressed.</li>
+  <li><b>DACH demand weakness</b> — a second consecutive down year means budget conservatism in the exact buyer group.</li>
+  <li><b>Competitor pre-emption on compliance</b> — European vendors already own the certification argument.</li>
+  <li><b>Regulatory relief misread as relief</b> — the AI Act delay and the weakened CSDDD/LkSG remove two arguments Fastmind might have used.</li>
+  <li><b>Political friction on the talent side</b> — classified visa data plus Research Security scrutiny raise the proof burden.</li>
+  <li><b>Evidence fragility</b> — six unresolved data conflicts; any used unchecked is a credibility risk.</li>
+</ul>
+
+<h2>7 · Consolidated Recommendations</h2>
+<h3>Top 3 priorities for the week now starting (2026-W38, 14–20.09)</h3>
+<ol>
+  <li><b>AMB Stuttgart, 15–19.09 — decide today whether anyone goes.</b> The only zero-cost, high-yield, time-boxed action in the whole period, and it expires Saturday. Attend as a listener; run 3–5 conversations with Mittelstand users about their objections to Asian robotics (spares? German documentation? liability? CE?) and record the answers <b>verbatim</b>. That objection list is worth more for China-side outreach than any market study and is directly reusable at ITMA Asia in November.</li>
+  <li><b>EmpCo countdown — 13 days to 27.09.</b> Produce the one-page "four banned claim types" sheet and run a short, dated outreach to fibre/textile suppliers with sustainability claims. The wording must state <b>indirect</b> exposure via the brand customer; a direct-duty framing would be factually wrong and would fail in the first conversation.</li>
+  <li><b>Register for the Würzburg Research Security conference, 28–29.09 — free.</b> Two days with exactly the audience that decides on institutional China cooperation. Registration status is undocumented and needs checking immediately.</li>
+</ol>
+<h3>Quick wins</h3>
+<ul>
+  <li>Resolve the six data conflicts against primary sources before any number enters customer material — priority: the MINT figure and the CSDDD transposition date, both of which already appear in outreach ideas.</li>
+  <li>Build the "two timelines" one-pager (Machinery Regulation vs. AI Act after the Digital Omnibus) with one message: <i>"the postponement does not apply to your product."</i></li>
+  <li>Diarise <b>24.09.2026</b> — the IFR World Robotics Report 2026 publishes, the authoritative source for the demand-side numbers currently rated Medium confidence.</li>
+  <li>Start a Kundensuche contact log. There is currently no artefact in which a lead could be recorded even if one existed.</li>
+</ul>
+<h3>Blockers to remove</h3>
+<div class="tablewrap"><table>
+<tr><th>Blocker</th><th>Evidence</th><th>Owner</th></tr>
+<tr><td><b>No acquisition pipeline exists</b> — eight research outputs, zero contacts</td><td>§4</td><td>Bruno</td></tr>
+<tr><td><b>Partner cadence too tight</b> — Hanna and Amy <i>independently</i> report no substantially new material in recent days; Hanna answers its own earlier question with "yes, every-2-days is too dense", qualified on 09-14 as: too dense only when the perspective does not rotate</td><td>Hanna 09-13/09-14, Amy 09-14</td><td>Bruno — routine decision</td></tr>
+<tr><td><b>USP #3 has no evidence base</b> after eight outputs</td><td>§5</td><td>Bruno — USP decision</td></tr>
+<tr><td><b>The 70 % failure-rate claim is unsourced</b> in the current evidence base</td><td>§5</td><td>Bruno</td></tr>
+<tr><td><b>AMB expires 19.09</b> with no recorded attendance decision</td><td>§7</td><td>Bruno — today</td></tr>
+<tr><td><b>Amy's strategic question has failed four runs running</b> — which cultural profiles DACH <i>schools</i> seek is not findable publicly. Amy's own assessment: a data gap, not a research failure — and therefore a candidate for primary research that would be genuine Fastmind IP</td><td>Amy 09-09 → 09-14</td><td>Bruno — commissioning decision</td></tr>
+<tr><td><b>Hanna's strategic question is mis-specified for textiles</b> — four runs produced no fibre certification case because textile regulation targets <i>communication</i>, not product approval. Hanna proposes a field-dependent reformulation</td><td>Hanna 09-13</td><td>Bruno — routine review</td></tr>
+</table></div>
+<h3>What is needed from the partners</h3>
+<ul>
+  <li><b>Hanna:</b> the product/service descriptions noted as missing still do not appear in any output; and a decision on AMB attendance this week.</li>
+  <li><b>Amy:</b> confirm the next school funding window (presumed April 2027, unverified) directly with Bildungsnetzwerk China; and whether Würzburg is being attended.</li>
+  <li><b>Both:</b> sign-off on the USP sharpening — in particular the reframing of #1 and the status of #3.</li>
+</ul>
+
+<h2>8 · Metrics &amp; KPIs</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">13</div><div class="l">Partner A signals</div></div>
+  <div class="kpi"><div class="n">21</div><div class="l">Partner B signals</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">Self-corrections</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">Non-findings ×4 runs</div></div>
+</div>
+<h3>Customer search</h3>
+<p>New contacts <b>0</b> · conversations <b>0</b> · warm leads <b>0</b> · named prospects <b>0</b> · <b>no pipeline artefact exists</b>.</p>
+<h3>Signal quality</h3>
+<ul>
+  <li>7 of the 10 top signals rated High confidence; 3 Medium / Medium-High.</li>
+  <li><b>3 of 8 runs</b> self-report "nothing substantially new in recent days" (Hanna 09-13, Hanna 09-14 partially, Amy 09-14).</li>
+  <li><b>2 non-findings</b> carried at four consecutive runs each: Amy — school-side cultural profiles; Hanna — fibre-innovation certification case.</li>
+  <li><b>2 self-corrections</b> issued: Hanna 09-13 corrected its own EmpCo omission; Amy 09-11 corrected the "funding has expired" claim.</li>
+</ul>
+<div class="note"><b>Week-over-week trend:</b> no prior <i>verified</i> baseline exists — the 2026-W37 report was a manual test run whose own defect log records that it did not read the partner files. <b>W37 is therefore the first measurable baseline</b>; all trend figures from W38 onward should be measured against this run, keeping the window deviation above in mind.</div>
+<h3>Unresolved data conflicts — settle before customer use</h3>
+<div class="tablewrap"><table>
+<tr><th>#</th><th>Conflict</th><th>Sources</th></tr>
+<tr><td>1</td><td><b>MINT gap 133,900</b> (spring 2026) vs <b>148,500</b> (autumn 2025) — not interchangeable</td><td>Amy 09-09, 09-13, 09-14</td></tr>
+<tr><td>2</td><td><b>CSDDD/LkSG transposition 26.07.2027 vs 26.07.2028</b> — contradicted within Partner A's own runs</td><td>Hanna 09-09 vs 09-14</td></tr>
+<tr><td>3</td><td><b>ESPR textile delegated act: end 2026 / Q2 2027 / end 2027</b> — three dates in three runs</td><td>Hanna 09-09, 09-13, 09-14</td></tr>
+<tr><td>4</td><td><b>Humanoid shipments 2025: ~13,000 @87 % vs ~17,000 @84.7 %</b> — use the share, never the absolute</td><td>Hanna 09-13</td></tr>
+<tr><td>5</td><td><b>Schulpartnerschaftsfonds: expired / running / expired-verify / next window April 2027 (unconfirmed)</b> — four positions in four runs; one primary URL returned HTTP 404</td><td>Amy 09-09 → 09-14</td></tr>
+<tr><td>6</td><td><b>Cobot demand: Interact −0.3 % vs Handelsblatt rising SME interest</b> — the resolution is interpretation, not finding</td><td>Hanna 09-13</td></tr>
+</table></div>
+<h3>Momentum</h3>
+<div class="tablewrap"><table>
+<tr><th>Dimension</th><th>Trend</th><th>Reading</th></tr>
+<tr><td>Signal volume</td><td class="ok">↑</td><td>34 entries across 8 runs, both gateways delivering reliably</td></tr>
+<tr><td>Signal freshness</td><td class="bd">↓</td><td>3 of 8 runs report no substantially new material; several key sources date Jan–Jul 2026</td></tr>
+<tr><td>Analytical depth</td><td class="ok">↑</td><td>Two self-corrections and a genuine cross-domain pattern — the outputs produce insight, not just collection</td></tr>
+<tr><td>Customer acquisition</td><td class="bd">→ flat at zero</td><td>No contact, no pipeline, no artefact</td></tr>
+<tr><td><b>Overall</b></td><td><b>→</b></td><td><b>The research engine works and is maturing. The gap is conversion: nothing yet crosses from observation into acquisition.</b></td></tr>
+</table></div>
+
+</div><!-- /EN -->
+
+<!-- ============================ DE ============================ -->
+<div data-lang="de">
+
+<div class="callout">
+  <span class="k">Leitbefund der Woche</span>
+  <p><b>Die öffentlich sichtbare Frist ist nicht die bindende — und der Engpass ist nicht mehr der Zugang, sondern die Aufnahme.</b></p>
+  <p>Beide Gateways haben unabhängig voneinander denselben strukturellen Befund erzeugt, in verschiedenen Feldern. Partner A fand ihn zweimal: Die AI-Act-Verschiebung (eingebettete KI erst 02.08.2028) überlagert die Maschinenverordnung, die 19 Monate früher greift (20.01.2027); und der Digitale Produktpass (2028/29) überlagert EmpCo, das in 13 Tagen ohne Übergangsfrist gilt. Partner B fand das Spiegelbild: Die erwartete Work-and-Stay-Agentur hat ein Jahr nach Kabinettsbeschluss keinen Starttermin, während die bereits geltende Verlängerung des Anerkennungsaufenthalts (18 → bis zu 24, in Fällen 36 Monate) das jetzt nutzbare Zeitfenster ist.</p>
+  <p>Mengenseitig: China liefert 2030 rund zwei Drittel aller Cobots weltweit, und die Beschäftigung ausländischer MINT-Kräfte in Deutschland wuchs um +156,9 % bzw. +225,5 %. Der Zugang öffnet sich von selbst. Was scheitert, ist die DACH-<i>Nachfrage</i> auf der einen und der <i>Verbleib im ersten Jahr</i> auf der anderen Seite.</p>
+</div>
+
+<h2>1 · Ausgangslage</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">8/8</div><div class="l">Partner-Dateien gelesen</div></div>
+  <div class="kpi"><div class="n">34</div><div class="l">Signal-Einträge</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l">Kundenkontakte</div></div>
+  <div class="kpi"><div class="n">6</div><div class="l">Offene Datenkonflikte</div></div>
+</div>
+<p><b>Datenlage:</b> Hanna 4 Läufe (09.09., 11.09., 13.09., 14.09.) · Amy 4 Läufe (dieselben Daten). Beide Gateways haben geliefert.</p>
+<div class="note"><b>Berichtsfenster — dokumentierte Abweichung.</b> Dieser Bericht trägt die Kennung <b>W37</b>, wurde aber aus einem Fenster erzeugt, das nicht exakt dazu passt. Die Berichtswoche wurde am 14.09. als die abgeschlossene Vorwoche Montag–Sonntag definiert — für einen Montagslauf also <b>07.09.–13.09.</b> Dieser Lauf lief noch unter der alten rollierenden Regel und las <b>08.09.–14.09.</b> Folglich fehlen die Partner-Outputs vom <b>Sonntag 07.09.</b>, während die vom <b>Montag 14.09. enthalten sind, obwohl sie zu W38 gehören</b> — sie tauchen im nächsten Bericht erneut auf. Bewusste Entscheidung (Bruno, 14.09.): umetikettieren und dokumentieren statt neu erzeugen. Hintergrund: Es war der allererste Lauf des Tasks und er feuerte verspätet (10:31 statt 05:36 Berlin) als Nachhol-Lauf; der frühere W37-Bericht in diesem Ordner war ein manueller Validierungslauf und trägt jetzt den Marker <code>_Probe_</code>.</div>
+
+<h2>2 · Partner A — Industrie &amp; Tech-Compliance (Hanna)</h2>
+<div class="card sig hi">
+  <p class="sigttl">A-1 · TÜV Rheinland zertifiziert chinesische Robotikprodukte auf der IFA 2026</p>
+  <p>Am 10.09.2026 hat TÜV Rheinland auf der IFA mehreren chinesischen Robotikunternehmen Zertifikate übergeben — ausdrücklich als Unterstützung ihrer globalen Expansion. Die Gegenseite ist dokumentiert: Viele chinesische Hersteller können derzeit in Europa nicht vermarkten — fehlende EU-Konformitätserklärung, CE-/RED-Funkzulassung, ProdSG-Dokumentation <b>auf Deutsch</b>, dazu ungefilterter Telemetrie-Abfluss (potenzieller DSGVO-/AI-Act-Verstoß).</p>
+  <p><b>Bedeutung:</b> die Lücke zwischen <i>zertifizierbar</i> und <i>zertifiziert</i>. Erster datierter, nachprüfbarer Beleg, dass der Konformitätspfad funktioniert und die Mehrheit ihn nicht geht — die stärkste externe Bestätigung der Robotik-These in dieser Woche.</p>
+  <div class="tagrow"><span class="tag h">Konfidenz: hoch</span><span class="tag">stützt USP #2</span></div>
+  <small class="src">Quelle: Fastmind-Hanna-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">A-2 · Maschinenverordnung (EU) 2023/1230 — 128 Tage, keine Übergangsfrist</p>
+  <p>Zwei harte Termine: <b>20.10.2026</b> (Mitgliedstaaten müssen nationale Sanktionsregelungen notifiziert haben, Art. 50 Abs. 1) und <b>20.01.2027</b> (Vollanwendung, Richtlinie 2006/42/EG aufgehoben, <b>keine Übergangsfrist, kein Abverkauf</b>). Sicherheitsrelevante Software zählt nun zu den Sicherheitsbauteilen; Cybersecurity verschärft; Maschinen mit KI und „selbstentwickelndem Verhalten" brauchen eine <b>Benannte Stelle</b> — Selbstbescheinigung entfällt. Erstmals sind auch Importeure, (Online-)Händler und Bevollmächtigte eigenständige Pflichtenträger.</p>
+  <p><b>Bedeutung:</b> Aus einer Vertriebsfrage wird eine Rechtsfrage — und sie schneidet in beide Richtungen zugleich. Der eigentliche Engpass ist die Kapazität Benannter Stellen, nicht die Dokumentation.</p>
+  <div class="tagrow"><span class="tag h">Konfidenz: hoch</span><span class="tag">härteste Frist</span></div>
+  <small class="src">Quellen: Fastmind-Hanna-2026-09-11.md, -09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">A-3 · EmpCo (EU) 2024/825 gilt ab 27.09.2026 — die übersehene Textilfrist</p>
+  <p>Eine Selbstkorrektur von Partner A: Frühere Läufe hielten fest, die Faserseite habe „keine Frist". Falsch — die erste bindende Textilfrist kommt aus der Empowering-Consumers-Richtlinie, anwendbar ab <b>27. September 2026</b>. Verboten: pauschale Umweltaussagen ohne Nachweis, nicht zertifizierte Nachhaltigkeitslabels, kompensationsgestützte Klimaneutralitätsaussagen, Gesamtproduktaussagen, die nur auf Teile zutreffen. <b>Ohne Übergangsfrist, inklusive Lagerbestand.</b></p>
+  <p><b>Zwingend zu beachten:</b> EmpCo ist Verbraucherschutz (B2C). Ein Faserzulieferer ist <i>mittelbar</i> betroffen — über den Markenkunden, der seine Aussagen belegen muss und die Nachweise die Kette hinunterreicht. Als direkte Compliance-Pflicht dargestellt wäre es sachlich falsch.</p>
+  <div class="tagrow"><span class="tag h">Rechtslage: hoch</span><span class="tag m">Wirkung: mittel</span><span class="tag">in 13 Tagen</span></div>
+  <small class="src">Quelle: Fastmind-Hanna-2026-09-13.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">A-4 · Der Engpass ist die DACH-Nachfrage, nicht der Marktzugang</p>
+  <p>Rund 58.000 ausgelieferte Cobots weltweit 2025 → 120.000 bis 2030 (CAGR ca. 17 %), aber <b>Deutschland −0,3 % in 2026</b> und nur 3,7 % Jahreswachstum bis 2030 — gegenüber Indien 12,5 % und APAC 7,1 %. Chinas Anteil: über 50 % 2025, rund zwei Drittel 2030. VDMA erwartet das zweite Minusjahr in Folge: <b>−5 % auf 14,1 Mrd. €</b> nach −7 %. Auftragseingang Januar 2026 real −6 %; Vier-Monats-Bild <b>Inland −4 %, Ausland +2 %</b>. Installationen dennoch +7 % auf 28.355 Einheiten, <b>42 % Automotive</b>; Roboterdichte 449 je 10.000 Beschäftigte (Rang 3).</p>
+  <p><b>Bedeutung:</b> Der Zugang öffnet sich ohnehin; der schrumpfende Teil der Gleichung ist die DACH-Nachfrage. Die Inland/Ausland-Schere ist das verwertbare Detail. Die 42 % Automotive erklären, warum der Mittelstand außerhalb Automotive unterversorgt bleibt.</p>
+  <div class="tagrow"><span class="tag m">Konfidenz: mittel</span><span class="tag">Konflikt #6 offen</span><span class="tag">IFR-Report 24.09.</span></div>
+  <small class="src">Quellen: Fastmind-Hanna-2026-09-13.md, -09-14.md, -09-09.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">A-5 · Zertifizierung ist zur Verkaufswaffe des europäischen Wettbewerbers geworden</p>
+  <p>Franka Robotics argumentiert offen, man erfülle als deutscher Hersteller praktisch alle Normen und sei TÜV-zertifiziert — „nicht alle chinesischen Hersteller sind das und können entsprechend in Europa nicht verkaufen." Die Gegenprobe: AgiBot (Marktführer Humanoide, ca. 5.000 Einheiten bis Ende 2025) startet von München aus mit Priorität auf „langfristige Partnerschaften" und nennt zur Regulatorik nur die DSGVO — <b>CE, Maschinenverordnung und Benannte Stelle kommen nicht vor</b>.</p>
+  <p><b>Verwendung:</b> das Wettbewerber-Zitat wörtlich als China-seitiger Gesprächseinstieg — „so argumentiert Ihr deutscher Konkurrent gerade gegen Sie. Was ist Ihre Antwort?"</p>
+  <div class="tagrow"><span class="tag h">Zitate: hoch</span><span class="tag m">Deutung: mittel</span></div>
+  <small class="src">Quelle: Fastmind-Hanna-2026-09-13.md</small>
+</div>
+<h3>Weitere Befunde Partner A</h3>
+<ul>
+  <li><b>Drei dokumentierte EU-Eintrittsmodelle:</b> (a) volle Lokalisierung — Estun (Schweizer AG 08/2024, Tochter Cloos, polnisches Werk ab Oktober 2026, Bahnanbindung Nanjing ca. 6 Wochen, Ziel 5–10 % EU-Anteil); (b) Rechtsträger ohne Produktion — Inovance Technology Europe GmbH, Pleidelsheim; (c) Partnerschaften ohne Struktur — AgiBot. Effizienz liegt in der Rollenwahl, nicht im Prüfverfahren.</li>
+  <li><b>Zwei datierte Zugangsfenster:</b> AMB Stuttgart 15.–19.09.2026 (ca. 1.500 Aussteller, über 90.000 erwartete Besucher, Leitthema Physical/Embodied AI — Vorberichterstattung, keine Messebilanz) und ITMA ASIA + CITME Shanghai 20.–24.11.2026 (über 1.240 Aussteller, ca. 65.000 Besucher). Zehn Wochen auseinander, mit dem 20.10.2026 dazwischen.</li>
+  <li><b>Faserinnovation läuft über Förderung, nicht über Fristen:</b> EU-Projekt Aladin seit Mai 2026 unter DITF-Denkendorf-Koordination; Carbonfaser-Recycling am ITA der RWTH Aachen mit dem VDMA-Masterpreis Nachhaltigkeit 2026 ausgezeichnet. Europäisches Geld fließt in lokale, digital gesteuerte, zirkuläre Produktion — Eintritt über Rückverfolgbarkeit und Recyclingfähigkeit, nicht über Stückkosten.</li>
+</ul>
+<div class="note"><b>Wesentliche Korrektur:</b> Die Lieferketten-Regulatorik ist durch Omnibus I <b>schwächer</b> geworden, nicht stärker. Wer LkSG heute als Türöffner verkauft, argumentiert an der Rechtslage vorbei. Der Druckpunkt liegt bei der Maschinenverordnung.</div>
+
+<h2>3 · Partner B — Bildung &amp; Kultur (Amy)</h2>
+<div class="card sig hi">
+  <p class="sigttl">B-1 · Zuwanderung trägt den MINT-Arbeitsmarkt — das Problem ist der Verbleib</p>
+  <p>MINT-Frühjahrsreport 2026 (IW Köln, 05.05.2026): Lücke rund 133.900 (Stand März 2026) trotz dreijähriger Konjunkturschwäche. Entscheidend ist die Wachstumsdynamik — MINT-Facharbeiterberufe <b>+13,8 % Deutsche gegenüber +156,9 % Ausländer</b>; MINT-Expertenberufe <b>+44,0 % gegenüber +225,5 %</b>. In den Stadtstaaten sowie Hessen, Baden-Württemberg und Bayern stellen Zugewanderte bis zu <b>21 %</b> der Bevölkerung im Kernerwerbsalter. Der Report empfiehlt ausdrücklich schnellere Verfahren <i>und</i> den dauerhaften Ausbau von Begleitmaßnahmen.</p>
+  <p><b>Bedeutung:</b> Begleitung, nicht Verfahren, ist wörtlich Amys Feld — und steht nun in einem institutionellen Report als eigenständiger Hebel.</p>
+  <div class="tagrow"><span class="tag h">Konfidenz: hoch</span><span class="tag">stützt USP #5</span></div>
+  <small class="src">Quelle: Fastmind-Amy-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">B-2 · Interkulturelle Kompetenz wird offen als Retentionsinstrument deklariert</p>
+  <p>Ein Branchenbeitrag vom 16.01.2026: interkulturelle Kompetenz sei „kein Soft Skill mehr, sondern eine harte Einstellungsvoraussetzung" — belegt mit Cartus 2026 (Sicherheit und Zugehörigkeitsgefühl als Top-Prioritäten internationaler Mitarbeitender), Stepstone Dez. 2025 (<b>70 %</b> der Recruiting-Teams unter Druck, die Einstellungs<i>qualität</i> zu verbessern) und IW Köln (rund 7.000 fehlende Software-Spezialisten). Kern: eine <b>Retentionsstrategie gegen den „Revolving-Door"-Effekt</b> — internationale Mitarbeitende gehen wegen kultureller Isolation <b>im ersten Jahr</b>.</p>
+  <p><b>Bedeutung:</b> Die Begründung wechselt von Höflichkeit zu <b>Fluktuationskosten</b>. Guanxi-/Mianzi-Kompetenz wird erstmals an eine bezifferbare Kostenstelle anschließbar. Angebot als <i>Verbleibsquote nach 12 Monaten</i> positionieren, nicht als „Kulturtraining".</p>
+  <div class="tagrow"><span class="tag m">Konfidenz: mittel-hoch</span><span class="tag">monetarisiert USP #5</span></div>
+  <small class="src">Quelle: Fastmind-Amy-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">B-3 · Work-and-Stay-Agentur: nach einem Jahr weiterhin ohne Starttermin</p>
+  <p>Stand 03.09.2026, fast ein Jahr nach den Eckpunkten (04.11.2025): <b>kein operativer Zeitplan</b>, Grundfragen offen. Der Nationale Normenkontrollrat warnt, es drohe nicht mehr als eine IT-Plattform. Kernzahl: ein einziger Fachkräfte-Visumsantrag durchläuft <b>mindestens sieben Behörden</b>. Deutschland bräuchte rund 400.000 Fachkräfte pro Jahr; für 2026 ist lediglich die Ausschreibung zentraler IT-Komponenten geplant.</p>
+  <p><b>Bedeutung:</b> Solange der staatliche Prozess weder zentral noch planbar ist, bleibt der Engpass <b>organisatorisch</b> — und organisatorische Engpässe bezahlt man an Dienstleister. Amy als Lotsenleistung durch sieben Behörden beschreiben, nicht als Vermittlung.</p>
+  <div class="tagrow"><span class="tag h">Konfidenz: hoch</span><span class="tag">belastbarstes Signal seines Laufs</span></div>
+  <small class="src">Quelle: Fastmind-Amy-2026-09-13.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">B-4 · Visa-Ablehnungsquoten für chinesische Forschende sind jetzt Verschlusssache</p>
+  <p>Die Bundesregierung stuft die Ablehnungsquoten für Forschungsvisa aus China als „Nur für den Dienstgebrauch" ein — auf schriftliche Anfrage des MdB Marcel Emmerich. Die Antragszahlen bleiben öffentlich: 2021: 2.147 · 2024: 3.273 · 2025: 2.627 · H1 2026: 856. Neu ist nicht die Praxis, sondern <b>ihre Intransparenz als offizielle Position</b>.</p>
+  <p><b>Bedeutung:</b> Jede Schule, jeder Träger und jedes Unternehmen mit China-Austauschplanung trägt ein nicht quantifizierbares Ausfallrisiko. Risiko, das man nicht ausrechnen kann, managt man über Vertrauen. Als <b>Ausfallsicherung</b> positionieren: Vorprüfung der Profile, Plan B, realistische Zeitachsen — „Wir sagen Ihnen vorher, was wackelt."</p>
+  <div class="tagrow"><span class="tag m">Konfidenz: mittel-hoch</span><span class="tag">Zahlen primär prüfen</span></div>
+  <small class="src">Quelle: Fastmind-Amy-2026-09-11.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">B-5 · Deutschland bildet keine Brückenbauer aus — 0,1 % gegen Frankreichs 46.000</p>
+  <p>119 Schulen mit Chinesisch-Angebot (2023, gegenüber 86 im Jahr 2017), rund 5.000 Schülerinnen und Schüler bundesweit = <b>0,1 %</b> aller Schüler, gegenüber <b>46.000</b> Chinesischlernenden in Frankreich. GOVET/BIBB: China-Kompetenz ist „nur punktuell verankert". Die Spiegelzahl vom DAAD (22.04.2026): deutsche Studierende in China <b>ca. 8.000 (2019) → ca. 1.700 (2023)</b>, −79 %, gegenüber rund 38.600 chinesischen Studierenden in Deutschland — Verhältnis rund <b>1:23</b>; rund 2.500 Sinologie-Studierende in ganz Deutschland; acht der zehn forschungsstärksten Universitäten im Leiden Ranking 2025 sind chinesisch.</p>
+  <p><b>Bedeutung:</b> die strukturelle Begründung des gesamten Geschäftsmodells — und der Hinweis auf eine <b>leere Gegenrichtung</b>: Deutschland → China ist praktisch leergefegt, China → Deutschland ist dicht besetzt.</p>
+  <div class="tagrow"><span class="tag m">Schulzahlen: Erhebung 2023</span><span class="tag h">DAAD-Zahlen: hoch</span></div>
+  <small class="src">Quellen: Fastmind-Amy-2026-09-13.md, -09-11.md, -09-09.md</small>
+</div>
+<h3>Weitere Befunde Partner B</h3>
+<ul>
+  <li><b>Die MINT-Lücke sitzt bei Facharbeitern, nicht bei Akademikern:</b> von 133.900 unbesetzbaren Stellen rund 77.400 Facharbeiter, 44.200 Experten, 12.300 Spezialisten/Meister. Rund 58 % auf Ausbildungs-, nicht Hochschulniveau. Der Ersatzbedarf steigt binnen fünf Jahren auf über 70.000 Akademiker und rund 295.000 Facharbeiter pro Jahr.</li>
+  <li><b>Das Rechtsfenster ist größer geworden:</b> Aufenthaltstitel zur Anerkennung/Anpassungsqualifizierung von 18 auf <b>bis zu 24 Monate</b> verlängert, in Fällen auf bis zu <b>drei Jahre</b>, volle Wirkung ab 2026 — genau die Phase, in der kulturelle Begleitung stattfindet.</li>
+  <li><b>Ein funktionierender Korridor existiert bereits:</b> SeniVita Sozial gGmbH mit der Medizinischen Universität Shenyang — zweisprachige Theorie in China, Praxis an der Berufsfachschule Eggolsheim, bis zu 100 Schüler:innen jährlich; erste Kohorte ab 2015: 8 Absolventinnen, <b>alle 8</b> bestanden das deutsche Pflegeexamen. Als Referenzfall geführt, nicht als aktuelles Ereignis.</li>
+  <li><b>Die Richtung dreht sich:</b> HWK Oldenburg und eine Changshu-Delegation feierten im Mai 2026 zehn Jahre Kooperation; neu ist die Gegenrichtung — chinesische Fachkräfte besuchen deutsche Handwerksbetriebe. In Yangzhou läuft ein Pilot für duale Ausbildung nach deutschem Standard mit IHK-Zertifikat.</li>
+  <li><b>Research Security hat einen Termin:</b> Konferenz „Cooperation with China — Developing Competences and Structures in European Higher Education", 28./29.09.2026, Universität Würzburg (China Kompetenzzentrum + KoWinChi). Zielgruppe sind bewusst <i>nicht</i> Sinolog:innen, sondern International Offices, Forschungsförderung, Management und Verwaltung. <b>Teilnahme kostenfrei.</b></li>
+  <li><b>NRW ist der Heimvorteil:</b> IHK Düsseldorf als NRW-Schwerpunktkammer Greater China; Greater China Day 24.06.2026; China-Tag Ruhr-Niederrhein 07.07.2026; Konfuzius-Institut Düsseldorf; Chinafest Duisburg 04.–06.09.2026. Diese Termine liegen in der Vergangenheit — Netzwerk-Landkarte, keine Teilnahmegelegenheit.</li>
+  <li><b>Die Wirtschaft hält und lokalisiert:</b> AHK Greater China Business Confidence Survey 2025/26 (627 Unternehmen, Dez. 2025) — 93 % bleiben engagiert, rund 65 % zuversichtlich für fünf Jahre, über die Hälfte will Investitionen erhöhen; Preisdruck 60 %, schwache Nachfrage 52 %, „Buy China" 32 %. Die Wirtschaft vertieft genau dann, wenn sich das Bildungssystem zurückzieht.</li>
+</ul>
+
+<h2>4 · Kundensuche-Fortschritt</h2>
+<div class="alert">
+  <p><b>Kernbefund: In keinem der acht Partner-Outputs ist Kundensuche-Aktivität dokumentiert.</b> Keine Anfrage, kein warmer Lead, kein Gespräch, kein benannter Interessent. Beide Routinen betreiben <i>Marktbeobachtung</i>, keine Akquise — kein Partner-Prompt verlangt Kontakt-Protokollierung. Das heißt aber: Der Kundensuche-Trichter ist derzeit <b>leer und ungetrackt</b>.</p>
+</div>
+<ul>
+  <li><b>Robotik (Partner A):</b> Profile entsprechen dem Steckbrief (DACH-Robotik-KMU, 50–1.000 MA), aber als beschriebenes Segment, nicht als benannte Interessenten. Neu: Zuspitzung auf den <i>Nicht-Automotive</i>-Mittelstand, da 42 % der Installationen Automotive sind. Kanäle identifiziert, nicht aktiviert: AMB Stuttgart (ab morgen), ITMA Asia (November), Benannte-Stellen-/TÜV-Ökosystem, IHK-Netz. Anfragen/Leads: keine.</li>
+  <li><b>Bildung (Partner B):</b> Schärfste Zielgruppe der Woche — Schulen mit <b>im Frühjahr 2026 bewilligter</b> Förderung „Einsteigerprojekte China": Mittel vorhanden, Zeitdruck vorhanden, Partner fehlt. Kanäle: Würzburg-Konferenz (kostenfrei, Entscheider im Raum), IHK Düsseldorf/DCW/C-NET RNR, Kammern mit laufender China-Kooperation, Bildungsnetzwerk-China-Ökosystem. Anfragen/Leads: keine. Blocker: Das Förderfenster 2026 schloss am 31.05.2026 — Schulansprache ist ein <b>Vorlaufgeschäft für Q1 2027</b>.</li>
+</ul>
+
+<h2>5 · USP-Validierung &amp; Schärfung</h2>
+<div class="tablewrap"><table>
+<tr><th>#</th><th>USP</th><th>Befund</th><th>Beleg</th></tr>
+<tr><td>1</td><td><b>Dual-Gateway-Zugang</b></td><td class="wn">⚠ teilweise widerlegt</td><td>Beide Partner berichten, dass der Zugang <i>nicht</i> der knappe Faktor ist. China über 50 % → rund zwei Drittel der Cobots bis 2030; ausländische MINT-Beschäftigung +156,9 % / +225,5 %.</td></tr>
+<tr><td>2</td><td><b>Compliance-Kostenreduktion</b></td><td class="ok">✅ stark bestätigt</td><td>Maschinenverordnung 20.01.2027 ohne Übergang; Benannte Stelle bei selbstentwickelnder KI; EmpCo 27.09.2026; dokumentierte chronische Lücken (DoC, CE/RED, deutschsprachige ProdSG-Doku, Telemetrie/DSGVO).</td></tr>
+<tr><td>3</td><td><b>Halbleiter-/Komponenten-Sourcing</b></td><td class="bd">❌ kein einziger Beleg</td><td><b>Null Signale in allen acht Dateien.</b> Weder Halbleiter noch Komponentenknappheit noch Sourcing kommen in dieser Woche vor.</td></tr>
+<tr><td>4</td><td><b>Bilinguale Regulatorik-Schulung QMS/MDR</b></td><td class="wn">🟡 mittelbar; MDR unbelegt</td><td>Gestützt durch die deutschsprachige Dokumentationspflicht und GOVETs Berufsbildungs-Vorstoß. Aber <b>EU-MDR kommt in keinem Output dieser Woche vor</b> — das Medtech-Bein ist unbelegt.</td></tr>
+<tr><td>5</td><td><b>Kultureller Schutzschild</b></td><td class="ok">✅ bestätigt &amp; neu monetarisierbar</td><td>Interkulturelle Kompetenz offen als Retentionsstrategie gegen Abbrüche im ersten Jahr; Deutschland produziert 0,1 % der Brückenbauer Frankreichs; Wirtschaft lokalisiert, Bildung zieht sich zurück.</td></tr>
+</table></div>
+<h3>Vorschläge zur Schärfung</h3>
+<ul>
+  <li><b>USP #1 von Zugang auf Aufnahme umschreiben.</b> Testformulierung: <i>„Dual-Gateway-Absorption — wir öffnen nicht den Markt, wir sorgen dafür, dass er ankommt."</i></li>
+  <li><b>USP #3 auf Beobachtung setzen oder streichen.</b> Ein USP ohne stützendes Signal in acht Recherche-Outputs ist im Kundengespräch ein Risiko. Entscheidung liegt bei Bruno — keine Aktion erfolgt.</li>
+  <li><b>USP #4 aufteilen.</b> Die QMS-/Schulungshälfte ist gestützt, die MDR-/Medtech-Hälfte nicht. Trennen, damit ein schwaches Bein das starke nicht entwertet.</li>
+  <li><b>Das Muster „überlagerte Frist" zum benannten Angebot machen.</b> Vier Instanzen in zwei Domänen — das unterscheidungsstärkste, am schwersten kopierbare Asset dieses Zeitraums und echtes Fastmind-IP.</li>
+  <li><b>Die 70-%-Scheiternrate braucht eine Quelle.</b> Sie steht im USP-Set, aber in <i>keinem</i> Partner-Output; der nächstliegende Beleg stützt sich auf eine Erhebung von April 2023, die Amy selbst als nicht zitierfähig kennzeichnet.</li>
+</ul>
+<p><b>Partner-Feedback zur USP-Klarheit: keines eingegangen.</b> Alle USP-Aussagen in den Partner-Dateien sind als Kontext aus dem Dual-Gateway-Dokument gekennzeichnet, ausdrücklich nicht als Rechercheergebnis — die Vertraulichkeitsgrenze wurde in allen acht Läufen eingehalten.</p>
+
+<h2>6 · Marktchancen-Bewertung</h2>
+<p><b>DACH-Robotik:</b> Hoher Bestand, niedrige Investition. Dichte 449/10.000 (Rang 3), Bestand 278.900 (+4 %), rund 40 % aller EU-Fabrikroboter — aber VDMA erwartet −5 % Umsatz auf 14,1 Mrd. € nach −7 %, deutsche Cobot-Auslieferungen −0,3 % bei rund 17 % Weltmarktwachstum. Installationen dennoch +7 % auf 28.355 mit 42 % Automotive: Das vorhandene Wachstum sitzt dort, wo Fastmind nicht positioniert ist. Compliance-Kostentreiber: Kapazität Benannter Stellen vor dem 20.01.2027, deutschsprachige ProdSG-Doku, CE-/RED-Zulassung, Telemetrie-/DSGVO-Nachweis.</p>
+<p><b>DACH-Bildung/Talent:</b> Rund 133.900 unbesetzbare MINT-Stellen, davon rund 58 % auf Facharbeiterebene. Anerkennungstitel auf 24–36 Monate verlängert (Fenster wächst), Work-and-Stay-Agentur steht still (Engpass bleibt organisatorisch), Visa-Ablehnungsdaten eingestuft (Risiko wird unquantifizierbar). Die Bereitschaft ist <b>gespalten</b>: Die Wirtschaft will und lokalisiert (93 % von 627 befragten Unternehmen bleiben engagiert), das Bildungssystem zieht sich zurück (deutsche Studierende in China −79 %; 0,1 % der Schüler lernen Chinesisch). Die Chance liegt in dieser Lücke — und in der fast leeren Gegenrichtung Deutschland → China.</p>
+<p><b>Sino-europäische Dynamik:</b> Zwei Bewegungen laufen gegeneinander und brauchen dieselbe Kompetenz. Chinesische Hersteller bauen europäische Substanz auf, deutsche Hersteller verkaufen im Ausland besser als zuhause. Europäische Anbieter haben Zertifizierung zum expliziten Anti-China-Verkaufsargument gemacht — während eine europäische Benannte Stelle chinesische Robotik auf einer europäischen Messe öffentlich zertifiziert. Der Konformitätsweg wird institutionalisiert, nicht geschlossen. Auf der Talentseite steigt die politische Temperatur leise: Ablehnungsquoten eingestuft, Research Security in der Hochschulverwaltung angekommen.</p>
+<p><b>Risiken:</b> Kapazität Benannter Stellen vor 20.01.2027 (harte Grenze) · DACH-Nachfrageschwäche im zweiten Minusjahr · Wettbewerber besetzen das Compliance-Argument zuerst · regulatorische Entlastung wird als Entlastung missverstanden (AI Act, CSDDD/LkSG) · politische Reibung auf der Talentseite · Belegbrüchigkeit durch sechs offene Datenkonflikte.</p>
+
+<h2>7 · Konsolidierte Empfehlungen</h2>
+<h3>Top 3 für die beginnende Woche (2026-W38, 14.–20.09.)</h3>
+<ol>
+  <li><b>AMB Stuttgart, 15.–19.09. — heute entscheiden, ob jemand hingeht.</b> Die einzige kostenfreie, ertragsstarke, terminierte Aktion des gesamten Zeitraums, und sie verfällt am Samstag. Als Zuhörer teilnehmen; drei bis fünf Gespräche mit mittelständischen Anwendern über deren Einwände gegen asiatische Robotik führen (Ersatzteile? Dokumentation auf Deutsch? Haftung? CE?) und die Antworten <b>wörtlich</b> mitschreiben. Diese Einwandliste ist für die China-seitige Ansprache wertvoller als jede Marktstudie und im November auf der ITMA Asia direkt weiterverwendbar.</li>
+  <li><b>EmpCo-Countdown — 13 Tage bis zum 27.09.</b> Die Einseiten-Übersicht „vier verbotene Aussagetypen" erstellen und eine kurze, datierte Ansprache an Faser-/Textilzulieferer mit Nachhaltigkeitsclaims fahren. Formulierung zwingend als <b>mittelbare</b> Betroffenheit über den Markenkunden; eine direkte Pflichtdarstellung wäre sachlich falsch und würde im ersten Gespräch auseinanderfallen.</li>
+  <li><b>Für die Würzburger Research-Security-Konferenz anmelden, 28./29.09. — kostenfrei.</b> Zwei Tage mit genau der Zielgruppe, die über institutionelle China-Kooperationen entscheidet. Der Anmeldestand ist nirgends dokumentiert und muss sofort geprüft werden.</li>
+</ol>
+<h3>Quick Wins</h3>
+<ul>
+  <li>Die sechs Datenkonflikte gegen Primärquellen auflösen, bevor eine dieser Zahlen in Kundenmaterial geht — Priorität: MINT-Zahl und CSDDD-Umsetzungsdatum, beide stehen bereits in Ansprache-Ideen.</li>
+  <li>Die Zwei-Zeitstrahl-Seite bauen (Maschinenverordnung gegen AI Act nach Digital Omnibus) mit einer einzigen Aussage: <i>„Die Verschiebung betrifft nicht Ihr Produkt."</i></li>
+  <li><b>24.09.2026</b> vormerken — der IFR World Robotics Report 2026 erscheint, die belastbare Primärquelle zu den derzeit mit mittlerer Konfidenz geführten Nachfragezahlen.</li>
+  <li>Ein Kundensuche-Kontaktlog anlegen. Derzeit existiert kein Artefakt, in dem ein Lead überhaupt festgehalten werden könnte.</li>
+</ul>
+<h3>Zu beseitigende Blocker</h3>
+<ul>
+  <li><b>Es gibt keine Akquise-Pipeline</b> — acht Recherche-Outputs, null Kontakte. (Bruno)</li>
+  <li><b>Partner-Taktung zu dicht</b> — Hanna und Amy berichten <i>unabhängig voneinander</i>, dass die letzten Tage nichts substanziell Neues lieferten; Hanna beantwortet die eigene frühere Frage mit „ja, Zwei-Tages-Takt ist zu dicht", am 14.09. präzisiert: zu dicht nur dann, wenn der Blickwinkel nicht rotiert. (Bruno — Routinen-Entscheidung)</li>
+  <li><b>USP #3 ohne Belegbasis</b> nach acht Outputs. (Bruno — USP-Entscheidung)</li>
+  <li><b>Die 70-%-Scheiternrate ist unbelegt</b> in der aktuellen Beleglage. (Bruno)</li>
+  <li><b>AMB verfällt am 19.09.</b> ohne dokumentierte Teilnahmeentscheidung. (Bruno — heute)</li>
+  <li><b>Amys strategische Frage scheitert im vierten Lauf in Folge</b> — welche kulturellen Profile DACH-<i>Schulen</i> suchen, ist öffentlich nicht auffindbar. Amys eigene Bewertung: eine Datenlücke, kein Recherchefehler — und damit Kandidat für eine Primärerhebung, die echtes Fastmind-IP wäre. (Bruno — Beauftragungsentscheidung)</li>
+  <li><b>Hannas strategische Frage ist für die Textilseite falsch gestellt</b> — vier Läufe ohne Faser-Zertifizierungsfall, weil die Textilregulatorik auf <i>Kommunikation</i> zielt, nicht auf Produktzulassung. Hanna schlägt eine feldabhängige Neuformulierung vor. (Bruno — Routinen-Review)</li>
+</ul>
+<h3>Was von den Partnern gebraucht wird</h3>
+<ul>
+  <li><b>Hanna:</b> Die als fehlend notierten Produkt-/Leistungsbeschreibungen tauchen in keinem Output auf; dazu eine Entscheidung zur AMB-Teilnahme diese Woche.</li>
+  <li><b>Amy:</b> Das nächste Schulförderfenster (vermutet April 2027, unbestätigt) direkt beim Bildungsnetzwerk China verifizieren; und ob Würzburg besucht wird.</li>
+  <li><b>Beide:</b> Freigabe der USP-Schärfung aus Abschnitt 5, insbesondere Neufassung von #1 und Status von #3.</li>
+</ul>
+
+<h2>8 · Kennzahlen</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">13</div><div class="l">Signale Partner A</div></div>
+  <div class="kpi"><div class="n">21</div><div class="l">Signale Partner B</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">Selbstkorrekturen</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">Nicht-Befunde ×4 Läufe</div></div>
+</div>
+<p><b>Kundensuche:</b> neue Kontakte 0 · Gespräche 0 · warme Leads 0 · benannte Interessenten 0 · <b>kein Pipeline-Artefakt vorhanden</b>.</p>
+<p><b>Signalqualität:</b> 7 der 10 Top-Signale mit hoher Konfidenz, 3 mittel/mittel-hoch. <b>3 von 8 Läufen</b> melden selbst „nichts substanziell Neues in den letzten Tagen". <b>2 Nicht-Befunde</b> jeweils im vierten Lauf in Folge. <b>2 Selbstkorrekturen</b> ausgesprochen.</p>
+<div class="note"><b>Wochentrend:</b> Es existiert keine frühere <i>verifizierte</i> Basis — der W37-Bericht war ein manueller Testlauf, dessen eigenes Defect-Log festhält, dass die Partner-Dateien nicht gelesen wurden. <b>W37 ist damit die erste messbare Baseline</b>; alle Trendwerte ab W38 sind gegen diesen Lauf zu messen — unter Beachtung der Fensterabweichung oben.</div>
+<h3>Offene Datenkonflikte — vor Kundennutzung klären</h3>
+<ul>
+  <li><b>MINT-Lücke 133.900</b> (Frühjahr 2026) gegen <b>148.500</b> (Herbst 2025) — nicht austauschbar. <i>(Amy 09.09., 13.09., 14.09.)</i></li>
+  <li><b>CSDDD/LkSG-Umsetzung 26.07.2027 gegen 26.07.2028</b> — Widerspruch innerhalb der eigenen Läufe von Partner A. <i>(Hanna 09.09. gegen 14.09.)</i></li>
+  <li><b>ESPR-Rechtsakt Textil: Ende 2026 / Q2 2027 / Ende 2027</b> — drei Daten in drei Läufen. <i>(Hanna)</i></li>
+  <li><b>Humanoide 2025: ca. 13.000 bei 87 % gegen ca. 17.000 bei 84,7 %</b> — nur die Anteilsaussage verwenden, nie die absolute Zahl. <i>(Hanna 13.09.)</i></li>
+  <li><b>Schulpartnerschaftsfonds: ausgelaufen / läuft / ausgelaufen-prüfen / nächstes Fenster April 2027 (unbestätigt)</b> — vier Positionen in vier Läufen; eine Primär-URL lieferte HTTP 404. <i>(Amy)</i></li>
+  <li><b>Cobot-Nachfrage: Interact −0,3 % gegen Handelsblatt steigendes KMU-Interesse</b> — die Auflösung ist Interpretation, kein Befund. <i>(Hanna 13.09.)</i></li>
+</ul>
+<h3>Momentum</h3>
+<ul>
+  <li>Signalmenge <b class="ok">↑</b> — 34 Einträge aus 8 Läufen, beide Gateways liefern zuverlässig.</li>
+  <li>Signal-<i>Frische</i> <b class="bd">↓</b> — 3 von 8 Läufen ohne substanziell Neues; mehrere Kernquellen datieren Januar–Juli 2026.</li>
+  <li>Analysetiefe <b class="ok">↑</b> — zwei Selbstkorrekturen und ein echtes domänenübergreifendes Muster: Die Outputs erzeugen Erkenntnis, nicht nur Sammlung.</li>
+  <li>Kundenakquise <b class="bd">→ konstant null</b> — kein Kontakt, keine Pipeline, kein Artefakt.</li>
+  <li><b>Gesamt →</b> — Die Recherche-Maschine läuft und reift. Die Lücke ist die Konversion: Noch nichts wechselt von Beobachtung zu Akquise.</li>
+</ul>
+
+</div><!-- /DE -->
+
+<!-- ============================ ZH ============================ -->
+<div data-lang="zh">
+
+<div class="callout">
+  <span class="k">本周核心结论</span>
+  <p><b>公开可见的截止日期并不是真正具有约束力的那一个——瓶颈也不再是"进入市场"，而是"落地吸收"。</b></p>
+  <p>两条通道在不同领域各自独立得出了同一个结构性结论。合伙人 A 发现了两次：《人工智能法案》的延期（嵌入式 AI 推迟至 2028-08-02）掩盖了提前 19 个月生效的《机械条例》（2027-01-20）；而"数字产品护照"（2028/29）掩盖了 13 天后即生效、且无任何过渡期的 EmpCo 指令。合伙人 B 发现的是镜像：各方等待的"Work-and-Stay 署"在内阁决议一年后仍无启动日期，而已经生效的资格认证居留期延长（18 → 最长 24 个月，特定情形下 36 个月）才是当下可用的窗口。</p>
+  <p>从数量看：到 2030 年中国将供应全球约三分之二的协作机器人；德国外籍 MINT 从业人数增长 +156.9 % 与 +225.5 %。通道本身正在自行打开。真正失灵的，一边是德语区的<i>需求</i>，另一边是<i>第一年的留任</i>。</p>
+</div>
+
+<h2>1 · 总体情况</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">8/8</div><div class="l">已读合伙人文件</div></div>
+  <div class="kpi"><div class="n">34</div><div class="l">信号条目</div></div>
+  <div class="kpi"><div class="n">0</div><div class="l">客户接触</div></div>
+  <div class="kpi"><div class="n">6</div><div class="l">未决数据冲突</div></div>
+</div>
+<p><b>数据来源：</b>Hanna 4 次运行（09-09、09-11、09-13、09-14）· Amy 4 次运行（同样日期）。两条通道均有产出。</p>
+<div class="note"><b>报告窗口——已记录的偏差。</b>本报告标注为 <b>W37</b>，但其所依据的窗口并不与之完全对应。报告周于 09-14 定义为已结束的上一个日历周（周一至周日）——对周一运行而言即 <b>09-07 至 09-13</b>。而本次运行仍按旧的滚动窗口规则执行，读取的是 <b>09-08 至 09-14</b>。因此：<b>缺少周日 09-07</b> 的合伙人产出，而 <b>周一 09-14 的产出虽属于 W38 却被纳入</b>——它们将在下一份报告中再次出现。这是经深思熟虑的决定（Bruno，09-14）：重新标注并加以说明，而非重新生成。背景：这是该任务的首次执行，且作为补跑延迟启动（10:31 而非 05:36）；本文件夹中早先的 W37 报告属于手动验证运行，现已标记为 <code>_Probe_</code>。</div>
+
+<h2>2 · 合伙人 A — 工业与技术合规（Hanna）</h2>
+<div class="card sig hi">
+  <p class="sigttl">A-1 · 德国莱茵 TÜV 在 IFA 2026 为中国机器人产品发证</p>
+  <p>2026-09-10，德国莱茵 TÜV 在 IFA 2026 向多家中国机器人企业颁发证书与检测证明，并明确表述为支持其全球扩张。与之对照的另一面同样有据：许多中国制造商目前<b>无法</b>在欧洲销售——缺少欧盟符合性声明（DoC）、CE/RED 无线电认证、<b>德语</b> ProdSG 合规文档，另有未过滤的遥测数据外流（可能违反 GDPR 与《AI 法案》）。</p>
+  <p><b>意义：</b>这是"可认证"与"已认证"之间的落差。首个有日期、可核验的证据，说明合规路径确实走得通，而多数企业并未去走——本周对机器人板块论点最有力的外部验证。</p>
+  <div class="tagrow"><span class="tag h">可信度：高</span><span class="tag">支持 USP #2</span></div>
+  <small class="src">来源：Fastmind-Hanna-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">A-2 · 《机械条例》(EU) 2023/1230 — 128 天，无过渡期</p>
+  <p>两个硬性日期：<b>2026-10-20</b>（成员国须完成国家处罚制度的通报，第 50 条第 1 款）与 <b>2027-01-20</b>（全面适用，指令 2006/42/EC 废止，<b>无过渡期、无清库期</b>）。安全相关<b>软件</b>现计入安全部件；网络安全要求收紧；含"自我演化行为"AI 的机器必须经<b>公告机构</b>评定，制造商自我声明不再适用。条例首次将进口商、（线上）分销商与授权代表列为独立义务主体。</p>
+  <p><b>意义：</b>"中国机器人进入欧洲"由销售问题变为法律问题，并同时从两个方向切入。真正的瓶颈是公告机构的排期能力，而非文档本身。</p>
+  <div class="tagrow"><span class="tag h">可信度：高</span><span class="tag">最紧迫的期限</span></div>
+  <small class="src">来源：Fastmind-Hanna-2026-09-11.md、-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">A-3 · EmpCo (EU) 2024/825 于 2026-09-27 生效 — 被忽略的纺织期限</p>
+  <p>这是合伙人 A 的一次自我更正。此前运行记录称纤维一侧"没有期限"，这是错的：纺织领域首个具约束力的期限来自《赋能消费者指令》，自 <b>2026 年 9 月 27 日</b>起适用。被禁止的包括：无证据的笼统环保主张、未经认证的可持续标签、基于价值链外抵消的气候中性主张，以及仅对部分成立却用于整体产品的主张。<b>无过渡期，含现有库存。</b></p>
+  <p><b>必须遵守的限定：</b>EmpCo 属于消费者保护（B2C）。纤维供应商是<i>间接</i>受影响——通过必须自证主张的品牌客户，将举证要求沿供应链向下传导。若表述为直接合规义务，则属事实性错误。</p>
+  <div class="tagrow"><span class="tag h">法律事实：高</span><span class="tag m">业务影响：中</span><span class="tag">13 天后</span></div>
+  <small class="src">来源：Fastmind-Hanna-2026-09-13.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">A-4 · 瓶颈是德语区需求，不是市场准入</p>
+  <p>2025 年全球协作机器人出货约 58,000 台，预计 2030 年达 120,000 台（CAGR 约 17 %）；但<b>德国 2026 年为 −0.3 %</b>，至 2030 年年增长仅 3.7 %，而印度为 12.5 %、亚太为 7.1 %。中国份额：2025 年超过 50 %，2030 年约三分之二。VDMA 预计连续第二个下滑年：在 −7 % 之后再 <b>−5 % 至 141 亿欧元</b>。2026 年 1 月订单实际 −6 %；前四个月呈<b>内需 −4 %、出口 +2 %</b>。装机量仍 +7 % 至 28,355 台，其中 <b>42 % 来自汽车业</b>；机器人密度为每万名员工 449 台（全球第三）。</p>
+  <p><b>意义：</b>准入本就在打开，收缩的是德语区需求。内需/出口的剪刀差是可用细节：两个方向的流动需要同一种能力。42 % 的汽车业集中度解释了为何非汽车中型企业长期供给不足。</p>
+  <div class="tagrow"><span class="tag m">可信度：中</span><span class="tag">冲突 #6 未决</span><span class="tag">IFR 报告 09-24</span></div>
+  <small class="src">来源：Fastmind-Hanna-2026-09-13.md、-09-14.md、-09-09.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">A-5 · 认证已成为欧洲竞争对手的销售武器</p>
+  <p>Franka Robotics 公开主张：作为德国制造商，其基本满足所有标准并通过 TÜV 认证——"并非所有中国制造商都如此，因此它们无法在欧洲销售。"对照样本是 AgiBot（人形机器人市场领先者，至 2025 年底出货约 5,000 台），从慕尼黑进入欧洲，优先"建立长期伙伴关系"，在监管方面仅提及 GDPR——<b>CE 标志、《机械条例》与公告机构完全未被提及</b>。</p>
+  <p><b>用法：</b>将竞争对手原话直接用作面向中国企业的开场——"这就是您的德国竞争对手此刻针对您的论据。您的回应是什么？"</p>
+  <div class="tagrow"><span class="tag h">引述：高</span><span class="tag m">解读：中</span></div>
+  <small class="src">来源：Fastmind-Hanna-2026-09-13.md</small>
+</div>
+<h3>合伙人 A 的其他发现</h3>
+<ul>
+  <li><b>三种已记录的欧盟进入模式：</b>(a) 完全本地化——Estun（2024 年 8 月设立瑞士 AG，子公司 Cloos，波兰工厂 2026 年 10 月投产，至南京铁路运输约六周，目标欧洲份额 5–10 %）；(b) 只设法律实体不设生产——Inovance Technology Europe GmbH（Pleidelsheim）；(c) 只做伙伴关系不建结构——AgiBot。效率来自法律角色的选择，而非检测流程。</li>
+  <li><b>两个有日期的接触窗口：</b>斯图加特 AMB，2026-09-15 至 19（约 1,500 家展商，预计超过 90,000 名专业观众，主题为具身智能——属展前报道，非展后总结）；上海 ITMA ASIA + CITME，2026-11-20 至 24（1,240 余家展商，约 65,000 名观众）。两者相隔十周，而 2026-10-20 这一期限恰好夹在中间。</li>
+  <li><b>纤维创新靠资助推动，而非期限：</b>欧盟 Aladin 项目于 2026 年 5 月启动，由登肯多夫 DITF 协调；亚琛工大 ITA 的碳纤维回收工作获 2026 年 VDMA Walter-Reiners 基金会可持续发展硕士奖。欧洲资金流向本地化、数字化、循环化生产——切入点是可追溯性与可回收性，而不是单位成本。</li>
+</ul>
+<div class="note"><b>重要更正：</b>经 Omnibus I 之后，供应链监管是<b>变弱</b>而非变强。今天再把 LkSG 当作敲门砖，就是在与法律现状相悖。压力点已转移到《机械条例》。</div>
+
+<h2>3 · 合伙人 B — 教育与文化（Amy）</h2>
+<div class="card sig hi">
+  <p class="sigttl">B-1 · 移民已在结构上支撑 MINT 劳动力市场——问题转为"留住人"</p>
+  <p>《MINT 春季报告 2026》（科隆经济研究所，2026-05-05）：截至 2026 年 3 月，缺口约 133,900 人，尽管经济已疲软约三年。真正关键的不是缺口而是增长结构——MINT 技工岗位<b>德国籍 +13.8 % 对外籍 +156.9 %</b>；MINT 学术岗位<b>+44.0 % 对 +225.5 %</b>。在三个城市州以及黑森、巴符与巴伐利亚，移民技术人才占核心劳动年龄人口的比例最高达 <b>21 %</b>。报告明确建议：既要加快程序，也要<i>长期扩大陪伴性支持措施</i>。</p>
+  <p><b>意义：</b>"陪伴"而非"程序"正是 Amy 的领域——如今它以独立抓手的身份出现在权威报告中。</p>
+  <div class="tagrow"><span class="tag h">可信度：高</span><span class="tag">支持 USP #5</span></div>
+  <small class="src">来源：Fastmind-Amy-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">B-2 · 跨文化能力被公开定义为"留任工具"——并已挂上成本科目</p>
+  <p>2026-01-16 的一篇行业文章指出，跨文化能力"不再是软技能，而是硬性录用条件"，依据包括：Cartus 2026（安全感与<i>归属感</i>是国际员工的首要诉求）、Stepstone 2025 年 12 月（<b>70 %</b> 的招聘团队被要求提升录用<i>质量</i>而非数量）、科隆经济研究所（软件领域约缺 7,000 名专才）。核心论点：这首先是一项<b>针对"旋转门效应"的留任策略</b>——国际员工<b>在第一年内</b>因文化孤立而离职。</p>
+  <p><b>意义：</b>论证依据从"礼节"切换为<b>流失成本</b>。关系（Guanxi）与面子（Mianzi）能力首次可以挂接到可量化的成本科目。产品应定位为<i>12 个月留任率</i>，而非"文化培训"。</p>
+  <div class="tagrow"><span class="tag m">可信度：中高</span><span class="tag">使 USP #5 可变现</span></div>
+  <small class="src">来源：Fastmind-Amy-2026-09-14.md</small>
+</div>
+<div class="card sig hi">
+  <p class="sigttl">B-3 · Work-and-Stay 署：一年过去，仍无启动日期</p>
+  <p>截至 2026-09-03，距内阁通过要点（2025-11-04）近一年，<b>仍无实施时间表</b>，基本问题悬而未决。国家规范控制委员会（NKR）警告，其最终可能仅是一个 IT 平台。关键数字：一份技术人才签证申请<b>至少需经过七个主管部门</b>。德国每年约需 400,000 名技术人才；2026 年仅计划就核心 IT 组件进行招标。</p>
+  <p><b>意义：</b>只要国家流程既不集中也不可预期，瓶颈就仍然是<b>组织性</b>的——而组织性瓶颈的费用付给服务商，而非付给行政机关。应把 Amy 描述为"穿过七个部门的领航服务"，而非"中介"。</p>
+  <div class="tagrow"><span class="tag h">可信度：高</span><span class="tag">该次运行中最扎实的信号</span></div>
+  <small class="src">来源：Fastmind-Amy-2026-09-13.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">B-4 · 中国科研人员签证拒签率现已被列为内部受限信息</p>
+  <p>针对联邦议员 Marcel Emmerich 的书面质询，联邦政府将来自中国的科研签证拒签率列为"仅供公务使用"。申请数量仍公开：2021 年 2,147 · 2024 年 3,273 · 2025 年 2,627 · 2026 上半年 856。新出现的不是签证做法本身，而是<b>不透明被确立为官方立场</b>。</p>
+  <p><b>意义：</b>任何筹划对华交流的学校、培训机构与企业，如今都承担一项<b>无法量化的失败风险</b>。无法计算的风险只能以信任来管理。定位应为<b>失败保险</b>：预先审核人选、拒签备选方案、现实的时间表——"我们提前告诉您哪里不稳。"</p>
+  <div class="tagrow"><span class="tag m">可信度：中高</span><span class="tag">数字需核对原始文件</span></div>
+  <small class="src">来源：Fastmind-Amy-2026-09-11.md</small>
+</div>
+<div class="card sig">
+  <p class="sigttl">B-5 · 德国不生产"搭桥的人"——0.1 % 对法国的 46,000</p>
+  <p>德国开设中文课程的学校为 119 所（2023 年，2017 年为 86 所），全国约 5,000 名学生，占全部学生的 <b>0.1 %</b>；而法国有 <b>46,000</b> 名中文学习者。GOVET/BIBB 的判断：中国能力在德国教育与职业教育体系中"仅零星嵌入"。DAAD 的镜像数据（2026-04-22）：在华德国学生从 2019 年约 8,000 人降至 2023 年约 1,700 人（−79 %），而在德中国学生约 38,600 人——比例约为 <b>1:23</b>；全德汉学专业学生约 2,500 人；2025 年莱顿排名中科研实力最强的十所大学有八所来自中国。</p>
+  <p><b>意义：</b>这是整个商业模式的结构性依据，同时指出一个<b>空置的反方向</b>：中国→德国一侧竞争拥挤，德国→中国一侧几乎无人经营。</p>
+  <div class="tagrow"><span class="tag m">学校数据：2023 年调查</span><span class="tag h">DAAD 数据：高</span></div>
+  <small class="src">来源：Fastmind-Amy-2026-09-13.md、-09-11.md、-09-09.md</small>
+</div>
+<h3>合伙人 B 的其他发现</h3>
+<ul>
+  <li><b>MINT 缺口在技工层，而非学术层：</b>133,900 个无法填补的岗位中，约 77,400 个属技工（双元制培训），约 44,200 个属学术专家，约 12,300 个属专业人员/师傅/技师，即约 58 % 位于培训层而非高校层。五年内年度替代需求将升至 70,000 名以上学术人才与约 295,000 名技工。</li>
+  <li><b>法律窗口已扩大：</b>用于资格认证/适应性培训的居留许可由 18 个月延长至<b>最长 24 个月</b>，特定情形下最长<b>三年</b>，自 2026 年全面生效——这恰恰是文化陪伴发生的时段。</li>
+  <li><b>已有可运行的走廊范例：</b>SeniVita Sozial gGmbH 与沈阳医学院合作——在中国完成双语理论教学，随后在上弗兰肯 Eggolsheim 的养老护理职业学校完成实践与补充课程，每年最多 100 名学员；2015 年起的首批学员中 8 名毕业生<b>全部 8 人</b>通过德国护理国家考试。此项被明确列为参考案例，而非当期事件。</li>
+  <li><b>方向正在反转：</b>奥尔登堡手工业商会与常熟代表团于 2026 年 5 月纪念合作十周年；新的要素是反方向——中国技术人才赴德参访手工业企业。扬州已有按德国标准、颁发 IHK 证书的双元制培训试点。</li>
+  <li><b>"研究安全"已有明确日程：</b>"Cooperation with China — Developing Competences and Structures in European Higher Education"国际会议，2026-09-28 至 29，维尔茨堡大学（中国能力中心 + KoWinChi 项目）。目标群体刻意<i>不是</i>汉学家，而是国际处、科研资助、管理与行政人员。<b>免费参加。</b></li>
+  <li><b>北威州是主场优势：</b>杜塞尔多夫工商会是北威州面向大中华区的重点商会；2026-06-24 大中华日；2026-07-07 鲁尔-下莱茵中国日；杜塞尔多夫孔子学院；2026-09-04 至 06 杜伊斯堡中国节。这些日期均已过去——它们是网络地图，而非参会机会。</li>
+  <li><b>企业界在坚守并本地化：</b>德国商会大中华区商业信心调查 2025/26（627 家企业，2025 年 12 月发布）——93 % 将继续在华经营，约 65 % 对未来五年有信心，超过半数计划增加投资；压力来自价格竞争 60 %、中国市场需求疲软 52 %、"买中国"监管顾虑 32 %。企业界加深投入的同时，教育体系正在退却。</li>
+</ul>
+
+<h2>4 · 客户开发进展</h2>
+<div class="alert">
+  <p><b>首要结论：八份合伙人产出中没有任何客户开发活动的记录。</b>没有询盘、没有热线索、没有会谈、没有具名潜在客户。两条例行程序执行的是<i>市场观察</i>而非获客——两份合伙人提示词都未要求记录接触。但这意味着客户开发漏斗目前<b>为空且未被追踪</b>。</p>
+</div>
+<ul>
+  <li><b>机器人板块（合伙人 A）：</b>所触及的画像与客户档案一致（德语区机器人中小企业，50–1,000 人），但仅为描述性细分，而非具名对象。新观点：应收窄至<i>非汽车</i>中型企业，因为 42 % 的装机集中在汽车业。已识别但尚未启动的渠道：AMB 斯图加特（明日开幕）、上海 ITMA Asia（11 月）、公告机构/TÜV 生态、工商会网络。询盘/线索：无。</li>
+  <li><b>教育板块（合伙人 B）：</b>本周最精准的目标群体——2026 年春季<b>已获批</b>"中国入门项目"资助的学校：有经费、有时间压力、缺当地伙伴。渠道：维尔茨堡会议（免费，决策者集中）、杜塞尔多夫工商会/DCW/C-NET RNR、已有对华合作的商会、中国教育网络生态（100 余所学校）。询盘/线索：无。阻碍：2026 年资助窗口已于 2026-05-31 关闭，因此面向学校的接洽属于<b>2027 年第一季度的前置业务</b>。</li>
+</ul>
+
+<h2>5 · USP 验证与打磨</h2>
+<div class="tablewrap"><table>
+<tr><th>#</th><th>USP</th><th>判定</th><th>依据</th></tr>
+<tr><td>1</td><td><b>双通道准入</b></td><td class="wn">⚠ 部分被证伪</td><td>两位合伙人均报告"准入"<i>不是</i>稀缺要素。中国份额超 50 %，到 2030 年约达三分之二；外籍 MINT 就业 +156.9 % / +225.5 %。门本就开着。</td></tr>
+<tr><td>2</td><td><b>合规成本降低</b></td><td class="ok">✅ 强力印证</td><td>《机械条例》2027-01-20 无过渡期；自我演化 AI 须经公告机构；EmpCo 2026-09-27；已记录的长期短板（DoC、CE/RED、德语 ProdSG 文档、遥测/GDPR）。</td></tr>
+<tr><td>3</td><td><b>半导体/元器件采购</b></td><td class="bd">❌ 完全无证据</td><td><b>八份文件中零信号。</b>本周半导体、元器件短缺与采购均未出现。</td></tr>
+<tr><td>4</td><td><b>双语法规培训 QMS/MDR</b></td><td class="wn">🟡 间接；MDR 未获印证</td><td>由德语文档义务与 GOVET 的职业教育推动间接支持。但<b>本周没有任何一份产出提到 EU-MDR</b>——医疗器械这条腿缺乏证据。</td></tr>
+<tr><td>5</td><td><b>文化护盾</b></td><td class="ok">✅ 获印证且首次可变现</td><td>跨文化能力被公开表述为针对第一年流失的留任策略；德国培养的"搭桥人"仅为法国的 0.1 %；企业本地化而教育退却。</td></tr>
+</table></div>
+<h3>打磨建议</h3>
+<ul>
+  <li><b>把 USP #1 从"准入"改写为"吸收"。</b>建议测试表述：<i>"双通道落地——我们不负责把门打开，我们负责让它真正落地。"</i></li>
+  <li><b>将 USP #3 转入观察或予以取消。</b>八份研究产出中没有任何支撑信号的 USP，在客户对话中是风险。由 Bruno 决定——本次未采取任何行动。</li>
+  <li><b>拆分 USP #4。</b>QMS/培训一半有支撑，MDR/医疗器械一半没有。应予分离，避免弱腿拖累强腿。</li>
+  <li><b>把"被掩盖的期限"这一模式升格为具名产品。</b>已在两个领域出现四个实例——这是本期产出中最具辨识度、最难复制的资产，也是真正属于 Fastmind 的自有知识产权，而非可检索的通用知识。</li>
+  <li><b>"70 % 失败率"这一说法需要出处。</b>它出现在 USP 集合中，却<i>未</i>出现在任何合伙人产出里；最接近的佐证依赖一份 2023 年 4 月的调查，而 Amy 自己已标注其当前不可引用。</li>
+</ul>
+<p><b>合伙人对 USP 清晰度的反馈：本期未收到。</b>合伙人文件中的所有 USP 表述均标注为来自双通道文件的背景信息，明确不属于研究结论——八次运行均恪守了保密边界。</p>
+
+<h2>6 · 市场机会评估</h2>
+<p><b>德语区机器人市场：</b>存量高、投资低。密度每万人 449 台（全球第三），存量 278,900 台（+4 %），约占欧盟工厂机器人的 40 %；但 VDMA 预计 2026 年营收在 −7 % 之后再降 5 % 至 141 亿欧元，德国协作机器人交付 −0.3 %，而全球市场年增约 17 %。装机仍 +7 % 至 28,355 台，其中 42 % 在汽车业——现有增长恰好集中在 Fastmind 未布局之处。合规成本驱动因素：2027-01-20 之前的公告机构产能、德语 ProdSG 文档、CE/RED 认证、遥测与 GDPR 证明。</p>
+<p><b>德语区教育与人才：</b>约 133,900 个无法填补的 MINT 岗位，其中约 58 % 在技工层。资格认证居留延长至 24–36 个月（窗口扩大），Work-and-Stay 署停滞（瓶颈仍是组织性的），签证拒签数据被列为受限（风险变得无法量化）。对中国人才的接受意愿呈<b>两极分化</b>：企业界愿意并在本地化（627 家受访企业中 93 % 继续经营），教育体系却在退却（在华德国学生 −79 %；0.1 % 的学生学中文）。机会正落在这道裂缝中，也落在几乎空置的"德国→中国"反方向上。</p>
+<p><b>中欧动态：</b>两股潮流相向而行，却需要同一种能力。中国制造商在欧洲建立法律与产业实体（Estun 波兰工厂 2026 年 10 月投产；Inovance 的德国 GmbH；AgiBot 落子慕尼黑），而德国制造商在海外比在本土卖得更好。欧洲厂商已把认证转化为明确的对华销售论据；与此同时，一家欧洲公告机构却在欧洲消费展上公开为中国机器人发证——合规路径正在被制度化，而非被关闭。人才一侧的政治温度在悄然上升：科研签证拒签率被列为受限，"研究安全"已从安全议题走入高校行政。</p>
+<p><b>风险因素：</b>2027-01-20 前的公告机构产能（硬约束，无法压缩）· 德语区需求疲软（连续第二个下滑年意味着目标买方预算保守）· 竞争对手已先占合规论据 · 监管放松被误读为整体放松（AI 法案、CSDDD/LkSG）· 人才侧的政治摩擦抬高举证门槛 · 六项未决数据冲突带来的证据脆弱性。</p>
+
+<h2>7 · 综合建议</h2>
+<h3>本周（2026-W38，09-14 至 20）三项优先事项</h3>
+<ol>
+  <li><b>斯图加特 AMB，09-15 至 19——今天就决定是否有人前往。</b>这是整个报告期内唯一零成本、高产出且有时限的行动，周六即失效。以倾听者身份参展；与中型企业用户进行 3–5 次对话，了解他们对亚洲机器人的具体异议（备件？德语文档？责任？CE？），并<b>逐字</b>记录答复。这份异议清单对面向中国企业的接洽，价值高于任何市场研究，并可在 11 月的 ITMA Asia 直接复用。</li>
+  <li><b>EmpCo 倒计时——距 09-27 还有 13 天。</b>制作"四类被禁主张"的单页材料，对带有可持续性宣称的纤维/纺织供应商开展一次简短、有明确日期的接洽。措辞必须说明是通过品牌客户产生的<b>间接</b>影响；表述为直接义务既属事实错误，也会在第一次对话中崩塌。</li>
+  <li><b>报名维尔茨堡"研究安全"会议，09-28 至 29——免费。</b>两天时间面对的正是决定机构层面对华合作的人群。报名状态在任何合伙人产出中均无记录，须立即核实。</li>
+</ol>
+<h3>快速见效项</h3>
+<ul>
+  <li>在任何数字进入客户材料之前，先对照原始文献解决六项数据冲突——优先处理 MINT 数字与 CSDDD 转化日期，二者已出现在接洽方案中。</li>
+  <li>制作"双时间轴"单页（《机械条例》对比 Digital Omnibus 之后的 AI 法案），只传达一句话：<i>"这次延期与您的产品无关。"</i></li>
+  <li>记入日程：<b>2026-09-24</b>，IFR《世界机器人报告 2026》发布，是目前仅为中等可信度的需求侧数据的权威来源。</li>
+  <li>建立客户开发联系日志。目前即便出现线索，也没有任何可供记录的载体。</li>
+</ul>
+<h3>需清除的阻碍</h3>
+<ul>
+  <li><b>不存在获客管道</b>——八份研究产出，零接触。（Bruno）</li>
+  <li><b>合伙人节奏过密</b>——Hanna 与 Amy <i>各自独立</i>报告近日并无实质性新材料；Hanna 对自己此前的疑问给出"是的，两天一次太密"的回答，并在 09-14 补充限定：只有在视角不轮换时才算过密。（Bruno — 例行程序决策）</li>
+  <li><b>USP #3 在八份产出后仍无证据基础。</b>（Bruno — USP 决策）</li>
+  <li><b>"70 % 失败率"在现有证据中无出处。</b>（Bruno）</li>
+  <li><b>AMB 于 09-19 失效</b>，而参会决定尚无记录。（Bruno — 今天）</li>
+  <li><b>Amy 的战略问题已连续四次运行未果</b>——德语区<i>学校</i>究竟寻找何种文化画像，在公开渠道无法查得。Amy 自身判断：这是数据空白而非研究失误，因而是值得开展、并能成为 Fastmind 自有知识产权的一手调研选题。（Bruno — 立项决策）</li>
+  <li><b>Hanna 的战略问题在纺织一侧设定有误</b>——四次运行均未找到纤维认证案例，因为纺织监管针对的是<i>沟通</i>而非产品准入。Hanna 建议按领域重新表述。（Bruno — 例行程序复盘）</li>
+</ul>
+<h3>需要合伙人提供的输入</h3>
+<ul>
+  <li><b>Hanna：</b>此前标注为缺失的产品/服务说明仍未出现在任何产出中；以及本周是否参加 AMB 的决定。</li>
+  <li><b>Amy：</b>直接向中国教育网络核实下一个学校资助窗口（推测为 2027 年 4 月，未经证实）；以及是否参加维尔茨堡会议。</li>
+  <li><b>双方：</b>对第 5 节 USP 打磨方案的确认，尤其是 #1 的重新表述与 #3 的处置。</li>
+</ul>
+
+<h2>8 · 关键指标</h2>
+<div class="kpigrid">
+  <div class="kpi"><div class="n">13</div><div class="l">合伙人 A 信号</div></div>
+  <div class="kpi"><div class="n">21</div><div class="l">合伙人 B 信号</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">自我更正</div></div>
+  <div class="kpi"><div class="n">2</div><div class="l">连续四次未果项</div></div>
+</div>
+<p><b>客户开发：</b>新接触 0 · 会谈 0 · 热线索 0 · 具名潜在客户 0 · <b>不存在管道载体</b>。</p>
+<p><b>信号质量：</b>十个首要信号中 7 个为高可信度，3 个为中/中高。<b>八次运行中有 3 次</b>自述"近日无实质性新内容"。<b>两项未果发现</b>各自已连续四次运行。共发出<b>两次自我更正</b>。</p>
+<div class="note"><b>周度趋势：</b>不存在此前的<i>已验证</i>基线——W37 报告属手动测试运行，其自身缺陷日志记载并未读取合伙人文件。<b>因此 W37 是第一条可度量的基线</b>；自 W38 起的所有趋势值均应以本次运行为参照，并顾及上述窗口偏差。</div>
+<h3>未决数据冲突——在用于客户前须澄清</h3>
+<ul>
+  <li><b>MINT 缺口 133,900</b>（2026 年春季）对 <b>148,500</b>（2025 年秋季）——二者不可互换。<i>（Amy 09-09、09-13、09-14）</i></li>
+  <li><b>CSDDD/LkSG 转化日期 2027-07-26 对 2028-07-26</b>——合伙人 A 自身运行之间相互矛盾。<i>（Hanna 09-09 对 09-14）</i></li>
+  <li><b>ESPR 纺织授权法案：2026 年底 / 2027 年第二季度 / 2027 年底</b>——三次运行三个日期。<i>（Hanna）</i></li>
+  <li><b>2025 年人形机器人出货：约 13,000 台（中国占 87 %）对约 17,000 台（占 84.7 %）</b>——只使用份额表述，切勿使用绝对数。<i>（Hanna 09-13）</i></li>
+  <li><b>校际伙伴基金：已终止 / 仍在运行 / 已终止待核 / 下一窗口 2027 年 4 月（未证实）</b>——四次运行四种说法；一个原始网址返回 HTTP 404。<i>（Amy）</i></li>
+  <li><b>协作机器人需求：Interact −0.3 % 对《商报》中小企业兴趣上升</b>——其调和解释属于推断，而非查证结论。<i>（Hanna 09-13）</i></li>
+</ul>
+<h3>势头</h3>
+<ul>
+  <li>信号数量 <b class="ok">↑</b>——八次运行 34 条，两条通道均稳定产出。</li>
+  <li>信号<i>新鲜度</i> <b class="bd">↓</b>——八次中有三次无实质新内容；多个核心来源为 2026 年 1 月至 7 月。</li>
+  <li>分析深度 <b class="ok">↑</b>——两次自我更正与一个真正跨领域的模式：产出已开始生成洞见，而不只是收集。</li>
+  <li>客户获取 <b class="bd">→ 持续为零</b>——无接触、无管道、无载体。</li>
+  <li><b>总体 →</b>——研究引擎运转正常且在成熟。缺口在于转化：目前尚无任何东西从观察跨入获客。</li>
+</ul>
+
+</div><!-- /ZH -->
+
+<footer>
+  <p><b>Fastmind Weekly Summary — 2026-W37</b> · Generated 2026-09-14, scheduled task <code>fastmind-weekly-summary</code> · PCM-Home / 06_Domain_Fastmind / 90_Routinen_Output</p>
+  <p>Synthesised exclusively from 8 real partner outputs (Fastmind-Hanna-2026-09-09/11/13/14.md, Fastmind-Amy-2026-09-09/11/13/14.md). No synthesised or invented data. Every signal carries its source file.</p>
+  <p><small>Note on languages: the English version is the full record. The German and Chinese versions are complete briefings across all eight sections; the longest evidentiary passages are condensed. The Markdown file is the authoritative full-detail document.</small></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.langbtn');
+  function set(l){
+    document.body.className = l;
+    document.documentElement.lang = (l === 'zh') ? 'zh-CN' : l;
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+    window.scrollTo(0,0);
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.set); }); });
+})();
+</script>
+</body>
+</html>

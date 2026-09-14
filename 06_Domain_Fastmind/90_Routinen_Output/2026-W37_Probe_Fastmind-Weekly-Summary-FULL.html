@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="de" data-active-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fastmind Weekly Summary — W37/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-1:#04111f;
+    --navy-2:#0a1e36;
+    --navy-3:#102847;
+    --navy-4:#16365a;
+    --gold:#d3ad67;
+    --gold-2:#ebcd95;
+    --text:#eef4fc;
+    --muted:#abb9cc;
+    --line:rgba(255,255,255,.10);
+    --max:1280px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy-1);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6;
+  }
+  html[data-active-lang="zh"] body{
+    font-family:"Noto Sans SC",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  h1,h2,h3,.serif{ font-family:"DM Serif Display",serif; font-weight:500; }
+  html[data-active-lang="zh"] h1, html[data-active-lang="zh"] h2, html[data-active-lang="zh"] h3, html[data-active-lang="zh"] .serif{
+    font-family:"Noto Sans SC",serif; font-weight:700;
+  }
+  a{color:inherit;}
+
+  .i18n{display:none !important;}
+  html[data-active-lang="de"] .i18n.lang-de{display:block !important;}
+  html[data-active-lang="en"] .i18n.lang-en{display:block !important;}
+  html[data-active-lang="zh"] .i18n.lang-zh{display:block !important;}
+  html[data-active-lang="de"] span.i18n.lang-de{display:inline-block !important;}
+  html[data-active-lang="en"] span.i18n.lang-en{display:inline-block !important;}
+  html[data-active-lang="zh"] span.i18n.lang-zh{display:inline-block !important;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(4,17,31,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; }
+  .logo{ font-family:"DM Serif Display",serif; font-size:22px; letter-spacing:.02em; }
+  .logo b{ color:var(--gold); font-weight:400; }
+  .langsw{ display:flex; gap:6px; border:1px solid var(--line); border-radius:999px; padding:4px; }
+  .langsw button{
+    font-family:inherit; font-size:13px; font-weight:600; color:var(--muted);
+    background:transparent; border:none; padding:7px 14px; border-radius:999px; cursor:pointer;
+    transition:all .15s ease;
+  }
+  .langsw button.active{ background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:var(--navy-1); }
+
+  .hero{ padding:72px 0 48px; border-bottom:1px solid var(--line); }
+  .eyebrow{
+    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); border:1px solid rgba(211,173,103,.35); background:rgba(211,173,103,.08);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  h1{ font-size:44px; line-height:1.15; margin:0 0 20px; max-width:820px; }
+  html[data-active-lang="zh"] h1{ font-size:38px; }
+  .lede{ font-size:17px; color:var(--muted); max-width:760px; margin:0; }
+  .meta-info{ font-size:13px; color:var(--muted); margin-top:20px; }
+
+  .content{ padding:56px 0 80px; }
+  .section{ border-bottom:1px solid var(--line); padding-bottom:56px; margin-bottom:56px; }
+  .section:last-child{ border-bottom:none; }
+  .section h2{ font-size:30px; margin:0 0 24px; color:var(--gold); border-left:4px solid var(--gold); padding-left:16px; }
+  .section h3{ font-size:20px; margin:32px 0 16px; color:var(--text); }
+  .section > p, .section > ul { color:var(--muted); max-width:820px; }
+
+  .signal-box{
+    background:var(--navy-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px;
+    margin:18px 0;
+  }
+  .signal-box h4{ margin:0 0 12px; color:var(--gold); font-size:15px; font-weight:600; }
+  .signal-content{ color:var(--text); margin:12px 0; line-height:1.7; }
+  .signal-meta{ font-size:13px; color:var(--muted); font-style:italic; margin-top:12px; }
+  .signal-badge{ display:inline-block; background:rgba(211,173,103,.15); color:var(--gold); padding:4px 10px; border-radius:4px; font-size:12px; font-weight:600; margin-right:8px; margin-bottom:8px; }
+
+  table{ width:100%; border-collapse:collapse; margin:24px 0; font-size:13px; }
+  th, td{ padding:12px; text-align:left; border-bottom:1px solid var(--line); }
+  th{ background:rgba(211,173,103,.12); font-weight:600; color:var(--gold); }
+  tr:hover{ background:rgba(211,173,103,.04); }
+
+  .metric{ display:inline-block; background:rgba(211,173,103,.12); color:var(--gold); padding:6px 12px; border-radius:6px; margin-right:8px; margin-bottom:8px; font-size:13px; font-weight:600; }
+  .highlight{ background:rgba(211,173,103,.15); padding:2px 6px; border-radius:3px; color:var(--gold-2); }
+
+  .box-priority{ background:rgba(211,173,103,.08); border-left:3px solid var(--gold); padding:16px; margin:16px 0; border-radius:4px; }
+  .box-priority strong{ color:var(--gold); display:block; margin-bottom:8px; }
+
+  ul, ol{ margin:12px 0 24px; padding-left:24px; }
+  li{ margin-bottom:12px; }
+
+  footer{ border-top:1px solid var(--line); padding:36px 0 46px; }
+  footer .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  footer .fine{ font-size:13px; color:var(--muted); }
+  .mailbtn{
+    display:inline-block; font-weight:700; font-size:14px; padding:11px 22px; border-radius:999px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:var(--navy-1); text-decoration:none;
+  }
+
+  @media (max-width:860px){
+    h1{ font-size:32px; }
+    .section h2{ font-size:24px; }
+    table{ font-size:12px; }
+    th, td{ padding:8px; }
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">fastmind<b>.</b></div>
+    <div class="langsw" role="group" aria-label="Language switch">
+      <button type="button" data-lang="de" class="active">DE</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow i18n lang-de">Wochenbericht · KW 37/2026</span>
+    <span class="eyebrow i18n lang-en">Weekly Report · Week 37/2026</span>
+    <span class="eyebrow i18n lang-zh">周报 · 2026 年第 37 周</span>
+
+    <h1 class="i18n lang-de">Fastmind Wochenzusammenfassung</h1>
+    <h1 class="i18n lang-en">Fastmind Weekly Summary</h1>
+    <h1 class="i18n lang-zh">Fastmind 周报</h1>
+
+    <div class="meta-info i18n lang-de"><strong>Zeitraum:</strong> 2026-09-07 bis 2026-09-13 | <strong>Partner A (Hanna):</strong> 3 Signale | <strong>Partner B (Amy):</strong> 6 Signale</div>
+    <div class="meta-info i18n lang-en"><strong>Period:</strong> 2026-09-07 to 2026-09-13 | <strong>Partner A (Hanna):</strong> 3 signals | <strong>Partner B (Amy):</strong> 6 signals</div>
+    <div class="meta-info i18n lang-zh"><strong>期间：</strong>2026-09-07 至 2026-09-13 | <strong>Partner A (Hanna):</strong> 3 信号 | <strong>Partner B (Amy):</strong> 6 信号</div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+
+    <!-- Section 1: Executive Context -->
+    <div class="section">
+      <h2 class="i18n lang-de">1. Führungskontext</h2>
+      <h2 class="i18n lang-en">1. Executive Context</h2>
+      <h2 class="i18n lang-zh">1. 执行上下文</h2>
+
+      <div class="i18n lang-de">
+        <h3>Kernfinding</h3>
+        <p>Das DACH-Marktproblem ist NICHT Marktzugang, sondern <span class="highlight">Nachfrage-Segmentierung</span> (Robotik) und <span class="highlight">kulturelle Brückenbau-Lücken</span> (Bildung/Talent). Global wächst die Cobot-Nachfrage +17% jährlich, aber Deutschland zeigt −0,3% in 2026. China deckt 50%–67% des globalen Angebots bis 2030.</p>
+        <p><strong>Neu-Positionierung beider Partner:</strong> nicht „wir öffnen Türen" sondern „wir wissen, welche Segmente kaufen" (Robotik) und „wir brücken die Anerkennungs-Fenster" (Bildung).</p>
+      </div>
+
+      <div class="i18n lang-en">
+        <h3>Key Finding</h3>
+        <p>The DACH market problem is NOT market access but <span class="highlight">demand segmentation</span> (robotics) and <span class="highlight">cultural bridge-building gaps</span> (education/talent). Global cobot demand grows +17% annually, but Germany shows −0.3% in 2026. China covers 50%–67% of global supply by 2030.</p>
+        <p><strong>Repositioning both partners:</strong> not "we open doors" but "we know which segments buy" (robotics) and "we bridge recognition windows" (education).</p>
+      </div>
+
+      <div class="i18n lang-zh">
+        <h3>核心发现</h3>
+        <p>DACH 市场问题不是市场准入，而是<span class="highlight">需求细分</span>（机器人）和<span class="highlight">文化桥梁构建缺口</span>（教育/人才）。全球协作机器人需求以 +17% 年增长率增长，但德国在 2026 年显示 −0.3%。中国覆盖 2030 年前全球 50%–67% 的供应。</p>
+        <p><strong>重新定位两个合作伙伴：</strong>不是"我们打开门"而是"我们知道哪些细分市场会买"（机器人）和"我们架起认证桥梁"（教育）。</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Partner A Signals (All 3) -->
+    <div class="section">
+      <h2 class="i18n lang-de">2. Partner A Forschungssignale (Robotik & Tech-Compliance)</h2>
+      <h2 class="i18n lang-en">2. Partner A Research Signals (Robotics & Tech-Compliance)</h2>
+      <h2 class="i18n lang-zh">2. Partner A 研究信号（机器人技术与技术合规）</h2>
+
+      <div class="i18n lang-de">
+        <div class="signal-box">
+          <h4>Signal 1: DACH-Cobot-Nachfrage-Kollaps</h4>
+          <p class="signal-content">Globale Cobot-Sendungen: +17% CAGR (58.000 Einheiten 2025 → 120.000 bis 2030). Deutschland zeigt −0,3% in 2026, nur 3,7% Wachstum bis 2030. China gewinnt 50% → 67% globalen Anteil. Indien: +12,5%, Asien-Pazifik: +7,1%.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> DACH-Segmentierung ist der Engpass, nicht Marktzugang. Hanna muss „wir öffnen den Markt" zu „wir segmentieren welche DACH-Sektoren investieren" shiften.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 2: Compliance als Wettbewerbs-Waffe</h4>
+          <p class="signal-content"><strong>Franka Robotics CEO (INDUSTRIEMAGAZIN, 31.08.2026):</strong> „Wir erfüllen praktisch alle Standards und sind TÜV-zertifiziert. Nicht alle chinesischen Hersteller sind das." AgiBot (Counterpoint #1, 5.000 Einheiten bis Ende 2025) tritt Europa via München bei, erwähnt aber nur DSGWR, nicht CE oder Maschinenverordnung.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> Diese Lücke—Kommunikation oder Vorbereitung—ist die Verhandlungs-Öffnung für Hanna.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 3: Textil-Compliance Auslöser — 14 Tage bis Frist</h4>
+          <p class="signal-content"><span class="highlight">EmpCo (EU) 2024/825 wirksam 27.09.2026</span> (14 Tage vom Run-Datum). Generische Grün-Aussagen dann verboten. Keine Übergangsfrist; umfasst bestehende Bestände.</p>
+          <table>
+            <tr><th>Datum</th><th>Verordnung</th><th>Feld</th></tr>
+            <tr><td><strong>27.09.2026</strong></td><td><strong>EmpCo 2024/825</strong></td><td><strong>Textilien</strong></td></tr>
+            <tr><td>20.01.2027</td><td>Maschinenverordnung 2023/1230</td><td>Robotik</td></tr>
+            <tr><td>02.12.2027</td><td>KI-Verordnung</td><td>Robotik</td></tr>
+          </table>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch (EUR-Lex)</span> 14-Tage-Outreach-Fenster für Textil-/Faser-Lieferanten.</p>
+        </div>
+      </div>
+
+      <div class="i18n lang-en">
+        <div class="signal-box">
+          <h4>Signal 1: DACH Cobot Demand Collapse</h4>
+          <p class="signal-content">Global cobot shipments: +17% CAGR (58,000 units 2025 → 120,000 by 2030). Germany shows −0.3% in 2026, only 3.7% growth through 2030. China gains 50% → 67% global share. India: +12.5%, APAC: +7.1%.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> DACH segmentation is the bottleneck, not market access. Hanna must shift from "we open the market" to "we segment which DACH sectors invest."</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 2: Compliance as Competitive Weapon</h4>
+          <p class="signal-content"><strong>Franka Robotics CEO (INDUSTRIEMAGAZIN, 31.08.2026):</strong> "We practically meet all standards and are TÜV-certified. Not all Chinese manufacturers are." AgiBot (Counterpoint #1, 5,000 units by end-2025) enters Europe via Munich, mentions only GDPR, not CE or Machinery Regulation.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> This gap—communication or preparation—is Hanna's negotiation opening.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 3: Textile Compliance Trigger — 14 Days to Deadline</h4>
+          <p class="signal-content"><span class="highlight">EmpCo (EU) 2024/825 effective 27.09.2026</span> (14 days from run date). Generic green claims banned. No transition period; covers existing inventory.</p>
+          <table>
+            <tr><th>Date</th><th>Regulation</th><th>Field</th></tr>
+            <tr><td><strong>27.09.2026</strong></td><td><strong>EmpCo 2024/825</strong></td><td><strong>Textiles</strong></td></tr>
+            <tr><td>20.01.2027</td><td>Machinery Regulation 2023/1230</td><td>Robotics</td></tr>
+            <tr><td>02.12.2027</td><td>AI Act</td><td>Robotics</td></tr>
+          </table>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High (EUR-Lex)</span> 14-day outreach window for textile/fiber suppliers.</p>
+        </div>
+      </div>
+
+      <div class="i18n lang-zh">
+        <div class="signal-box">
+          <h4>信号 1：DACH 协作机器人需求崩溃</h4>
+          <p class="signal-content">全球协作机器人出货量：+17% 年增长率（2025 年 58,000 台 → 2030 年 120,000 台）。德国在 2026 年显示 −0.3%，2030 年前仅 3.7% 增长。中国获得 50% → 67% 全球份额。</p>
+          <p class="signal-meta"><span class="signal-badge">置信度：高</span> DACH 细分是瓶颈，不是市场准入。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 2：合规作为竞争武器</h4>
+          <p class="signal-content"><strong>Franka Robotics CEO (INDUSTRIEMAGAZIN, 31.08.2026)：</strong>"我们满足所有标准且获得 TÜV 认证。并非所有中国制造商都这样做。"AgiBot（排名第一，5,000 台）通过慕尼黑进入欧洲，仅提及 GDPR。</p>
+          <p class="signal-meta"><span class="signal-badge">置信度：高</span> 这一缺口是谈判突破口。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 3：纺织合规触发器 — 距离截止日期 14 天</h4>
+          <p class="signal-content"><span class="highlight">EmpCo (EU) 2024/825 自 2026 年 9 月 27 日起生效</span>。通用绿色声明被禁止。无过渡期。</p>
+          <table>
+            <tr><th>日期</th><th>法规</th><th>领域</th></tr>
+            <tr><td><strong>2026-09-27</strong></td><td><strong>EmpCo 2024/825</strong></td><td><strong>纺织品</strong></td></tr>
+            <tr><td>2027-01-20</td><td>机械指令 2023/1230</td><td>机器人</td></tr>
+            <tr><td>2027-12-02</td><td>AI 法案</td><td>机器人</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Partner B Signals (All 6) -->
+    <div class="section">
+      <h2 class="i18n lang-de">3. Partner B Forschungssignale (Bildung & Kultur)</h2>
+      <h2 class="i18n lang-en">3. Partner B Research Signals (Education & Culture)</h2>
+      <h2 class="i18n lang-zh">3. Partner B 研究信号（教育与文化）</h2>
+
+      <div class="i18n lang-de">
+        <div class="signal-box">
+          <h4>Signal 1: MINT-Lücke sitzt in Berufsausbildung, nicht Akademia</h4>
+          <p class="signal-content">133.900 unbesetzte MINT-Stellen: 77.400 Facharbeiter-Stellen (58%), 44.200 Akademiker (33%), 12.300 Spezialisten (9%). Jährlicher Ersatzbedarf (5 Jahre): 295.000 Facharbeiter/Jahr.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> Standard-Pitch zielt auf das kleinere Segment. Repositionierung zu Facharbeiter-Korridor.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 2: Work-and-Stay Agency — Ein Jahr, kein Startdatum</h4>
+          <p class="signal-content">Staatlicher Immigrations-Kanal angekündigt (11/2025), immer noch keine operationale Zeitleiste (09/2026). <strong>Normenkontrollrat warnt: wahrscheinlich nur IT-Plattform; bürokratische Komplexität bleibt.</strong> Eine Fachkräfte-Visum-Bewerbung berührt <strong>mindestens 7 Regierungsbehörden</strong>.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> Amy als „Navigation durch 7 Behörden" positionieren, nicht als Platzierungs-Service.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 3: Pflegekorridor — Duales Trainingsmodell läuft bereits</h4>
+          <p class="signal-content">Oberfranken: bis zu 100 chinesische Pflegestudenten jährlich. <strong>Bilinguales theoretisches Training in China</strong>, dann <strong>Praktikum + Anerkennungsphase in Deutschland</strong> (Eggolsheim). Anerkennungs-Zeugnisse gültig <strong>bis zu 24 Monate</strong> (in einigen Fällen 36 Monate).</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Mittel</span> Das Dual-Gateway-Modell existiert bereits. Das 24-Monats-Fenster schafft Zeit für Amys Kulturintegrations-Arbeit.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 4: Deutschland produziert 0,1% China-kompetente Profis</h4>
+          <p class="signal-content">119 deutsche Schulen unterrichten Mandarin (2023), ~5.000 Schüler national = <span class="highlight">0,1% aller Schüler</span>. Vergleich: Frankreich 46.000 Lerner.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> Strukturelle Legitimation für Amys Geschäftsmodell. Use „0,1% vs. 46.000" als Öffnungs-Folie.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 5: Duale-Ausbildungs-Kooperation kehrt die Richtung um</h4>
+          <p class="signal-content">Handwerkskammer Oldenburg & Changshu (80 km Shanghai): <strong>10 Jahre Kooperation</strong> (Mai 2026). Altes Modell: Deutsche Ausbilder → China. <span class="highlight"><strong>Neues Modell (2026+): Chinesische Facharbeiter → Deutschland</strong></span> für Praktikum & Orientierung. GOVET erweitert China-Kompetenz zu dualer Ausbildung (2026).</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> HWK und Kammern sind vorsortierte Einstiegspunkte. Sie haben die China-Beziehung, brauchen aber Kulturintegrations-Partner.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 6: Förderlandschaft — Zwei kritische Fenster</h4>
+          <p class="signal-content">1. Schulpartnerschaftsfonds Deutschland-China: Status unklar. 2. „Einsteigerprojekte China"-Förderlinie: Bewerbungs-Fenster 15.04.–31.05.2026 (abgelaufen). Ziel: Schulen mit Frühjahrs-2026-Förderung haben Budget + Zeitleisten-Druck.</p>
+          <p class="signal-meta"><span class="signal-badge">Konfidenz: Hoch</span> Nicht auf Förder-Zugang pitchen — geförderte Schulen als Tier-1 Ziele identifizieren.</p>
+        </div>
+      </div>
+
+      <div class="i18n lang-en">
+        <div class="signal-box">
+          <h4>Signal 1: MINT Gap Sits in Dual Vocational Training</h4>
+          <p class="signal-content">133,900 unfilled MINT positions: 77,400 skilled worker positions (58%), 44,200 academics (33%), 12,300 specialists (9%). Annual replacement need (5 years): 295,000 skilled workers/year.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> Standard pitch targets smaller segment. Reposition to skilled-worker corridor.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 2: Work-and-Stay Agency — One Year, No Startup Date</h4>
+          <p class="signal-content">State immigration channel announced (11/2025), still no operational timeline (09/2026). <strong>NKR warns: likely just IT platform; bureaucratic complexity remains.</strong> One skilled-worker visa touches <strong>at least 7 government agencies</strong>.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> Position Amy as "navigation through 7 agencies," not placement service.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 3: Nursing Corridor — Dual-Training Model Already Running</h4>
+          <p class="signal-content">Upper Franconia: up to 100 Chinese nursing students annually. <strong>Bilingual theoretical training in China</strong>, then <strong>practicum + credential recognition in Germany</strong> (Eggolsheim). Recognition credentials valid <strong>up to 24 months</strong> (some cases 36 months).</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: Medium</span> Dual-Gateway model exists operationally. 24-month window creates time for Amy's integration work.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 4: Germany Produces 0.1% China-Competent Professionals</h4>
+          <p class="signal-content">119 German schools teach Mandarin (2023), ~5,000 students nationally = <span class="highlight">0.1% of all students</span>. Compare: France 46,000 learners.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> Structural justification for Amy's entire business model. Use "0.1% vs. 46,000" as opening slide.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 5: Dual-Training Cooperation Reverses</h4>
+          <p class="signal-content">HWK Oldenburg & Changshu (80 km Shanghai): <strong>10 years cooperation</strong> (May 2026). Old model: German trainers → China. <span class="highlight"><strong>New model (2026+): Chinese skilled workers → Germany</strong></span> for practicum & orientation. GOVET broadens China-competence to vocational training (2026).</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> HWK and chambers are pre-sorted entry points. They have China relationship but lack cultural integration partner.</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>Signal 6: Grant Landscape — Two Critical Windows</h4>
+          <p class="signal-content">1. Schulpartnerschaftsfonds Deutschland-China: status unclear. 2. "Einsteigerprojekte China" grant line: application window 15.04.–31.05.2026 (closed). Target: schools with spring-2026 funding have budget + timeline pressure.</p>
+          <p class="signal-meta"><span class="signal-badge">Confidence: High</span> Don't pitch on grant access — identify grant-funded schools as Tier-1 targets.</p>
+        </div>
+      </div>
+
+      <div class="i18n lang-zh">
+        <div class="signal-box">
+          <h4>信号 1：MINT 缺口出现在职业培训中</h4>
+          <p class="signal-content">133,900 个未招满的 MINT 职位：77,400 个技能工人职位（58%）、44,200 个学术职位（33%）。年替代需求（5 年）：295,000 名技能工人。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 2：Work-and-Stay 机构 — 一年，无启动日期</h4>
+          <p class="signal-content">国家移民渠道已宣布（11/2025），仍无运营时间表（09/2026）。一份工作签证申请涉及<strong>至少 7 个政府机构</strong>。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 3：护理走廊 — 双元制培训模式运行中</h4>
+          <p class="signal-content">上法兰克尼亚：每年多达 100 名中国护理学生。<span class="highlight"><strong>在中国进行双语理论培训，然后在德国进行实习 + 认证（Eggolsheim）</strong></span>。认证凭证有效期<strong>最长 24 个月</strong>。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 4：德国生产 0.1% 中国竞争力专业人士</h4>
+          <p class="signal-content">119 所德国学校教授普通话（2023 年），全国约 5,000 名学生 = <span class="highlight">所有学生的 0.1%</span>。法国：46,000 名学习者。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 5：双元制培训合作反向</h4>
+          <p class="signal-content">Handwerkskammer Oldenburg & Changshu（上海外 80 公里）：<strong>10 年合作</strong>（2026 年 5 月）。旧模式：德国培训师 → 中国。<span class="highlight"><strong>新模式（2026 年+）：中国技能工人 → 德国</strong></span>进行实习和适应。</p>
+        </div>
+
+        <div class="signal-box">
+          <h4>信号 6：补助金景观 — 两个关键窗口</h4>
+          <p class="signal-content">1. Schulpartnerschaftsfonds Deutschland-China：状态不清。2. "Einsteigerprojekte China"：申请窗口 2026-04-15 至 2026-05-31（已关闭）。目标：2026 年春季获资金的学校。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4-8: Abbreviated (already in HTML, but need expansion) -->
+    <div class="section">
+      <h2 class="i18n lang-de">4. Kundensuche-Fortschritt & 5. USP-Validierung</h2>
+      <h2 class="i18n lang-en">4. Customer Search Progress & 5. USP Validation</h2>
+      <h2 class="i18n lang-zh">4. 客户搜索进度与 5. USP 验证</h2>
+
+      <div class="i18n lang-de">
+        <h3>Robotik-Segment (Hanna)</h3>
+        <p><strong>Ziel-Profile:</strong> DACH KMU 50–1000 MA in Robotik. <strong>Warm Leads:</strong> 3 Kundenansatz-Hypothesen, 1 regulatorisches Fenster (27.09, 20.01), 2 Fallstudien. <strong>Blocker:</strong> Hannas scharfe Produkt-Framing, IFR Report (fällig 24.09).</p>
+
+        <h3>Bildungs-Segment (Amy)</h3>
+        <p><strong>Ziel-Profile:</strong> DACH Schulen mit China-Ambition (esp. Frühjahrs-2026-Förderung). <strong>Warm Leads:</strong> 6 Kundenansatz-Hypothesen, 1 struktureller Befund (0,1%), 3 konkrete Segmente. <strong>Blocker:</strong> Amys Integrations-Definition, Kulturelles Profil Audit.</p>
+
+        <h3>USP-Validierung</h3>
+        <p><strong>5 aktuelle USPs (ab 2026-08-29):</strong> (1) Dual-Gateway Access, (2) Compliance-Kostenreduktion, (3) Halbleiter-Sourcing, (4) Bilinguales Regulatorisches Training, (5) Kultureller Schutzschild.</p>
+        <p><strong>Diese Woche: Signale verstärken #1, #2, #4, #5 – aber #3 & Marktsegmentierung noch unklar. Hanna: Positionierungs-Klarheit 2/5. Amy: 3/5.</strong></p>
+      </div>
+
+      <div class="i18n lang-en">
+        <h3>Robotics Segment (Hanna)</h3>
+        <p><strong>Target Profiles:</strong> DACH SMEs 50–1000 employees in robotics. <strong>Warm Leads:</strong> 3 customer-approach hypotheses, 1 regulatory window (27.09, 20.01), 2 case studies. <strong>Blockers:</strong> Hanna's product framing, IFR Report (due 24.09).</p>
+
+        <h3>Education Segment (Amy)</h3>
+        <p><strong>Target Profiles:</strong> DACH schools with China ambition (esp. spring-2026 funded). <strong>Warm Leads:</strong> 6 customer-approach hypotheses, 1 structural finding (0.1%), 3 concrete segments. <strong>Blockers:</strong> Amy's integration definition, cultural profile audit.</p>
+
+        <h3>USP Validation</h3>
+        <p><strong>5 current USPs (as of 2026-08-29):</strong> (1) Dual-Gateway Access, (2) Compliance Cost Reduction, (3) Semiconductor Sourcing, (4) Bilingual Regulatory Training, (5) Cultural Shield.</p>
+        <p><strong>This week: signals reinforce #1, #2, #4, #5 – but #3 & market segmentation unclear. Hanna: positioning clarity 2/5. Amy: 3/5.</strong></p>
+      </div>
+
+      <div class="i18n lang-zh">
+        <h3>机器人技术细分市场（Hanna）</h3>
+        <p><strong>目标概况：</strong> DACH 中小企业 50–1000 名员工。<strong>温线索：</strong>3 个客户方法假设，1 个监管窗口，2 个案例研究。<strong>阻碍：</strong> Hanna 的产品定位。</p>
+
+        <h3>教育细分市场（Amy）</h3>
+        <p><strong>目标概况：</strong>具有中国志向的 DACH 学校。<strong>温线索：</strong>6 个客户方法假设，1 个结构性发现（0.1%），3 个具体细分市场。</p>
+      </div>
+    </div>
+
+    <!-- Section 6: Market Opportunity Assessment -->
+    <div class="section">
+      <h2 class="i18n lang-de">6. Markt-Opportunity Assessment</h2>
+      <h2 class="i18n lang-en">6. Market Opportunity Assessment</h2>
+      <h2 class="i18n lang-zh">6. 市场机遇评估</h2>
+
+      <div class="i18n lang-de">
+        <h3>DACH Robotik-Markt</h3>
+        <p><strong>Sizing:</strong> Deutschland: 27.000 Neuinstallationen (2024, −5% JoJ). Eigenproduktion: 31.200 Einheiten (−10%). Dichte: 449 pro 10.000 Arbeitnehmer (Rang 3 global). Global: 58.000 Cobots 2025 → 120.000 bis 2030 (+17% CAGR). Deutschlands Anteil: −0,3% in 2026; 3,7% jährlich bis 2030.</p>
+        <p><strong>Wachstums-Treiber:</strong> Fachkräftemangel, Supply-Chain Reshoring (Medtech, Halbleiter).</p>
+        <p><strong>Kopfwindet:</strong> Schwache Konjunktur, Mittelstand-Skepsis, China gewinnt 50%+ (Nachfrage-Problem, nicht Zugangs-Problem).</p>
+
+        <h3>DACH Bildungs- & Talentmarkt</h3>
+        <p><strong>MINT-Knappheit:</strong> 133.900 unbesetzte Stellen, 77.400 in dualer Berufsausbildung. Jährlicher Ersatzbedarf (5 Jahre): 295.000 Facharbeiter/Jahr.</p>
+        <p><strong>Sino-europäische Dynamiken:</strong> Deutsche China-Kompetenz-Produktion: 0,1% der Schüler (5.000 national). Frankreich: 46.000 Lerner (struktureller Vorteil).</p>
+
+        <h3>Risiko-Faktoren</h3>
+        <table>
+          <tr><th>Risiko</th><th>Fastmind-Belastung</th><th>Mitigation</th></tr>
+          <tr><td><strong>Tariff/Handels-Eskalation</strong></td><td>China-Element in Robotik & Bildung</td><td>Monitor EU-China Handel; Compliance + lokale Optionen</td></tr>
+          <tr><td><strong>Regulatorische Reibung</strong></td><td>Robotik-Roadmap hängt von Fristen ab</td><td>Lead mit 20.01.2027 (bekannt), nicht 2027-2028 KI-Verordnung</td></tr>
+          <tr><td><strong>Wettbewerbs-Moves</strong></td><td>Franka/AgiBot Messaging</td><td>Position auf Segmentierung + Integration, nicht generischer Zugang</td></tr>
+          <tr><td><strong>Makro-Schwäche</strong></td><td>DACH Investitions-Zögern</td><td>Fokus auf Segmente mit bewiesener Investition (Medtech, Halbleiter, Pflege)</td></tr>
+        </table>
+      </div>
+
+      <div class="i18n lang-en">
+        <h3>DACH Robotics Market</h3>
+        <p><strong>Sizing:</strong> Germany: 27,000 new installations (2024, −5% YoY). Domestic production: 31,200 units (−10%). Density: 449 per 10,000 employees (Rank 3 global). Global: 58,000 cobots 2025 → 120,000 by 2030 (+17% CAGR). Germany's share: −0.3% in 2026; 3.7% annual growth through 2030.</p>
+        <p><strong>Growth Drivers:</strong> Labor shortage, supply-chain reshoring (medtech, semiconductors).</p>
+        <p><strong>Headwinds:</strong> Weak macro, Mittelstand skepticism, China gaining 50%+ (demand problem, not access problem).</p>
+
+        <h3>DACH Education & Talent Market</h3>
+        <p><strong>MINT Shortage:</strong> 133,900 unfilled positions, 77,400 in dual vocational training. Annual replacement need (5 years): 295,000 skilled workers/year.</p>
+        <p><strong>Sino-European Dynamics:</strong> German China-competence production: 0.1% of students (5,000 nationally). France: 46,000 learners (structural advantage).</p>
+
+        <h3>Risk Factors</h3>
+        <table>
+          <tr><th>Risk</th><th>Fastmind Exposure</th><th>Mitigation</th></tr>
+          <tr><td><strong>Tariff/Trade Escalation</strong></td><td>China element in robotics & education</td><td>Monitor EU-China relations; compliance + local optionality</td></tr>
+          <tr><td><strong>Regulatory Friction</strong></td><td>Robotics depends on timeline</td><td>Lead with 20.01.2027 (known), not 2027–2028 AI Act</td></tr>
+          <tr><td><strong>Competitor Moves</strong></td><td>Franka/AgiBot messaging</td><td>Position on segmentation + integration, not generic access</td></tr>
+          <tr><td><strong>Macro Weakness</strong></td><td>DACH investment hesitation</td><td>Focus on proven segments (medtech, semiconductors, nursing)</td></tr>
+        </table>
+      </div>
+
+      <div class="i18n lang-zh">
+        <h3>DACH 机器人技术市场</h3>
+        <p><strong>规模：</strong>德国：27,000 个新装置（2024 年，−5% 同比）。国内生产：31,200 台（−10%）。密度：每 10,000 名员工 449 台（全球排名第 3）。</p>
+
+        <h3>DACH 教育与人才市场</h3>
+        <p><strong>MINT 短缺：</strong>133,900 个未招满职位，77,400 个在双元制职业培训中。年度替代需求（5 年）：295,000 名技能工人/年。</p>
+
+        <h3>风险因素</h3>
+        <table>
+          <tr><th>风险</th><th>Fastmind 暴露</th><th>缓解</th></tr>
+          <tr><td><strong>关税/贸易升级</strong></td><td>中国因素</td><td>监控欧中贸易；合规 + 本地选择</td></tr>
+          <tr><td><strong>监管摩擦</strong></td><td>机器人依赖时间表</td><td>领先 20.01.2027</td></tr>
+          <tr><td><strong>竞争对手行动</strong></td><td>Franka/AgiBot 信息</td><td>细分 + 整合定位</td></tr>
+          <tr><td><strong>宏观经济弱势</strong></td><td>DACH 投资犹豫</td><td>关注已验证的部门</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 7: Consolidated Recommendations -->
+    <div class="section">
+      <h2 class="i18n lang-de">7. Konsolidierte Empfehlungen</h2>
+      <h2 class="i18n lang-en">7. Consolidated Recommendations</h2>
+      <h2 class="i18n lang-zh">7. 整合建议</h2>
+
+      <div class="i18n lang-de">
+        <h3>Top 3 Prioritäten nächste Woche</h3>
+        <div class="box-priority">
+          <strong>Priorität 1: DACH-Segmentierung validieren (Robotik)</strong>
+          Hanna sollte 3–5 DACH-Sektoren außer Automotive mit bewiesener Robotik-Investition identifizieren. Positionierung zu „wir segmentieren welche Teile kaufen" shiften.
+        </div>
+        <div class="box-priority">
+          <strong>Priorität 2: Frühjahrs-2026 Förder-Empfänger identifizieren (Bildung)</strong>
+          Amy sollte Schulen mit „Einsteigerprojekte China"-Förderung abbilden. Direktes Outreach zu 5–10 Schulen diese Woche.
+        </div>
+        <div class="box-priority">
+          <strong>Priorität 3: Regulatorisches Messaging vorbereiten (Beide)</strong>
+          EmpCo 27.09 + Maschinenverordnung 20.01 in 1-Pager Kunden-Outreach. Regulatorische Fristen sind glaubwürdige Hooks.
+        </div>
+
+        <h3>Quick Wins</h3>
+        <ul>
+          <li><strong>Franka Quote Outreach (Hanna, Robotik):</strong> Franka's CE-Compliance-Aussage direkt im nächsten Kunden-Anruf nutzen.</li>
+          <li><strong>HWK Oldenburg Follow-Up (Amy, Bildung):</strong> Kammer direkt kontaktieren—sie haben China-Erfahrung und sichtbare Integrations-Notwendigkeit.</li>
+          <li><strong>EmpCo 2-Wochen-Fenster (Hanna, Textilien):</strong> 3 Textil-/Faser-Lieferanten mit Nachhaltigkeits-Aussagen identifizieren; 14-Tage-Outreach vor 27.09.</li>
+        </ul>
+
+        <h3>Blocker zum Entfernen</h3>
+        <ul>
+          <li><strong>Hannas Produkt-Framing:</strong> Muss von „Zugang" zu „Segmentierung" shiften. Strategie-Session: welche DACH-Sektoren investieren, und was ist die Eintritts-Bedingung?</li>
+          <li><strong>Amys Integrations-Definition:</strong> Konkretes Betriebs-Handbuch für 24-Monats-Anerkennungs-Phase (was sieht Kulturunterstützung Tag-zu-Tag aus?).</li>
+          <li><strong>Partner USP Sign-off:</strong> Beide sollten ihre Messaging gegen diese Woche's Signale validieren vor nächstem Kunden-Outreach.</li>
+        </ul>
+
+        <h3>Partner Input erforderlich</h3>
+        <ul>
+          <li><strong>Hanna:</strong> Welche DACH-Sektoren außer Automotive sollten Tier-1 Ziele sein? (Medtech? Halbleiter? Präzisions-Fertigung?)</li>
+          <li><strong>Amy:</strong> Welche spezifische „Integrations-Unterstützungs"-Angebot während 24-Monats-Phase? (Curriculum Design? Familien-Unterstützung? On-the-Job Mentoring?)</li>
+          <li><strong>Beide:</strong> Übereinstimmung auf regulatorisches Messaging (lead mit 27.09/20.01 oder komplementäre Story?).</li>
+        </ul>
+      </div>
+
+      <div class="i18n lang-en">
+        <h3>Top 3 Priorities Next Week</h3>
+        <div class="box-priority">
+          <strong>Priority 1: Validate DACH Segmentation (Robotics)</strong>
+          Hanna should identify 3–5 DACH sectors outside automotive with proven robotics investment. Shift positioning to "we segment which parts buy."
+        </div>
+        <div class="box-priority">
+          <strong>Priority 2: Identify Spring-2026 Grant Recipients (Education)</strong>
+          Amy should map schools with "Einsteigerprojekte China" funding. Direct outreach to 5–10 schools this week.
+        </div>
+        <div class="box-priority">
+          <strong>Priority 3: Prepare Regulatory Messaging (Both)</strong>
+          Package EmpCo 27.09 + Machinery Regulation 20.01 into 1-pager customer outreach. Regulatory deadlines are credible hooks.
+        </div>
+
+        <h3>Quick Wins</h3>
+        <ul>
+          <li><strong>Franka Quote Outreach (Hanna, robotics):</strong> Use Franka's CE-compliance claim directly in next customer call.</li>
+          <li><strong>HWK Oldenburg Follow-Up (Amy, education):</strong> Contact the chamber directly—they have China experience and visible need.</li>
+          <li><strong>EmpCo 2-Week Window (Hanna, textiles):</strong> Identify 3 textile/fiber suppliers with sustainability claims; 14-day outreach before 27.09.</li>
+        </ul>
+
+        <h3>Blockers to Remove</h3>
+        <ul>
+          <li><strong>Hanna's product framing:</strong> Shift from "access" to "segmentation." Strategy session: which DACH sectors invest, what's the entry condition?</li>
+          <li><strong>Amy's integration definition:</strong> Concrete operating manual for 24-month credential-recognition window.</li>
+          <li><strong>Partners' USP sign-off:</strong> Both validate messaging against this week's signals before next customer outreach.</li>
+        </ul>
+
+        <h3>Partners' Required Input</h3>
+        <ul>
+          <li><strong>Hanna:</strong> Which DACH sectors outside automotive Tier-1 targets? (Medtech? Semiconductors? Precision manufacturing?)</li>
+          <li><strong>Amy:</strong> Specific "integration support" offering during 24-month credential phase? (Curriculum design? Family support? On-the-job mentoring?)</li>
+          <li><strong>Both:</strong> Agree on regulatory messaging approach (lead with 27.09/20.01 timelines or complementary story?).</li>
+        </ul>
+      </div>
+
+      <div class="i18n lang-zh">
+        <h3>下周前三大优先事项</h3>
+        <div class="box-priority">
+          <strong>优先事项 1：验证 DACH 细分（机器人技术）</strong>
+          Hanna 应识别 3–5 个具有证明的机器人投资的汽车以外的 DACH 部门。
+        </div>
+        <div class="box-priority">
+          <strong>优先事项 2：识别 2026 年春季补助金接收者（教育）</strong>
+          Amy 应绘制获得"Einsteigerprojekte China"资金的学校。本周直接联系 5–10 所学校。
+        </div>
+        <div class="box-priority">
+          <strong>优先事项 3：准备监管信息（双方）</strong>
+          将 EmpCo 27.09 + 机械指令 20.01 打包为 1 页客户外展文件。
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 8: Metrics & KPIs -->
+    <div class="section">
+      <h2 class="i18n lang-de">8. Metriken & KPIs (Tracking)</h2>
+      <h2 class="i18n lang-en">8. Metrics & KPIs (Tracking)</h2>
+      <h2 class="i18n lang-zh">8. 指标与 KPI（跟踪）</h2>
+
+      <div class="i18n lang-de">
+        <h3>Kundensuche-Metriken</h3>
+        <p><strong>Robotik-Segment (Partner A):</strong> Kontakte identifiziert diese Woche: 3 Kundenansatz-Hypothesen (Segmente, noch nicht Outreach). Warm-Lead Indikatoren: 1 regulatorisches Fenster + 2 Wettbewerbs-Fallstudien. Pipeline Stage: Pre-Outreach.</p>
+        <p><strong>Bildungs-Segment (Partner B):</strong> Kontakte identifiziert diese Woche: 6 Kundenansatz-Hypothesen + 1 konkretes Segment (geförderte Schulen). Warm-Lead Indikatoren: Eggolsheim Referenz + HWK Oldenburg Modell. Pipeline Stage: Warm-Outreach ready.</p>
+
+        <h3>Signal-Qualitäts-Metriken</h3>
+        <p><strong>Hoch-Konfidenz Signale (Primäre Quelle):</strong> EmpCo 27.09 Frist, Maschinenverordnung 20.01.2027, Work-and-Stay Agency Status, MINT-Lücken-Aufschlüsselung.</p>
+        <p><strong>Mittel-Konfidenz Signale:</strong> Eggolsheim Pflegekorridor, Cobot-Nachfrage-Daten (IFR Report fällig 24.09).</p>
+        <p><strong>Hypothese-Ebene:</strong> DACH-Segmentierung (Robotik) — noch nicht im Kunden-Gespräch getestet. 24-Monats-Anerkennungs-Fenster (Bildung) — identifiziert aber nicht validiert.</p>
+
+        <h3>USP-Klarheit</h3>
+        <p><strong>Partner Feedback Score (1–5 Skala):</strong> Hanna: Positionierungs-Klarheit = 2/5 (Zugang → Segmentierung Shift needed). Amy: Positionierungs-Klarheit = 3/5 (Integrations-Angebot braucht Definition). <strong>Beide brauchen 1-Wochen-Strategie-Session.</strong></p>
+
+        <h3>Woche-über-Woche Momentum</h3>
+        <p><span class="metric">↑ Aufwärts</span> – Zwei neue regulatorische Fristen discovered. Konkrete Kundensegmente identifiziert (geförderte Schulen, Kammern, Medtech). Duales Trainings-Modell teilweise validiert (Eggolsheim, Pflegekorridor). Segmentierungs-Imperativ geklärt.</p>
+        <p><strong>Vorsicht:</strong> Momentum sitzt in Forschungs-/Positionierungs-Klarheit, noch nicht in Kunden-Pipeline-Aktivität. Nächste Woche's Kunden-Outreach wird der wahre Test.</p>
+      </div>
+
+      <div class="i18n lang-en">
+        <h3>Customer Search Metrics</h3>
+        <p><strong>Robotics Segment (Partner A):</strong> Contacts identified this week: 3 customer-approach hypotheses (segments, not yet direct outreach). Warm lead indicators: 1 regulatory window + 2 competitive case studies. Pipeline stage: Pre-outreach (segmentation framing in progress).</p>
+        <p><strong>Education Segment (Partner B):</strong> Contacts identified this week: 6 customer-approach hypotheses + 1 concrete segment (funded schools). Warm lead indicators: Eggolsheim reference + HWK Oldenburg model. Pipeline stage: Warm outreach ready (identified grant recipients, chamber connections).</p>
+
+        <h3>Signal Quality Metrics</h3>
+        <p><strong>High-Confidence Signals (Primary Source):</strong> EmpCo 27.09 deadline, Machinery Regulation 20.01.2027, Work-and-Stay Agency status, MINT gap breakdown.</p>
+        <p><strong>Medium-Confidence Signals (Need Primary Verification):</strong> Eggolsheim nursing corridor, Cobot demand data (IFR report due 24.09).</p>
+        <p><strong>Hypothesis-Level (Awaiting Market Validation):</strong> DACH segment segmentation (robotics) — not yet tested in customer conversation. 24-month credential-recognition window (education) — identified but not validated with decision-makers.</p>
+
+        <h3>USP Clarity</h3>
+        <p><strong>Partner Feedback Score (1–5 scale):</strong> Hanna: positioning clarity = 2/5 (access → segmentation shift needed). Amy: positioning clarity = 3/5 (integration offering needs definition). <strong>Both need 1-week strategy session before next customer engagement.</strong></p>
+
+        <h3>Week-over-Week Momentum</h3>
+        <p><span class="metric">↑ Up</span> – Two new regulatory deadlines discovered (EmpCo, Machinery Regulation). Concrete customer segments identified (funded schools, chambers, medtech). Dual-training model partially validated (Eggolsheim, nursing corridor). Segmentation imperative clarified (DACH demand ≠ market access).</p>
+        <p><strong>Caution:</strong> Momentum is in research/positioning clarity, not yet in customer pipeline activity. Next week's customer outreach will be the true test.</p>
+      </div>
+
+      <div class="i18n lang-zh">
+        <h3>客户搜索指标</h3>
+        <p><strong>机器人技术细分（Partner A）：</strong>本周识别的联系：3 个客户方法假设。温线索：1 个监管窗口 + 2 个竞争案例研究。管道：前期外展。</p>
+
+        <h3>信号质量指标</h3>
+        <p><strong>高可信信号（主要来源）：</strong> EmpCo 27.09 截止日期、机械指令 20.01.2027、Work-and-Stay 机构状态、MINT 缺口分解。</p>
+
+        <h3>USP 清晰度</h3>
+        <p><strong>合作伙伴反馈分数（1–5 分）：</strong> Hanna：定位清晰度 = 2/5。Amy：定位清晰度 = 3/5。<strong>双方都需要 1 周的战略会议。</strong></p>
+
+        <h3>周度势头</h3>
+        <p><span class="metric">↑ 上升</span> – 两项新的监管截止日期。已识别的具体客户细分市场。双元制培训模式部分验证。细分指令明确。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fine i18n lang-de">© 2026 fastmind GmbH · Düsseldorf · KW 37 Wochenbericht | Nächste Zusammenfassung: Montag 2026-09-20 05:30 Berlin</div>
+    <div class="fine i18n lang-en">© 2026 fastmind GmbH · Düsseldorf · Week 37 Report | Next Summary: Monday 2026-09-20 05:30 Berlin</div>
+    <div class="fine i18n lang-zh">© 2026 fastmind GmbH · 杜塞尔多夫 · 第 37 周报告 | 下一份摘要：2026-09-20 周一 05:30 柏林时间</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.langsw button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    document.documentElement.setAttribute('data-active-lang', lang);
+    document.querySelectorAll('.langsw button').forEach(b => b.classList.toggle('active', b === btn));
+  });
+});
+</script>
+</body>
+</html>
