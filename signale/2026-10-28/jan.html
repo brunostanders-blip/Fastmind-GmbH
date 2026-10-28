@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind-Jan-Sucher — 28.10.2026 (Lauf 2)</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--color-text); transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.card.active { border-left-color: var(--color-card-accent); }
+.card.active:hover, .card.active:focus-visible { box-shadow: 0 4px 16px var(--color-card-accent-soft); transform: translateY(-2px); }
+.card.active:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.card-bar { flex: none; width: 0.5rem; align-self: stretch; border-radius: 4px; background: var(--color-card-accent); }
+.card.placeholder { cursor: default; opacity: 0.75; }
+.card.placeholder .card-bar { background: var(--color-missing); opacity: 0.4; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.card.placeholder .tag { background: transparent; border: 1px dashed var(--color-border); color: var(--color-missing); }
+a.back { display: inline-block; margin-bottom: 1.5rem; color: var(--color-heading); text-decoration: none; font-size: 0.9rem; }
+a.back:hover { text-decoration: underline; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+.user-label { font-weight: 400; color: var(--color-muted); font-size: 0.6em; }
+.user-field { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: .5rem 0; }
+.user-field input { padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); }
+.user-field button { padding: .35rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+/* Nur Bausteine aus Vault_Layout §6; Textabsätze in Kästen */
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin: 0.2rem 0; }
+.portal a:focus-visible, section.list a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+section.list p, section.list ul { font-size: 0.9rem; }
+section.list a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+section.list a:hover { text-decoration: underline; }
+table.tracking td.wrap { white-space: normal; min-width: 14rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fastmind-Jan-Sucher <span class="user-label">für <span data-user-name>Bruno</span></span></h1>
+  <p class="subtitle">Robotics und Humanoide aus China, Chancen für DACH — Lauf vom 28.10.2026 (Lauf 2, erster geplanter Lauf)</p>
+  <div class="theme-switcher" role="group" aria-label="Darstellung">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Weißmodus</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dunkelmodus</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+
+  <div class="note"><strong>Erster geplanter Lauf</strong> (Scheduled Task fastmind-jan-sucher, 18:31 Uhr). Der manuelle Testlauf von 15:36 Uhr liegt unverändert in der Datei 2026-10-28 - Fastmind-Jan-Sucher; diese Fassung trägt das Suffix „_Lauf2“. Gesucht zuerst auf Chinesisch, dann Englisch, dann Deutsch. Register-Abgleich: Tabellenkopf und Zeilen S147–S190 (14 Tage; S179–S190 kamen während dieses Laufs um 18:54 Uhr durch die zweiten Läufe von Hanna und Amy hinzu, vor dem Speichern erneut gelesen). Grundlage: Routine Fastmind-Jan-Sucher · Fastmind-Signal-Register.</div>
+
+  <section class="list">
+    <h2>China-Signale</h2>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S193</span>
+      <a href="http://www.ce.cn/xwzx/gnsz/gdxw/202610/t20261016_3259901.shtml">1. China setzt die ersten sechs Nationalstandards für Humanoide in Kraft — ab 01.04.2027</a>
+      <ul>
+        <li><strong>Neu:</strong> SAMR und SAC erlassen mit Bekanntmachung 2026 Nr. 43 (28.09.2026, öffentlich 15.10.2026) sechs empfehlende Nationalstandards, gültig ab 01.04.2027: GB/T 48316-2026 (Simulations-Testplattform) und GB/T 48317.1–.5-2026 (Technische Anforderungen: Allgemeines, Umgebungswahrnehmung, Entscheidung und Planung, Bewegungssteuerung, Arbeitsausführung). Dobot hat Teil 4 und 5 mitverfasst. Teil 6 (Lokalisierung, Navigation) ist noch in der Konsultation.</li>
+        <li><strong>Quelle:</strong> 首批人形机器人领域国家标准发布 — „Erste Nationalstandards im Bereich humanoide Roboter veröffentlicht“ (中国经济网, 16.10.2026) · <a href="https://news.cctv.com/2026/10/16/ARTI4Ap5IvaBJ5F1KX1p9RXj261015.shtml">央视网, 16.10.2026</a> · <a href="http://news.10jqka.com.cn/20261028/c681209588.shtml">经济参考网 über 同花顺, 28.10.2026 (Dobot)</a>. Art: Behörden-Bekanntmachung (Primärquelle) über Medien-Nachdruck.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Zulassung — GB/T ersetzt kein CE; Prüfberichte nach GB/T müssen in die Dokumentation nach EU-Maschinenverordnung übersetzt werden. Vertrieb — „nationalstandardkonform“ ist in DACH keine Verkaufsaussage. Risiko — zwei Normwelten: ISO 25785-1 erst Oktober 2028 (S171), EU-Liste harmonisierter Normen fehlt (S130).</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung; CE für Maschinen anerkannt.</li>
+        <li><strong>Chance für Fastmind:</strong> Mapping „GB/T 48317 ↔ MVO / ISO 12100 / EN ISO 10218“ für Importeure, Integratoren und Prüfstellen.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S194</span>
+      <a href="https://finance.sina.cn/2026-10-19/detail-inivueuh0919217.d.html">2. MIIT: über 100.000 Humanoide in 2026 erwartet, Prüf- und Überwachungssystem angekündigt</a>
+      <ul>
+        <li><strong>Neu:</strong> Pressekonferenz 19.10.2026, 魏巍 (MIIT): erstes Halbjahr 2026 über 400 Modelle, über 40.000 Stück; Prognose 2026 über 100.000. Über 300 Schlüsselszenarien, Leitfaden Standardsystem 2026, Branchen-Überwachungssystem, Prüfung von Produktqualität, Netz- und Datensicherheit. Keine Aussage zu Export oder Europa.</li>
+        <li><strong>Quelle:</strong> 工信部：预计人形机器人整机产量全年将突破10万台 — „MIIT: Produktion humanoider Komplettgeräte übersteigt 2026 voraussichtlich 100.000“ (新京报 über 新浪财经, 19.10.2026). Art: Behördenaussage (Primärquelle) über Medium.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Vertrieb — Angebotsüberhang drückt in den Export. Risiko — Handelsschutz-Argument (S141); Chinas Datensicherheitsprüfung ist kein Nachweis nach Cyber Resilience Act.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung.</li>
+        <li><strong>Chance für Fastmind:</strong> Vorauswahl aus über 400 Modellen für DACH-Käufer; Content.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S195</span>
+      <a href="https://news.pedaily.cn/202610/570729.shtml">3. Peking: Joint Venture für 1 Mio. Gelenkmodule pro Jahr, Hand-Hersteller meldet 80 % Weltmarktanteil</a>
+      <ul>
+        <li><strong>Neu:</strong> 北京智灵工场精密制造 (蚂蚁工场 mit 泉智博 Motorevo und 灵心巧手 Linkerbot) baut 1 Mio. Gelenkmodule pro Jahr (Meldung 23.10.2026). 灵心巧手: über 4.000 Hände pro Monat, über 80 % Weltmarktanteil (Eigenangabe). 泉智博: über 120.000 Module im ersten Halbjahr 2026; Kunden AgiBot, Leju, Noetix, Galaxea, Tencent RoboticsX. Dazu <a href="http://news.10jqka.com.cn/20261023/c681011706.shtml">季华驱界 Foshan: Linie für 100.000 Module pro Jahr seit 21.10.2026</a>.</li>
+        <li><strong>Quelle:</strong> 年产100万只关节模组！蚂蚁工场联合泉智博、灵心巧手 卡位具身智能核心赛道 — „Eine Million Gelenkmodule pro Jahr: Ant Works mit Motorevo und Linkerbot im Kernsegment der verkörperten KI“ (投资界, 23.10.2026). Art: Fachmedium mit Unternehmensangaben.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Zulieferung — Preisdruck auf DACH-Komponentenhersteller ohne OEM-Zugang (S137); Bezugsquelle für Agile Robots (S167), Bosch/Humanoid Bühl, Neura. Risiko — Seltene Erden (S168), REACH, LkSG.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung.</li>
+        <li><strong>Chance für Fastmind:</strong> Komponenten-Sourcing in beide Richtungen.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S197</span>
+      <a href="https://www.21jingji.com/article/20261028/herald/f97ba59f8f56910b7729f9a929dcdafd.html">4. XPeng IRON: Festkörperbatterie in Kleinserie, Europa-Start für zweites Halbjahr 2027 angekündigt</a>
+      <ul>
+        <li><strong>Neu:</strong> 28.10.2026, 顾捷 (XPeng) auf der SAECCE: Festkörperbatterie in Kleinserie, Roboter vor SOP. Plan: Serie Ende 2026, Auslieferung erstes Halbjahr 2027 (Läden, Einkaufszentren), dann Industrie und Haushalt. Produktionslinie Guangzhou seit 08.09.2026 (<a href="https://www.xpeng.com/news/01a080371029a057bc8e8a02a2c6012b">Pressemitteilung XPeng, Primärquelle</a>). <a href="https://eletric-vehicles.com/xpeng/xpeng-sets-second-half-2027-european-rollout-for-iron-humanoid-robot/">Europa-Rollout zweites Halbjahr 2027 laut Fachmedium</a>; Länder, Vertriebsweg, Preis offen.</li>
+        <li><strong>Quelle:</strong> 小鹏人形机器人固态电池已小批量量产 — „XPengs Humanoid: Festkörperbatterie in Kleinserie“ (21世纪经济报道, 28.10.2026). Art: Fachmedium; Produktionsstart als Pressemitteilung.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Vertrieb — XPeng hat in Deutschland ein Autohändlernetz. Zulassung — MVO, AI Act, EU-Batterieverordnung 2023/1542, UN 38.3. Risiko — Festkörperbatterie ohne europäische Prüfhistorie.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung; CE anerkannt.</li>
+        <li><strong>Chance für Fastmind:</strong> DACH-Händler von XPeng vor dem zweiten Halbjahr 2027 auf Betreiber- und Inverkehrbringerpflichten vorbereiten.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S198</span>
+      <a href="https://k.sina.com.cn/article_7857201856_1d45362c001908ssiw.html">5. TÜV Rheinland baut mit Shanghaier Prüfinstitut ein gemeinsames Robotik-Prüflabor in Zhangjiang</a>
+      <ul>
+        <li><strong>Neu:</strong> 上检计量 (Tochter der 上海市检验检测认证有限公司) baut mit der 德国莱茵TÜV集团 ein gemeinsames Robotik-Prüflabor im Zhangjiang Robot Valley; Kooperationsabsicht mit der 张江集团. Datum und Umfang fehlen; keine Pressemitteilung von TÜV Rheinland gefunden.</li>
+        <li><strong>Quelle:</strong> 浦东人形机器人产业生态加速迈向体系化 — „Pudongs Humanoid-Ökosystem wird systematischer“ (你好张江 über 新浪机器人热点小时报, 28.10.2026, 20 Uhr) · <a href="http://k.sina.com.cn/article_5953190046_162d6789e06703vnw6.html">Einzelmeldung</a>. Art: Lokal- und Fachmedium, Belegstärke gering.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein (TÜV genannt, keine Norm).</li>
+        <li><strong>Folge für DACH:</strong> Zulassung — EU-relevante Prüfungen rücken nach Shanghai; Engpass der Benannten Stellen (S025) wird teils umgangen; TÜV Rheinland zertifizierte auf der IFA bereits chinesische Hersteller (S060, S067). Vertrieb — Hersteller aus Zhangjiang kommen mit TÜV-Papieren nach DACH.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung.</li>
+        <li><strong>Chance für Fastmind:</strong> Hersteller in Zhangjiang zum Prüfpfad beraten; vorher Bestätigung bei TÜV Rheinland einholen.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz gering · bekannt · S184 (Hanna Lauf 2)</span>
+      <a href="https://finance.sina.com.cn/tech/roll/2026-10-28/doc-iniwuzmn6486176.shtml">6. Unitree: erster Quartalsbericht nach dem Börsengang — Umsatz +70 %, Gewinn −17 %, kein Auslandsumsatz ausgewiesen</a>
+      <ul>
+        <li><strong>Neu:</strong> Q3-Bericht 28.10.2026: neun Monate 1,817 Mrd. Yuan Umsatz (+55,71 %), Q3 665 Mio. Yuan (+69,93 %), Q3 Nettogewinn 113 Mio. Yuan (−17,37 %), F&amp;E Q3 127 Mio. Yuan (+249,58 %). Keine Regionen-Aufteilung. 22.10.2026 Hangzhou: G1+, H2i, Dex5-S, R1-7a.</li>
+        <li><strong>Quelle:</strong> 宇树上市后首份财报出炉，前三季度研发超去年全年 — „Unitrees erster Bericht nach dem IPO“ (界面新闻 über 新浪科技, 28.10.2026) · <a href="https://m.21jingji.com/article/20261028/herald/95dc6926135f070777a4bfb9647c750d.html">21财经</a>. Art: Börsenmeldung (Primärquelle) über Medien.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Vertrieb — sinkende Marge erhöht Exportdruck; Unitree verkauft in Europa über Händler ohne öffentliche CE-Aussage (S005, S006). Risiko — US-Marktsperre lenkt Volumen nach Europa.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung.</li>
+        <li><strong>Chance für Fastmind:</strong> Content.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz gering · neu · S196</span>
+      <a href="https://www.thepaper.cn/newsDetail_forward_34330533">7. Hongkong bremst Robotik-Börsengänge: 微亿智造 verschiebt den IPO drei Tage vor der Notierung</a>
+      <ul>
+        <li><strong>Neu:</strong> 25.10.2026: Verschiebung des globalen Verkaufs und der Notierung; geplant bis zu 800 Mio. HK$ bei 16,63–21,46 HK$, Notierung 28.10.2026; Industrie-Humanoide „EIIR“, Changzhou. Medien: vertrauliche Einreichung von 松延动力 Noetix (22.10.), Fensterführung der Aufsicht.</li>
+        <li><strong>Quelle:</strong> 微亿智造：经考虑市场环境在内的多项因素后，决定延迟港股上市计划 — „Weiyi Intelligent verschiebt den Hongkong-Börsengang“ (澎湃新闻, 26.10.2026). Art: Börsenmitteilung (Primärquelle) über Medium.</li>
+        <li><strong>Konformität in der Quelle:</strong> nein.</li>
+        <li><strong>Folge für DACH:</strong> Risiko — Finanzierungsfähigkeit chinesischer Partner als Frage für Service, Ersatzteile, Gewährleistung.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung.</li>
+        <li><strong>Chance für Fastmind:</strong> Partner-Due-Diligence als Teil jeder Vermittlung.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz hoch · neu · S191</span>
+      <a href="https://www.163.com/dy/article/L1G2OL5G05118HA4.html">8. 无界动力 Anyverse: Industrie-CE mit EN 18031 für den K15, erste Lieferung an Batteriewerk in Frankreich, DACH-Vertrieb offen</a>
+      <ul>
+        <li><strong>Neu:</strong> Älter als 14 Tage, neu für das Register, mit Zulassung und Auftrag. 09.07.2026: CE-MD, CE-EMC, CE-RED, EN ISO 13849, EN 18031 (Eigenangabe). September 2026: erste K15 im Werk von AESC (远景动力) in Douai. Auftragsvolumen widersprüchlich (rund 100 Mio. USD vs. über 500 Mio. Yuan), Unternehmensmitteilung nicht eingesehen, keine Zahl übernommen.</li>
+        <li><strong>Quelle:</strong> 全球首个获工业级全域CE认证的具身智能机器人！无界动力K15开启全球批量交付 — „Weltweit erster verkörperter Roboter mit industrieller Voll-CE: K15 startet die globale Serienlieferung“ (网易, Juli 2026) · <a href="https://equalocean.com/news/2026091522189-anyverse-dynamics-k15-robots-arrive-france-aesc-battery-plant-deployment">EqualOcean, 15.09.2026</a>. Art: Fachmedien mit Unternehmensangaben.</li>
+        <li><strong>Konformität in der Quelle:</strong> ja — CE-MD, RED, EN 18031, EN ISO 13849.</li>
+        <li><strong>Folge für DACH:</strong> Zulassung — CE nach Maschinenrichtlinie; ab 20.01.2027 Nachweis nach MVO nötig (S010); Benannte Stelle und Zertifikatsnummer nicht genannt. Vertrieb — kein DACH-Partner genannt. Risiko — Eigenangabe, Nachweis anfordern.</li>
+        <li><strong>Schweiz:</strong> keine eigene Zulassung; CE anerkannt.</li>
+        <li><strong>Chance für Fastmind:</strong> DACH-Einstieg für Anyverse: Dossier auf MVO heben, Pilot im Humanoid Robots Experience Lab Lemgo, Inverkehrbringer vermitteln.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="tag">Relevanz mittel · neu · S192</span>
+      <a href="https://www.medchina.tech/news-article/futurtec%E2%80%99s-orthbot-x-knee-replacement-navigation-system-receives-ce-mdr-certification">9. 鑫君特 Futurtec: ORTHBOT X mit CE-MDR, Fokus Asien und Lateinamerika, Europa-Vertrieb unbesetzt</a>
+      <ul>
+        <li><strong>Neu:</strong> Älter als 14 Tage, neu für das Register, mit Zulassung. Knie-Navigations- und Positioniersystem ORTHBOT X von 深圳市鑫君特智能医疗器械: CE nach EU-MDR am 21.08.2026; Wirbelsäulen-System seit 2023. Nächste Märkte laut Unternehmen: Malaysia, Indonesien, Lateinamerika. Benannte Stelle, Zertifikatsnummer, EU-Vertriebspartner nicht genannt.</li>
+        <li><strong>Quelle:</strong> FUTURTEC's ORTHBOT X Knee Replacement Navigation System Receives CE MDR Certification (MedChina, August 2026) · <a href="https://equalocean.com/news/2026082722148-futurtec-adds-ce-mdr-certified-knee-replacement-system-its-orthopedic-robotics">EqualOcean, 27.08.2026</a>. Art: Fachmedien mit Unternehmensangabe.</li>
+        <li><strong>Konformität in der Quelle:</strong> ja — EU-MDR.</li>
+        <li><strong>Folge für DACH:</strong> Zulassung — Eudamed, EU-Bevollmächtigter offen. Vertrieb — unbesetzt; Bedarf belegt: <a href="https://ted.europa.eu/de/notice/585311-2026/pdf">Klinikum Görlitz, Ausschreibung navigierter Wirbelsäulen-OP-Roboter (TED, 06.08.2026)</a>, Thüringen-Kliniken (Vergabe 20.07.2026), <a href="https://noe.gv.at/noe/OP-Roboter_kommt_ab_August_im_Landesklinikum_Mistelbach-G.html">Landesklinikum Mistelbach-Gänserndorf (OP-Roboter seit August 2026)</a>.</li>
+        <li><strong>Schweiz:</strong> eigene Zulassung — Swissmedic, Schweizer Bevollmächtigter (CH-REP), swissdamed.</li>
+        <li><strong>Chance für Fastmind:</strong> Vertriebs- und Zulassungspartner in der DACH-Orthopädie suchen; Vergabeverfahren beobachten.</li>
+      </ul>
+    </div>
+
+    <div class="note"><strong>Bekannt, nicht neu gemeldet:</strong> Unitree-Quartalszahlen (S184, Hanna Lauf 2, 18:54 Uhr; oben als Signal 6 erläutert, nicht eingetragen) · Dobot Ecosystem Conference Frankfurt (S166; neu nur die Rolle als Mitverfasser der Nationalstandards) · AgiBot Serbien (S073) und TÜV-Zertifikate (S067) · Seltene Erden ab 10.11.2026 (S168) · Schaeffler Taicang und Leju (S153, S143). Die sieben Kandidaten des heutigen Testlaufs stehen weiterhin nicht im Register und werden hier nicht wiederholt.</div>
+  </section>
+
+  <section class="list">
+    <h2>Folge für DACH</h2>
+    <ul>
+      <li><strong>Zulassung:</strong> Zwei Normwelten entstehen gleichzeitig: Chinas GB/T 48317 ab 01.04.2027 und die EU-Maschinenverordnung ab 20.01.2027 ohne harmonisierte Humanoid-Norm. Die Prüfkapazität wandert nach China (TÜV Rheinland in Zhangjiang).</li>
+      <li><strong>Vertrieb:</strong> Zwei chinesische Anbieter haben EU-Zulassungen ohne DACH-Partner: Anyverse (Industrie-CE) und Futurtec (CE-MDR). XPeng kündigt Europa für das zweite Halbjahr 2027 an.</li>
+      <li><strong>Zulieferung:</strong> Peking baut Gelenkmodul-Kapazität im Millionenmaßstab; DACH-Hersteller kaufen günstiger, DACH-Komponentenhersteller verlieren ohne OEM-Zugang.</li>
+      <li><strong>Risiko:</strong> Finanzierungsbremse in Hongkong; Zertifikate als Eigenangaben ohne Benannte Stelle; Seltene Erden ab 10.11.2026 (S168).</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Content-Winkel</h2>
+    <div class="portal">
+      <p><strong>These:</strong> Peking normt zuerst, Brüssel harmonisiert später: Ab 01.04.2027 gelten in China sechs Nationalstandards für Humanoide, während die EU zur Maschinenverordnung vom 20.01.2027 noch keine harmonisierte Norm für Humanoide hat; wer chinesische Roboter nach DACH holt, muss zwei Normwelten übersetzen.</p>
+      <p><strong>Beleg aus diesem Lauf:</strong> SAMR/SAC-Bekanntmachung 2026 Nr. 43 mit GB/T 48316 und 48317.1–.5 (ce.cn, 16.10.2026); MIIT-Pressekonferenz 19.10.2026 mit über 100.000 Humanoiden für 2026; EU-Liste harmonisierter Normen fehlt (S130), ISO 25785-1 erst Oktober 2028 (S171).</p>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Matchmaking</h2>
+    <div class="table-wrap">
+      <table class="tracking">
+        <caption>Jede Seite mit eigener Quelle · Richtung China→DACH</caption>
+        <thead><tr><th>China-Seite</th><th>DACH-Seite</th><th>Richtung</th><th>Was Fastmind leistet</th><th>Nächster Schritt</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="wrap"><a href="https://www.163.com/dy/article/L1G2OL5G05118HA4.html">无界动力 Anyverse</a> · DACH-Inverkehrbringer und Pilotkunde für den K15 (Industrie-CE)</td>
+            <td class="wrap"><a href="https://www.produktion.de/wirtschaft/humanoid-robots-experience-lab-startet-in-lemgo/2736741">Fraunhofer IOSB-INA, Humanoid Robots Experience Lab Lemgo</a> (eröffnet 23.09.2026) · Unternehmen testen Humanoide vor dem Einsatz</td>
+            <td>China→DACH</td>
+            <td class="wrap">Dossier von Maschinenrichtlinie auf MVO heben, EN-18031-Nachweis prüfen, Testzugang Lemgo, Übersetzung</td>
+            <td class="wrap">Anyverse nach Benannter Stelle und Zertifikatsnummer fragen; HREL Lemgo anfragen</td>
+          </tr>
+          <tr>
+            <td class="wrap"><a href="https://www.medchina.tech/news-article/futurtec%E2%80%99s-orthbot-x-knee-replacement-navigation-system-receives-ce-mdr-certification">鑫君特 Futurtec</a> · EU-Bevollmächtigter und Vertrieb für ORTHBOT X (CE-MDR)</td>
+            <td class="wrap"><a href="https://ted.europa.eu/de/notice/585311-2026/pdf">Klinikum Görlitz</a> · Ausschreibung navigierter Wirbelsäulen-OP-Roboter; <a href="https://noe.gv.at/noe/OP-Roboter_kommt_ab_August_im_Landesklinikum_Mistelbach-G.html">Landesklinikum Mistelbach-Gänserndorf (AT)</a> · OP-Roboter seit August 2026</td>
+            <td>China→DACH</td>
+            <td class="wrap">Eudamed, EU-Bevollmächtigter, Swissmedic/CH-REP, Vergaberecht, Service-Partner</td>
+            <td class="wrap">EU-Bevollmächtigten von Futurtec prüfen; Orthopädie-Ausschreibungen auf TED beobachten</td>
+          </tr>
+          <tr>
+            <td class="wrap"><a href="https://news.pedaily.cn/202610/570729.shtml">灵心巧手 / 泉智博 / 智灵工场</a> · Abnehmer in Europa für Gelenkmodule und Hände (1 Mio. Module/Jahr)</td>
+            <td class="wrap">Agile Robots (München) · 1.000–2.000 Humanoide 2027 (S167); <a href="https://logistik-heute.de/news/humanoide-roboter-bosch-startet-2027-produktion-im-schwarzwald-280027.html">Bosch × Humanoid, Bühl ab 2027</a>, prüft eigene Aktoren und Sensoren</td>
+            <td>China→DACH</td>
+            <td class="wrap">Musterung, Preis- und Qualitätsvergleich, REACH/RoHS, LkSG, Magnet-Herkunft (S168)</td>
+            <td class="wrap">Bedarfsabfrage bei Agile Robots; Komponentenliste mit Peking-Preisen</td>
+          </tr>
+          <tr>
+            <td class="wrap"><a href="https://www.21jingji.com/article/20261028/herald/f97ba59f8f56910b7729f9a929dcdafd.html">XPeng</a> · Europa-Rollout IRON zweites Halbjahr 2027, Vertriebsweg offen</td>
+            <td class="wrap"><a href="https://www.tuvsud.com/de-de/branchen/produzierende-industrie/robotik/humanoide-roboter-sicherheit">TÜV SÜD</a> · prüft und zertifiziert Humanoide als Gesamtsystem (ISO 12100, MVO)</td>
+            <td>China→DACH</td>
+            <td class="wrap">Prüfpfad (MVO, AI Act, Batterieverordnung) vor dem Europa-Start, DACH-Händler schulen</td>
+            <td class="wrap">Ansprache XPeng Deutschland; Gespräch mit TÜV SÜD zum Prüfumfang</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Chinesische Unternehmen mit Europa-Plänen, die Zulassung, Vertrieb oder Standort suchen:</strong> 无界动力 Anyverse (CE vorhanden, DACH-Vertrieb offen) · 鑫君特 Futurtec (CE-MDR vorhanden, EU-Vertrieb offen) · XPeng (Europa H2 2027, Vertriebsweg offen) · Hersteller aus Zhangjiang mit TÜV-Rheinland-Prüfung (Signal 5) · bekannt: AgiBot (S073, S051), UBTECH (Terra Robotics, Testlauf).</p>
+  </section>
+
+  <section class="list">
+    <h2>Empfehlungen an Bruno</h2>
+    <ul>
+      <li>Empfehlung: Anyverse (无界动力) als zweiten Robotics-Gesprächspartner neben Terra Robotics aufnehmen — einziges chinesisches Industrie-Humanoid mit gemeldeter Voll-CE inklusive EN 18031 und ohne DACH-Partner.</li>
+      <li>Empfehlung: den Content-Winkel „zwei Normwelten“ als Post verwenden — mit Behördenquellen auf beiden Seiten belegt.</li>
+      <li>Empfehlung: die sieben Kandidaten des Testlaufs ins Register übernehmen oder verwerfen — die Legende kennt „Jan“ jetzt; dieser Lauf hat sie nicht eingetragen, weil sie nicht aus seiner Suche stammen.</li>
+      <li>Empfehlung: TÜV Rheinland zur Zhangjiang-Kooperation fragen — Lokalmeldung; bestätigt wäre sie der direkte Weg zu Herstellern mit EU-Prüfpapieren.</li>
+      <li>Empfehlung: TED-Ausschreibungen zu OP-Robotern als feste DACH-Bedarfsquelle nutzen — Klinik, Produkt und Termin ohne Deutung.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Quellenstatus</h2>
+    <ul>
+      <li><strong>Geliefert (China):</strong> 中国经济网 und 央视网 (SAMR, Link ohne Volltext), 经济参考网 über 同花顺, 新京报 über 新浪财经 (MIIT), 投资界, 21世纪经济报道, XPeng-Pressemitteilung, 新浪机器人热点小时报, 界面新闻 über 新浪科技, 澎湃新闻, 网易 und ITBear, EqualOcean, MedChina.</li>
+      <li><strong>Geliefert (DACH-Bedarf):</strong> produktion.de und ingenieur.de (Fraunhofer HREL Lemgo), logistik-heute.de (Bosch/Humanoid, Rossmann/Terra), noe.gv.at (Mistelbach), TED (Görlitz, Thüringen-Kliniken, Mannheim), tuvsud.com, zhaw.ch (Innosuisse-Projekt Humanoide in der Sterilgutaufbereitung mit Steelco Belimed).</li>
+      <li><strong>Leer geblieben:</strong> NMPA, 国务院, Programme Shenzhen/Shanghai/Peking/Hangzhou, Caixin, SCMP Tech (nur älter), 高工机器人, 机器人网, Fourier, EngineAI, Galbot, Cornerstone Robotics (nur Mai), MicroPort (nur Juni, im Testlauf), Chips (nur Black Sesame WAIC Juli), IT之家 und 第一财经 (nur Nachdrucke), VDMA, Ärztezeitung (ohne Datum), DVZ, Kommunal-Fachmedien.</li>
+      <li><strong>Gesperrt oder ohne Text:</strong> ce.cn (Weiterleitungsschleife), cctv.com und robotics.sg (ohne Artikeltext).</li>
+      <li><strong>Nicht durchsucht:</strong> HKEXnews und cninfo direkt.</li>
+      <li><strong>Verworfen:</strong> Auftragsvolumen K15 (widersprüchlich) · 卓誉科技 „100.000 Planetengelenke“ (Sekundärmeldung ohne Datum) · Reuters-Fensterführung (kein Behördenbeleg).</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Schärfung der Routine</h2>
+    <p><strong>Befund → Änderung am Prompt → Nutzen</strong></p>
+    <ul>
+      <li>Zwei Läufe am selben Tag kollidieren im Dateinamen → Namenskonvention um „_LaufN“ ergänzen (Muster Hanna) → saubere Register-Links, kein Datenverlust.</li>
+      <li>Register-Prüfung erkennt Testlauf-Kandidaten nicht, weil nie eingetragen → einmalige Entscheidung Bruno; danach greift die Dubletten-Regel → kein Doppelbestand.</li>
+      <li>新浪机器人热点小时报 lieferte zwei Tagessignale und die Tagesübersicht → als erste Anlaufstelle mit Link-Muster festschreiben → Zeit, Aktualität.</li>
+      <li>Behördenseiten (ce.cn, cctv.com) maschinell nicht lesbar → Behördenmeldung über zwei Nachdrucke belegen, Original-Link trotzdem nennen → Glaubwürdigkeit ohne Leerlauf.</li>
+      <li>TED-Ausschreibungen nennen Klinik, Produkt, Termin → TED als DACH-Bedarfsquelle in Abschnitt 4 → Matchmaking mit Firmennamen (Umsatz).</li>
+      <li>Chips zum zweiten Mal ohne Fund → Suche auf Unternehmen festlegen (黑芝麻 SesameX, 地瓜机器人 S600, 芯明智能) oder monatlich → weniger Leerlauf.</li>
+      <li>Die zwei verwertbarsten Signale (Anyverse, Futurtec) waren älter als 14 Tage → Suchbegriffe „工业级 CE“ und „CE MDR 手术机器人“ fest aufnehmen → Umsatz (Zulassungs-Leads).</li>
+      <li>Zertifikate durchweg Eigenangaben ohne Benannte Stelle → Pflichtfeld „Benannte Stelle / Zertifikatsnummer genannt: ja/nein“ → Branding (Präzision).</li>
+      <li>Schweiz nur bei Medizinprodukten eigener Weg → Prüfpunkt Schweiz nur bei MDR-Signalen ausführlich → kürzere Ausgabe.</li>
+      <li>Hanna trug Unitrees Quartalszahlen (S184) ein, während dieser Lauf suchte; S179–S187 waren beim Speichern vergeben → Register unmittelbar vor dem Schreiben erneut lesen, Nummern erst dann vergeben; bis zur Übergabe Hannas Robotik-Zeilen des Tages vor der Suche lesen → keine Doppelzeile, keine Nummernkollision.</li>
+    </ul>
+    <p><strong>Direkt verwertbar:</strong> Post „zwei Normwelten“ · Ansprache Anyverse, Fraunhofer HREL Lemgo · Matchmaking Futurtec ↔ Orthopädie-Ausschreibungen, Peking-Gelenkmodule ↔ Agile Robots.</p>
+    <p><strong>Nicht direkt verwertbar:</strong> Unitree-Quartalszahlen und Hongkong-IPO-Bremse (Hintergrund) · TÜV-Rheinland-Labor (erst nach Bestätigung) · XPeng (Geschäft erst 2027).</p>
+    <div class="table-wrap">
+      <table class="tracking">
+        <caption>Zählung</caption>
+        <thead><tr><th>Größe</th><th>Wert</th></tr></thead>
+        <tbody>
+          <tr><td>Signale gesamt</td><td class="num">9</td></tr>
+          <tr><td>aus Primärquellen (Behörde oder Unternehmen als Urheber)</td><td class="num">5</td></tr>
+          <tr><td>aus Fachmedien mit Unternehmensangaben</td><td class="num">4</td></tr>
+          <tr><td>davon bekannt (Unitree, S184 aus Hannas zweitem Lauf)</td><td class="num">1</td></tr>
+          <tr><td>neu für das Register (S191–S198; S179–S190 belegten Hanna und Amy um 18:54 Uhr)</td><td class="num">8</td></tr>
+          <tr><td>weitere bekannte, erwähnt</td><td class="num">5</td></tr>
+          <tr><td>Matchmaking-Paare mit Quelle auf beiden Seiten</td><td class="num">4</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer>Fastmind-Jan-Sucher · Lauf 2 · Stand 28.10.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<!-- Layout-Abweichung: Seitensprache Englisch laut Live-Prompt der Routine Fastmind-Amy-Sucher; Freigabe Bruno offen (Kasten 21.10.2026 in CEO_Fastmind-Entscheidungen) -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind Amy Scout — 28 Oct 2026, run 2</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.meta { color: var(--color-muted); font-size: 0.85rem; }
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin: 0.25rem 0; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+section.list ul.plain { padding-left: 1.2rem; font-size: 0.9rem; }
+section.list ul.plain li { margin: 0.35rem 0; }
+section.list p { font-size: 0.9rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+a { color: var(--color-heading); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+@media (max-width: 600px) {
+  header { padding: 1.5rem 1rem 0.75rem; }
+  h1 { font-size: 1.4rem; }
+  main { padding: 1rem 1rem 2rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fastmind Amy Scout — 28 October 2026, run 2</h1>
+  <p class="subtitle">Recurring signal scan for Partner B: Education &amp; Culture (Fastmind GmbH, Düsseldorf)</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+
+  <div class="table-wrap">
+    <table class="tracking">
+      <caption>Run overview</caption>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Run status</td><td>✓ Success — 5 usable signals (one from 27 Oct 2026, four older 2026 reports that are new to this routine)</td></tr>
+        <tr><td>Run note</td><td>Second run of the day, started manually at 18:31 together with the sister routines Hanna and Jan. The scheduled run (Wed 04:20) delivered at 04:39: Fastmind-Amy-2026-10-28 (signals S172–S176). That output is unchanged; this run carries the suffix _2 so no version is overwritten.</td></tr>
+        <tr><td>Observation fields</td><td>Education (school partnerships China–Germany: autumn exchange wave, municipal and state level, universities as bridge to schools) + Culture (intercultural China trainings in the DACH region as benchmark)</td></tr>
+        <tr><td>Markdown twin</td><td>Fastmind-Amy-2026-10-28_2.md (German)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note"><strong>Lead finding:</strong> Under the political roof of the state visit (morning run, S172), the school level shows how exchange is actually organised in Germany today: it runs through <strong>city and state partnerships</strong> (Hamburg–Shanghai 40 years, Mannheim–Zhenjiang since 2004, Schleswig-Holstein–Shanghai partner-language agreement since December 2024) and through <strong>universities as bridge</strong> (the China-NRW University Alliance brings a Chinese school class to NRW for the first time). Schools themselves have neither their own China specialists nor their own partner search; the connection comes from the municipality, the state or a university. That is Amy's entry point: not convincing the single school, but offering the sponsor of the partnership (Senate Chancellery, city, state ministry, university alliance) a companion package for preparation, host families and parent work. At the same time two training offers (Bern University of Applied Sciences, University of Bonn) show that "China competence" is sold in the DACH region as a two-hour to half-day format, without guanxi and mianzi as topics of their own. That is the gap for an Amy format.</div>
+
+  <div class="note"><strong>Context note:</strong> Statements about Amy's positioning come from the "Fastmind Dual-Gateway" document, not from this research.</div>
+
+  <section class="list">
+    <h2>Education and culture signals</h2>
+
+    <div class="portal">
+      <a href="https://gyle.de/2026/10/25/chinaaustausch-2026/">1. Hamburg: Gymnasium Lerchenfeld and Walddörfer-Gymnasium three weeks in Beijing and Shanghai, reception by Hamburg's First Mayor within 40 years Hamburg–Shanghai</a>
+      <p class="meta">School report, 27 Oct 2026</p>
+      <ul>
+        <li><strong>What is new:</strong> 16 pupils (11 Walddörfer-Gymnasium, 5 Gymnasium Lerchenfeld) with two teachers in China since 12 Oct 2026: Beijing (13–16 Oct), then Shanghai with a homestay weekend and school attendance from 19 Oct. This year's exchange is organised by Datong High School Shanghai; the partner school is Ganquan Foreign Language School, with Shanghai Foreign Language School also involved. In Shanghai the group met Hamburg's First Mayor, who stressed the economic weight of the partnership, the "China pace" and cooperation "above all in education" (paraphrase of the school report). The announcement of the reciprocal 2026 exchange is already recorded (S164, S177); new are the concrete schools, the schedule and the meeting at Senate level.</li>
+        <li><strong>Relevance:</strong> Shows the pattern "city partnership carries school exchange" in practice: the Senate Chancellery sets the frame, Chinese schools organise the programme, the Hamburg schools provide the group. Preparing pupils and host families is left to the schools; a professional companion is missing there.</li>
+        <li><strong>Action option:</strong> Approach both Hamburg schools and the Senate Chancellery (international affairs) after the return in early November: debriefing of this exchange plus preparation of the 2027 return visit from Shanghai (S177) as a pilot for an Amy companion format (host-family briefing, parents' evening, mianzi rules for teenagers).</li>
+        <li><strong>Sources:</strong> <a href="https://gyle.de/2026/10/25/chinaaustausch-2026/">Gymnasium Lerchenfeld, China exchange 2026 (27 Oct 2026)</a> · <a href="https://www.hamburg.de/politik-und-verwaltung/behoerden/senatskanzlei/themen/internationales/partnerstaedte/shanghai">Senate Chancellery Hamburg, partner city Shanghai</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.uni-wuppertal.de/en/international/news-international/detail/china-nrw-university-alliance-erste-summer-school-mit-besuch-einer-chinesischen-schulklasse/">2. China-NRW University Alliance: 20 years, first in-person summer school with a school class from Hangzhou, talks on school internships for teacher trainees in China</a>
+      <p class="meta">University of Wuppertal, 17 Jul 2026</p>
+      <ul>
+        <li><strong>What is new (for this routine):</strong> The alliance founded in 2006 (coordinated by the University of Cologne; members Wuppertal, Cologne, TU Dortmund, Münster, Bielefeld University of Applied Sciences; joint liaison office in Beijing) marks its 20th anniversary in 2026. Since 2021 it has run digital summer schools for pupils at DSD schools in China and India as a recruiting tool; in 2026 for the first time in person: 24 tenth-graders and two teachers from Hangzhou Yuhua Greentown School (a PASCH school, Zhejiang) in NRW from 7 to 17 Jul 2026, in Wuppertal on 15 Jul (German course, study counselling, campus tour). Wuppertal's International Centre held first talks on how teacher-training students could do school internships at the Hangzhou school.</li>
+        <li><strong>Relevance:</strong> Closes the gap from the morning run (S176: Campus Connect without NRW): NRW already has a university network that addresses Chinese schools, but as student recruiting, not as a school-partnership programme for NRW schools. Teacher trainees as interns in China are a new bridge profile (see strategic question).</li>
+        <li><strong>Action option:</strong> Approach the University of Cologne (coordination) and the University of Wuppertal (International Centre) as NRW partners: Amy supplies the school side in NRW (which schools want a partner school in Zhejiang?) and the cultural preparation of teacher trainees before their internship. Hook: the 20th anniversary.</li>
+        <li><strong>Sources:</strong> <a href="https://www.uni-wuppertal.de/en/international/news-international/detail/china-nrw-university-alliance-erste-summer-school-mit-besuch-einer-chinesischen-schulklasse/">University of Wuppertal, first summer school (17 Jul 2026)</a> · <a href="https://uni-koeln.de/forschung/international/uoc-global/china/china-nrw-university-alliance">University of Cologne, China-NRW University Alliance</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.der-reporter.de/timeline/neustadt/artikel/delegationsreise-nach-china">3. Schleswig-Holstein–Shanghai: delegation of 25 school heads and education officials in Beijing and Shanghai, Grömitz community school signs partnership with Shanghai Cao Yang No. 2 High School</a>
+      <p class="meta">der reporter Neustadt, 6 May 2026</p>
+      <ul>
+        <li><strong>What is new (for this routine):</strong> From 12 to 19 Apr 2026, 20 representatives of German schools from several Länder and 5 from education authorities (9 from Schleswig-Holstein) travelled to Beijing and Shanghai; stops included CLEC (Center for Language Education and Cooperation), the Shanghai Municipal Education Commission and two schools. Several letters of intent on school partnerships were signed at the Shanghai education authority; the Grömitz community school concluded an agreement with Shanghai Cao Yang No. 2 High School. The basis is an agreement signed in December 2024 to promote the partner language at schools (Schleswig-Holstein–Shanghai; the state's China-competence initiative is recorded, S144). Next steps: a delegation from Shanghai in Grömitz in August 2027, return visit in autumn 2027.</li>
+        <li><strong>Relevance:</strong> A federal state organises school partnerships as a delegation trip with authorities on board. That is the sales channel Amy needs: one date, twenty school heads, signatures on site. The timeline (partnership April 2026, first visits 2027) shows a preparation need of more than a year.</li>
+        <li><strong>Action option:</strong> Ask the Schleswig-Holstein education ministry about the next delegation trip and offer a companion module (negotiation and mianzi briefing for school heads before signing, partnership roadmap up to the first visit). Use the Grömitz case as a reference for other Länder.</li>
+        <li><strong>Source:</strong> <a href="https://www.der-reporter.de/timeline/neustadt/artikel/delegationsreise-nach-china">der reporter Neustadt, delegation trip to China (6 May 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.mannheim.de/de/nachrichten/chinesische-schuelerdelegation-besucht-mannheim">4. Mannheim–Zhenjiang: school exchange resumed after a six-year pause, ten Chinese teenagers at Karl-Friedrich-Gymnasium, return visit April 2027</a>
+      <p class="meta">City of Mannheim, 11 Jun 2026</p>
+      <ul>
+        <li><strong>What is new (for this routine):</strong> Ten pupils aged 16 to 17 from the partner city Zhenjiang (city partnership since 2004) spent about two weeks in June 2026 with Mannheim host families and at Karl-Friedrich-Gymnasium. The last exchange took place in 2019, followed by a pause due to Covid. In March 2026 a municipal delegation from Zhenjiang led by its mayor had visited Mannheim. In April 2027 Mannheim pupils travel to Zhenjiang.</li>
+        <li><strong>Relevance:</strong> Resumption cases are the best leads: the school has a partner school but six years of lost experience among teachers, parents and host families. The municipal level (City of Mannheim, international affairs) carries the partnership and has an interest in the return visit succeeding.</li>
+        <li><strong>Action option:</strong> Approach the City of Mannheim and Karl-Friedrich-Gymnasium in winter: preparation workshop for the April 2027 travel group (host-family etiquette, mianzi, gifts, parent communication) as a reference format "resumption after Covid" that transfers to many city partnerships.</li>
+        <li><strong>Source:</strong> <a href="https://www.mannheim.de/de/nachrichten/chinesische-schuelerdelegation-besucht-mannheim">City of Mannheim, Chinese pupil delegation visits Mannheim (11 Jun 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.bfh.ch/de/weiterbildung/kurse/micro-course-interkulturelles-training-china/">5. Bern University of Applied Sciences: micro course "Intercultural Training China" online on 12 Nov 2026, registration deadline 9 Nov 2026, CHF 89</a>
+      <p class="meta">BFH course page</p>
+      <ul>
+        <li><strong>What is new:</strong> Two-hour online format (17:30–19:30, German) by BFH Business (Business Skills Box) for anyone interested, no prior knowledge; content: short history of China, differences between Chinese and Western business contexts, "business dos &amp; don'ts"; certificate of attendance, no ECTS. Guanxi and mianzi are not named as topics. In addition, the University of Bonn offers the workshop "Deepening China competence: communicating confidently across cultures" on 27 Nov 2026 (09:00–13:00, Zoom), but only for students (15 points for its intercultural competence certificate).</li>
+        <li><strong>Relevance:</strong> Benchmark for an Amy offer: the DACH market sells China competence as a two-hour format at the price of a textbook, without relationship and face logic, without reference to schools or training companies. An Amy format "guanxi and mianzi for school heads and training managers" would have no direct counterpart.</li>
+        <li><strong>Action option:</strong> Attend the BFH course as market observation (CHF 89, 12 Nov) and sharpen the own format against it: target group school and training management, content relationship-building with partner school and parents, duration half a day, price above micro-course level.</li>
+        <li><strong>Sources:</strong> <a href="https://www.bfh.ch/de/weiterbildung/kurse/micro-course-interkulturelles-training-china/">BFH, micro course Intercultural Training China</a> · <a href="https://www.uni-bonn.de/de/veranstaltungen/20261127-interkulturelles-training">University of Bonn, Deepening China competence (27 Nov 2026)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Bridge-building and cooperation opportunities</h2>
+    <ul class="plain">
+      <li><strong>State visit, day 1 (Hefei, 27 Oct 2026):</strong> According to dpa-AFX the Federal President advised German business in Hefei to act with confidence on the Chinese market and pointed to the cooperation interest of the accompanying science representatives; the report contained no statements on education, students or cultural exchange. The speech to students at Peking University is scheduled for 29 Oct (S172, morning run). <a href="https://www.onvista.de/news/2026/10-27-steinmeier-raet-wirtschaft-zu-selbstbewusstsein-in-china-0-10-26568719">dpa-AFX via onvista (27 Oct 2026)</a></li>
+      <li><strong>Sponsor, not school:</strong> All four school signals of this run share one blueprint: a city partnership (Hamburg, Mannheim), a state agreement (Schleswig-Holstein) or a university alliance (NRW) creates the connection; the school executes. Amy's outreach belongs to the sponsor (Senate Chancellery, international affairs department, state ministry, alliance coordination), not to the individual teacher.</li>
+      <li><strong>Autumn exchange wave (update of S161):</strong> Besides Heppenheim and Braunschweig, the Hamburg group (12 Oct to early November, signal 1) and a delegation of the Leonardo da Vinci School Munich (22 Oct to 6 Nov 2026, partner not named) are in China this autumn. <a href="https://ldv-muenchen.de/event/25-10-25-8-11-25-ldv-delegationsreise-china/">LDV Munich, delegation trip to China</a></li>
+      <li><strong>Comparison model India corridor:</strong> The Chamber of Commerce (IHK) Südlicher Oberrhein reports 46 Indian trainees (professional drivers, metal technology) with a pre-departure programme in India (German, everyday life) and IHK counselling after arrival; 85 Indian trainees under contract in the region in total (report 15 Oct 2026, marked as advertisement). No comparable chamber project exists for the China corridor (S034). That is the offer Amy could build for Chinese trainees: preparation in the home country plus chamber-backed support. <a href="https://breisgau.live/suedbaden-bw/ihk-suedlicher-oberrhein-46-azubis-aus-indien-in-ausbildung-gestartet/">BreisgauLIVE, IHK Südlicher Oberrhein (15 Oct 2026)</a></li>
+      <li><strong>Guanxi/mianzi in a corporate context:</strong> No new report; the two training offers found (signal 5) name neither term. Post-merger integration of Chinese investors: only hits from 2012–2018, nothing new (Hans Böckler study recorded, S104).</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Customer approach ideas</h2>
+    <ul class="plain">
+      <li><strong>"After the return" — Hamburg:</strong> Approach both Gymnasien and the Senate Chancellery in the first week of November while the exchange is fresh: debriefing with the pupils plus preparation of the 2027 return visit as one package; reference: the meeting with the First Mayor shows the city wants the exchange to be visible.</li>
+      <li><strong>"Resumption after Covid" — Mannheim and similar city partnerships:</strong> A standardised preparation workshop for travel groups going to China again after a multi-year pause (host families, mianzi, gifts, parents). Mannheim (April 2027) as pilot, then via the Association of German Cities to further partner cities.</li>
+      <li><strong>"Delegation module" — Länder and university alliances:</strong> Offer Schleswig-Holstein (next delegation trip), NRW (China-NRW University Alliance, 20 years) and Bildungsnetzwerk China (Campus Connect, S176) a companion module: negotiation and mianzi briefing for school heads before signatures, partnership roadmap up to the first visit.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Open strategic question</h2>
+    <p><em>Which talents and cultural profiles do DACH schools and companies seek for China cooperation?</em></p>
+    <p><strong>Partly answered, with one new concrete example:</strong> The University of Wuppertal is negotiating for <strong>teacher trainees</strong> to do school internships at the partner school in Hangzhou. It is the first example found where a university deliberately builds prospective teachers as a China bridge instead of relying on sinologists. Schleswig-Holstein adds the authority side: the delegation trip with school heads and education officials shows the state using school heads as negotiators who need no prior China experience. Together with the morning run (TU Berlin syllabus, Campus Connect) the picture is: the profile in demand is the <strong>teacher with a China internship</strong> and the <strong>school head with a negotiation briefing</strong>, both add-on qualifications for existing staff. The corporate side remains open: nothing new was found in this run either on profiles companies seek for China teams.</p>
+  </section>
+
+  <section class="list">
+    <h2>Recommendations to Bruno</h2>
+    <ul class="plain">
+      <li><strong>Recommendation:</strong> Add the suffix _2 as the convention for second runs on the same day to the routine file Fastmind-Amy-Sucher (section Read and Write), because the live prompt only knows Fastmind-Amy-&lt;YYYY-MM-DD&gt; and a second run without a rule either overwrites the morning run or needs a freely chosen name; today _2 was chosen and the morning run stayed unchanged.</li>
+      <li><strong>Recommendation:</strong> Approach the Hamburg schools (Lerchenfeld, Walddörfer) and the Senate Chancellery in the first week of November, because the group is just returning, the 2027 return visit from Shanghai is fixed (S177), and a pilot for the Amy companion format has political tailwind in Hamburg.</li>
+      <li><strong>Recommendation:</strong> Examine the China-NRW University Alliance (coordination University of Cologne) as NRW partner for school partnerships, because it closes the NRW gap of Campus Connect (S176), offers its 20th anniversary in 2026 as a hook, and builds a bridge profile with teacher trainees in Hangzhou that Amy can prepare culturally.</li>
+      <li>Known finding HTML language vs. Vault_Layout: reference only to the 21 Oct 2026 decision box in CEO_Fastmind-Entscheidungen (the domain's decision file), no new box.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Errors and discarded</h2>
+    <ul class="plain">
+      <li>Second run on the same day: file name with suffix _2 instead of overwriting; own entry in the run log Fastmind-PartnerB-Log; register rows only for signals that are new after checking against the Fastmind-Signal-Register.</li>
+      <li>IW study for the DAAD on international students staying in Germany (59 %, 23 billion euros, 34 % until retirement) appeared as a hit; already recorded (S090), no new row.</li>
+      <li>Schulzentrum Riesa (China exchange 2026, post of 10 Sep 2026): page not retrievable due to a TLS certificate error, not recorded. Table.Briefings (IW study): HTTP 403, DAAD journal used as substitute source.</li>
+      <li>State visit: the standard search returned only the 2018 state visit; only the extended search found the Hefei report of 27 Oct. Programme dates differ between the press release and the schedule page of the Office of the Federal President (Hongcun/Hefei on 26 or 28 Oct); not recorded as a separate signal, update of S172.</li>
+      <li>No current report on nursing training corridors China to Germany (hits: pilot project without date, medical research Charité Feb 2026). MINT Autumn Report 2026 still not published (S136); spring report recorded (S015).</li>
+      <li>No Confucius Institute teacher training for November 2026 found (hits 2017–2020). No German-Chinese university agreement from October 2026 found (Rostock/HUST, Jena/Shenzhen undated). No DAAD press release on China from October 2026. No 2026 figures on pupils learning Chinese (last state 2022/23: 119 schools, 5,866 learners; S018).</li>
+      <li>Leonardo da Vinci School Munich: delegation trip without a named partner; context only in bridge-building, no signal.</li>
+      <li>IHK Südlicher Oberrhein (India): recorded as a comparison model, no register signal (no China reference; federal India focus recorded, S034).</li>
+      <li>Personal data: names of teachers, pupils, speakers and mayors deliberately not taken over; office holders named only in their function.</li>
+      <li>No new defects.</li>
+    </ul>
+  </section>
+</main>
+<footer>Fastmind Amy Scout · as of 28.10.2026, run 2 · routine Fastmind-Amy-Sucher · log Fastmind-PartnerB-Log · Markdown twin Fastmind-Amy-2026-10-28_2.md</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>

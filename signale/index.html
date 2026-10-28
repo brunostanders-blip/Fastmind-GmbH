@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind · Signale</title>
+<style>
+:root { color-scheme: light dark;
+  --color-bg:#F1F3F5; --color-surface:#FFFFFF; --color-text:#1B1F24; --color-muted:#4B5563; --color-border:#CBD5E1;
+  --color-heading:#2f52c9; --color-divider:#2f52c9; --color-card-accent:#d9711a; --color-card-accent-soft:#fdf1ec; --color-focus:#005FCC; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) {
+  --color-bg:#111827; --color-surface:#1F2937; --color-text:#F3F4F6; --color-muted:#D1D5DB; --color-border:#64748B;
+  --color-heading:#ff9b55; --color-divider:#4da3ff; --color-card-accent:#4da3ff; --color-card-accent-soft:rgba(77,163,255,0.14); --color-focus:#93c5fd; } }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--color-bg); color:var(--color-text); line-height:1.5; }
+header { padding:2rem 2rem 1rem; text-align:center; }
+h1 { margin:0 0 .4rem; font-size:1.9rem; letter-spacing:-.01em; color:var(--color-heading); }
+header p { margin:0; color:var(--color-muted); }
+main { max-width:900px; margin:0 auto; padding:1.5rem 2rem 3rem; }
+.divider { border:none; border-top:2px solid var(--color-divider); margin:0 0 1.5rem; }
+h2 { font-size:1.15rem; color:var(--color-heading); border-bottom:1px solid var(--color-border); padding-bottom:.4rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1rem; }
+.card { display:flex; gap:.9rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:10px; padding:1.1rem 1.25rem; text-decoration:none; color:var(--color-text); }
+.card:hover, .card:focus-visible { box-shadow:0 4px 16px var(--color-card-accent-soft); transform:translateY(-2px); }
+.card:focus-visible { outline:3px solid var(--color-focus); outline-offset:2px; }
+.card-bar { flex:none; width:.5rem; border-radius:4px; background:var(--color-card-accent); }
+.tag { display:inline-block; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; padding:.15rem .55rem; border-radius:999px; background:var(--color-card-accent-soft); color:var(--color-card-accent); font-weight:700; margin-bottom:.6rem; }
+.card-title { margin:0 0 .35rem; font-size:1.05rem; font-weight:700; color:var(--color-heading); }
+.card p { margin:0; font-size:.88rem; color:var(--color-muted); }
+footer { text-align:center; color:var(--color-muted); font-size:.8rem; padding:2rem 0 1rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fastmind · Signale</h1>
+  <p>Marktsignale China ↔ DACH aus den Fastmind-Routinen — je Lauf eine Langfassung</p>
+</header>
+<main>
+<hr class="divider">
+<h2>Lauf vom 28.10.2026</h2>
+<div class="grid">
+  <a class="card" href="2026-10-28/hanna.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Hanna · Industrie</p><p>Robotics, SKTEC-Fasern für Beton, Beite-Abwassertechnik</p></div></a>
+  <a class="card" href="2026-10-28/amy.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Amy · Bildung &amp; Kultur</p><p>Schulaustausch, Hochschulen, interkulturelle Formate</p></div></a>
+  <a class="card" href="2026-10-28/jan.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Jan · Robotics aus China</p><p>Humanoide, Komponenten, Matchmaking China ↔ DACH</p></div></a>
+</div>
+</main>
+<footer>Fastmind GmbH · Signale · Stand 28.10.2026</footer>
+</body>
+</html>
