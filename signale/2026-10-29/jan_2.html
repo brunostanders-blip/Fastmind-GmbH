@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robotik aus China, Chancen in DACH — 29.10.2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal h3 { margin: 0; font-size: 1.05rem; color: var(--color-heading); }
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin-bottom: 0.35rem; }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.note a, section.list a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.note a:hover, section.list a:hover { text-decoration: underline; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+table.tracking td { white-space: normal; min-width: 11rem; vertical-align: top; font-size: 0.85rem; }
+section.list ul { padding-left: 1.2rem; font-size: 0.9rem; }
+section.list li { margin-bottom: 0.4rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Robotik aus China, Chancen in DACH</h1>
+  <p class="subtitle">29. Oktober 2026 · Was chinesische Robotik-Meldungen für Unternehmen in Deutschland, Österreich und der Schweiz bedeuten — und wen Fastmind zusammenbringen kann.</p>
+  <div class="theme-switcher" role="group" aria-label="Darstellung">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Weißmodus</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dunkelmodus</button>
+  </div>
+</header>
+<main>
+<hr class="divider">
+
+<section class="list"><h2>China-Signale</h2>
+
+<div class="portal">
+<span class="tag">Relevanz hoch</span>
+<h3>1. Pudu Robotics eröffnet seine Europa-Zentrale in Neuss: Showroom, Lager, Service und fast 90 Mitarbeiter für Europa</h3>
+<ul>
+<li><strong>Was ist neu:</strong> Am 29.10.2026 melden zwei Fachmedien, dass 普渡机器人 Pudu Robotics (Shenzhen) seine Europa-Zentrale in Neuss bei Düsseldorf in Betrieb genommen hat. Der Standort vereint Büro, Produkt-Showroom, Lager, Schulung, Vertrieb, After-Sales und Reparatur. In Europa arbeiten knapp 50 Vertriebs- und knapp 40 Technik-Mitarbeiter; Servicecenter in Deutschland, Ersatzteillager in Deutschland und den Niederlanden. Das Geschäft wächst laut Unternehmen seit zwei Jahren um über 60 % pro Jahr, unter anderem in Deutschland, Österreich und der Schweiz. Kunden: EDEKA, Denner (Migros-Gruppe, Schweiz, 200 Reinigungsroboter CC1, Händler Robobee), Albert Heijn, Carrefour, Marriott, Flughafen Paris-CDG, St. Antonius Hospital (NL). Weltweit über 130.000 ausgelieferte Roboter in über 85 Ländern. Die Pressemitteilung vom 14.09.2026 (IFA Berlin) kündigte die Zentrale in Deutschland an, ohne Ort; der halbhumanoide PUDU D7 hatte dort Europa-Debüt. Pressetermin in Amsterdam in der kommenden Woche (T600, T300, T150, MP2000). Verantwortlich: Bella Sun, Vice President und General Manager Europe.</li>
+<li><strong>Quelle:</strong> Pudu Robotics baut nach der IFA 2026 seine Präsenz in Europa aus (PR Newswire, 14.09.2026): <a href="https://www.prnewswire.com/news-releases/pudu-robotics-baut-nach-der-ifa-2026-seine-prasenz-in-europa-aus-und-treibt-eine-strategie-fur-skaliertes-und-lokalisiertes-wachstum-voran-302877687.html">prnewswire.com</a> — Unternehmensmitteilung (Primärquelle) · Pudu Robotics opens its European headquarters in Neuss, Germany (The Next Web, 29.10.2026): <a href="https://thenextweb.com/news/pudu-robotics-european-headquarters-neuss-germany">thenextweb.com</a> — Fachmedium · Robotics Firm Opens European HQ in Germany (Logistics Business, 29.10.2026): <a href="https://logisticsbusiness.com/materials-handling/robotic-picking/robotics-firm-opens-european-hq-in-germany/">logisticsbusiness.com</a> — Fachmedium · Denner-Rollout (Easy to Clean, Vertriebspartner-Blog, 30.09.2026): <a href="https://easytoclean.co/en/insights/pudu-europe-ifa-2026-denner-cc1/">easytoclean.co</a>. Die Eröffnung in Neuss steht bisher nur in den Medien; auf der Pudu-Website fehlt eine Oktober-Meldung dazu.</li>
+<li><strong>Konformität in der Quelle:</strong> nein. (Für den Lieferroboter PUDU T300 nennt ein Fachmedium CE-MD und CE-RED von TÜV SÜD nach EN ISO 3691-4 und EN 1175, 2025: <a href="https://www.eetrend.com/content/2025/100589043.html">eetrend.com</a>.)</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein (T300: TÜV SÜD genannt, keine Nummer).</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — Pudu verkauft in DACH direkt und über Händler, der Service kommt ab jetzt aus Neuss; Mitbewerber aus DACH verlieren das Argument „kein Service vor Ort“. <em>Zulassung</em> — Reinigungs- und Lieferroboter brauchen ab 20.01.2027 den Nachweis nach EU-Maschinenverordnung, dazu RED und EN 18031 für Funk; der halbhumanoide D7 im Publikumsverkehr fällt unter die Transparenzpflichten des EU AI Act. <em>Zulieferung</em> — Pudu kauft in Europa Schulung, Wartung und Händlerleistungen ein. <em>Risiko</em> — Flottendaten laufen über die Hersteller-Cloud (DSGVO); Preisdruck auf europäische Serviceroboter.</li>
+<li><strong>Schweiz:</strong> Denner zeigt, dass der Schweizer Markt offen ist; CE anerkannt; für Daten gilt das revidierte Datenschutzgesetz.</li>
+<li><strong>Chance für Fastmind:</strong> Neuss liegt zehn Kilometer von Düsseldorf. Fastmind kann den Showroom für eigene Kunden nutzen (Kliniken, Pflege, Kommunen, Handel in NRW), Pudu Händler- und Servicepartner nach dem Denner-Modell zuführen und den Zulassungsweg für den D7 (Maschinenverordnung, AI Act) beraten.</li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">Relevanz hoch</span>
+<h3>2. Universitätsklinikum Leipzig mietet ein Knie-Navigationssystem: MDR-Konformität Pflicht, Preis entscheidet allein, Angebotsfrist 09.11.2026</h3>
+<ul>
+<li><strong>Was ist neu:</strong> Am 19.10.2026 schrieb das Universitätsklinikum Leipzig die Miete eines orthopädischen Navigationssystems für die Knieendoprothetik aus: zwölf Monate ab 17.03.2027, mit Lieferung, Installation, Einweisung, Service, Wartung und Verbrauchsmaterial, Kaufoption nach Mietende. Das Bestandssystem Velys VRAS läuft am 16.03.2027 aus; „gleichwertige Fremdsysteme sind zugelassen“. Zuschlag: Preis 100 % (Verbrauchsmaterial 70 %, Jahresmiete 30 %), Qualität 0 %. Muss-Kriterium: klinische Zulassung für primäre Knieendoprothetik und gültige MDR-Konformität; CE-Nachweis als Pflichtunterlage. Angebotsfrist 09.11.2026, 12:00 Uhr (dtvp.de), Zuschlagsfrist 18.12.2026. Das Portal erwartet ein bis drei Angebote.</li>
+<li><strong>Quelle:</strong> Navigations- und Robotiksystem für Knie, Universitätsklinikum Leipzig (Bekanntmachung über tendigo/dtvp): <a href="https://tendigo.de/ausschreibung/navigations-und-robotiksystem-fuer-knie-03f945d3e5">tendigo.de</a> — Vergabestelle (Primärquelle) über Portal · Listung auf auftrag-select: <a href="https://auftrag-select.com/notices/topics/medizintechnik">auftrag-select.com</a>. Chinesische Gegenseite: Futurtec Adds CE MDR-Certified Knee-Replacement System (EqualOcean, 27.08.2026): <a href="https://equalocean.com/news/2026082722148-futurtec-adds-ce-mdr-certified-knee-replacement-system-its-orthopedic-robotics">equalocean.com</a> — Fachmedium · 元化智能锟铻全骨科机器人 — „Yuanhua: Kunwu-Orthopädieroboter mit EU-Zertifikat, über 7.000 Operationen“ (科技日报, 01.07.2026): <a href="https://www.stdaily.com/web/gdxw/2026-07/01/content_540612.html">stdaily.com</a> — Fachmedium.</li>
+<li><strong>Konformität in der Quelle:</strong> ja — EU-MDR und CE als Anforderung.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — eine deutsche Universitätsklinik mietet statt zu kaufen, lässt Fremdsysteme zu und entscheidet nur über den Preis; das ist der Eintrittsweg für Anbieter ohne deutsche Referenz. <em>Zulassung</em> — das MDR-Zertifikat genügt als Nachweis; dazu braucht ein chinesischer Hersteller einen Importeur in der EU (MDR Art. 13) und die Registrierung nach MPDG. <em>Risiko</em> — Knie-Navigation ist an Implantatsysteme gebunden (Velys gehört zu DePuy Synthes); ein chinesisches System braucht die Freigabe für die Implantate der Klinik. Die Frist am 09.11. ist für einen Erstbieter zu kurz.</li>
+<li><strong>Schweiz:</strong> Swissmedic, Schweizer Bevollmächtigter, Registrierung in swissdamed.</li>
+<li><strong>Chance für Fastmind:</strong> Vergabebeobachtung Orthopädie-Robotik als Kanal; 鑫君特 Futurtec (ORTHBOT X, CE-MDR seit August; bekannt seit 21.08.) oder 元化智能 Yuanhua (Kunwu, EU-Zertifikat seit März, Knie-Operationen in Hongkong und Brasilien) mit einem deutschen Importeur für die nächste Mietrunde und für andere Kliniken aufstellen; die Leipziger Unterlagen als Anforderungsprofil beschaffen.</li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">Relevanz mittel</span>
+<h3>3. OP-Roboter in deutschen Kliniken: Zwickau vergibt 4,1 Mio. € an den einzigen Bieter, Aachen kündigt da Vinci 5 für die Herzchirurgie an, Tübingen kauft markenoffen</h3>
+<ul>
+<li><strong>Was ist neu:</strong> Das Heinrich-Braun-Klinikum Zwickau kaufte ein roboterassistiertes Chirurgiesystem mit zehnjährigem Wartungsvertrag für 4.118.367 €; Zuschlag am 22.06.2026 an Intuitive Surgical Deutschland GmbH, einziger Bieter (Bericht 28.09.2026). Die GLG Eberswalde vergab eine Miete für 2.669.000 € (Zuschlag 02.06.2026). Die Uniklinik RWTH Aachen veröffentlichte am 22.10.2026 eine Vorinformation „Beschaffung da Vinci 5 Operationssystem für Herzchirurgie EuRoCa-Heart“ mit Service- und Wartungsvertrag. Das Universitätsklinikum Tübingen kauft ein robotisches Operationssystem für Urologie, Allgemein-, Viszeral- und Transplantationschirurgie sowie Thorax-, Herz- und Gefäßchirurgie, ohne Marke (fünf Interessenten auf dem Portal). Chinesische Gegenseite: 微创机器人 MicroPort MedBot meldet über 300 Bestellungen für das Laparoskopiesystem 图迈 Toumai (16.06.2026), die 200. Installation bei HM Hospitales in Spanien (Juli 2026) und Marktzugang in rund 60 Ländern; eine Installation in DACH ist nicht genannt.</li>
+<li><strong>Quelle:</strong> Nur ein Bieter für Vier-Millionenauftrag (Pressedienst Öffentliches Beschaffungswesen, 28.09.2026): <a href="https://pressedienst-oeffentliches-beschaffungswesen.de/ein-roboterassistiertes-chirurgiesystem-nur-ein-bieter-fuer-vier-millionenauftrag/">pressedienst-oeffentliches-beschaffungswesen.de</a> — Fachmedium · Eberswalde (gleicher Dienst): <a href="https://pressedienst-oeffentliches-beschaffungswesen.de/roboterassistiertes-chirurgiesystem-wenig-interesse-am-auftrag-in-eberswalde/">pressedienst-oeffentliches-beschaffungswesen.de</a> · Aachen, Vorinformation 22.10.2026 (auftrag-select): <a href="https://auftrag-select.com/notices/topics/medizintechnik">auftrag-select.com</a> — Vergabestelle über Portal · Tübingen, Los „OP-Roboter“ (bauportal-deutschland): <a href="https://www.bauportal-deutschland.de/oeffentliche_ausschreibung_vobvol_details_72076_Tuebingen_OP_Roboter_3170468.html">bauportal-deutschland.de</a> — Vergabestelle über Portal · 图迈机器人全球商业化订单突破300台 — „Toumai: über 300 Bestellungen weltweit“ (微创, 16.06.2026): <a href="https://www.microport.com.cn/news/2463.html">microport.com.cn</a> — Unternehmensmitteilung (Primärquelle) · 200. Installation Spanien (新浪财经, 03.07.2026): <a href="https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-07-03/doc-inifpcuw5599978.shtml">finance.sina.com.cn</a>.</li>
+<li><strong>Konformität in der Quelle:</strong> nein in den Vergabetexten; MicroPort nennt CE (seit Mai 2024).</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — die Weichgewebe-Robotik in deutschen Kliniken ist ein Einanbieter-Markt: Zwickau und Eberswalde hatten je einen Bieter, Aachen nennt die Marke schon in der Vorinformation, Tübingen schreibt offen aus. <em>Zulassung</em> — Toumai hat das CE-MDR-Zertifikat; es fehlen Importeur, Service in Deutschland und eine klinische Referenz in DACH. <em>Risiko</em> — zehnjährige Wartungsverträge binden die Klinik; Instrumente sind systemgebunden; Patentlage bei Intuitive.</li>
+<li><strong>Schweiz:</strong> Swissmedic und Schweizer Bevollmächtigter; das Universitätsspital Basel operiert seit 2026 mit dem da Vinci 5 am Herzen (<a href="https://www.unispital-basel.ch/en/newscenter/newsblog/04-08-2026">unispital-basel.ch</a>).</li>
+<li><strong>Chance für Fastmind:</strong> MicroPort MedBot eine Referenzklinik und einen Service-Partner in DACH vermitteln; Kliniken, die markenoffen ausschreiben (Tübingen), über einen zweiten Anbieter informieren; Vergabebeobachtung „roboterassistiertes Chirurgiesystem“.</li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">Relevanz gering</span>
+<h3>4. Kanton-Messe: Serviceroboter-Halle mit 25.000 Besuchern an einem Tag, Hersteller aus Guangzhou meldet Absichtsbestellungen aus Europa für einen Rad-Humanoiden</h3>
+<ul>
+<li><strong>Was ist neu:</strong> Die 140. Kanton-Messe läuft vom 15.10. bis 04.11.2026 mit über 30.000 Ausstellern und rund 340.000 angemeldeten Einkäufern aus dem Ausland. Die Serviceroboter-Zone mit 46 Firmen zählte am 16.10. knapp 25.000 Besucher. 广州里工实业 (Guangzhou Ligong) zeigt einen Rad-Humanoiden und meldet Absichtsbestellungen aus Europa und Amerika. 人民网 beschreibt den Wandel der Aussteller „vom Produktverkauf zum Systemaufbau“ mit Service, Ersatzteilen und lokalen Teams.</li>
+<li><strong>Quelle:</strong> 第140届广交会开幕，外国采购商：机器人变多了 — „140. Kanton-Messe eröffnet: Einkäufer sehen mehr Roboter“ (21经济网, 15.10.2026): <a href="https://www.21jingji.com/article/20261015/herald/f86a4af6bb3bbeb1afbc27531542baea.html">21jingji.com</a> — Fachmedium · 机器人、AI交互设备成广交会焦点 — „Roboter und KI-Geräte im Fokus der Kanton-Messe“ (中新网, 16.10.2026): <a href="https://www.chinanews.com.cn/cj/2026/10-16/10715679.shtml">chinanews.com.cn</a> — Nachrichtenagentur · 广交会上的机器人出海记：从“卖产品”到“建体系” — „Roboter auf der Kanton-Messe: vom Produktverkauf zum Systemaufbau“ (人民网, 18.10.2026): <a href="http://finance.people.com.cn/n1/2026/1018/c1004-40816787.html">people.com.cn</a> — Staatsmedium.</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — Einkäufer aus DACH kaufen Serviceroboter direkt in Guangzhou. <em>Zulassung</em> — wer direkt importiert, wird Importeur nach Maschinenverordnung und RED und trägt die Nachweispflicht selbst. <em>Risiko</em> — Geräte ohne EU-Konformitätserklärung bleiben beim Zoll hängen oder dürfen nicht betrieben werden.</li>
+<li><strong>Schweiz:</strong> CE anerkannt; Importeurpflichten nach Schweizer Produktesicherheitsgesetz.</li>
+<li><strong>Chance für Fastmind:</strong> Konformitäts-Check vor dem Kauf für DACH-Einkäufer auf der Messe (bis 04.11.) und für die Lieferungen danach.</li>
+</ul>
+</div>
+
+<div class="note"><strong>Bekannt, nicht neu gemeldet:</strong> Humanoid Europe München 5./6.11.2026 (bekannt seit 21.09.; der Veranstalter nennt inzwischen 26 Sprecher, darunter Audi, Volkswagen und 华严 Huayan Robotics: <a href="https://humanoideurope2026.com/">humanoideurope2026.com</a>) · Dobot-Konferenz Frankfurt (bekannt seit 28.10.; laut 新华报业 stellten dort auch AgiBot, Unitree, Fourier, Lenovo und JAKA aus: <a href="https://www.xhby.net/content/s69a7e4f6e4b00d434b7633c7.html">xhby.net</a>) · Schaeffler × Leju (bekannt seit 09.10.) · Futurtec CE-MDR (bekannt seit 21.08.) · AgiBot-Innovationstag, Xiaomi-Hand, Shanghai-Aktionsplan, UBTECH-Aufträge, Steiermark, Halle (bekannt seit 29.10.). Quellen geprüft, heute ohne neuen Fund: Behörden (MIIT, 国务院, NMPA, Programme Shenzhen/Peking/Hangzhou), Börsenmeldungen, Chips, Unitree, EngineAI, Galbot, Cornerstone Robotics, Caixin, SCMP.</div>
+</section>
+
+<section class="list"><h2>Folge für DACH</h2>
+<ul>
+<li><strong>Zulassung:</strong> Deutsche Kliniken verlangen in der Vergabe das MDR-Zertifikat und das CE-Zeichen, prüfen aber keine Benannte Stelle. Für Serviceroboter gilt ab 20.01.2027 die Maschinenverordnung; wer direkt in China kauft, wird selbst Importeur.</li>
+<li><strong>Vertrieb:</strong> Der erste große chinesische Serviceroboter-Hersteller hat jetzt Zentrale, Lager und Service in Neuss. In der OP-Robotik ist Deutschland ein Einanbieter-Markt mit Vergaben, in denen nur ein Bieter antritt; Leipzig zeigt den Mietweg mit Preis als einzigem Kriterium.</li>
+<li><strong>Zulieferung:</strong> Pudu kauft in Europa Händler-, Schulungs- und Wartungsleistungen ein; chinesische OP-Robotik braucht in DACH Importeur, Service und Referenzklinik.</li>
+<li><strong>Risiko:</strong> Implantat- und Instrumentenbindung in der OP-Robotik; zehnjährige Wartungsverträge; Flottendaten in der Hersteller-Cloud; Geräte von der Messe ohne EU-Konformitätserklärung.</li>
+</ul>
+</section>
+
+<section class="list"><h2>Content-Winkel</h2>
+<div class="portal">
+<p><strong>These:</strong> Zehn Kilometer von Düsseldorf steht seit dieser Woche die Europa-Zentrale eines chinesischen Roboterherstellers mit fast 90 Mitarbeitern, Lager und Service, während deutsche Kliniken OP-Roboter für vier Millionen Euro an den einzigen Bieter vergeben: Der Markt ist in beide Richtungen offen, und wer den Zulassungsweg kennt, entscheidet, wer ihn nutzt.</p>
+<p><strong>Beleg:</strong> Pudu Robotics, Europa-Zentrale Neuss, knapp 50 Vertriebs- und knapp 40 Technik-Mitarbeiter, Wachstum über 60 % pro Jahr (The Next Web, Logistics Business, 29.10.2026; Pressemitteilung 14.09.2026); Heinrich-Braun-Klinikum Zwickau, 4.118.367 €, ein Bieter (Pressedienst Öffentliches Beschaffungswesen, 28.09.2026); Universitätsklinikum Leipzig, Miete mit MDR-Pflicht und Preis 100 % (tendigo, 19.10.2026).</p>
+</div>
+</section>
+
+<section class="list"><h2>Matchmaking</h2>
+<div class="table-wrap"><table class="tracking">
+<thead><tr><th>China-Seite (Unternehmen · Bedarf · Quelle)</th><th>DACH-Seite (Unternehmen oder Branche · Angebot oder Bedarf · Quelle)</th><th>Richtung</th><th>Was Fastmind leistet</th><th>Nächster Schritt</th></tr></thead>
+<tbody>
+<tr><td>普渡 Pudu Robotics, Neuss · Händler, Servicepartner und Kunden in DACH für Reinigungs-, Liefer- und halbhumanoide Roboter (D7) · <a href="https://www.prnewswire.com/news-releases/pudu-robotics-baut-nach-der-ifa-2026-seine-prasenz-in-europa-aus-und-treibt-eine-strategie-fur-skaliertes-und-lokalisiertes-wachstum-voran-302877687.html">prnewswire.com</a></td><td>Denner (Migros-Gruppe, Schweiz) · 200 CC1 im Einsatz nach Test in vier Filialen, Händler Robobee übernimmt Schulung und Wartung; Vorbild für Handel, Kliniken und Kommunen in NRW · <a href="https://thenextweb.com/news/pudu-robotics-european-headquarters-neuss-germany">thenextweb.com</a></td><td>China→DACH</td><td>Das Denner-Modell (Händler mit Schulung und Wartung) für NRW aufbauen; Betreiber- und Importeurpflichten nach Maschinenverordnung ab 20.01.2027; AI-Act-Einordnung für den D7</td><td>Showroom Neuss besuchen, Gespräch mit dem Europa-Team; Pressetermin Amsterdam in der kommenden Woche</td></tr>
+<tr><td>鑫君特 Futurtec (ORTHBOT X, CE-MDR) und 元化智能 Yuanhua (Kunwu) · EU-Vertriebspartner und Referenzkliniken · <a href="https://equalocean.com/news/2026082722148-futurtec-adds-ce-mdr-certified-knee-replacement-system-its-orthopedic-robotics">equalocean.com</a> · <a href="https://www.stdaily.com/web/gdxw/2026-07/01/content_540612.html">stdaily.com</a></td><td>Universitätsklinikum Leipzig · Miete Knie-Navigationssystem, Fremdsysteme zugelassen, MDR-Pflicht, Preis 100 %, Frist 09.11.2026 · <a href="https://tendigo.de/ausschreibung/navigations-und-robotiksystem-fuer-knie-03f945d3e5">tendigo.de</a></td><td>China→DACH</td><td>Importeur nach MDR Art. 13, MPDG-Registrierung, Implantatkompatibilität klären, Vergabebeobachtung Orthopädie-Robotik</td><td>Frist 09.11. nicht haltbar; Leipziger Unterlagen als Anforderungsprofil beschaffen und beide Hersteller für die nächste Mietrunde und für weitere Kliniken aufstellen</td></tr>
+<tr><td>微创机器人 MicroPort MedBot (图迈 Toumai) · Referenzklinik, Importeur und Service in DACH · <a href="https://www.microport.com.cn/news/2463.html">microport.com.cn</a></td><td>Universitätsklinikum Tübingen · robotisches Operationssystem, markenoffen, Kauf; Zwickau mit nur einem Bieter als Muster · <a href="https://www.bauportal-deutschland.de/oeffentliche_ausschreibung_vobvol_details_72076_Tuebingen_OP_Roboter_3170468.html">bauportal-deutschland.de</a></td><td>China→DACH</td><td>Zweitanbieter-Dossier für Kliniken (MDR, Instrumente, Service, Wartung), Service-Partner in Deutschland finden, Swissmedic/CH-REP für die Schweiz</td><td>Tübinger Leistungsbeschreibung lesen; MicroPort MedBot nach Europa-Vertriebsstruktur und DACH-Plänen fragen</td></tr>
+<tr><td>广州里工 Guangzhou Ligong (Rad-Humanoid) und Aussteller der Serviceroboter-Zone · Käufer in Europa · <a href="https://www.21jingji.com/article/20261015/herald/f86a4af6bb3bbeb1afbc27531542baea.html">21jingji.com</a></td><td>Einkäufer aus DACH auf der Kanton-Messe (bis 04.11.2026) · Serviceroboter und Exoskelette, Mitnahme nach Messeende · <a href="https://www.chinanews.com.cn/cj/2026/10-16/10715679.shtml">chinanews.com.cn</a></td><td>China→DACH</td><td>Konformitäts-Check vor dem Kauf (CE, Maschinenverordnung, RED, Konformitätserklärung), Importeurpflichten erklären</td><td>Angebot „Konformitäts-Check Kanton-Messe“ formulieren und an DACH-Einkäufer richten</td></tr>
+</tbody>
+</table></div>
+<p><strong>Chinesische Unternehmen mit Europa-Plänen, die Zulassung, Vertrieb oder einen Standort suchen:</strong> 普渡 Pudu Robotics (Zentrale Neuss, Pressetermin Amsterdam) · 微创机器人 MicroPort MedBot (Installationen Spanien und Italien, kein DACH-Standort) · 鑫君特 Futurtec und 元化智能 Yuanhua (CE-MDR für Knie, kein DACH-Partner) · 广州里工 Guangzhou Ligong (Absichtsbestellungen Europa) · bekannt: 智元 AgiBot (Software-Europastart 01/2027), 优必选 UBTECH (DACH über Terra Robotics), 宇树 Unitree und 银河通用 Galbot (München 5./6.11.), XPeng (H2 2027), 无界动力 Anyverse (CE).</p>
+</section>
+
+<section class="list"><h2>Empfehlungen an Bruno</h2>
+<ul>
+<li>Empfehlung: In der kommenden Woche den Pudu-Showroom in Neuss besuchen und das Europa-Team ansprechen — der größte chinesische Serviceroboter-Hersteller sitzt jetzt in Fastminds Nachbarschaft und braucht Händler, Servicepartner und Zulassungswissen für 2027.</li>
+<li>Empfehlung: Den Content-Winkel „Neuss und Zwickau“ als Post veröffentlichen — beide Belege sind aktuell, öffentlich und zeigen Fastminds Rolle zwischen Marktzugang und Zulassung.</li>
+<li>Empfehlung: Suchprofile „Navigationssystem Knie“ und „roboterassistiertes Chirurgiesystem“ auf dtvp.de, evergabe.de und TED anlegen — Leipzig, Tübingen und Aachen zeigen einen laufenden Vergabekanal mit wenig Wettbewerb.</li>
+<li>Empfehlung: Futurtec und Yuanhua nach ihrem EU-Importeur und ihren Implantat-Freigaben fragen — ohne beides ist kein deutsches Vergabeverfahren zu gewinnen, mit beidem ist Leipzig 2028 erreichbar.</li>
+<li>Empfehlung: MicroPort MedBot nach der Europa-Vertriebsstruktur fragen — über 300 Bestellungen und Installationen in Spanien und Italien, aber keine in DACH; das ist eine Lücke, die Fastmind füllen kann.</li>
+<li>Empfehlung: Ein kurzes Angebot „Konformitäts-Check vor dem Kauf“ für DACH-Einkäufer auf der Kanton-Messe formulieren — die Messe läuft noch bis 04.11., und wer direkt kauft, wird Importeur.</li>
+</ul>
+</section>
+
+</main>
+<footer>Robotik aus China, Chancen in DACH · Stand 29.10.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
