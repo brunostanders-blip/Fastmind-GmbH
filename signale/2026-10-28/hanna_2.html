@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind · Hanna — 28 Oct 2026 (Edition 2)</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+section.list h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--color-heading); }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.title { margin: 0; font-weight: 700; }
+.portal .tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+a { color: var(--color-heading); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.35rem; font-size: 0.92rem; }
+p.sources { font-size: 0.85rem; color: var(--color-muted); }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fastmind · Hanna — 28 Oct 2026 (Edition 2)</h1>
+  <p class="subtitle">Signal scan for Hanna's three products: Robotics · SKTEC polymer fibres for concrete · Beite mixers and aerators for wastewater plants</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+<hr class="divider">
+
+<section class="list">
+<h2>Market signals</h2>
+
+<h3>Robotics</h3>
+
+<div class="portal">
+  <span class="tag">Signal 1 · Market · relevance medium</span>
+  <p class="title">Chinese humanoid vendors are scaling: AgiBot shipped about 8,400 units in H1 2026 (44 % of the world market) and its 20,000th robot on 24 Sep; Unitree reports Q3 revenue of CNY 665 m (+70 %), profit −17 %, R&amp;D tripled (SCMP, Bloomberg 28 Oct 2026)</p>
+  <p><strong>New:</strong> By industry count AgiBot overtook Unitree in H1 2026 with about 8,400 humanoids delivered (44 % of the world market); the 20,000th robot was handed over on 24 Sep and the heavy wheeled G2 Max was launched on 28 Oct. Unitree published Q3 figures on 28 Oct: revenue CNY 665 m (about USD 94 m, +69.9 %), net profit −17.4 % because R&amp;D more than tripled; founder Wang Xingxing expects the practical breakthrough (80 % of assigned jobs after a spoken order) "as soon as 2028" (Bloomberg 23 Oct). Chinese robotics stocks kept rallying on 28 Oct. No Europe-specific October news was found for Unitree, AgiBot, Estun or Inovance.</p>
+  <p><strong>Relevance for Hanna (Robotics):</strong> The volumes show that supply in China has reached series maturity; the bottleneck towards Europe is conformity and distribution, not capacity (AgiBot without CE statement, Unitree without EU CE announcement). For the week of Humanoid Europe (5/6 Nov, Munich) this is the frame: whoever builds 8,400 units per half-year needs an importer in DACH with a duty catalogue under the Machinery Regulation, not another prototype.</p>
+  <p><strong>Action option:</strong> Prepare a one-page overview "From volume leader to EU importer" for Humanoid Europe: which roles the Machinery Regulation assigns to the importer from 20 Jan 2027, which evidence a DACH integrator demands, what Dobot and AiMOGA have already shown. Target: Chinese exhibitors without a European entity.</p>
+  <p class="sources">Sources: <a href="https://www.scmp.com/tech/tech-trends/article/3363544/agibot-overtakes-unitree-top-global-humanoid-robot-vendor-first-half-amid-ipo-push">SCMP: AgiBot overtakes Unitree</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-28/china-robot-stocks-extend-rally-with-unitree-earnings-in-focus">Bloomberg 28 Oct 2026</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-23/unitree-founder-now-expects-robots-breakthrough-as-soon-as-2028">Bloomberg 23 Oct 2026</a> · <a href="https://theaiinsider.tech/2026/10/28/china-physical-ai-roundup-unitree-earnings-agibot-robot-launch-xpeng-robotaxi-update-plus-funding-rounds-xiaomis-new-hand/">The AI Insider roundup, 28 Oct 2026</a></p>
+</div>
+
+<p><strong>Status (already known):</strong> IFR World Robotics 2026 in the details now available: Germany 24,842 installations in 2025 (−8 %), 41 % of EU installations; EU −11 % to 60,500; automotive share 23 % (2020: 40 %); Italy −11 %, France −8 %, Spain −15 % (<a href="https://www.industrial-production.de/industrial-robots/world-robotics-2026-report-germany-installs-41--of-all-industrial-robots-in-the-eu.htm">Industrial Production</a>). VDMA forecast 2026 unchanged at −5 % to EUR 14.1 bn (February 2026, no October update found). Humanoid Europe 5/6 Nov, SPS Nuremberg 24–26 Nov.</p>
+
+<h3>SKTEC fibres for concrete</h3>
+
+<div class="portal">
+  <span class="tag">Signal 2 · Law/Compliance · relevance high</span>
+  <p class="title">DIBt approval landscape "concrete with polymer fibres": 22 national technical approvals (abZ) held by 14 holders from DE, CH, BE, DK and IT, no Chinese holder; two approvals expire by spring 2027 (DIBt portal, retrieved 28 Oct 2026)</p>
+  <p><strong>New:</strong> The DIBt portal lists 22 approvals of series Z-3.73 "Beton mit Polymerfasern". Holders: baumhueter extrusion, KrampeHarex (2), GCP Germany, Contec Fiber (CH), V.F.A. srl (IT), Danish Fibres (DK, 2), Bekaert (Duomix M6 Fire), Master Builders Solutions (6), Sika (3, two legal entities), AWP Fasertechnik, Ha-Be Betonchemie (2), Enneatech (CH), Adfil (BE). Latest grants: Sika Crackstop (6 Mar 2026, to 16 Mar 2031) and ENNEAFIL Micro-A (20 May 2026, to 26 May 2031). Expiry dates: SikaFiber PPM <strong>15 Nov 2026</strong>, KrampeHarex PM 54/800 <strong>24 Mar 2027</strong>, Ha-Be PP macro fibre and Wiking 4050 30 May 2027. For steel fibres the portal lists only one abZ (Dramix, Bekaert). There is still no DAfStb guideline for polymer fibre concrete; the steel fibre guideline (2021) covers steel fibres only, the "non-metallic reinforcement" guideline covers bar reinforcement.</p>
+  <p><strong>Relevance for Hanna (SKTEC):</strong> This is the competitor map for the German approval route that the internal analysis calls "phase 2 with abZ": 14 holders made it, four of them non-German (CH, BE, DK, IT), which shows a foreign company can be the holder; none is Chinese. The two expiry dates are windows in which competitors must renew and planners ask for alternatives. Own derivation from public sources: because the DAfStb guideline does not cover polymer fibres, load-bearing use in Germany still requires an abZ or a project-specific type approval; CE under EN 14889-2 alone is not enough.</p>
+  <p><strong>Action option:</strong> Prepare the SKTEC conversation with two questions: (a) Which of the 14 holders manufacture fibres and which only market them (Master Builders, Sika, Ha-Be carry third-party fibres)? A marketer with abZ experience is a possible partner for SKTEC rather than a competitor. (b) For phase 1 (approval-free: industrial floors, precast without load-bearing fibre action) the CE declaration of performance is sufficient; the DIBt application can proceed in parallel, with V.F.A. (Italy) as the reference case of a foreign holder.</p>
+  <p class="sources">Sources: <a href="https://www.dibt.de/de/bauprodukte/informationsportal-bauprodukte-und-bauarten/produktgruppen/bauprodukte-detail/bauprodukt/fasern-fuer-beton">DIBt, fibres for concrete (approval list)</a> · <a href="https://www.dafstb.de/richtlinien.html">DAfStb guidelines (as of August 2026)</a> · <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/best.202000065">Wiley: new edition DAfStb steel fibre concrete guideline (2021)</a></p>
+</div>
+
+<div class="portal">
+  <span class="tag">Signal 3 · Market · relevance medium · observation, unverified</span>
+  <p class="title">Chinese PP macro fibre suppliers advertise CE under EN 14889-2, partly still citing the 2006 edition; none appears in the DIBt list</p>
+  <p><strong>New:</strong> Shandong Jianbang Chemical Fiber (brand Ecocretefiber) lists EN 14889-2 next to ASTM C1116 and ISO 9001; SAPEN International (Shanghai) offers a "CE Certificate PP Fibre EN 14889-2:2006" on Made-in-China, Briture Co. "CE certified" macro fibres 48/54 mm with a 1,000 kg minimum order; Ganzhou Daye names 10,000 t annual capacity without EN reference; Yuanwang ASTM only. Benchmark outside China: Kordsa Kratos Macro (Turkey), EN 14889-2 class II, 54 mm. None of these suppliers appears in the DIBt list (signal 2). The claims are supplier marketing; whether the CE declaration goes through a notified body (system 1 for structural use) was not checked.</p>
+  <p><strong>Relevance for Hanna (SKTEC):</strong> Shows the competitive situation from the price side: Chinese standard PP fibres enter the EU market with a CE claim and low minimum quantities, but without German approval for load-bearing applications. SKTEC positions itself through performance (dosage, tensile strength) according to the internal analysis, not through price; the difference becomes visible to planners only once SKTEC holds the abZ and the standard suppliers do not. It is also the template for the strategic question below: CE under EN 14889-2 is the low hurdle, the abZ the real one.</p>
+  <p><strong>Action option:</strong> A checklist "What does the CE certificate of your macro fibre say?" (standard edition, class I/II, system 1 or 3, notified body, batch traceability) for DACH precast plants and industrial floor contractors as a conversation opener; it positions SKTEC against low-cost imports without naming competitors.</p>
+  <p class="sources">Sources: <a href="https://jianbangfiber.com/product/Polypropylene-Concrete-Fiber-440.html">Shandong Jianbang: polypropylene concrete fiber</a> · <a href="https://ecocretefiber.com/en/polypropylene-fiber-for-concrete-distributor-guide/">Ecocretefiber: distributor's guide</a> · <a href="https://briture.en.made-in-china.com/product/fECYjOUMHgcm/China-CE-Certified-Polypropylene-PP-Macro-Fiber-for-Concrete.html">Briture on Made-in-China</a> · <a href="https://kratosreinforcement.com/macro-pp-fibers/">Kordsa Kratos Macro (benchmark)</a> · <a href="https://www.dutchfibertrading.com/de/wissenszentrum/artikel/en-14889-ce-kennzeichnung-faserbeton">Dutch Fiber Trading: EN 14889 and CE explained</a></p>
+</div>
+
+<p><strong>Checked without new finding (construction and project side):</strong> No October report on fibre concrete projects or tunnel tenders with plastic fibres (searches: fibre concrete/macro fibre October 2026, tunnel shotcrete inner lining DE/AT/CH, DAfStb polymer fibres). Still valid as reference case: Fröschnitzgraben tunnel (AT), innermost 25 cm of the inner lining executed as plastic fibre concrete for fire protection (<a href="https://www.spritzbeton-tagung.com/downloads/vortraege/2025/11.pdf">Spritzbeton-Tagung 2025, Lagger/Swietelsky</a>).</p>
+
+<h3>Beite wastewater equipment</h3>
+
+<div class="portal">
+  <span class="tag">Signal 4 · Deadline · relevance high</span>
+  <p class="title">Tender City of Cham (Bavaria): wastewater plant, lot 2 mechanical equipment section 2.2 with 2 blowers, 3 aeration systems, 6 hyperboloid mixers and 4 recirculation pumps; bid deadline 18 Nov 2026, execution April to December 2027 (notice 13 Oct 2026)</p>
+  <p><strong>New:</strong> The City of Cham (civil engineering) awards, in an open procedure under VOB/A, the mechanical renewal and expansion of its wastewater plant. Section 2.2 covers replacing two blowers, three aeration systems, six hyperboloid mixers and four recirculation pumps for the activated sludge basins, plus stainless steel piping (1.4571, up to DN 500), valves and metalwork; works during ongoing operation with at most one basin out of service at a time; execution 1 Apr to 3 Dec 2027. Award by lowest price only, no alternative bids, bid deadline 18 Nov 2026, 11:00. Eligibility: comparable services from the last five years (at least three reference certificates if the field is narrowed), welding certificates, declarations on Russia-related exclusions and child labour, mandatory site visit. Further aeration tenders nearby: BRW Haan (KW Angertal, deadline 1 Oct; KW Homberg Süd mixer switchgear, deadline 20 Oct), Freihung (aeration and mixers, deadline 26 Oct), Buttlar (pumps/blower station, deadline 29 Oct), Fürth (aeration technology, June) and Billigheim (aeration planning, August).</p>
+  <p><strong>Relevance for Hanna (Beite):</strong> This is exactly Beite's product range (mixers, aerators) in a live German municipal tender with a deadline in three weeks. The eligibility list also shows why a Chinese manufacturer does not bid itself: five years of references, welding certificates, site visit, German VOB documents. But "lowest price only" is the opening: the German mechanical contractor who sources the cheapest components wins. Beite's way into these tenders goes through the bidders, not through the municipality.</p>
+  <p><strong>Action option:</strong> The bidder list for Cham becomes public only after submission; beforehand the usual mechanical bidders for such lots (regional plant builders in eastern Bavaria, suppliers of hyperboloid mixers) can be identified and approached with a component offer "mixer/aerator from Nanjing, lead time, test evidence, spare parts in DACH". For Hanna the test whether Beite can present a deliverable data sheet to European requirements (motor efficiency class, ATEX where required, EN standards) today.</p>
+  <p class="sources">Sources: <a href="https://tendigo.de/ausschreibung/erweiterung-bzw-sanierung-der-klaeranlage-in-cham-los-1c010f4c5e">tendigo: Cham wastewater plant, lot 2 section 2.2</a> · <a href="https://www.greenprofi.de/auftraege-tiefbau/klaeranlagen/">greenprofi: wastewater plant tenders</a> · <a href="https://vergabe.brw-haan.de/NetServer/index.jsp?Order=asc&amp;OrderBy=TenderName&amp;function=Search">BRW Haan procurement platform</a> · <a href="https://de.openprocurements.com/cpv/45252130/">openprocurements, CPV 45252130</a></p>
+</div>
+
+<div class="portal">
+  <span class="tag">Signal 5 · Law/Compliance · relevance medium</span>
+  <p class="title">Extended producer responsibility for the fourth treatment stage is shaking: Advocate General Kokott (3 Sep 2026, C-193/25) recommends the CJEU declare Art. 9 UWWTD void; Federal Environment Minister Schneider (5 Oct) holds firm and examines a national route "if necessary"; transposition deadline 31 Jul 2027 (ZfK 5 Oct 2026, klaerwerk.info)</p>
+  <p><strong>New:</strong> In Poland's action against parts of the Urban Wastewater Treatment Directive (EU) 2024/3019, Advocate General Kokott proposed on 3 Sep 2026 to annul the extended producer responsibility (pharma and cosmetics bear at least 80 % of the cost of the fourth stage): data basis not transparent, exclusion of other sources (pesticides, biocides, plastic additives) not justified. She does not question the fourth stage itself or the polluter-pays principle. The European Parliament had recommended a suspension on 18 Jun 2026 (non-binding). On 5 Oct 2026 Minister Schneider said he stands by producer participation, prefers a European solution, could "if necessary" go a national route and considers including further market players. The VKU puts the water sector's investment need at EUR 800 bn by 2045. Fourth-stage obligation: plants from 150,000 PE, phased until 2045; national transposition by 31 Jul 2027. Judgment date: not published.</p>
+  <p><strong>Relevance for Hanna (Beite):</strong> The financing of the fourth stage decides how much investment budget municipalities keep for basic equipment (aeration, mixers). If producer responsibility falls, fee payers and federal states finance it; then price pressure rises in every mechanical tender (signal 4: "lowest price only") and with it the chance for low-cost components. For Chinese manufacturers a double-edged signal: more price pressure, but also more hesitation on new projects until clarity.</p>
+  <p><strong>Action option:</strong> Use "Fourth stage: what happens to the activated sludge basin?" in talks with wastewater associations and engineering firms: fourth-stage extensions often go together with energy optimisation of the activated sludge stage (signal 6). Hanna can offer to bring Chinese component prices into feasibility studies as a comparison value without being a bidder.</p>
+  <p class="sources">Sources: <a href="https://www.zfk.de/wasser-abwasser/wasser/wasser-bundesumweltminister-herstellerverantwortung-vierte-reinigungsstufe">ZfK, 5 Oct 2026</a> · <a href="https://klaerwerk.info/aktuelles/herstellerverantwortung-nach-karl-generalanwaeltin-beim-eugh-plaediert-fuer-nichtigkeit/">klaerwerk.info: Advocate General pleads for annulment</a> · <a href="https://www.pharmadeutschland.de/newsroom/news/schlussantraege-zur-eu-kommunalabwasserrichtlinie-art-9-ist-nichtig/">Pharma Deutschland: opinion, Art. 9 void</a> · <a href="https://www.bdew.de/wasser-abwasser/kommunalabwasserrichtlinie-eu-karl/faq/">BDEW: FAQ UWWTD</a> · <a href="https://de.dwa.de/de/kommunalabwasserrichtlinie-karl.html">DWA: UWWTD</a></p>
+</div>
+
+<div class="portal">
+  <span class="tag">Signal 6 · Deadline · relevance medium</span>
+  <p class="title">Kommunalrichtlinie (National Climate Initiative): applications until 31 Dec 2027, digital only since 1 Jun 2026, cap of EUR 20 m eligible expenditure per investment project since 15 Sep 2026; aeration and mixer renewal are eligible (klimaschutz.de, retrieved 28 Oct 2026)</p>
+  <p><strong>New:</strong> The guideline is open from 1 Nov 2024 to 31 Dec 2027 (submission until 31 Dec 2027). Since 1 Jun 2026 applications go exclusively through easy-Online; for all applications from 15 Sep 2026 caps on eligible total expenditure apply (strategic projects EUR 2 m, investment projects EUR 20 m) due to the Climate and Transformation Fund's financial planning. Funding focus 4.2.7 "climate-friendly wastewater management"; secondary sources name 30 % (standard) and 45 % (financially weak municipalities), the official rate table (no. 7.3) was not retrieved. Since March 2026 replacement and new builds are also eligible. Project example Horn-Bad Meinberg: blowers and mixers replaced, switchgear renewed, 21 % electricity saving from motors, 15 % from compressors, 30 % funding. Technical context: compressed air for the activated sludge stage accounts for 40–60 % of a plant's electricity use.</p>
+  <p><strong>Relevance for Hanna (Beite):</strong> Aeration and mixers are the most energy-intensive equipment of a plant and eligible for funding, but only with a potential study before application and without early project start. For Beite this means: the selling point in Germany is not price alone but a documented efficiency (motor class, oxygen transfer) that fits the potential study. The EUR 20 m cap hits large plants, not the typical municipality renovating an activated sludge basin.</p>
+  <p><strong>Action option:</strong> Engineering firms writing potential studies under the Kommunalrichtlinie are the lever: offer them Beite data sheets with energy figures (kWh per kg oxygen, mixer power per m³) so Chinese components appear as a variant in the study. Second angle: cities with completed studies (Fürth, Billigheim, signal 4) as first contacts.</p>
+  <p class="sources">Sources: <a href="https://www.klimaschutz.de/de/foerderung-der-nki/foerderprogramme/kommunalrichtlinie">klimaschutz.de: Kommunalrichtlinie</a> · <a href="https://www.horn-badmeinberg.de/Aktuelles/Erneuerung-der-Bel%C3%BCftung-in-den-Belebungsbecken-und-Optimierung-der-Nachkl%C3%A4rbecken-auf-der-Kl%C3%A4ranlage-Horn-Bad-Meinberg.php?object=tx%2C390.200.1&amp;ModID=7&amp;FID=449.3024.1&amp;NavID=3165.122">Horn-Bad Meinberg: aeration renewal</a> · <a href="https://klaerwerk.info/fachwissen/energie-und-e-technik/gleitdruckregelung-des-belueftungssystems/">klaerwerk.info: sliding pressure control (energy share of aeration)</a> · <a href="https://www.roedl.com/insights/investitionsbedarf-klaeranlagen-kommunen-foerdermittel/">Rödl &amp; Partner: investment need in wastewater plants</a></p>
+</div>
+
+<p><strong>Status Beite / China presence:</strong> The manufacturer's website (njbeite.com) was unreachable today (connection reset); the IE expo China exhibitor list shows "Nanjing Beite Environmental Protection GE Manufacture Co., Ltd." under biochemical processes, without a Europe reference. No evidence of Beite deliveries to Europe was found. IFAT Munich 2026 (4–7 May): 3,400 exhibitors, China third-largest exhibitor nation after Germany and Italy (<a href="https://prozesstechnik.industrie.de/themen/messen-themen/ifat-munich-2026-rekordbeteiligung-zum-60-jubilaeum/">Prozesstechnik</a>).</p>
+
+<h3>Textile (side field)</h3>
+
+<div class="portal">
+  <span class="tag">Signal 7 · Law/Compliance · relevance medium</span>
+  <p class="title">EU imposes definitive anti-dumping duties on polyamide yarns from China: 60.0 to 67.6 % for five years (Implementing Regulation (EU) 2026/1823, OJ 28 Jul 2026); PET spunbond under provisional duties since May 2026 (GTAI)</p>
+  <p><strong>New:</strong> Definitive duties on filament yarns of aliphatic polyamides (CN 5402 31 00, 5402 45 00, 5402 51 00, 5402 61 00; not for retail sale), 60.0 % (Fujian Eversun et al.), 67.6 % (Fujian Highsun et al. and all others), 62.2 % for cooperating companies; complaint by an ad hoc alliance of European producers; proceedings since June 2025, provisional duties since late March 2026 (Regulation (EU) 2026/734). In parallel: provisional anti-dumping duties on PET spunbond (May 2026, ongoing) and PET needle-punched nonwovens (Regulation 2026/1063, 12 May 2026); extended duties on glass fibre fabrics from China and Egypt (Regulation 2026/1203, 8 Jun 2026).</p>
+  <p><strong>Relevance for Hanna (import-export):</strong> Polyamide yarns and nonwovens are intermediates for technical textiles (filters, geotextiles, sportswear). At 60 to 68 % duty, direct import from China loses its price advantage; whoever wants to keep serving DACH processors needs non-Chinese origin, EU processing or company-specific duty rates with a commercial invoice. A checkpoint per product group for Hanna's trading business.</p>
+  <p><strong>Action option:</strong> Keep a duty table per CN code (polyamide yarn definitive, PET nonwovens provisional, glass fibre extended) ready for Chinese yarn and nonwoven suppliers in the Fastmind network and ask specifically for cooperating companies at 62.2 %; for DACH processors the counter-question which yarns are now sourced from Vietnam, Turkey or the EU.</p>
+  <p class="sources">Sources: <a href="https://www.gtai.de/de/trade/eu/zoll/antidumping-garne-polymide-china-1919718">GTAI: anti-dumping polyamide yarns, China</a> · <a href="https://www.textilwirtschaft.de/fashion-management/eu-kommission-fuehrt-antidumping-zoelle-ein-46658">Textilwirtschaft: Commission imposes anti-dumping duties</a> · <a href="https://www.gtai.de/de/trade/eu/zoll/antidumping-waren-aus-glasfaserfilamenten-mit-ursprung-in-china-833400">GTAI: glass fibre filaments China</a> · <a href="https://globaltradealert.org/state-act/94348-eu-initiation-of-antidumping-investigation-on-imports-of-pet-spunbond-from-china">Global Trade Alert: PET spunbond</a></p>
+</div>
+</section>
+
+<section class="list">
+<h2>Regulatory / compliance update</h2>
+<ul>
+  <li><strong>Machinery Regulation (Robotics):</strong> First list of harmonised standards under Regulation (EU) 2023/1230 still not published. The list under the old Machinery Directive was updated again on 7 Sep 2026 according to IBF (over 800 standards, transition until 20 Jan 2027); the regulation itself was last amended by Regulation (EU) 2026/1744 of 24 Jul 2026 (content not checked today). Application date 20 Jan 2027 unchanged (<a href="https://www.ibf-solutions.com/fachbeitraege/neue-maschinenverordnung-status-harmonisierter-normen">IBF Solutions</a>).</li>
+  <li><strong>Construction products (SKTEC):</strong> EN 14889-2 is still cited by Chinese suppliers in its 2006 edition (signal 3); DIBt approvals expire on 15 Nov 2026 (SikaFiber PPM) and 24 Mar 2027 (PM 54/800) (signal 2). No DAfStb guideline for polymer fibre concrete (guideline list as of August 2026).</li>
+  <li><strong>Urban wastewater (Beite):</strong> Advocate General's opinion 3 Sep 2026, judgment pending; national transposition by 31 Jul 2027; fourth stage from 150,000 PE phased to 2045 (signal 5). Kommunalrichtlinie: cap since 15 Sep 2026, digital since 1 Jun 2026, deadline 31 Dec 2027 (signal 6).</li>
+  <li><strong>Trade defence (textile, robotics):</strong> polyamide yarns definitive since 28 Jul 2026 (signal 7); anti-dumping robotic lawnmowers: decision January 2027; handling fee for small consignments from 1 Nov 2026.</li>
+  <li><strong>Rare earths (Robotics):</strong> suspension of the October 2025 controls until 10 Nov 2026, extension not expressly confirmed (morning edition).</li>
+  <li><strong>EU MDR, LkSG, REACH/PFAS, CE in general:</strong> nothing new found today.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Customer approach ideas</h2>
+<ul>
+  <li><strong>"From volume leader to EU importer"</strong> (Chinese humanoid and cobot makers at Humanoid Europe, 5/6 Nov): one page with the importer duties of the Machinery Regulation, the evidence DACH integrators demand, and the two documented models (Dobot ecosystem, AiMOGA triple certificate). Hanna as the party that organises conformity and distribution together.</li>
+  <li><strong>"Who installs your hyperboloid mixers?"</strong> (mechanical bidders for wastewater lots like Cham; engineering firms for potential studies under the Kommunalrichtlinie): component offer from Nanjing with a European data sheet (energy figures, standards, spare parts in DACH) as a price variant in study and bid. Time anchor: Cham bid deadline 18 Nov 2026.</li>
+  <li><strong>"What does the CE certificate of your macro fibre say?"</strong> (DACH precast plants, industrial floor contractors, planners): checklist standard edition, class, system, notified body, abZ yes/no. Positions SKTEC against standard PP imports and prepares the abZ application; the expiry dates of two competitor approvals (15 Nov 2026, 24 Mar 2027) are the occasion with planners.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Open strategic question</h2>
+<p><em>How can manufacturers from China (robotics, fibres for concrete, wastewater equipment) make their product approval for the European market (DACH focus) more efficient?</em></p>
+<ul>
+  <li><strong>No new Chinese certification example from October today.</strong> For robotics AiMOGA Mornine (TÜV Rheinland: CE-MD, CE-RED, EN 18031; September 2025) remains the documented case; no October report on TÜV certificates for Chinese robots, pumps or wastewater equipment was found. The pattern "TÜV Rheinland engineers in China prepare the CE documentation on site" is documented for construction machinery (Mesda, 2024) and transferable.</li>
+  <li><strong>A different hurdle per product (own derivation from today's sources, marked as such):</strong>
+    <ul>
+      <li><strong>Robotics:</strong> the hurdle is conformity assessment (Machinery Regulation, radio, cybersecurity). Efficient: triple certificate in one pass at one body (AiMOGA pattern) or the ecosystem route with a German integrator (Dobot pattern).</li>
+      <li><strong>Fibres for concrete:</strong> the hurdle is not CE but the German approval for load-bearing use. CE under EN 14889-2 can be had in weeks (signal 3), the abZ at DIBt takes years and requires testing under German rules (signal 2). Efficient: start phase 1 approval-free with CE, apply for the abZ in parallel through a European holder or marketer; the DIBt list shows with V.F.A. (IT), Danish Fibres (DK), Adfil (BE) and Contec (CH) that foreign holders are the rule, not the exception.</li>
+      <li><strong>Wastewater equipment:</strong> the hurdle is not product approval (CE under the Machinery Directive, ATEX where required) but tender eligibility: five years of references, welding certificates, site visit (signal 4). Efficient: enter as component supplier to a German mechanical bidder and build references through its projects; the path to own bidder status goes through three references.</li>
+    </ul>
+  </li>
+  <li><strong>In common:</strong> in all three cases the fastest route is a European partner who carries the role the Chinese manufacturer cannot fill (integrator, approval holder, bidder). That is Hanna's role according to the Dual-Gateway context, not a result of this research.</li>
+</ul>
+</section>
+
+</main>
+<footer>Fastmind · Hanna · Signals · 28.10.2026 · Edition 2</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
