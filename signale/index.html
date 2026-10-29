@@ -7,10 +7,10 @@
 <style>
 :root { color-scheme: light dark;
   --color-bg:#F1F3F5; --color-surface:#FFFFFF; --color-text:#1B1F24; --color-muted:#4B5563; --color-border:#CBD5E1;
-  --color-heading:#2f52c9; --color-divider:#2f52c9; --color-card-accent:#d9711a; --color-card-accent-soft:#fdf1ec; --color-focus:#005FCC; }
+  --color-heading:#2f52c9; --color-divider:#2f52c9; --color-card-accent:#d9711a; --color-card-accent-soft:#fdf1ec; --color-focus:#005FCC; --color-missing:#6B7280; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) {
   --color-bg:#111827; --color-surface:#1F2937; --color-text:#F3F4F6; --color-muted:#D1D5DB; --color-border:#64748B;
-  --color-heading:#ff9b55; --color-divider:#4da3ff; --color-card-accent:#4da3ff; --color-card-accent-soft:rgba(77,163,255,0.14); --color-focus:#93c5fd; } }
+  --color-heading:#ff9b55; --color-divider:#4da3ff; --color-card-accent:#4da3ff; --color-card-accent-soft:rgba(77,163,255,0.14); --color-focus:#93c5fd; --color-missing:#9CA3AF; } }
 * { box-sizing:border-box; }
 body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--color-bg); color:var(--color-text); line-height:1.5; }
 header { padding:2rem 2rem 1rem; text-align:center; }
@@ -27,6 +27,11 @@ h2 { font-size:1.15rem; color:var(--color-heading); border-bottom:1px solid var(
 .tag { display:inline-block; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; padding:.15rem .55rem; border-radius:999px; background:var(--color-card-accent-soft); color:var(--color-card-accent); font-weight:700; margin-bottom:.6rem; }
 .card-title { margin:0 0 .35rem; font-size:1.05rem; font-weight:700; color:var(--color-heading); }
 .card p { margin:0; font-size:.88rem; color:var(--color-muted); }
+.card.placeholder { cursor:default; }
+.card.placeholder:hover { box-shadow:none; transform:none; }
+.card.placeholder .card-bar { background:var(--color-border); opacity:.6; }
+.card.placeholder .tag { background:transparent; border:1px dashed var(--color-border); color:var(--color-muted); }
+.card.placeholder .card-title { color:var(--color-muted); }
 footer { text-align:center; color:var(--color-muted); font-size:.8rem; padding:2rem 0 1rem; }
 </style>
 </head>
@@ -37,6 +42,12 @@ footer { text-align:center; color:var(--color-muted); font-size:.8rem; padding:2
 </header>
 <main>
 <hr class="divider">
+<h2>Lauf vom 29.10.2026</h2>
+<div class="grid">
+  <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">heute kein Lauf</span><p class="card-title">Hanna · Industrie</p><p>Nächster Lauf am Mittwoch, 04.11.2026</p></div></div>
+  <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">heute kein Lauf</span><p class="card-title">Amy · Bildung &amp; Kultur</p><p>Nächster Lauf am Mittwoch, 04.11.2026</p></div></div>
+  <a class="card" href="2026-10-29/jan.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Jan · Robotics aus China</p><p>AgiBot-Innovationstag, UBTECH-Aufträge, Summit München 5./6.11., Vergabe Halle</p></div></a>
+</div>
 <h2>Lauf vom 28.10.2026</h2>
 <div class="grid">
   <a class="card" href="2026-10-28/hanna.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Hanna · Industrie</p><p>Robotics, SKTEC-Fasern für Beton, Beite-Abwassertechnik</p></div></a>
@@ -44,6 +55,6 @@ footer { text-align:center; color:var(--color-muted); font-size:.8rem; padding:2
   <a class="card" href="2026-10-28/jan.html"><span class="card-bar" aria-hidden="true"></span><div><span class="tag">neu</span><p class="card-title">Jan · Robotics aus China</p><p>Humanoide, Komponenten, Matchmaking China ↔ DACH</p></div></a>
 </div>
 </main>
-<footer>Fastmind GmbH · Signale · Stand 28.10.2026</footer>
+<footer>Fastmind GmbH · Signale · Stand 29.10.2026</footer>
 </body>
 </html>

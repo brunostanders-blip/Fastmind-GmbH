@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind-Jan-Sucher — 29.10.2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--color-text); transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.card.active { border-left-color: var(--color-card-accent); }
+.card.active:hover, .card.active:focus-visible { box-shadow: 0 4px 16px var(--color-card-accent-soft); transform: translateY(-2px); }
+.card.active:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.card-bar { flex: none; width: 0.5rem; align-self: stretch; border-radius: 4px; background: var(--color-card-accent); }
+.card.placeholder { cursor: default; opacity: 0.75; }
+.card.placeholder .card-bar { background: var(--color-missing); opacity: 0.4; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.card.placeholder .tag { background: transparent; border: 1px dashed var(--color-border); color: var(--color-missing); }
+a.back { display: inline-block; margin-bottom: 1.5rem; color: var(--color-heading); text-decoration: none; font-size: 0.9rem; }
+a.back:hover { text-decoration: underline; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+.user-label { font-weight: 400; color: var(--color-muted); font-size: 0.6em; }
+.user-field { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: .5rem 0; }
+.user-field input { padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); }
+.user-field button { padding: .35rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+/* Ergänzungen innerhalb der Bausteine aus Vault_Layout §6: Signal-Titel im Kasten, Tabellenzellen in der Matchmaking-Tabelle umbrechend */
+.portal h3 { margin: 0; font-size: 1.05rem; font-weight: 700; color: var(--color-heading); }
+section.list ul { padding-left: 1.25rem; font-size: 0.9rem; }
+section.list li { margin-bottom: 0.4rem; }
+section.list p { font-size: 0.9rem; }
+section.list a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+section.list a:hover { text-decoration: underline; }
+table.tracking td { white-space: normal; min-width: 11rem; vertical-align: top; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header>
+<h1>Fastmind-Jan-Sucher — 29.10.2026 <span class="user-label">für <span data-user-name>Bruno</span></span></h1>
+<p class="subtitle">Robotics und Humanoide aus China: Signale, Folgen für DACH, Matchmaking und Empfehlungen des zweiten geplanten Laufs.</p>
+<div class="theme-switcher" role="group" aria-label="Darstellung">
+<button type="button" data-theme-choice="light" aria-pressed="false">Weißmodus</button>
+<button type="button" data-theme-choice="dark" aria-pressed="false">Dunkelmodus</button>
+</div>
+</header>
+<main>
+<hr class="divider">
+<div class="note"><strong>Zweiter geplanter Lauf</strong> (Scheduled Task <code>fastmind-jan-sucher</code>, 09:20 Uhr). Gesucht zuerst auf Chinesisch, dann Englisch, dann Deutsch. Register-Abgleich: Tabellenkopf und Zeilen S153–S198 (14 Tage), dazu Stichwortsuche über das ganze Register; unmittelbar vor dem Schreiben erneut gelesen.<br>Grundlage: Fastmind-Jan-Sucher · Dublettenprüfung gegen Fastmind-Signal-Register.</div>
+<section class="list"><h2>China-Signale</h2>
+<div class="portal"><h3>1. AgiBot-Innovationstag: Interaktionsmodell startet im Januar 2027 zuerst in Europa, „sicherheitsgerechter“ Lastroboter ohne genannte Norm — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Auf dem 2026智元创新日 (Shanghai, 29.10.2026) stellte 智元 AgiBot das Interaktionsmodell WITA-OMNI vor; die Auslandsversion soll im Januar 2027 „欧洲首发“ (Europa-Erststart) haben, ab März 2027 weltweit. Dazu: der Lastroboter 精灵 G2 Max („安规级重载具身机器人“, 20 kg je Arm, 40 kg beidarmig, Arbeitshöhe bis 2,5 m), die Handfamilie OmniHand3 (Lite, Standard, Ultra) und der Tastgreifer OmniPicker3, ein Flüssigkühlsystem in den Gelenken (IP67, −40 bis 55 °C), das Robotik-Betriebssystem 灵渠OS 1.0 (Open Source bis Ende 2026) und das Basismodell GO-3 Preview. Zahlen laut CTO 彭志辉: Sprung von 10.000 auf 20.000 produzierte Roboter in sechs Monaten, Umsatz erstes Halbjahr 2026 „nahe 2 Mrd. Yuan“, 43 % Weltmarktanteil (Eigenangabe). Die Kennzahl „Worken“ (有效智能工时 = aktive Roboter × autonome Arbeitszeit × Effizienzquote) soll den Nutzen von Humanoiden messbar machen.</li>
+<li><strong>Quelle:</strong> 2026智元创新日，技术跃迁推动部署态全域落地 — „AgiBot-Innovationstag 2026: Technologiesprung treibt die flächendeckende Einsatzreife“ (投资界, 29.10.2026): <a href="https://news.pedaily.cn/202610/571062.shtml">pedaily.cn</a> · 智元机器人发布新度量单位Worken，上半年营收近20亿 — „AgiBot stellt Kennzahl Worken vor, Halbjahresumsatz nahe 2 Mrd.“ (澎湃新闻 über 新浪, 29.10.2026): <a href="http://k.sina.com.cn/article_5952915705_162d248f906703ry5i.html">k.sina.com.cn</a> · G2 Max: <a href="http://finance.sina.com.cn/tob/2026-10-29/doc-iniwwaxc8972689.shtml">finance.sina.com.cn</a> · Tagesübersicht 13 Uhr: <a href="https://k.sina.com.cn/article_7857201856_1d45362c001908svsy.html">k.sina.com.cn</a>. Art: Unternehmensveranstaltung (Primärquelle) über Fachmedien.</li>
+<li><strong>Konformität in der Quelle:</strong> nein — „安规级“ („sicherheitsnormgerecht“) ohne Norm, keine CE, MVO, EN ISO 10218, CRA, RED, EN 18031.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein. (Für 精灵 G2 ohne Max liegen TÜV-Rheinland-Zertifikate vor, S067.)</li>
+<li><strong>Folge für DACH:</strong> <em>Zulassung</em> — ein Sprachmodell braucht keine Maschinenverordnung, fällt aber unter den EU AI Act (Transparenzpflichten bei Interaktion mit Menschen) und die DSGVO (Sprachdaten). <em>Vertrieb</em> — AgiBot startet in Europa 2027 mit Software, der Roboterverkauf läuft weiter über Partner (S051, S067). <em>Zulieferung</em> — OmniHand3 und Flüssigkühl-Gelenke konkurrieren mit der Bosch-Schunk-Hand und Schaeffler-Aktuatoren (S137). <em>Risiko</em> — „安规级“ wird in DACH als Konformitätsaussage missverstanden.</li>
+<li><strong>Schweiz:</strong> keine eigene Zulassung; CE anerkannt. Für Software: Datenschutzgesetz (revDSG) statt DSGVO.</li>
+<li><strong>Chance für Fastmind:</strong> Erstkunde oder Pilotpartner in DACH für die Europa-Version von WITA-OMNI (Handel, Hotel, Messe) plus AI-Act-Einordnung; Prüfpfad für G2 Max, falls er nach Europa kommt.</li>
+</ul>
+<div class="portal"><h3>2. Xiaomi legt eine Industriehand mit 21 Freiheitsgraden offen, Daten aus der eigenen Autofabrik — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Am 27.10.2026 veröffentlichte 小米 über sein Technik-Konto Ergebnisse zu einer bionischen Hand für Industrieszenarien: 21 Freiheitsgrade, 26 Motoren in Hybridantrieb, 1.500 Tastpunkte auf der ganzen Handfläche. Ausgelegt wurde sie an 1.827 von 2.579 Arbeitsanweisungen aus 16 Fertigungsabschnitten der Xiaomi-Autofabrik; 21 Freiheitsgrade brachten laut Simulation den größten Zuwachs an Greifsicherheit (plus 15 bis 38 % gegenüber 6 bis 15 Freiheitsgraden). Marktstart, Preis und Verkauf an Dritte sind nicht genannt.</li>
+<li><strong>Quelle:</strong> 小米披露21自由度仿生灵巧手 — „Xiaomi legt bionische Hand mit 21 Freiheitsgraden offen“ (量子位, 27.10.2026): <a href="https://www.qbitai.com/2026/10/505600.html">qbitai.com</a> · 同花顺, 27.10.2026: <a href="https://stock.10jqka.com.cn/20261027/c681138757.shtml">10jqka.com.cn</a>. Art: Fachmedien mit Unternehmensangabe (小米技术官微).</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Zulieferung</em> — ein Autohersteller entwickelt die Hand aus eigenem Fabrikbedarf; das ist das Muster, das Bosch und Schunk seit Juni 2026 verfolgen (Euronews, Signal 8). Kommt die Hand in Serie, ist sie ein Preisanker für DACH-Greifer. <em>Vertrieb</em> — kein Europa-Bezug. <em>Risiko</em> — Patente auf Sehnenantrieb und Tastsensorik.</li>
+<li><strong>Schweiz:</strong> keine eigene Zulassung; CE anerkannt.</li>
+<li><strong>Chance für Fastmind:</strong> Content (Fabrikdaten als Entwurfsgrundlage); später Komponentenvergleich für DACH-Integratoren.</li>
+</ul>
+<div class="portal"><h3>3. Shanghai: Aktionsplan für die neue Generation der intelligenten Fertigung, Medien nennen 8.000 Humanoide in Fabriken — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Die Shanghaier Wirtschafts- und Informatisierungskommission (上海市经济信息化委) veröffentlichte am 27.10.2026 den 《上海市加快发展新一代智能制造行动方案》. Er fordert, KI und Ausrüstung zu „装备智能体“ (Ausrüstungs-Agenten) zu verbinden und „Roboter mit eigener Wahrnehmung und Entscheidung“ zu entwickeln und zu verbreiten. Das Ziel „8.000 Humanoide in Fabriken“ sowie 200 Mrd. Yuan KI-Ausrüstung und 100 Mrd. Yuan Systemintegration stehen nur in einer Finanzmeldung; das Behördendokument selbst wurde nicht eingesehen. Begleitzahlen im Bericht: Plattformverkäufe von Embodied-AI-Robotern in den ersten drei Quartalen plus 22,6 % (商务部, 23.10.2026).</li>
+<li><strong>Quelle:</strong> 人形机器人概念，多股直线涨停 — „Humanoid-Aktien ziehen an“ (上海证券报 über 21经济网, 28.10.2026): <a href="https://21jingji.com/article/20261028/herald/39831a16d23b3c4d5fb905a5f40cc1a2.html">21jingji.com</a> · 8.000-Ziel (财闻 über 新浪, 29.10.2026): <a href="http://k.sina.com.cn/article_5953466437_162dab0450670bgac4.html">k.sina.com.cn</a>. Art: Behördendokument (Primärquelle) über Medien; Zahlen unbestätigt.</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb (DACH→China)</em> — Shanghaier Fabriken sollen KI-fähige Ausrüstung kaufen; deutsche Maschinenbauer mit Standort Shanghai können sich für die Standortprogramme listen lassen. <em>Zulieferung</em> — Humanoid-OEMs in Shanghai (AgiBot, Fourier) bekommen Abnahmedruck aus der Stadt, also Bedarf an Aktuatoren und Sensoren. <em>Risiko</em> — lokale Vergabe bevorzugt lokale Hersteller.</li>
+<li><strong>Schweiz:</strong> keine eigene Zulassung; Schweizer Maschinenbauer wie DACH-Nachbarn betroffen.</li>
+<li><strong>Chance für Fastmind:</strong> DACH-Zulieferer an Shanghaier OEMs vermitteln (Richtung DACH→China); Behördentext besorgen und für Entscheider zusammenfassen.</li>
+</ul>
+<div class="portal"><h3>4. UBTECH meldet über 50 Mio. Yuan Auslandsaufträge aus Europa, Japan und Korea — Walker C1 und U1 — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Älter als 14 Tage, aber neu für das Register und mit Auftrag. Am 10.09.2026 meldete 优必选 UBTECH über sein WeChat-Konto Auslandsaufträge von zusammen über 50 Mio. Yuan aus Europa, Japan und Korea für den Service-Humanoiden Walker C1 und den Android 优世界 U1. Kunden, Stückzahlen und der Europa-Anteil sind nicht genannt. Für den deutschsprachigen Raum ist Terra Robotics exklusiver Vertriebspartner (Testlauf 28.10.2026, nicht im Register). Halbjahr 2026: Umsatz 1,27 Mrd. Yuan (+104 %).</li>
+<li><strong>Quelle:</strong> 优必选斩获超5000万元海外订单，产品涉及Walker C1、优世界U1等 — „UBTECH gewinnt Auslandsaufträge über 50 Mio. Yuan, darunter Walker C1 und U1“ (每日经济新闻 über 东方财富, 10.09.2026): <a href="https://finance.eastmoney.com/a/202609103870470486.html">eastmoney.com</a> · 界面新闻, 10.09.2026: <a href="https://m.jiemian.com/article/15106080.html">jiemian.com</a>. Art: Unternehmensmitteilung (Primärquelle) über Medien.</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — Service-Humanoide gehen bereits an europäische Kunden; in DACH über Terra Robotics. <em>Zulassung</em> — Walker C1 im Publikumsverkehr braucht MVO (ab 20.01.2027), RED, AI Act. <em>Risiko</em> — ohne Konformitätsaussage des Herstellers tragen Importeur und Betreiber die Nachweispflicht.</li>
+<li><strong>Schweiz:</strong> keine eigene Zulassung; CE anerkannt.</li>
+<li><strong>Chance für Fastmind:</strong> Betreiberberatung für Walker-C1-Kunden in DACH (Messe, Handel, Kommune); Gespräch mit Terra Robotics über Zulassungsdossier.</li>
+</ul>
+<div class="portal"><h3>5. Europe-China Humanoid Robot &amp; Physical AI Summit München, 5./6.11.2026: Unitree und Galbot sprechen, Bosch und Fraunhofer IPA auch — <strong>bekannt</strong> (S092; neu sind die Sprecher)</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Der Veranstalter TaasLabs (Co-Veranstalter VTW) nennt 23 Sprecher, darunter 陈英高 Chen Yingao (宇树 Unitree), 赵玉立 Zhao Yuli (银河通用 Galbot, Chief Strategy Officer), Carlos Hernandez (Robert Bosch GmbH), Aulon Bajrami (Fraunhofer IPA), Kevin Maximilian Kron (Boston Dynamics), Daniele Pucci (Generative Bionics). Tag 1: Kraftregelung, Embodied AI, Fertigungskapazität, Batterien, Live-Roboter-Showcase und Zulieferer-Käufer-Treffen; Tag 2: Sicherheit, Cybersicherheit (Fernsteuerung, Updates), Einsatz in Fertigung und Logistik. Ort: Holiday Inn Munich City Centre, Hochstraße 3; parallel zum Automotive Ethernet Summit. Anmeldeschluss nicht genannt.</li>
+<li><strong>Quelle:</strong> Humanoid Europe 2026: Munich robot demos, real deployment (Humanoids Daily, 01.10.2026, gesponserter Beitrag des Veranstalters): <a href="https://www.humanoidsdaily.com/features/humanoid-europe-2026-munich-robot-demos-real-deployment">humanoidsdaily.com</a>. Art: Veranstalter (Primärquelle), als Sponsored Content.</li>
+<li><strong>Konformität in der Quelle:</strong> nein (Safety und Cybersecurity als Programmpunkte, keine Norm).</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb/Zulieferung</em> — zwei der größten chinesischen Hersteller treffen in einer Woche in München auf Bosch und Fraunhofer; die Zulieferer-Käufer-Treffen sind der Ort für DACH-Komponentenhersteller (S137). <em>Frist</em> — 5./6.11.2026.</li>
+<li><strong>Schweiz:</strong> —</li>
+<li><strong>Chance für Fastmind:</strong> Vor Ort sein, Gespräche mit Unitree und Galbot am Rand, Zulieferer aus DACH mitbringen.</li>
+</ul>
+<div class="portal"><h3>6. Steiermark bewirbt sich als EU-Testregion für humanoide Roboter: 18 Mio. € Horizon-Europe-Projekt, Ausschreibung im November — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Ein internationales Konsortium um den Cluster AT Styria (Geschäftsführer Helmut Röck) will die Steiermark zur EU-Testregion für KI-gestützte, humanoide Robotik machen und bewirbt sich um das einzige Horizon-Europe-Flaggschiffprojekt zur industriellen Integration von KI-Robotik, 18 Mio. €. Die Ausschreibung öffnet im November 2026, der Antrag soll im Frühjahr 2027 eingereicht werden, Entscheidung Sommer 2027, Start frühestens 2028. Drei industrielle Pilotprojekte (Fertigung, Logistik, Wartung) bilden das Rückgrat; Partner aus Österreich, Italien und Slowenien; wissenschaftliche Basis TU Graz und Joanneum Research. Die Präsidentin der Österreichischen Gesellschaft für Mess-, Automatisierungs- und Robotertechnik, Ulrike Haslauer, hält 18 Mio. € für zu wenig.</li>
+<li><strong>Quelle:</strong> Humanoide Roboter: Steiermark will EU-Testregion werden (ORF Steiermark, 05.10.2026): <a href="https://steiermark.orf.at/stories/3373945/">steiermark.orf.at</a> · Wirtschaftskammer Steiermark: <a href="https://www.wko.at/stmk/news/steiermark-plant-testregion-fuer-humanoide-robotik">wko.at</a> · News.at: <a href="https://www.news.at/technik/testregion-fur-humanoide-robotik-in-der-steiermark-geplant">news.at</a>. Art: Medien mit Aussagen des Clusters (Sekundärquelle); Horizon-Europe-Aufruf selbst nicht eingesehen.</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Bedarf</em> — eine österreichische Region sucht Humanoide für drei Industriepiloten ab 2028; die Beschaffung läuft über EU-Förderregeln. <em>Risiko</em> — Horizon Europe schränkt Partner aus China ein; chinesische Hersteller kommen nur als Lieferanten über europäische Integratoren in Frage.</li>
+<li><strong>Schweiz:</strong> —</li>
+<li><strong>Chance für Fastmind:</strong> Dem Konsortium die chinesische Lieferseite erklären (Verfügbarkeit, Preise, CE-Stand) und europäische Integratoren mit chinesischen OEMs verbinden; kein direkter Partnerplatz.</li>
+</ul>
+<div class="portal"><h3>7. Universität Halle-Wittenberg kauft einen zweibeinigen Forschungs-Humanoiden per Ausschreibung — mit CE- oder GS-Pflicht — Relevanz mittel</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Die Martin-Luther-Universität Halle-Wittenberg schrieb am 19.09.2026 (geändert 20.10.2026, Angebotsfrist 21.10.2026) einen mobilen, zweibeinigen Humanoiden für das Institut für Physik aus: 1,20 bis 1,50 m, höchstens 42 kg, mindestens 25 aktive Freiheitsgrade, 1,0 m/s, zwei taktile Fünffingerhände mit je mindestens 6 Antrieben, Linux mit GPU, ROS 2, CE- oder GS-Zeichen, Hardware-Not-Halt, Garantie 12 Monate, Support 3 Jahre, Lieferung DDP. Preis als einziges Zuschlagskriterium. Kein Hersteller vorgegeben; die Anforderungen entsprechen der Klasse chinesischer Forschungs-Humanoide (Unitree G1, AgiBot 灵犀 X2 EDU).</li>
+<li><strong>Quelle:</strong> Humanoides Robotersystem, Vergabeplattform tendigo (Bekanntmachung der Universität, über evergabe.de): <a href="https://tendigo.de/ausschreibung/humanoides-robotersystem-5f3ad30a50">tendigo.de</a>. Art: öffentliche Ausschreibung (Primärquelle) über Portal; Portalzusammenfassung KI-generiert, Original auf evergabe.de.</li>
+<li><strong>Konformität in der Quelle:</strong> <strong>ja</strong> — CE- oder GS-Zeichen als Anforderung.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Vertrieb</em> — deutsche Hochschulen kaufen Forschungs-Humanoide über Vergabe mit Preis als Kriterium; chinesische Hersteller mit CE-Nachweis gewinnen solche Verfahren über Händler. Agile Robots (München) zielt ab Ende 2026 auf dieselben Kunden (S167). <em>Zulassung</em> — die Vergabestelle verlangt CE oder GS, prüft aber keine Benannte Stelle.</li>
+<li><strong>Schweiz:</strong> —</li>
+<li><strong>Chance für Fastmind:</strong> Vergabeportale (evergabe, TED) auf „humanoides Robotersystem“ beobachten und chinesische Hersteller mit CE-Dossier als Bieter oder Lieferant eines deutschen Händlers aufstellen.</li>
+</ul>
+<div class="portal"><h3>8. Fraunhofer IPA und P3: 97 % der 19.100 Humanoiden aus dem ersten Halbjahr kamen aus China, deutsche Zulieferer sollen an jedem verdienen — <strong>bekannt</strong> (S137; neu sind die Zahlen)</h3></div>
+<ul>
+<li><strong>Was ist neu:</strong> Euronews fasst am 01.10.2026 ein Papier von Fraunhofer IPA und der Beratung P3 (Autor Vincent Bezold) zusammen: 19.100 ausgelieferte Humanoide im ersten Halbjahr 2026, 97 % aus China (Smart Analytics Global, August 2026), rund 60.000 für 2026, eine halbe Million bis 2030, Marktvolumen 2030 rund 30 Mrd. US-Dollar. Humanoide haben über 40 Gelenke statt sieben; Aktuatoren machen laut Schaeffler rund 50 % der Kosten aus. Schaefflers Wellgetriebe (Serienstart Mitte 2027) senkt Produktionskosten um über 25 % und Materialeinsatz um über 75 %. Bosch und Schunk entwickeln seit Juni 2026 eine Hand. Sebastian Reitelshöfer (Uni Erlangen-Nürnberg): manche chinesischen Komponenten hielten „ein oder zwei Wochen“.</li>
+<li><strong>Quelle:</strong> Humanoide Roboter: China baut sie, bei Gelenken und Händen liegt Deutschlands Chance (Euronews, 01.10.2026, aktualisiert 06.10.2026): <a href="https://de.euronews.com/2026/10/01/humanoide-roboter-china-gelenke-hande-deutschlands-chance">de.euronews.com</a>. Art: Fachmedium mit Studienangaben (Sekundärquelle).</li>
+<li><strong>Konformität in der Quelle:</strong> nein.</li>
+<li><strong>Benannte Stelle und Zertifikatsnummer genannt:</strong> nein.</li>
+<li><strong>Folge für DACH:</strong> <em>Zulieferung (DACH→China)</em> — die Zahlen stützen S137: der Absatzmarkt für Aktuatoren und Hände liegt in China. <em>Risiko</em> — Pekings Gelenkmodul-Kapazität von 1 Mio. Stück pro Jahr (S195) drückt die Preise, bevor Schaefflers Getriebe 2027 in Serie geht.</li>
+<li><strong>Schweiz:</strong> —</li>
+<li><strong>Chance für Fastmind:</strong> Zugang zu chinesischen OEMs für DACH-Zulieferer, mit dem Haltbarkeitsargument aus Erlangen als Türöffner.</li>
+</ul>
+<p><em>Bekannt, nicht neu gemeldet:</em> Münchner Summit (S092, oben Signal 5) · DACH-Zulieferer-Chance (S137, oben Signal 8) · Unitree-Partnerkonferenz Hangzhou 22.10.2026 und Quartalszahlen (S184) · AgiBot Serbien, TÜV-Zertifikate, München (S073, S067, S051) · Agile Robots (S167) · Schaeffler Taicang (S153). Die sieben Kandidaten des Testlaufs vom 28.10. (UBTECH/Terra, MicroPort, Mojia, Leju, Mietpreise, MIIT-Sonderaktion, AgiBot Innovation Day als Ankündigung) stehen weiter nicht im Register; Signal 1 ist das Ergebnis des angekündigten Innovationstags, Signal 4 ergänzt UBTECH/Terra um den Auftrag.</p>
+</section>
+<section class="list"><h2>Folge für DACH</h2>
+<ul>
+<li><strong>Zulassung:</strong> Chinas größter Hersteller kommt 2027 zuerst mit Software nach Europa; dafür gelten AI Act und DSGVO, nicht die Maschinenverordnung. Bei Hardware bleibt es bei Eigenaussagen („安规级“) ohne Norm. Deutsche Vergabestellen verlangen CE oder GS, prüfen aber keine Benannte Stelle.</li>
+<li><strong>Vertrieb:</strong> UBTECH liefert Service-Humanoide an europäische Kunden; die Steiermark plant ab 2028 drei Industriepiloten; Hochschulen kaufen Forschungs-Humanoide über Preis-Vergaben. In einer Woche sitzen Unitree, Galbot, Bosch und Fraunhofer IPA in München an einem Tisch.</li>
+<li><strong>Zulieferung:</strong> Xiaomi und AgiBot bauen Hände aus eigenem Fabrikbedarf; Shanghai will 8.000 Humanoide in Fabriken. Für Schaeffler, Schunk, Wittenstein und Neugart liegt der Markt in China, der Preisdruck kommt aus Peking (S195).</li>
+<li><strong>Risiko:</strong> Horizon Europe schließt chinesische Partner weitgehend aus; „安规级“ und „工业级“ sind keine Konformitätsaussagen; Zahlen aus Shanghai sind bisher nur über Finanzmedien belegt.</li>
+</ul>
+</section>
+<section class="list"><h2>Content-Winkel</h2>
+<p><strong>These:</strong> Software vor Hardware: Chinas größter Humanoid-Hersteller beginnt seine Europa-Expansion im Januar 2027 mit einem Interaktionsmodell statt mit einem Roboter — ein Sprachmodell braucht keine Maschinenverordnung, fällt aber unter den EU AI Act, und genau dort entscheidet sich, wer in DACH der erste Partner wird.</p>
+<p><strong>Beleg aus diesem Lauf:</strong> AgiBot-Innovationstag 29.10.2026, WITA-OMNI „2027年1月海外版本欧洲首发“ (投资界); 20.000 produzierte Roboter, Halbjahresumsatz nahe 2 Mrd. Yuan (澎湃新闻); Roboterverkauf in Europa weiter nur über Partner und ohne öffentliche CE-Aussage (S051, S067).</p>
+</section>
+<section class="list"><h2>Matchmaking</h2>
+<div class="table-wrap"><table class="tracking"><thead><tr>
+<th>China-Seite (Unternehmen · Bedarf · Quelle)</th>
+<th>DACH-Seite (Unternehmen oder Branche · Angebot oder Bedarf · Quelle)</th>
+<th>Richtung</th>
+<th>Was Fastmind leistet</th>
+<th>Nächster Schritt</th>
+</tr></thead><tbody>
+<tr><td>智元 AgiBot · Erstkunden und Pilotpartner in Europa für die Europa-Version von WITA-OMNI ab 01/2027 und für den Lastroboter G2 Max · <a href="https://news.pedaily.cn/202610/571062.shtml">pedaily.cn</a></td><td>Fraunhofer IOSB-INA, Humanoid Robots Experience Lab Lemgo · Unternehmen testen Humanoide vor dem Einsatz · <a href="https://www.produktion.de/wirtschaft/humanoid-robots-experience-lab-startet-in-lemgo/2736741">produktion.de</a></td><td>China→DACH</td><td>AI-Act-Einordnung (Transparenz, Interaktion), DSGVO-Prüfung für Sprachdaten, Testzugang in Lemgo, Übersetzung der Dokumentation</td><td>AgiBot München (S051) nach Pilotkunden für die Europa-Version fragen; HREL Lemgo zu Testbedingungen für G2 Max anfragen</td></tr>
+<tr><td>宇树 Unitree und 银河通用 Galbot · Sprecher in München 5./6.11.2026, suchen europäische Zulieferer und Käufer (Zulieferer-Käufer-Treffen) · <a href="https://www.humanoidsdaily.com/features/humanoid-europe-2026-munich-robot-demos-real-deployment">humanoidsdaily.com</a></td><td>Bosch × Humanoid · Fertigung in Bühl ab 2027, prüft eigene Aktoren und Sensoren · <a href="https://logistik-heute.de/news/humanoide-roboter-bosch-startet-2027-produktion-im-schwarzwald-280027.html">logistik-heute.de</a></td><td>beide Richtungen</td><td>Gesprächstermine am Rand des Summits, Komponentenliste DACH↔China, Vertraulichkeit</td><td>Bruno meldet sich für den 5./6.11. an; Gesprächswünsche an Unitree und Galbot über den Veranstalter</td></tr>
+<tr><td>Chinesische Forschungs-Humanoide mit CE-Nachweis (Unitree G1, AgiBot 灵犀 X2 EDU) · suchen Händler für europäische Hochschul-Vergaben · <a href="https://news.pedaily.cn/202610/571062.shtml">pedaily.cn</a></td><td>Universität Halle-Wittenberg und weitere Hochschulen · Vergabe „humanoides Robotersystem“ mit CE/GS-Pflicht, Preis als Kriterium · <a href="https://tendigo.de/ausschreibung/humanoides-robotersystem-5f3ad30a50">tendigo.de</a></td><td>China→DACH</td><td>Vergabebeobachtung (evergabe, TED), CE-Dossier prüfen, deutschen Händler als Bieter aufstellen, Service-Zusage 3 Jahre</td><td>Suchprofil „humanoides Robotersystem“ auf evergabe.de anlegen; Händler mit Lagerware in DACH identifizieren</td></tr>
+<tr><td>Humanoid-OEMs in Shanghai (AgiBot, 傅利叶 Fourier) · Abnahmedruck aus dem Aktionsplan, Bedarf an Aktuatoren und Sensoren · <a href="https://21jingji.com/article/20261028/herald/39831a16d23b3c4d5fb905a5f40cc1a2.html">21jingji.com</a></td><td>Schaeffler, Schunk, Wittenstein, Neugart · Aktuatoren, Wellgetriebe (Serie Mitte 2027), Hände; Haltbarkeit als Argument · <a href="https://de.euronews.com/2026/10/01/humanoide-roboter-china-gelenke-hande-deutschlands-chance">de.euronews.com</a></td><td>DACH→China</td><td>Zugang zu Shanghaier OEMs, Musterung, Preisvergleich gegen Peking (S195), Vertragsrecht China</td><td>Behördentext des Aktionsplans besorgen; Lieferantenliste der Shanghaier OEMs aufbauen</td></tr>
+<tr><td>优必选 UBTECH · europäische Kunden für Walker C1 und U1, Aufträge über 50 Mio. Yuan · <a href="https://finance.eastmoney.com/a/202609103870470486.html">eastmoney.com</a></td><td>Rossmann (Burgwedel) über Terra Robotics · Pilot Walker S2 in der Logistik seit März 2026 · <a href="https://logistik-heute.de/sites/default/files/public/data-fachartikel/lh-2026-10-lehrzeit-fuer-humanoide-roboter-24-25.pdf">logistik-heute.de</a></td><td>China→DACH</td><td>Betreiberpflichten (MVO ab 20.01.2027, RED, AI Act) für Walker-C1-Kunden im Publikumsverkehr; Zulassungsdossier mit Terra Robotics</td><td>Terra Robotics nach Konformitätsstand für Walker C1 fragen; Zielkunden Messe, Handel, Kommune in NRW</td></tr>
+</tbody></table></div>
+<p><strong>Chinesische Unternehmen mit Europa-Plänen, die Zulassung, Vertrieb oder Standort suchen:</strong> 智元 AgiBot (Software-Europastart 01/2027, Hardware über Partner, S051/S067) · 优必选 UBTECH (Europa-Aufträge, DACH über Terra Robotics) · 宇树 Unitree und 银河通用 Galbot (München 5./6.11.) · bekannt: XPeng (H2 2027, S197), 无界动力 Anyverse (CE, S191), 鑫君特 Futurtec (CE-MDR, S192).</p>
+</section>
+<section class="list"><h2>Empfehlungen an Bruno</h2>
+<ul>
+<li>Empfehlung: Den Summit in München am 5./6.11.2026 besuchen und Gespräche mit Unitree und Galbot anfragen — in einer Woche treffen zwei der größten chinesischen Hersteller auf Bosch und Fraunhofer IPA, und das Zulieferer-Käufer-Treffen ist der Ort für Fastminds Vermittlerrolle.</li>
+<li>Empfehlung: AgiBot München nach der Europa-Version von WITA-OMNI fragen — der Start im Januar 2027 braucht DACH-Pilotkunden und eine AI-Act-Einordnung; das ist ein Beratungsauftrag vor dem ersten Roboterverkauf.</li>
+<li>Empfehlung: Den Content-Winkel „Software vor Hardware“ als Post verwenden — er ist mit der Unternehmensaussage vom heutigen Tag belegt und zeigt Fastminds Regulierungskompetenz jenseits von CE.</li>
+<li>Empfehlung: Suchprofil „humanoides Robotersystem“ auf evergabe.de anlegen — Halle zeigt, dass Hochschulen über Preis-Vergaben mit CE/GS-Pflicht kaufen; das ist ein wiederkehrender Kanal für chinesische Hersteller mit Händler in DACH.</li>
+<li>Empfehlung: Den Behördentext des Shanghaier Aktionsplans beschaffen, bevor die Zahl 8.000 verwendet wird — sie steht bisher nur in Finanzmedien.</li>
+<li>Empfehlung: Die sieben Kandidaten des Testlaufs vom 28.10. ins Register übernehmen oder verwerfen — Signal 4 (UBTECH) baut auf einem davon auf; ohne Entscheidung bleibt die Dubletten-Prüfung lückenhaft.</li>
+</ul>
+</section>
+<section class="list"><h2>Quellenstatus</h2>
+<ul>
+<li><strong>Geliefert (China):</strong> 投资界 (AgiBot-Innovationstag), 澎湃新闻 über 新浪 (AgiBot-Zahlen), 新浪机器人热点小时报 (Ausgaben 29.10. 10, 11, 12 und 13 Uhr), 上海证券报 über 21经济网 (Shanghai-Plan, MOFCOM-Zahl), 财闻 über 新浪 (8.000-Ziel), 量子位 und 同花顺 (Xiaomi-Hand), 每日经济新闻 über 东方财富 und 界面新闻 (UBTECH-Aufträge), 新京报贝壳财经 (Nähroboter, nicht im Feld).</li>
+<li><strong>Geliefert (DACH-Bedarf):</strong> tendigo/evergabe (Halle), ORF Steiermark, WKO Steiermark, News.at (Testregion), Euronews (IPA/P3), Humanoids Daily (Summit), produktion.de (Lemgo), logistik-heute (Bosch, Rossmann/Terra, Agile Robots).</li>
+<li><strong>Leer geblieben:</strong> NMPA (keine Oktober-Zulassung gefunden), 国务院, Programme Shenzhen/Peking/Hangzhou (nur ältere Dokumente), 证券日报, 中证网, 华盛通, 智通财经, eu.36kr.com (nur ältere Beiträge), IT之家 und 第一财经 (nur über Nachdrucke), 高工机器人 und 机器人网 (keine Treffer), Caixin und SCMP Tech (nichts aus Oktober), Fourier, EngineAI, Leju, Dobot, MicroPort, Cornerstone Robotics (nichts aus Oktober), Chips (黑芝麻 nur September, 地瓜机器人 nur Finanzierung 28.09., 芯明智能 ohne Treffer), TED (OP-Roboter nur ältere Verfahren; Görlitz geschlossen), VDMA, Ärztezeitung, DVZ, Kommunal-Fachmedien, TÜV (nichts aus Oktober). Staatsbesuch des Bundespräsidenten (26.–31.10.) ohne Robotik-Bezug.</li>
+<li><strong>Gesperrt oder ohne Text:</strong> openpr.de (ANDYKLA CARE, HTTP 403), industriebox.de (Fraunhofer IIS Pflegerobotik, Wartungsseite).</li>
+<li><strong>Nicht durchsucht:</strong> HKEXnews und cninfo direkt; Behördendokument des Shanghaier Aktionsplans (sheitc.sh.gov.cn).</li>
+<li><strong>Verworfen:</strong> Fraunhofer IIS Pflegerobotik 1,5 Mio. € (nur Suchtreffer, Seite nicht lesbar) · ANDYKLA CARE, zwei Pflegeeinrichtungen, vier Systeme (nur Suchtreffer, Seite gesperrt) · Baidu-Baike-Angaben zu UBTECH (durch Medien ersetzt) · 智元 Umsatz- und Anteilszahlen nur als Eigenangabe übernommen · HospiBot (deutsch-dänisch, ohne China-Bezug).</li>
+</ul>
+</section>
+<section class="list"><h2>Schärfung der Routine</h2>
+<p><strong>Befund → Änderung am Prompt → Nutzen</strong></p>
+<ul>
+<li>Der Summit in München stand seit 21.09. im Register (S092), der Lauf fand ihn erst über eine englische Suche → vor der Suche die Register-Zeilen vom Typ „Frist“ mit Datum in den nächsten 12 Wochen lesen und als „Fristen-Radar“ in die Ausgabe nehmen → Umsatz (kein verpasster Termin).</li>
+<li>Die Suche „机器人热点小时报 10月29日“ lieferte vier Tagesausgaben, die Suche mit „新浪“ davor lieferte nichts → Suchmuster ohne „新浪“ festschreiben → Zeit.</li>
+<li>Unternehmensseiten (AgiBot) nennen „安规级“ und „工业级“ ohne Norm → Regel: solche Begriffe gelten als „Konformität: nein“ und werden in der Ausgabe als Marketingbegriff markiert → Branding (Präzision).</li>
+<li>Vergabeportale (tendigo, evergabe) lieferten mit „humanoides Robotersystem“ einen Treffer, TED mit „OP-Roboter“ nur Altes → evergabe.de und tendigo.de mit diesem Suchwort in Abschnitt 4 aufnehmen → Umsatz (Vergabekanal).</li>
+<li>Behördenzahlen (Shanghai 8.000) standen nur in Finanzmedien → Regel: Zahlen aus Behördendokumenten nur mit dem Dokument, sonst „unbestätigt“ im Signal → Branding (Glaubwürdigkeit).</li>
+<li>Das Lesen der Primärseiten über einen Fetch-Agenten lieferte die Europa-Aussage zu WITA-OMNI, die in keinem Suchtreffer stand → Regel: je Lauf die zwei wichtigsten chinesischen Primärseiten vollständig lesen → Umsatz (Lead statt Überschrift).</li>
+<li>Chips zum dritten Mal ohne Fund → Chips nur noch im ersten Lauf jedes Monats prüfen → weniger Leerlauf.</li>
+<li>Die DACH-Pflegequellen (openpr, industriebox) waren gesperrt oder im Wartungsmodus → Pflege-Bedarf über Ärzteblatt, kma-online und Pflegekammern suchen → Matchmaking Medizin/Pflege.</li>
+<li>Zwei Signale dieses Laufs sind „bekannt“ mit neuen Fakten (Sprecher, Zahlen) → Regel: bei „bekannt“ nur die neuen Fakten ausführen, Rest als Verweis → kürzere Ausgabe.</li>
+</ul>
+<p><strong>Direkt verwertbar</strong></p>
+<ul>
+<li>Post: These „Software vor Hardware“ mit AgiBot-Beleg vom Tag.</li>
+<li>Ansprache: Unitree und Galbot in München am 5./6.11.; AgiBot München zur Europa-Version.</li>
+<li>Matchmaking: Schaeffler/Schunk ↔ Shanghaier OEMs; Terra Robotics ↔ Walker-C1-Betreiber.</li>
+</ul>
+<p><strong>Nicht direkt verwertbar</strong></p>
+<ul>
+<li>Xiaomi-Hand — Content, kein Verkauf an Dritte bekannt.</li>
+<li>Steiermark — Beratung erst nach Öffnung des Aufrufs; kein Partnerplatz für China.</li>
+<li>Halle — Verfahren geschlossen; Nutzen liegt im Kanal, nicht im Einzelfall.</li>
+</ul>
+<p><strong>Zählung</strong></p>
+<ul>
+<li>Signale gesamt: 8, davon 2 bekannt (S092 München, S137 DACH-Zulieferer) mit neuen Fakten</li>
+<li>aus Primärquellen (Unternehmen, Behörde, Vergabestelle, Veranstalter als Urheber): 6 (AgiBot, Xiaomi, Shanghai-Kommission, UBTECH, Universität Halle, TaasLabs); aus Fachmedien: 2 (ORF/Steiermark, Euronews/IPA)</li>
+<li>neu für das Register: 6 (S199–S204)</li>
+<li>Matchmaking-Paare mit Quelle auf beiden Seiten: 5</li>
+</ul>
+</section>
+</main>
+<footer><code>Fastmind-Jan-Sucher — 29.10.2026</code> · Stand 29.10.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
