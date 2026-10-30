@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind Hanna Signals — 30 October 2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+section.list h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--color-heading); }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.lead { font-weight: 700; margin-top: 0; }
+.portal p.src { font-size: 0.85rem; color: var(--color-muted); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.note a, main p a, main li a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.note a:hover, main p a:hover, main li a:hover { text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main > p, main li { font-size: 0.9rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fastmind Hanna Signals</h1>
+  <p class="subtitle">30 October 2026 · For Jan · Robotics, SKTEC polymer fibres for concrete, Beite mixers and aerators for wastewater plants, plus the textile side field</p>
+  <div class="theme-switcher" role="group" aria-label="Colour mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+  <p>Signals from the last days for Hanna's three products. Today's angles: Robotics from the demand side (the cobot market leader reports a record quarter) and the trade-defence side (robotic lawn mowers ahead of the decision); SKTEC from the approval side (new EU Construction Products Regulation, transition) and the target-customer side (BetonTage 2027); Beite from the procurement side (Neckarsulm 9 Nov, Ruhrverband 17 Dec) and the funding side (North Rhine-Westphalia); textiles via China's machinery exports.</p>
+  <div class="note"><strong>Context.</strong> Hanna's products and the positioning (China market access, regulation as the market door) come from the document “Fastmind Dual-Gateway”, recorded in the positioning working paper Fastmind_Positionierung (USPs, target customers, what makes a signal relevant). Everything else is publicly researched market knowledge with a source.</div>
+
+  <section class="list">
+    <h2>Market signals</h2>
+
+    <h3>Robotics</h3>
+    <div class="portal">
+      <p class="lead">1. Cobot demand turns: Teradyne reports Q3 2026 robotics revenue (Universal Robots, MiR) of USD 96 million, +28 % year on year, its strongest third quarter to date and profitable for the first time; new cobot platform “Gen 7” launched (quarterly report, 27/28 Oct 2026)</p>
+      <p><strong>What is new:</strong> The parent of the cobot market leader Universal Robots posts USD 96 million robotics revenue for July to September (prior year about USD 75 million), after USD 100 million in Q2. The segment crossed break-even in the quarter; the seventh cobot generation was introduced. Group revenue USD 1,306 million (+70 %, driven by semiconductor test for AI), Q4 outlook about USD 1.3 billion.</p>
+      <p><strong>Why it matters for Hanna (Robotics):</strong> After two down years in the German robotics market (VDMA forecast 2026 −5 %, known since 7 Sep; IFR 2025 −8 %, known since 25 Sep), this is the first manufacturer figure that documents a turn in cobot demand. Universal Robots is also the company pursuing Chinese cobot makers in Europe over patents (Elite Robots, settlement 1 Oct; JAKA, Unified Patent Court; both known since 14 Oct). Anyone offering Chinese cobots in DACH now competes with a new product generation and a growing market leader.</p>
+      <p><strong>Action:</strong> Talking point for DACH integrators and machine builders: “Cobot demand is back, the price anchor is called Gen 7.” Chinese cobot suppliers without a European entity need a patent check against the UR portfolio alongside CE and the Machinery Regulation; Hanna can offer that together with the conformity assessment.</p>
+      <p class="src">Sources: <a href="https://www.sec.gov/Archives/edgar/data/0000097210/000119312526434981/ter-ex99_1.htm">Teradyne, Form 8-K Q3 2026 (SEC)</a> · <a href="https://www.gurufocus.com/news/9148478/teradyne-inc-ter-q3-2026-earnings-call-highlights-aidriven-revenue-tops-60-as-sales-surge-70-and-nongaap-eps-jumps-over-150">GuruFocus: Q3 2026 earnings call highlights</a> · <a href="https://uk.investing.com/news/stock-market-news/teradyne-q3-2026-slides-ai-drives-70-revenue-surge-to-13b-93CH-4938175">Investing.com: Q3 2026 slides</a></p>
+    </div>
+    <div class="note"><strong>Status of known topics.</strong> First EU anti-dumping case against robots from China (robotic lawn mowers, known since 9 Oct): Husqvarna received the Commission's disclosure of essential facts on 21 Oct 2026, the last step before the decision; the deadline for definitive measures is 19 Jan 2027. The Commission expressly imposed no provisional duties in June 2026; customs registration of imports (since late January 2026, nine months) ends at the end of October, retroactive collection remains possible (<a href="https://mfn.se/cis/a/husqvarna/husqvarna-group-notes-eu-commissions-disclosure-in-robotic-mower-anti-dumping-investigation-b01b9ead.iframe">Husqvarna, 21 Oct 2026</a> · <a href="https://www.wko.at/oe/aussenwirtschaft/information-at-provisional-stage--pre-disclosure.pdf">WKO: information at provisional stage, June 2026</a> · <a href="https://eur-lex.europa.eu/eli/reg_impl/2026/142/oj">Implementing Regulation (EU) 2026/142</a> · <a href="https://www.gtai.de/de/trade/eu/zoll/antidumping-rasenmaehroboter-china-1945952">GTAI</a>). Humanoid Europe (Europe–China Humanoid Robot &amp; Physical AI Summit), Munich, 5/6 Nov 2026, known since 21 Sep; programme and exhibitor list were not publicly available. Estun's plant in Poland (start “October 2026”, known since 9 Sep): no confirmation of start-up found.</div>
+
+    <h3>SKTEC fibres for concrete</h3>
+    <div class="portal">
+      <p class="lead">2. New EU Construction Products Regulation (EU) 2024/3110 applicable since 8 Jan 2026: fibres under EN 14889-2 stay on the old route because the harmonised standard was made under Regulation 305/2011; the standard itself has been unchanged since 2006 (DIBt notice 16 Feb 2026; DIN standards status)</p>
+      <p><strong>What is new:</strong> The German Institute for Construction Technology (DIBt) explains the transition: the “new” procedures of the 2024 regulation apply only once a product is covered by a harmonised standard or European Assessment Document made under the new regulation. For products whose standard was still made under the 2011 regulation, the declaration of performance, CE marking and assessment of constancy of performance continue under the old rules; the new environmental requirements do not yet apply to them; the digital product passport comes only with a delegated act plus 18 months of transition. For polymer fibres the harmonised standard is EN 14889-2:2006; a revision draft (prEN 14889-2:2018, CEN/TC 104/WG 11) was withdrawn, the 2006 edition remains current.</p>
+      <p><strong>Why it matters for Hanna (SKTEC):</strong> The CE route for SKTEC fibres is predictable for the coming years: declaration of performance to EN 14889-2:2006 with a notified body (system 1 for structural, system 3 for non-structural use), no new EU procedure, no product passport before the delegated act. What CE does not replace stays as described on 28 Oct: structural use in Germany requires the national technical approval (DIBt list with 22 approvals, known since 28 Oct). Chinese suppliers advertising “CE to EN 14889-2:2006” (known since 28 Oct) are formally on the right document level, because there is no newer one.</p>
+      <p><strong>Action:</strong> For the SKTEC meeting, prepare a two-column overview “What CE delivers today / what CE does not deliver”: left the declaration of performance to EN 14889-2:2006 for phase 1 (precast, industrial floors without structural fibre action), right the DIBt application for phase 2. Check for Hanna: which notified body issued SKTEC's CE and for which assessment system?</p>
+      <p class="src">Sources: <a href="https://www.dibt.de/de/aktuelles/meldungen/nachricht-detail/meldung/baupvo-2024-seit-8-januar-2026-anwendbar">DIBt: BauPVO 2024 applicable since 8 January 2026 (16 Feb 2026)</a> · <a href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=OJ:L_202403110">EUR-Lex: Regulation (EU) 2024/3110</a> · <a href="https://www.din.de/en/wdc-beuth:din21:87755735">DIN: DIN EN 14889-2 (edition 2006-11, current)</a> · <a href="https://www.beuth.de/en/draft-standard/din-en-14889-2/289981984">DIN/Beuth: prEN 14889-2:2018 (withdrawn)</a></p>
+    </div>
+    <div class="portal">
+      <p class="lead">3. 71st BetonTage, 23–25 Feb 2027, Ulm: Europe's largest congress of the precast concrete industry as the target list for SKTEC's phase-1 customers (date announcement)</p>
+      <p><strong>What is new:</strong> The 2027 date is fixed (23 to 25 February 2027, Ulm); the 2026 edition took place on 10–12 March. The congress addresses precast plants, concrete producers and suppliers; the 2027 programme is not yet published.</p>
+      <p><strong>Why it matters for Hanna (SKTEC):</strong> Precast plants and industrial floors are, according to the positioning, SKTEC's first target customers (no approval needed, CE suffices). BetonTage is where this group gathers for three days; following the principle “trade fairs as a target list, not as an exhibitor”, the visit is the route, not a stand.</p>
+      <p><strong>Action:</strong> Build the target list from the 2026/2027 exhibitor directory: precast plants with a fibre-concrete programme, fibre traders without their own production (possible distribution partners) and the holders of the DIBt approvals present on site. Request appointments as soon as the 2027 programme appears.</p>
+      <p class="src">Sources: <a href="https://www.bft-international.com/en/termine/71st-betontage-4380628.html">BFT International: 71st BetonTage</a> · <a href="https://www.messen.de/de/11868/ulm/betontage/info">messen.de: BetonTage Ulm</a></p>
+    </div>
+    <div class="note"><strong>Construction cycle.</strong> Real new orders in German main construction rose 23.0 % month on month in August 2026, civil engineering +31.6 %, building construction +12.4 % (Destatis, 23 Oct 2026); associations see civil engineering as the driver, backed by the infrastructure fund. For fibre concrete this means demand emerges first in infrastructure and industrial construction, not in housing (<a href="https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/10/PD26_375_441.html">Destatis, press release no. 375</a>). Checked without a new find: new DIBt approvals for polymer fibres in October, tunnel projects with polymer-fibre shotcrete, product news from competitors KrampeHarex, Sika, Brugg Contec, Master Builders.</div>
+
+    <h3>Beite wastewater technology</h3>
+    <div class="portal">
+      <p class="lead">4. Tender Neckarsulm wastewater plant, fourth treatment stage (200,000 PE): process equipment with 8 submersible mixers (IE4, variable frequency drives), EU-wide, price only, bid deadline 9 Nov 2026 (notice 5 Oct, version 29 Oct 2026)</p>
+      <p><strong>What is new:</strong> The Abwasserzweckverband Unteres Sulmtal (central procurement office of the City of Neckarsulm) awards, in an EU-wide open procedure without lots and without variant bids, the supply, installation and commissioning of the mechanical and electrical equipment for the fourth treatment stage (Ulm process: powdered activated carbon, SBR reactors, cloth filters), with optional maintenance for the first four operating years. In scope: 8 submersible mixers (IE4, with VFD, lifting gear, guide sleeves) for the SBR reactors, 3 inlet pumps, 4 disc filters (at least 360 m² in total), 4 decanters, dosing systems with compressed-air station, stainless steel piping DN 50 to 800, Siemens S7-1500 control. Award criterion: price. Eligibility under § 6e EU VOB/A. Execution 11 Jan 2027 to 15 Dec 2028, commissioning 4 to 15 Dec 2028. The State of Baden-Württemberg funds the project with about EUR 5.7 million.</p>
+      <p><strong>Why it matters for Hanna (Beite):</strong> After Cham (6 hyperboloid mixers, deadline 18 Nov, known since 28 Oct) this is the second award within three weeks that specifies mixers, and the first EU-wide one: bidders from the whole single market may bid, and the award is decided on price alone. Submersible mixers correspond to Beite's CE-certified QJB series. Beite's route is not its own bid but the component in the bid of a German process-equipment bidder; eligibility (references, prequalification) then rests with that bidder.</p>
+      <p><strong>Action:</strong> Hanna approaches the process-equipment suppliers bidding on Neckarsulm and Cham (plant builders with cloth-filter and SBR references) with a component offer for the mixers: IE4/IE5 evidence, CE declaration QJB, price delivered to site, spare-parts and service commitment for the maintenance option. The 9 Nov deadline is too short for a first offer; the target is the same bidder's next procurement cycle.</p>
+      <p class="src">Sources: <a href="https://tendigo.de/ausschreibung/neubau-einer-4-reinigungsstufe-u-kanalbetriebshof-klaertechn-b747bd79c6">tendigo: new fourth treatment stage and sewer depot – process equipment</a> · <a href="https://www.bauportal-deutschland.de/oeffentliche_ausschreibung_vobvol_details_74172_Neckarsulm_Neubau_einer_4_Reinigungsstufe_u_Kanalbetriebshof_Klaertechnische_Ausruestung_3189316.html">Bauportal Deutschland: lot ID 3189316</a> · <a href="https://www.neckarsulm.de/startseite/willkommen/moderne+abwasserreinigung_+5_7+millionen+euro+fuer+vierte+reinigungsstufe+der+klaeranlage+neckarsulm.html">City of Neckarsulm: EUR 5.7 million funding</a></p>
+    </div>
+    <div class="portal">
+      <p class="lead">5. Ruhrverband awards mechanical and electrical equipment for two fourth treatment stages (Hemer and Arnsberg-Neheim plants) using ozonation and moving-bed reactors, bid deadline 17 Dec 2026, price only; no mixers, no aerators in the lot (notice 20 Oct 2026)</p>
+      <p><strong>What is new:</strong> The Ruhrverband (planning and construction, Hagen) procures per site an ozone reactor, measuring shafts, an MBBR moving bed, a container for ozone generation and electrical equipment, and the connection of rented oxygen units. Execution Hemer 1 Aug to 31 Dec 2027, Arnsberg-Neheim 1 Sep 2028 to 31 Jan 2029; bid validity to 12 Feb 2027; eligibility via prequalification or form 124; award “price 100 %”.</p>
+      <p><strong>Why it matters for Hanna (Beite):</strong> The counterpart to Neckarsulm. Both are fourth treatment stages, but only the activated-carbon route (Neckarsulm, similar to Cham) needs mixers; the ozone route does not. For Hanna's tender searches this means: do not filter for “fourth treatment stage” but for process (powdered activated carbon, SBR, contact tanks) and for the items mixer, aeration, blower. The Ruhrverband, the largest wastewater association in North Rhine-Westphalia, remains a target customer because its aeration renewals in the biological stage are tendered separately.</p>
+      <p><strong>Action:</strong> Hanna sets up a tender search rule: wastewater plant tenders in DACH with the terms mixer (Rührwerk), aeration (Belüftung), blower (Gebläse), powdered activated carbon, SBR; ozone projects for information only. For the Ruhrverband, watch the notices on aeration and mixer renewal, not the trace-substance lots.</p>
+      <p class="src">Source: <a href="https://tendigo.de/ausschreibung/klaeranlagen-ka-hemer-ka-arnsberg-neheim-5353e88644">tendigo: wastewater plants Hemer and Arnsberg-Neheim</a></p>
+    </div>
+    <div class="note"><strong>Funding in North Rhine-Westphalia.</strong> The state programme “Zukunftsfähige und nachhaltige Abwasserbeseitigung NRW” (ZunA NRW) runs until 31 Dec 2028 (guideline of 24 Oct 2023, amended 1 Aug 2026); it funds, among other things, energy-saving measures on public wastewater plants and the retrofit of a fourth treatment stage with up to 50 % of eligible expenditure; combined with an NRW.BANK loan, up to 100 % of investment costs can be financed. A reduction of the rate for applications from 2027 is reported only by a secondary source; the guideline text was not read on this point (<a href="https://www.nrwbank.de/de/foerderung/foerderprodukte/60185/zukunftsfaehige-und-nachhaltige-abwasserbeseitigung-nrw-zuna-nrw.html">NRW.BANK: ZunA NRW</a> · <a href="https://www.euwid-wasser.de/news/politik/nrw-baut-klaeranlagen-zur-entfernung-von-mikroschadstoffen-im-abwasser-aus-230524/">EUWID Wasser</a>). Federal funding via the municipal guideline (cap EUR 20 million, until 31 Dec 2027) and extended producer responsibility under the Urban Wastewater Directive (judgment pending): known since 28 Oct.</div>
+
+    <h3>Textiles (side field)</h3>
+    <div class="portal">
+      <p class="lead">6. China's textile machinery exports under pressure January to September 2026: texturing machines (DTY) −18 %, knitting machines +5 %; cause higher oil and freight costs after the US–Iran conflict (CCF, 23 Oct 2026)</p>
+      <p><strong>What is new:</strong> The Chinese industry analysis based on customs data shows declining textile machinery exports for the first three quarters of 2026; only knitting machines grow. In addition, China's textile and apparel exports to the EU-27 reached USD 19.62 billion in H1 2026 (−0.5 %), while technical textiles and nonwovens grew markedly.</p>
+      <p><strong>Why it matters for Hanna (textiles, side field):</strong> Both sides of the corridor weaken at the same time: VDMA Textile Machinery expects −14 % for 2026 (known since 21 Oct), China's exporters report declines. ITMA ASIA + CITME in Shanghai (20–24 Nov 2026, known since 21 Oct) thus becomes the meeting point of two industries under pressure; the growing part is technical textiles and nonwovens, not apparel.</p>
+      <p><strong>Action:</strong> Talking point for DACH textile machinery builders before Shanghai: “Where Chinese machinery exports fall, Chinese nonwoven and technical-fibre producers look for European buyers.” Hanna offers access in the opposite direction: qualifying Chinese nonwoven suppliers for DACH buyers (REACH, PFHxA since 10 Oct 2026, product safety).</p>
+      <p class="src">Sources: <a href="https://www.ccfgroup.com/newscenter/newsview.php?Class_ID=D00000&amp;Info_ID=2026102330077">CCF: Q1–Q3 2026 China's textile machinery export growth under pressure (23 Oct 2026)</a> · <a href="https://www.fibre2fashion.com/news/prime-content/textile-news/will-textiles-get-caught-in-europe-s-1-bn-a-day-china-trade-debate-313919-newsdetails.htm">Fibre2Fashion: Will textiles get caught in Europe's China trade debate?</a></p>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Regulatory and compliance update</h2>
+    <ul>
+      <li><strong>CE / Machinery Regulation (EU) 2023/1230:</strong> application from 20 Jan 2027 unchanged; a list of harmonised standards for the Machinery Regulation is still not published in the Official Journal (known since 2 Oct), the list for the old Machinery Directive was last updated on 7 Sep 2026; the Commission guide exists only as a draft (<a href="https://www.ibf-solutions.com/fachbeitraege/neue-maschinenverordnung-status-harmonisierter-normen">IBF: status of harmonised standards</a>). Trade defence: robotic lawn mower case ahead of the decision due by 19 Jan 2027 (signal 1, status).</li>
+      <li><strong>CE / construction products:</strong> Regulation (EU) 2024/3110 applicable since 8 Jan 2026, transition for products under legacy standards such as EN 14889-2:2006 (signal 2).</li>
+      <li><strong>EU MDR:</strong> the targeted revision of MDR and IVDR proposed in December 2025 (fewer unannounced audits, abolition of recertification after five years, fee discounts of 50 % for micro and 25 % for small enterprises at notified bodies) passed the Parliament's committees in September 2026; plenary in Q1 2027, then trilogue, adoption expected summer 2027. The TÜV association warns of weakened oversight. Until then the MDR applies unchanged, also to surgical and care robotics (<a href="https://www.emergobyul.com/news/europe-targets-revised-mdr-and-ivdr-adoption-q2-q3-2027">Emergo by UL, 9 Oct 2026</a> · <a href="https://www.aerzteblatt.de/news/grosses-konfliktpotenzial-bei-revision-der-medizinprodukterichtlinie">Deutsches Ärzteblatt</a> · <a href="https://www.noerr.com/de/insights/reformvorschlag-der-kommission-zur-mdr-und-ivdr">Noerr: the Commission's reform proposal</a>).</li>
+      <li><strong>REACH:</strong> the Commission officially set aside the full revision of REACH in April 2026; a registration duty for polymers is therefore off the table for now, work concentrates on simplification via comitology and better enforcement. The universal PFAS restriction remains open (decision phase end of 2026, known since 7 Sep); the PFHxA ban for textiles applies since 10 Oct 2026 (known since 7 Sep) (<a href="https://natlawreview.com/article/commission-officially-sets-aside-plans-full-revision-reach">National Law Review, 28 Apr 2026</a> · <a href="https://en.reach24h.com/news/industry-news/chemical/eu-reach-revision-shelved-compliance-impact">REACH24H</a> · <a href="https://data.consilium.europa.eu/doc/document/ST-10294-2026-INIT/de/pdf">Council of the EU, document ST 10294/2026</a>).</li>
+      <li><strong>LkSG / CSDDD:</strong> the government bill replacing the German Supply Chain Act with an act on international corporate responsibility (Bundestag printed paper 21/2474, CSDDD 1:1) had its first reading in January 2026 and is not adopted; reports of a limitation of scope to companies with 5,000 or more employees “in autumn 2026” rest on secondary sources and contradict each other (known since 7 Sep) (<a href="https://www.bundestag.de/dokumente/textarchiv/2026/kw03-de-lieferketten-1136308">German Bundestag, sitting week 3/2026</a> · <a href="https://dserver.bundestag.de/btd/21/024/2102474.pdf">printed paper 21/2474</a>).</li>
+      <li><strong>EU AI Act:</strong> deadlines for high-risk AI in machinery postponed to 2 Aug 2028 (Regulation (EU) 2026/1744, known since 11 Sep); nothing new.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Customer approach ideas</h2>
+    <ol>
+      <li><strong>“Eight mixers, one criterion: price.”</strong> For process-equipment bidders and plant builders bidding on Neckarsulm (9 Nov) and Cham (18 Nov): Hanna offers the mixers as a component and points to the EU-wide award without a quality criterion. The argument is not “cheap from China” but “IE4/IE5 with CE and a service commitment at a price that decides the award”. Anchor: both deadlines fall within the next three weeks, the next procurement round follows in spring.</li>
+      <li><strong>“Cobot demand is back. With which robot?”</strong> For DACH integrators and mid-sized firms that postponed investments in 2025/26: Teradyne's record quarter as evidence that the market is buying again; Hanna presents Chinese cobots with a complete conformity package (CE today, Machinery Regulation from 20 Jan 2027, patent check against Universal Robots) as the alternative to the seventh UR generation. Venues: Humanoid Europe in Munich on 5/6 Nov and SPS in Nuremberg on 24–26 Nov (known since 21 Oct).</li>
+      <li><strong>“Your 2011 CE declaration still applies. Is it enough for your project?”</strong> For precast plants, planners and fibre traders: Hanna explains the Construction Products Regulation transition in two sentences and draws the line between CE (phase 1) and national technical approval (phase 2). Invitation to meet at BetonTage in Ulm, 23–25 Feb 2027.</li>
+    </ol>
+  </section>
+
+  <section class="list">
+    <h2>Open strategic question</h2>
+    <p><em>How can manufacturers from China make their product approval for the European market (DACH focus) more efficient?</em></p>
+    <p>A new example from October: no new find today. The most recently documented cases remain the TÜV Rheinland certificates for Chinese robotics makers at IFA (known since 14 Sep) and the humanoid that passed the EN 18031 cybersecurity test (known since 18 Sep).</p>
+    <p>Structurally, this week's signals allow the following (own assessment, not legal advice):</p>
+    <ul>
+      <li><strong>Wastewater technology:</strong> in Neckarsulm and at the Ruhrverband no product approval is examined, but bidder eligibility (prequalification, form 124, references) and price. The most efficient route for a Chinese manufacturer is therefore not its own bid, but the CE-compliant component in the bid of an established German bidder.</li>
+      <li><strong>Fibres for concrete:</strong> the Construction Products Regulation transition freezes the CE route for polymer fibres at EN 14889-2:2006. A Chinese manufacturer needs no new EU procedure, but a notified body and, for structural use in Germany, a European approval holder.</li>
+      <li><strong>Robotics:</strong> approval does not end at CE. The robotic lawn mower case shows that trade defence (anti-dumping, retroactive duties) runs in parallel to conformity; anyone shipping to the EU in 2027 plans customs and origin questions as well.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Recommendations for Jan</h2>
+    <ul>
+      <li><strong>Recommendation:</strong> give Hanna a two-line overview of the two open mixer tenders (Neckarsulm 9 Nov, EU-wide, 8 submersible mixers; Cham 18 Nov, 6 hyperboloid mixers) with the question which process-equipment bidders she can approach there — <em>because both deadlines fall within three weeks and the award is decided on price alone.</em></li>
+      <li><strong>Recommendation:</strong> create a product sheet for Beite: CE declarations for the QJB and QDT series, motor class (IE4/IE5), references from the last five years, spare-parts and service model for Europe — <em>because procurement offices check eligibility and references, not product approval, and a German bidder needs these documents before submitting a bid.</em></li>
+      <li><strong>Recommendation:</strong> take the timeline of the robotic lawn mower case (decision by 19 Jan 2027, retroactive duties possible) to Humanoid Europe (5/6 Nov) as a talking point — <em>because it is the first EU trade-defence case against robots from China and Chinese exhibitors must price it in as a 2027 risk.</em></li>
+      <li><strong>Recommendation:</strong> plan BetonTage (23–25 Feb 2027, Ulm) as the target list for SKTEC's phase-1 customers, not as a stand — <em>because precast plants and fibre traders gather there and the visit delivers the contacts without exhibitor costs.</em></li>
+    </ul>
+  </section>
+</main>
+<footer>Fastmind Hanna Signals · as of 30.10.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>

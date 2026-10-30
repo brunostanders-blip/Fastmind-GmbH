@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy — Education &amp; Culture Signals, 30 October 2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.meta { color: var(--color-muted); font-size: 0.85rem; }
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin: 0.25rem 0; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+section.list ul.plain { padding-left: 1.2rem; font-size: 0.9rem; }
+section.list ul.plain li { margin: 0.35rem 0; }
+section.list p { font-size: 0.9rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+a { color: var(--color-heading); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+@media (max-width: 600px) {
+  header { padding: 1.5rem 1rem 0.75rem; }
+  h1 { font-size: 1.4rem; }
+  main { padding: 1rem 1rem 2rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Amy — Education &amp; Culture Signals, 30 October 2026</h1>
+  <p class="subtitle">Signals for education, culture and bridge-building between China and the DACH region (Fastmind GmbH, Düsseldorf)</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+
+  <div class="table-wrap">
+    <table class="tracking">
+      <caption>Overview</caption>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Observation fields</td><td>Culture (bridge-building at the highest level: the Federal President's speech at Peking University) + Education (school partnerships and China-competence formats, university corridor China → DACH)</td></tr>
+        <tr><td>Signals</td><td>5 new developments, plus updates on items already known</td></tr>
+        <tr><td>German twin</td><td>Same content in German, same date</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note"><strong>Lead finding:</strong> On 29 October the Federal President accepted an honorary professorship at Peking University and placed his keynote speech under the motto "Strengthen everything that connects". The speech cites the university partnership with Freie Universität Berlin since 1981 and China's oldest German Studies institute as proof that educational ties carry the bridge when economic relations get harder. He announced no new programmes, scholarships or agreements on exchange. At the working level the picture is the same: exchange happens (a German-French youth camp on China in the Eifel, Kepler-Gymnasium Pforzheim on its way to Hangzhou, 15 Chinese applicants for the double-degree programme of HTW Dresden), but preparing the people is left to schools, universities and chambers themselves. In North Rhine-Westphalia the only state-wide teacher training series on China in the classroom ended in June; there is no follow-up offer for the autumn. That is Amy's place: not creating the connection, but preparing the people on both sides for it.</div>
+
+  <div class="note"><strong>Context note:</strong> Statements about Amy's positioning come from the "Fastmind Dual-Gateway" document, not from this research.</div>
+
+  <section class="list">
+    <h2>Education and culture signals</h2>
+
+    <div class="portal">
+      <a href="https://www.bundespraesident.de/SharedDocs/Reden/DE/Frank-Walter-Steinmeier/Reden/2026/10/261029-Peking-Universitaet.html">1. The Federal President's speech at Peking University, 29 Oct 2026: honorary professorship, motto "Strengthen everything that connects", the FU Berlin partnership since 1981 as a model</a>
+      <p class="meta">Office of the Federal President, 29 Oct 2026</p>
+      <ul>
+        <li><strong>What is new:</strong> Peking University awarded the Federal President an honorary professorship. In his speech he honours the university as a "beacon of cooperation between our countries", recalls the education reformer Cai Yuanpei, who studied in Leipzig, the partnership with Freie Universität Berlin since 1981 ("one of the longest and most fruitful university partnerships of our two countries"), the more than 100-year-old German Studies institute as China's oldest, and the Centre for German Studies run with FU and Humboldt University. Guiding idea: "freedom of thought and openness to diversity" should shape the friendship "not only between researchers and students, but between our peoples as a whole". He also addresses concerns openly ("Win-win must not become win-lose") and calls this his last visit in political office. Scholarships, school partnerships, youth exchange or new exchange programmes do not appear in the speech. He was accompanied by the heads of the major German science organisations and the president of FU Berlin; in the afternoon table tennis with students. Talks with the state leadership follow on 30 Oct.</li>
+        <li><strong>Why it matters:</strong> The highest German level frames education and science as the load-bearing bridge, explicitly in the mode of "exchange and engagement with the other". That is the language Amy uses with schools, parents and universities, and it now comes from an authority that school heads and municipalities can cite. The absence of concrete programmes leaves implementation to universities, states and sponsors, i.e. to Amy's customers.</li>
+        <li><strong>Action option:</strong> Use the speech as the opener for approaching university partnerships with China (first FU Berlin and the Centre for German Studies, then the NRW universities with China offices): support for the next generation of exchange students and lecturers, relationship and face logic included. For schools and parents: use the quote "Strengthen everything that connects" as the motto of a parents' evening or information evening on the school partnership.</li>
+        <li><strong>Sources:</strong> <a href="https://www.bundespraesident.de/SharedDocs/Reden/DE/Frank-Walter-Steinmeier/Reden/2026/10/261029-Peking-Universitaet.html">Office of the Federal President — speech at Peking University (29 Oct 2026)</a> · <a href="https://www.onvista.de/news/2026/10-29-steinmeier-haelt-grundsatzrede-an-der-peking-universitaet-0-10-26569629">dpa-AFX via onvista — keynote at Peking University (29 Oct 2026)</a> · <a href="https://german.cri.cn/2026/10/30/ARTI1793326299487272">CRI German — Federal President visits Peking University (30 Oct 2026)</a> · The state visit as such: known since 28 Oct.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.schuelerakademien.de/deutsch-franzoesisches-jugendcamp-china">2. German-French Youth Camp China, 23 Oct–1 Nov 2026 in Berg (Ahrweiler): 21 young people from Germany and 21 from France, run by Bildung &amp; Begabung and Bildungsnetzwerk China, funded by the Federal Foreign Office</a>
+      <p class="meta">Bildung &amp; Begabung, programme page</p>
+      <ul>
+        <li><strong>What is new (for this scan):</strong> A ten-day trilateral format of the pupil academies for upper secondary school, vocational school and lycée (years 10–13, German and French at least B1, no Chinese required) on the theme "China and the global challenges of the future": climate crisis, sustainability, technology, society, geopolitics, Europe's role in dealing with China. Three courses, led by experts from Chinese and East Asian studies. Own contribution 375 euros, reductions under student-grant rules; applications closed on 5 July and places have been allocated. The "Pupil Academy China" (24 Jul–8 Aug 2026, Coesfeld) runs in the same partnership. The camp is taking place right now.</li>
+        <li><strong>Why it matters:</strong> The federal government (Foreign Office) finances China competence for young people as a European format, without Chinese participants and without travel. The need is acknowledged, but the encounter with China itself is missing. For Amy this is two things: a partner with an annual rhythm (programme published end of May, applications until early July) and proof that China-studies experts are sought as course leaders.</li>
+        <li><strong>Action option:</strong> Approach Bildung &amp; Begabung and Bildungsnetzwerk China before the 2027 programme planning (winter): a course module "Encounter, relationship, face: how to work with Chinese partners" or a digital encounter with a Chinese partner school to complement the European outside view. For parents in NRW: recommend the format as a low-cost entry into China competence when their own school offers no exchange.</li>
+        <li><strong>Sources:</strong> <a href="https://www.schuelerakademien.de/deutsch-franzoesisches-jugendcamp-china">Bildung &amp; Begabung — German-French Youth Camp China (23 Oct–1 Nov 2026)</a> · <a href="https://www.schuelerakademien.de/">Pupil academies — overview of China formats 2026</a> · Exchange academy China (travel format): known since 9 Sep.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.htw-dresden.de/news/internationale-kooperation-geht-in-die-naechste-runde">3. HTW Dresden and Zhejiang University of Science &amp; Technology (Hangzhou): contract for the 2+3 double-degree programme in mechanical engineering renewed on 1 Apr 2026, 15 Chinese applicants for winter semester 2026/27, scholarships from the company Bürkert in Taicang</a>
+      <p class="meta">HTW Dresden, 10 Apr 2026</p>
+      <ul>
+        <li><strong>What is new (for this scan):</strong> The partnership of more than 20 years was extended in Hangzhou. Chinese students transfer to HTW Dresden after two years and graduate after six further semesters with a German-Chinese double degree. 15 applications for the start in winter semester 2026/27 mean, according to the university, a "significantly increased" demand; selection interviews took place on site, plus a presentation to more than 100 ZUST students. The company Bürkert (Taicang Port site) finances scholarships for the student exchange.</li>
+        <li><strong>Why it matters:</strong> A working corridor China → Saxony with an industrial partner: the university recruits the students, the company pays, but nobody is responsible for arriving (language in the degree programme, housing, internship, staying after graduation). This is exactly where international students in Germany typically drop out or leave the country. The Bürkert model also shows that mid-sized companies with a China plant are ready to invest in young talent with both cultures.</li>
+        <li><strong>Action option:</strong> Offer HTW Dresden (Centre for Foreign Language and European Studies, Faculty of Mechanical Engineering) an arrival package for the new cohort: preparation while still in Hangzhou, support in the first semester, parent communication in Chinese. Use Bürkert as the reference for approaching further DACH mid-sized companies with plants in China: scholarship plus integration support as an instrument of securing skilled staff.</li>
+        <li><strong>Source:</strong> <a href="https://www.htw-dresden.de/news/internationale-kooperation-geht-in-die-naechste-runde">HTW Dresden — International cooperation enters the next round (10 Apr 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.keplerweb.de/wordpress/index.php/2026/01/29/einladung-zum-informationsabend-china-austausch-2026/">4. Kepler-Gymnasium Pforzheim and Changhe High School Hangzhou: pupil group in China in October/November 2026, Chinese return visit in July 2026, last visit 2024</a>
+      <p class="meta">Kepler-Gymnasium, 29 Jan 2026</p>
+      <ul>
+        <li><strong>What is new (for this scan):</strong> The partnership, in place "for many years", continues in 2026 in both directions: visit of the Chinese group to Pforzheim in July, trip of years 9 and 10 to Hangzhou in October/November. The school invited parents to an information evening on 9 Feb 2026; the page gives neither costs nor participant numbers. This makes at least four German school groups in China this autumn (Heppenheim, Braunschweig, Hamburg, Pforzheim).</li>
+        <li><strong>Why it matters:</strong> A two-year rhythm with a parents' evening as the entry point: the school organises trip and partnership itself, parents decide after one evening in the music hall. Baden-Württemberg is, next to NRW, the state with the most schools teaching Chinese; Pforzheim lies in Amy's target region.</li>
+        <li><strong>Action option:</strong> Approach the school after its return (November): debriefing with the young people and a parents' module for the next round in 2028 (host families, gifts, saving face, communication with Chinese parents). Bundle the format "information evening plus preparation workshop" as a standard offer for schools with a fixed partner in Zhejiang, together with the China-NRW University Alliance, which also works in Hangzhou (known since 28 Oct).</li>
+        <li><strong>Sources:</strong> <a href="https://www.keplerweb.de/wordpress/index.php/2026/01/29/einladung-zum-informationsabend-china-austausch-2026/">Kepler-Gymnasium Pforzheim — invitation to the information evening China exchange 2026 (29 Jan 2026)</a> · Autumn exchange wave Heppenheim/Braunschweig: known since 21 Oct · Hamburg: known since 28 Oct.</li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <a href="https://www.china-schul-akademie.de/fortbildungen/">5. NRW: the online teacher training series "China in the classroom 2026" by the China School Academy Heidelberg with the Ministry of Education ended on 16 Jun 2026; no state-wide training offer on China found for autumn 2026</a>
+      <p class="meta">NRW teacher training portal, China School Academy</p>
+      <ul>
+        <li><strong>What is new (for this scan):</strong> From 17 Mar to 16 Jun 2026 the federally funded series ran online (4–6 pm) with teaching material on China for history, politics, geography, economics, literature, art, ethics and religion; it closed with a review and a quality survey. In the Ministry's training portal, at the Confucius Institutes Düsseldorf, Metropole Ruhr and Bonn and at the state institutes, no offer for teachers with a China focus can be found for November 2026; TU Berlin starts its free China competence course on 12 Nov (known since 28 Oct). The state offer "China competence for teachers and schools" with starter projects up to 5,000 euros and a China club up to 5,800 euros per school year (Bildungsnetzwerk China, Arnsberg district government) continues (known since 9 Sep).</li>
+        <li><strong>Why it matters:</strong> NRW is the state with the most pupils learning Chinese and has funding for schools, but this half-year no training in which teachers learn how to deal with partner schools, host families and Chinese parents. The Heidelberg series delivers classroom content, not relationship competence. That is a gap in Amy's home region.</li>
+        <li><strong>Action option:</strong> Propose to the Arnsberg district government and Bildungsnetzwerk China a training module for the second half of the 2026/27 school year: "Leading a partnership: relationship, face, parents" for teachers responsible for a China club or an exchange, fundable from the starter projects. Approach the China School Academy as content partner so the module connects to its 2027 series.</li>
+        <li><strong>Sources:</strong> <a href="https://suche.lehrerfortbildung.schulministerium.nrw.de/search?begin_date=&selSem=1&term=wirtschaft+politik">NRW training portal — teacher training search</a> · <a href="https://www.china-schul-akademie.de/fortbildungen/">China School Academy — training</a> · <a href="https://www.schulministerium.nrw/china-kompetenz-fuer-lehrkraefte-und-schulen-nordrhein-westfalen">NRW Ministry of Education — China competence for teachers and schools</a> · <a href="https://www.cnetrnr.de/2026/07/27/chinakompetenz-weiterbildung-2026-27-an-der-tu-berlin/">TU Berlin China competence course 2026/27 (C-NET RNR, 27 Jul 2026)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Bridge-building and cooperation opportunities</h2>
+    <ul class="plain">
+      <li><strong>State visit, day 4:</strong> The speech in Beijing (signal 1) frames education and science as the bridge, without new programmes. The talks with the President, the Premier and the chairman of the National People's Congress take place today; whether they produce agreements on youth or university exchange is still open. <a href="https://www.bundespraesident.de/SharedDocs/Pressemitteilungen/DE/2026/10/261021-Staatsbesuch-China.html">Office of the Federal President — press release on the state visit (21 Oct 2026)</a></li>
+      <li><strong>Vocational training, crafts:</strong> The Oldenburg Chamber of Crafts received a delegation from Changshu on 22 May 2026; its chief executive names as a possible next stage that well-trained Chinese skilled workers come to Germany and get to know craft businesses, but "at present" the knowledge transfer by the lecturers is the essential point. The ten-year cooperation is known since 13 Sep; only the delegation is new. <a href="https://www.hwk-oldenburg.de/presse/pressemitteilungen/2026/gaeste-aus-china-interessieren-sich-fuer-berufliche-ausbildung">Oldenburg Chamber of Crafts — guests from China (22 May 2026)</a></li>
+      <li><strong>China competence in vocational training:</strong> At the China Day Ruhr-Lower Rhine (7 Jul 2026, Bochum) the federal office for international vocational training stated that China competence is only patchily anchored in the vocational system (additional qualification Asia business specialist) and that mobility numbers have been declining since the pandemic; summer schools are seen as the way. Known since 9 Sep, unchanged. <a href="https://www.govet.international/de/224241.php">GOVET — China competence as a task for the future (13 Jul 2026)</a></li>
+      <li><strong>Spring exchange as a model:</strong> Helmholtz-Gymnasium Bonn spent two weeks with 17 young people at its partner school in Ma'anshan (host families, Suzhou, Shanghai) and published six travel reports. Useful illustration material for parents' evenings at other schools. <a href="https://hhg-bonn.de/aktuelles/chinaaustausch-2026">Helmholtz-Gymnasium Bonn — China exchange 2026 (3 Jun 2026)</a></li>
+      <li><strong>Guanxi and mianzi:</strong> No new offer in the DACH region in recent days. Found were a webinar of the Austrian foreign trade organisation from 17 Mar 2026 ("relationship before contract") and an undated negotiation training China by Haufe Akademie; neither relates to schools or training. The Bern micro-course format of 12 Nov is known since 28 Oct. <a href="https://www.wko.at/oe/aussenwirtschaft/chinesische-geschaeftspartner-verstehen-dr.-chen.pdf">WKO foreign trade — understanding Chinese business partners (17 Mar 2026)</a> · <a href="https://www.haufe-akademie.de/30286">Haufe Akademie — negotiation training China</a></li>
+      <li><strong>Post-merger integration:</strong> According to Telepolis, citing Handelsblatt, the shipping company Cosco wants to take over the Hamburg logistics firm Zippel in early October 2026; the debate is about critical infrastructure, not about integrating the workforce. There is no new study on the integration practice of Chinese owners; the Böckler findings are known since 23 Sep. <a href="https://www.telepolis.de/article/China-im-Visier-Wie-konsequent-schuetzt-Reiche-Deutschlands-Wirtschaft-11475221.html">Telepolis — China in focus (October 2026)</a></li>
+      <li><strong>Skilled immigration:</strong> Since the report of 7 Oct (known since 28 Oct) there is neither a draft law nor a cabinet decision on the Work-and-Stay Agency; the last government statement is the key-points paper of 5 Nov 2025. Nursing corridors China → Germany: no new report; the China country page of the federal office for international vocational training is no longer reachable. <a href="https://www.bundesregierung.de/breg-de/suche/kabinett-work-and-stay-agentur-2391978">Federal Government — cabinet on the Work-and-Stay Agency</a></li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Customer approach ideas</h2>
+    <ul class="plain">
+      <li><strong>"Strengthen everything that connects" — parents' evening series for schools with a China partner:</strong> The motto of the speech of 29 Oct as the title of a 90-minute parents' evening that Amy offers to schools with an existing partnership (Pforzheim after the return, Hamburg, Mannheim before the 2027 return visit): what awaits our child in the host family, what Chinese parents expect from us, how to save face. The reference to the Federal President takes away parents' political reticence.</li>
+      <li><strong>"Arriving in the degree" — package for double-degree corridors:</strong> HTW Dresden with Bürkert as pilot, then Hochschule Weserbergland (Liaoning, known since 30 Sep) and the China-NRW University Alliance: preparation of the Chinese cohort while still in China, support in the first semester, parent communication in Chinese, transition into the internship with the scholarship sponsor. Sold to university and company together, paid from the scholarship budget.</li>
+      <li><strong>"Leading a partnership" — teacher module for NRW:</strong> For the Arnsberg district government and Bildungsnetzwerk China a half-day training module for teachers who lead a China club or an exchange (relationship, face, parents, conflicts during exchange), fundable from the starter projects up to 5,000 euros, start in the second half of the 2026/27 school year, complementing the Heidelberg classroom series.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Open strategic question</h2>
+    <p><em>Which talents and cultural profiles do DACH schools and companies seek to implement China cooperations?</em></p>
+    <p><strong>One new concrete example:</strong> The company Bürkert finances, at its Taicang site, scholarships for the exchange between HTW Dresden and Zhejiang University of Science &amp; Technology. The profile sought is one that hardly exists yet: mechanical engineers with a Chinese-German double degree who can work in both plants. The university provides the technical education, the company the money; nobody provides the cultural preparation. On the school side, the Youth Camp China shows that experts from Chinese and East Asian studies are sought as course leaders, i.e. academic China knowledge is to be combined with youth work. Both profiles are Amy's target group for trainings and her recruiting field for course leaders.</p>
+  </section>
+
+  <section class="list">
+    <h2>Recommendations for Jan</h2>
+    <ul class="plain">
+      <li><strong>Recommendation:</strong> Read the full text of the speech of 29 Oct and fix three quotes for Amy's approach to schools, parents and universities — because the speech explicitly declares the educational bridge the core of the relationship, names no concrete programmes and thus leaves the task to the sponsors on the ground; Amy can refer to it without taking political sides.</li>
+      <li><strong>Recommendation:</strong> Approach HTW Dresden and Bürkert before Christmas and offer an arrival package for the winter semester 2026/27 cohort — because the students have just arrived, the company already invests in the corridor, and a working pilot in Saxony becomes the reference for the NRW universities with China offices.</li>
+      <li><strong>Recommendation:</strong> Propose a teacher module "Leading a partnership" for the second school half-year to the Arnsberg district government and Bildungsnetzwerk China — because no China training offer has been running in NRW since June, the starter projects up to 5,000 euros are a ready-made funding source, and the module does not compete with the Heidelberg classroom series but complements it.</li>
+      <li><strong>Recommendation:</strong> Contact Bildung &amp; Begabung and Bildungsnetzwerk China in winter for the 2027 programme planning — because the Youth Camp China seeks China-studies experts as course leaders, an encounter with Chinese young people is missing, and Amy can deliver both; the annual rhythm (programme end of May, applications until early July) sets the deadline.</li>
+    </ul>
+  </section>
+</main>
+<footer>Amy — Education &amp; Culture Signals · as of 30.10.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
