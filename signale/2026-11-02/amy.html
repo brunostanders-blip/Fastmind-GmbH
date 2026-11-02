@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy — Education &amp; Culture Signals, 2 November 2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.meta { color: var(--color-muted); font-size: 0.85rem; }
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin: 0.25rem 0; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+section.list ul.plain { padding-left: 1.2rem; font-size: 0.9rem; }
+section.list ul.plain li { margin: 0.35rem 0; }
+section.list p { font-size: 0.9rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+a { color: var(--color-heading); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+@media (max-width: 600px) {
+  header { padding: 1.5rem 1rem 0.75rem; }
+  h1 { font-size: 1.4rem; }
+  main { padding: 1rem 1rem 2rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Amy — Education &amp; Culture Signals, 2 November 2026</h1>
+  <p class="subtitle">Signals for education, culture and bridge-building between China and the DACH region (Fastmind GmbH, Düsseldorf)</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+
+  <div class="table-wrap">
+    <table class="tracking">
+      <caption>Overview</caption>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Observation fields</td><td>Education (university corridor Anhui → Lower Saxony, STEM skills gap, international students) + Culture (close of the state visit, HR policy of German companies in China, integration after a takeover)</td></tr>
+        <tr><td>Signals</td><td>6 new developments, plus updates on items already known</td></tr>
+        <tr><td>German twin</td><td>Same content in German, same date</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note"><strong>Lead finding:</strong> The state visit is over, and its result for education and culture is a sentence, not a programme: on 30 October President Xi named exchanges in "culture, education and art" and easier personnel contacts as preparation for the 55th anniversary of diplomatic relations in 2027; the Federal President pledged "people-to-people exchanges". Who delivers this remains open. At working level the corridor is already built: in Hefei, the first stop of the trip, Osnabrück University of Applied Sciences opened an International College with Hefei University in April, which after full build-up will train more than 1,000 Chinese students for a German double degree with German language skills. At the same time the scarcity argument is turning back: the STEM gap stood at 164,700 people in September, eleven percent above the previous year, after it had fallen in spring. And German companies in China are cutting foreign staff while failing to fill management and sales. Both directions need the same thing: people who can lead in two cultures.</div>
+
+  <div class="note">Context note: statements about Amy's positioning come from the document "Fastmind Dual-Gateway", not from this research.</div>
+
+  <section class="list">
+    <h2>Education &amp; Culture Signals</h2>
+
+    <div class="portal">
+      <span class="card-title">1. Close of the state visit, 30 Oct 2026: Xi Jinping names exchanges in culture, education and art and easier personnel contacts as the path to the 55th anniversary of diplomatic relations in 2027; the Federal President pledges people-to-people exchanges; no programmes, scholarships or agreements (Chinese Foreign Ministry, dpa, 30 Oct 2026)</span>
+      <ul>
+        <li><strong>New:</strong> According to the readout of the Chinese Foreign Ministry, Xi Jinping asked in the Great Hall of the People that both sides "support exchanges in culture, education and art and facilitate personnel exchanges" to promote "people-to-people connectivity" and create "a good atmosphere for celebrating the 55th anniversary of China-Germany diplomatic relations next year". The Federal President is quoted as ready to maintain high-level exchanges, step up cooperation in trade, science and technology, AI and environmental protection and "promote people-to-people exchanges"; he has visited China eight times in 25 years. Students, youth, universities, scholarships, visas or vocational training do not appear in the readout. German coverage (dpa) centres on China's trade surplus of almost 90 billion euros with Germany and the President's confidence that differences can be solved "in dialogue"; Premier Li Qiang called him an "old and good friend". Speech at Peking University and travel programme: known since 30 Oct and 28 Oct.</li>
+        <li><strong>Relevance:</strong> The highest level of both countries has framed educational and cultural exchange as a task and given it a date: 2027, 55 years of diplomatic relations. In China an anniversary year triggers delegations, school visits, scholarships and cultural programmes, and Chinese authorities will fill it. On the German side there is no programme and no carrier; states, municipalities, schools and universities have to fill it themselves. That is Amy's market window with a year of lead time.</li>
+        <li><strong>Action option:</strong> Build a "Calendar 2027": which partnerships (Hamburg–Shanghai 40 years, Upper Austria–Shandong 30 years, Lower Saxony–Anhui since 1984, Mannheim–Zhenjiang) and which schools plan visits in 2027, and who needs preparation for teachers, parents and host families. Offer schools and municipalities the President's sentence as legitimacy: encounter is politically wanted, preparation is Amy's service.</li>
+        <li><strong>Source:</strong> <a href="https://www.mfa.gov.cn/eng/xw/zyxw/202610/t20261030_12050589.html">Ministry of Foreign Affairs of China — Xi Jinping meets Federal President Steinmeier (30 Oct 2026)</a> · <a href="https://logistik-heute.de/news/staatsbesuch-china-steinmeier-trifft-li-zuversicht-bei-differenzen-zum-handel-291090.html">Logistik Heute / dpa — Steinmeier meets Li, confidence despite trade differences (30 Oct 2026, 11:19)</a> · <a href="https://www.deutschland.de/de/news/steinmeier-in-china-zuversicht-bei-differenzen-zum-handel">deutschland.de — Steinmeier in China: confidence despite trade differences</a> · <a href="https://news.cgtn.com/news/2026-10-29/German-president-highlights-China-Germany-cooperation-in-Anhui-visit-1RD5xbmWf0k/p.html">CGTN — Steinmeier in Anhui: "people will meet and get to know one another" (29 Oct 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="card-title">2. Osnabrück University of Applied Sciences and Hefei University open an International College in Hefei (Anhui) with three double-degree programmes; after full build-up more than 1,000 Chinese students with German language skills; opened with Minister-President Lies and Governor Wang, first intake from autumn 2026 (Hochschule Osnabrück, 20 Apr 2026; Xinhua, 16 Apr 2026)</span>
+      <ul>
+        <li><strong>New (for this observation):</strong> The International College bundles a 41-year partnership: double degrees in International Logistics Management and Business Informatics (running for years) plus, new, Automotive Engineering from autumn 2026; Xinhua names the fields new-energy vehicles, next-generation information technology and intelligent logistics. German visiting professors teach one third of the subject modules, all students acquire "advanced German language skills"; German students from Osnabrück can earn the double degree with one year in Hefei. Hefei University already runs eight industry-oriented schools with German companies, including a "Volkswagen College" and a "Continental College". On the same day Anhui, Lower Saxony and the Volkswagen Group signed a letter of intent on automotive cooperation (R&amp;D, automated driving, battery technology). The Federal President began his state visit on 27 Oct exactly there, at Volkswagen's Hefei development centre with around 3,000 staff; the college did not feature in the coverage.</li>
+        <li><strong>Relevance:</strong> This is the largest single corridor China → Germany this observation has found so far: more than 1,000 young people learning German, taught by German lecturers, graduating with a German degree in automotive engineering, IT and logistics, in the province where Volkswagen builds its China future. Who of them later moves to Lower Saxony or a German supplier, and who prepares the Chinese lecturers and administrators for German academic culture, is named on neither side. Equally missing is support for the German visiting professors for a year of teaching in Hefei.</li>
+        <li><strong>Action option:</strong> Approach the China Centre of Osnabrück University of Applied Sciences with three offers: preparation of the German visiting lecturers for Hefei (relationships, face, examination culture), a culture and arrival module for the first students moving to Germany, and a parents' format in Chinese for families in Anhui. Volkswagen and Continental in Hefei as employers of the graduates: integration support as part of securing skilled staff, following the Bürkert model in Hangzhou (known since 30 Oct).</li>
+        <li><strong>Source:</strong> <a href="https://www.hs-osnabrueck.de/nachrichten-wiso/2026/04/hochschule-osnabrueck-und-hefei-university-gruenden-international-college-in-der-provinz-anhui/">Hochschule Osnabrück — Osnabrück and Hefei University found International College in Anhui Province (20 Apr 2026)</a> · <a href="https://en.people.cn/n3/2026/0416/c90000-20447411.html">People's Daily / Xinhua — Chinese, German auto heartlands deepen educational ties with new college (16 Apr 2026)</a> · <a href="https://news.cgtn.com/news/2026-10-29/German-president-highlights-China-Germany-cooperation-in-Anhui-visit-1RD5xbmWf0k/p.html">CGTN — Steinmeier visits Volkswagen development centre Hefei (29 Oct 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="card-title">3. STEM labour gap at 164,700 people in September 2026, 11.1 percent above the previous year; 72.8 percent of the gap is in skilled workers, master craftsmen and technicians (MINT Zukunft schaffen / IW Köln, 5 Oct 2026)</span>
+      <ul>
+        <li><strong>New:</strong> The monthly calculation of the German Economic Institute shows a gap of 164,700 people for September 2026, 11.1 percent more than in September 2025. At the same time unemployment in STEM occupations rose to around 274,600 people (+6.2 percent, around 16,000 more), while demand still increased; economy-wide around 396,000 positions were open (+6.3 percent). 72.8 percent of the gap lies in the non-academic categories. In spring the half-year report had still reported a decline to 133,900 (known since 21 Sep); the autumn report expected for November has not yet appeared (known since 5 Oct).</li>
+        <li><strong>Relevance:</strong> The argument "the shortage is shrinking" lasted half a year. Now the gap is growing again, and exactly where Chinese training corridors start: among skilled workers, technicians and master craftsmen, not academics. That more STEM unemployed are recorded at the same time shows the mismatch between supply and demand, which is precisely the field of qualification and support rather than mere placement.</li>
+        <li><strong>Action option:</strong> Replace the figure in Amy's approach to training companies and vocational schools: 164,700 instead of 133,900, focus non-academic. Propose vocational schools with a China partner (Unna, Lübeck, Bamberg, known since September) as pilot sites for a skilled-worker cohort from China with language and culture preparation before entry.</li>
+        <li><strong>Source:</strong> <a href="https://mintzukunftschaffen.de/2026/10/05/mint-arbeitskraefteluecke-bei-164-700-personen-mint-arbeitsmarkt-september-2026/">MINT Zukunft schaffen — STEM labour gap at 164,700 people, STEM labour market September 2026 (5 Oct 2026)</a> · <a href="https://www.iwkoeln.de/studien/christina-anger-julia-betz-wido-geis-thoene-axel-pluennecke-arbeitsmarktbericht-beschaeftigungsperspektiven-in-mint.html">IW Köln — STEM Spring Report 2026</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="card-title">4. "Wissenschaft weltoffen 2026": 426,200 international students and doctoral candidates in winter semester 2025/26 (+6 percent), India ahead with around 69,000, China second with around 39,000; 56 percent of international students in STEM subjects (DAAD/DZHW, 14 Oct 2026)</span>
+      <ul>
+        <li><strong>New:</strong> The annual edition reports around 426,200 international students and doctoral candidates, around 130,000 international first-year students, Germany ranked fourth worldwide as a host country behind the USA, UK and Australia. Asia and Pacific account for 34 percent; India leads clearly with around 69,000, China is second with around 39,000. 56 percent of international students study STEM subjects (domestic: 33 percent), engineering 44 percent. German students abroad: around 137,200 (2023), unchanged since 2011; the release gives no figure for China. International doctoral candidates: around 50,700 (2024). The figure of around 38,600 Chinese students was known since 11 Sep; new is the distance: the total grows six percent, China stands still.</li>
+        <li><strong>Relevance:</strong> China remains the second-largest group with 39,000 students but no longer grows with the market. For Amy this means two things: the stock is large enough for arrival and retention offers at universities with many Chinese students, and recruiting new students from China needs its own argument towards families who now rank employment above prestige (known since 23 Sep).</li>
+        <li><strong>Action option:</strong> Approach the universities with the largest Chinese cohorts (TU9, NRW universities with China offices) with a retention programme "from degree to company", using the IW stay-rate argument (known since 20 Sep). For parents in China: present Germany as a STEM location with a 56 percent international STEM share and job prospects, not as a prestige destination.</li>
+        <li><strong>Source:</strong> <a href="http://www.verbaende.com/news/pressemitteilung/wissenschaft-weltoffen-2026-deutschland-bleibt-weltweit-gefragter-standort-fuer-studium-und-promotion-175029/">DAAD — Wissenschaft weltoffen 2026: Germany remains a sought-after location for study and doctorate (press release, 14 Oct 2026)</a> · <a href="https://www.wissenschaft-weltoffen.de/content/uploads/2026/10/WWO_2026_web.pdf">Wissenschaft weltoffen 2026 — full edition (PDF, October 2026)</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="card-title">5. AHK Greater China, Labor Market &amp; Salary Report 2026/27: 571 German companies in China expect salary increases below three percent for 2027 for the first time, 17 percent plan headcount cuts, hardest to fill are sales (33 percent), R&amp;D (31 percent) and management (24 percent); the share of companies with foreign staff falls to 63.3 percent (AHK Greater China, 24 Aug 2026)</span>
+      <ul>
+        <li><strong>New (for this observation):</strong> The 19th edition (survey 22 Apr–6 Jun 2026) reports actual salary increases of 2.98 percent for 2026 and an expectation of 2.95 percent for 2027, the lowest value in the series. In 2025, 28 percent of companies cut staff (21 percent had expected to), for 2026 17 percent plan to. Rated "difficult or very difficult" to fill: sales (33 percent), R&amp;D (31 percent) and management (24 percent). Companies with foreign employees: 63.3 percent after 65.1 percent the year before, 46.5 percent among small companies. Average tenure 6.3 years, turnover 7.2 percent. 70 percent see no material effect of AI on their job structure, 17 percent use it for upskilling; companies use AI "as a trigger for workforce development rather than as a replacement". Last year's survey on staying in China (93 percent remain) is known since 11 Sep.</li>
+        <li><strong>Relevance:</strong> German companies in China are saving, staying and localising: fewer foreigners in house, but management and sales remain unfilled. Leadership roles thus fall to Chinese employees who must understand the German parent, its decision paths and its expectations on reporting and compliance. That is the reverse direction of Amy's culture business: not preparing Germans for China, but Chinese executives for German corporate culture, bilingual, on site, paid by the parent company.</li>
+        <li><strong>Action option:</strong> A programme "Leading for a German parent company" for Chinese junior executives in sales and management, bilingual in China, offered to DACH mid-sized companies with plants in China (Taicang, Kunshan, Hefei). Entry via the regional AHK HR working groups and via the companies that recently fund scholarships or colleges in China (Bürkert, Volkswagen, Continental).</li>
+        <li><strong>Source:</strong> <a href="https://china.ahk.de/en/download/companies-take-a-conservative-approach-to-hr-planning">AHK Greater China — Companies Take a Conservative Approach to HR Planning, Labor Market &amp; Salary Report 2026/27 (24 Aug 2026)</a> · <a href="https://china.ahk.de/en/download/labor-market-and-salary-report">AHK Greater China — Labor Market &amp; Salary Report, overview page</a></li>
+      </ul>
+    </div>
+
+    <div class="portal">
+      <span class="card-title">6. Perlon Group (Bobingen, Munderkingen, Wald-Michelbach; plants in Poland and China) passes from insolvency to China's Wuxi Xingda Nylon Company; around 450 of 510 jobs in Germany remain, sale completed (SGP Schneider Geiwitz via dpa, 10/11 Jun 2026)</span>
+      <ul>
+        <li><strong>New (for this observation):</strong> The restructuring firm SGP Schneider Geiwitz announced the sale of the self-described world-leading maker of synthetic fibres for paper machines, medical technology and dental and cosmetic brushes to Wuxi Xingda Nylon Company from the Shanghai region; the buyer prevailed in an international investor process, the price remains confidential. Self-administration proceedings had run since 1 Oct 2025 at Augsburg district court; Perlon previously belonged to the Munich financial investor Serafin. Seven companies in Germany, Poland and China; 450 of 510 German jobs remain. The reports contain no statements on management, integration, works council or brand.</li>
+        <li><strong>Relevance:</strong> A textbook case for the period after a takeover: a German niche world leader with three sites in three federal states, a workforce that has just been through insolvency, and a Chinese owner that so far knows polystyrene and now runs specialty fibres. The first twelve months decide whether knowledge and people stay; the Hans Böckler findings on failed Chinese takeovers are known since 23 Sep. On the Chinese side the new owner must understand German labour law, co-determination and three plant cultures.</li>
+        <li><strong>Action option:</strong> Approach the management in Bobingen and the buyer in Wuxi with an integration-support offer (communication between owner and workforce, explaining co-determination, relationship and face logic in both directions), via the restructuring firm or the advisory boards. Use the case as a template for approaching further restructuring firms and M&amp;A advisers: takeovers out of insolvency by Chinese buyers need the cultural shield on day one, not after the first conflict.</li>
+        <li><strong>Source:</strong> <a href="https://newstime.joyn.de/themen/wirtschaft/deutscher-weltmarktfuehrer-insolvent-chemieindustrie-china-135905">Newstime / dpa — German world market leader in the chemical industry insolvent, Chinese buyer takes over (10 Jun 2026)</a> · <a href="https://exxpress.at/economy/chinesischer-investor-uebernimmt-das-ruder-perlon-geht-nach-fernost/">exxpress — Chinese investor takes the helm: Perlon goes to the Far East (11 Jun 2026)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Bridge-Building &amp; Cooperation Opportunities</h2>
+    <ul class="plain">
+      <li><strong>State visit, balance for education and culture:</strong> No agreement, no scholarship programme, no visa facilitation; the results are the two sentences from signal 1 and the reference to the anniversary year 2027. Xi also briefed on the fifth plenum of the Central Committee and offered parties "governance experience exchanges". Visa-free entry for Germans (30 days) runs until 31 Dec 2026 (known since 7 Sep); an extension for 2027 has not been announced to date, in previous years it came in November or December. <a href="https://www.mfa.gov.cn/eng/xw/zyxw/202610/t20261030_12050589.html">Chinese Foreign Ministry — readout of the meeting (30 Oct 2026)</a> · <a href="https://chinawerk.com/themen/visumfreiheit-china-2027/">Chinawerk — visa-free China: what applies from 1 January 2027</a></li>
+      <li><strong>Anhui and Lower Saxony:</strong> The oldest state partnership with a Chinese province (since 1984) gained two building blocks this year: the International College in Hefei (signal 2) and the Anhui–Lower Saxony–Volkswagen letter of intent on automotive cooperation of the same day. Hefei University already runs a Volkswagen College and a Continental College. For schools in Lower Saxony seeking a partner in China, Anhui is now the obvious corridor with political backing. <a href="https://en.people.cn/n3/2026/0416/c90000-20447411.html">People's Daily / Xinhua (16 Apr 2026)</a></li>
+      <li><strong>Vocational training:</strong> On the Work-and-Stay Agency there is still no draft law since the coalition groups' demand of 7 Oct (known since 28 Oct); the cabinet decision on key points of November 2025 is the latest state. Nursing corridors China → Germany: no new report; the reports found on SeniVita (known since 9 Sep) and on recruiters are older or self-promotion. <a href="https://www.bundesregierung.de/breg-de/aktuelles/kabinett-work-and-stay-agentur-2391978">Federal Government — cabinet adopts key points for the Work-and-Stay Agency</a></li>
+      <li><strong>School partnerships:</strong> Wilhelm Bracke comprehensive school Braunschweig is in China until 8 Nov, Pforzheim on the way or back (both known since 21 Oct and 30 Oct); no new school reports from the last few days were found. <a href="https://bracke.eu/event/china-austausch-26-10-08-11-2026/">Wilhelm Bracke Gesamtschule — China exchange 26 Oct–8 Nov 2026</a></li>
+      <li><strong>Guanxi and mianzi:</strong> No new offer in the DACH region in the last few days. A trade article from July 2026 describes the link for German SMEs ("whoever introduces someone into their network vouches with their own face"); seminars without dates (Haufe Akademie) and the Austrian foreign-trade webinar of March are known since 30 Oct. <a href="https://xpert.digital/china-erfolg-deutscher-kmu/">Xpert.Digital — China success of German SMEs (July 2026)</a></li>
+      <li><strong>Post-merger integration:</strong> Apart from Perlon (signal 6) no new takeover from October was found; a 2026 study on the integration practice of Chinese owners does not exist, the works found (WHU, Rödl, Egon Zehnder, IfM Bonn) date from 2014 to 2020. Cosco/Zippel remains a debate on critical infrastructure (known since 30 Oct). <a href="https://www.egonzehnder.com/de/branchen/technology-communications/insights/warum-win-win-nicht-funktioniert-und-was-wir-andern-konnen">Egon Zehnder — Why win-win does not work and what we can change</a></li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Business Field Check</h2>
+    <div class="table-wrap">
+      <table class="tracking">
+        <caption>Business Unit Education &amp; Culture — both sectors as stated in the positioning</caption>
+        <thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>The Fastmind lever</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Education</strong></td>
+            <td><strong>confirmed</strong> — The STEM gap stands at 164,700 people in September 2026, 11.1 percent above the previous year, 72.8 percent of it among skilled workers, master craftsmen and technicians. <a href="https://mintzukunftschaffen.de/2026/10/05/mint-arbeitskraefteluecke-bei-164-700-personen-mint-arbeitsmarkt-september-2026/">MINT Zukunft schaffen (5 Oct 2026)</a></td>
+            <td><strong>confirmed</strong> — The bottleneck is the teachers: in Hefei German visiting professors take on one third of the subject modules for more than 1,000 future students. <a href="https://www.hs-osnabrueck.de/nachrichten-wiso/2026/04/hochschule-osnabrueck-und-hefei-university-gruenden-international-college-in-der-provinz-anhui/">Hochschule Osnabrück (20 Apr 2026)</a></td>
+            <td><strong>confirmed</strong> — Bilingual training in China with compulsory German for all students is reality in Hefei; support until arrival in Germany is missing from the college's description. <a href="https://en.people.cn/n3/2026/0416/c90000-20447411.html">People's Daily / Xinhua (16 Apr 2026)</a></td>
+          </tr>
+          <tr>
+            <td><strong>Culture</strong></td>
+            <td><strong>confirmed</strong> — Takeovers out of insolvency by Chinese buyers continue: Perlon with 450 remaining jobs at three German sites. <a href="https://newstime.joyn.de/themen/wirtschaft/deutscher-weltmarktfuehrer-insolvent-chemieindustrie-china-135905">Newstime / dpa (10 Jun 2026)</a></td>
+            <td>no new evidence — There is no new 2026 study on the failure rate of Sino-German projects; the works found date from 2014 to 2020.</td>
+            <td><strong>adjusted</strong> — The lever works in both directions: German companies in China employ fewer foreigners (63.3 percent of firms, previous year 65.1) and cannot fill management (24 percent "difficult") and sales (33 percent); in demand are Chinese executives who understand the German parent. <a href="https://china.ahk.de/en/download/companies-take-a-conservative-approach-to-hr-planning">AHK Greater China (24 Aug 2026)</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="list">
+    <h2>Customer Approach Ideas</h2>
+    <ul class="plain">
+      <li><strong>"Hefei–Osnabrück: arriving in both directions"</strong> — Offer the China Centre of Osnabrück University of Applied Sciences a three-part package: preparation of the German visiting lecturers (relationships, face, examination culture, dealing with authorities), a culture and arrival module for the Chinese students before moving to Germany, a parents' evening in Chinese in Hefei. Volkswagen and Continental as employers and co-funders, Bürkert in Hangzhou as the model.</li>
+      <li><strong>"Anniversary year 2027" for municipalities and schools</strong> — Using the Federal President's sentence ("more people in Germany and China will meet and get to know one another") and Xi Jinping's reference to 55 years of diplomatic relations, an invitation to twin cities and schools with a China partner planning visits in 2027: a half-day preparation workshop for teachers, parents, host families and delegations, funded from existing programmes (Bildungsnetzwerk China, NRW starter projects).</li>
+      <li><strong>"Leading for a German parent company"</strong> — For DACH mid-sized companies with plants in China, a bilingual programme for Chinese junior executives in sales and management, directly in China, as the answer to the AHK finding (fewer foreigners, unfilled management). Sold to the HR department at headquarters, entry via the AHK HR circles.</li>
+    </ul>
+  </section>
+
+  <section class="list">
+    <h2>Strategic Question</h2>
+    <p><em>Which talents and cultural profiles do DACH schools and companies seek in order to implement China cooperations?</em></p>
+    <p><strong>Three profiles from today's sources:</strong> On the university side, German lecturers able to teach in China for a year are sought; in Hefei visiting professors from Osnabrück carry one third of the modules for more than 1,000 students (<a href="https://www.hs-osnabrueck.de/nachrichten-wiso/2026/04/hochschule-osnabrueck-und-hefei-university-gruenden-international-college-in-der-provinz-anhui/">Hochschule Osnabrück, 20 Apr 2026</a>). On the company side in China, sales and management are missing while foreign staff is cut; sought are Chinese executives who understand a German parent company (<a href="https://china.ahk.de/en/download/companies-take-a-conservative-approach-to-hr-planning">AHK Greater China, 24 Aug 2026</a>). On the German labour market 72.8 percent of the gap lies with skilled workers, master craftsmen and technicians, so training corridors rather than study corridors are the ones most likely to work (<a href="https://mintzukunftschaffen.de/2026/10/05/mint-arbeitskraefteluecke-bei-164-700-personen-mint-arbeitsmarkt-september-2026/">MINT Zukunft schaffen, 5 Oct 2026</a>).</p>
+  </section>
+
+  <section class="list">
+    <h2>Recommendations to Jan</h2>
+    <ul class="plain">
+      <li><strong>Recommendation:</strong> Approach the China Centre of Osnabrück University of Applied Sciences in November and offer the three-part package of visiting-lecturer preparation, arrival module and parents' format — because the first intake of the International College has just started, more than 1,000 students with compulsory German will follow, and Volkswagen and Continental in Hefei already fund their own colleges; whoever fills the support role now holds the largest corridor China → Lower Saxony found so far.</li>
+      <li><strong>Recommendation:</strong> Build a calendar "55 years 2027" with all state, city and school partnerships planning visits in the anniversary year and offer preparation workshops from January — because Xi Jinping explicitly linked the anniversary to educational and cultural exchange, the Federal President pledged encounters and no carrier is named on the German side; the Chinese side will fill 2027, preparing the German participants is the open slot.</li>
+      <li><strong>Recommendation:</strong> Translate the AHK finding into an offer "Leading for a German parent company" and test it with three DACH mid-sized companies with plants in China — because management (24 percent) and sales (33 percent) are hardest to fill there, the share of firms with foreign staff is falling and leadership roles thus go to Chinese employees who must understand the German headquarters; this is the culture lever in reverse and is paid by the parent.</li>
+      <li><strong>Recommendation:</strong> Approach Perlon in Bobingen and the buyer Wuxi Xingda via the restructuring firm with an integration offer — because the sale is completed, 450 employees at three sites have received an owner from another industry after an insolvency, and the first twelve months decide whether knowledge and people stay; the case is also the reference for restructuring firms and M&amp;A advisers as a sales channel.</li>
+      <li><strong>Recommendation:</strong> Switch the STEM figure in all materials to 164,700 (September 2026, +11.1 percent) and cite the 72.8 percent non-academic share — because the spring figure of 133,900 had weakened the scarcity argument and the new figure puts the focus where training corridors start; the autumn report in November will confirm or correct it.</li>
+    </ul>
+  </section>
+</main>
+<footer>Amy — Education &amp; Culture Signals · as of 02.11.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
