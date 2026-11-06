@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy: Education &amp; Culture Signals, 6 November 2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal p.meta { color: var(--color-muted); font-size: 0.85rem; }
+.portal ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal li { margin: 0.25rem 0; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+section.list ul.plain { padding-left: 1.2rem; font-size: 0.9rem; }
+section.list ul.plain li { margin: 0.35rem 0; }
+section.list p { font-size: 0.9rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+a { color: var(--color-heading); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+@media (max-width: 600px) {
+  header { padding: 1.5rem 1rem 0.75rem; }
+  h1 { font-size: 1.4rem; }
+  main { padding: 1rem 1rem 2rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Amy: Education &amp; Culture Signals, 6 November 2026</h1>
+  <p class="subtitle">Signals for education, culture and bridge-building between China and the DACH region (Fastmind GmbH, Düsseldorf)</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+  <hr class="divider">
+  <div class="table-wrap"><table class="tracking"><caption>Overview</caption>
+  <thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+  <tr><td>Observation fields</td><td>Education (university corridors China to Thuringia, vocational education standards) and Culture (cultural exchange after the state visit, integration after a takeover)</td></tr>
+  <tr><td>Signals</td><td>4 new developments, plus updates on items already known</td></tr>
+  <tr><td>German twin</td><td>Same content in German, same date</td></tr>
+  </tbody></table></div>
+  <div class="note"><strong>Lead finding:</strong> One week after the state visit, the new evidence comes from small players, not from politics. In October Nordhausen University of Applied Sciences opened a double degree in electrical engineering and computer science in Datong (Shanxi): up to 40 students a year, six semesters in China, the final year in northern Thuringia, with the explicit aim that they stay. China itself presented its own framework for vocational education standards in Tianjin in October, which according to the ministry 46 countries support; no German link is mentioned. On the culture side, Chinese state media formats dominate, and a takeover from the spring (Mayer &amp; Cie. in Albstadt) again shows an integration gap nobody reports on. Visa-free entry for Germans expires on 31 Dec 2026; no extension has been announced so far.</div>
+  <div class="note">Context note: statements about Amy's positioning come from the document "Fastmind Dual-Gateway", not from this research.</div>
+  <section class="list">
+    <h2>Education &amp; Culture Signals</h2>
+    <div class="portal"><span class="card-title">1. Nordhausen University of Applied Sciences and Shanxi Datong University open a double degree in electrical engineering and computer science: up to 40 students a year, six semesters in Datong, final year and bachelor thesis in Nordhausen, German to B2 on site and C1 in a summer course in Germany (Hochschule Nordhausen, 3 Nov 2026)</span><ul><li><strong>New:</strong> The programme was officially opened in October 2026 in Datong, attended by the university leadership for studies and teaching and the first students. The partner university has about 40,000 students.</li><li><strong>Language:</strong> Nordhausen selects students on site; German teaching in Datong is being expanded. B2 in China is followed by an intensive course to C1 in Germany, then the final year in Nordhausen.</li><li><strong>Staying:</strong> The university names its Intercultural Academy and the WORT Nord project, which aims to help international graduates into companies in northern Thuringia; graduates should "ideally stay".</li><li><strong>Relevance:</strong> A new, small but complete STEM corridor from China to Germany, in a region with skills needs and without large corporations as employers.</li><li><strong>Gap:</strong> Language and staying are covered; cultural preparation before arrival and support for families in China are not mentioned. That is exactly Amy's building block "human integration".</li><li><strong>Action option:</strong> Offer Nordhausen a module between B2 in Datong and C1 in Germany: arrival, study and work culture, company expectations. Add a parents' format in Chinese in Datong and matching with companies in northern Thuringia via WORT Nord.</li><li><strong>Strategic question:</strong> yes</li><li><strong>Source:</strong> <a href="https://idw-online.de/de/news880162">idw / Hochschule Nordhausen: From Datong to Nordhausen, two degrees, one study path (3 Nov 2026)</a></li></ul></div>
+    <div class="portal"><span class="card-title">2. China presents a "Framework of World Vocational and Technical Education Standards" in Tianjin for mutual recognition of vocational standards and qualifications; 46 countries support it according to the Ministry of Education (Xinhua via The Star, 13 Oct 2026)</span><ul><li><strong>New:</strong> The framework was released at the World Vocational and Technical Education Development Conference in Tianjin (15 to 17 Oct 2026). Education authorities, industry bodies and associations from more than 40 countries worked on it for over a year.</li><li><strong>Reach:</strong> China cites 38 Luban Workshops in 32 countries with over 30,000 students and over 160,000 trainees. No German link is mentioned.</li><li><strong>Context:</strong> China's export of its own standards under the 15th Five-Year Plan is known since 27 Sep; new is the concrete rulebook claiming recognition.</li><li><strong>Relevance:</strong> For vocational schools and training companies with Chinese partners the conversation changes. China no longer appears only as a learner of the dual system but with its own recognition framework. Whoever takes in Chinese trainees or organises exchanges needs someone who explains and aligns both systems.</li><li><strong>Action option:</strong> Offer vocational schools with Chinese partners (known since September: Unna, Lübeck, Bamberg) a short briefing: what the Chinese framework means for internships, additional qualifications and recognition of degrees.</li><li><strong>Strategic question:</strong> no</li><li><strong>Source:</strong> <a href="https://www.thestar.com.my/news/world/2026/10/13/china-led-international-vocational-education-standards-set-for-release-to-promote-mutual-recognition">The Star / Xinhua: China-led international vocational education standards set for release to promote mutual recognition (13 Oct 2026)</a></li></ul></div>
+    <div class="portal"><span class="card-title">3. Chinese state media review cultural exchange at the end of the state visit: Leibniz Confucius Institute Hanover with summer camps, language partner programmes and speech contests, a Bonn choir taking 80 students and teachers to Yunnan, China festivals in Duisburg and Frankfurt (CGTN, 31 Oct 2026)</span><ul><li><strong>New:</strong> The piece appeared alongside a tea reception for the spouses of both heads of state on 30 Oct in Beijing. It is a Chinese state media account and framed accordingly.</li><li><strong>Other formats:</strong> New Year gala at Berlin's Red Town Hall (twelfth year, 300 guests), a Gansu tourism roadshow in Berlin with over 40 travel-industry representatives, visa-free entry as an aid to travel both ways.</li><li><strong>Relevance:</strong> The Chinese side presents schools, choirs and Confucius Institutes as carriers of the relationship; for the anniversary year 2027 (known since 2 Nov) this is the template. For Amy these players are multipliers: they take student groups to China but rarely have structured preparation.</li><li><strong>Action option:</strong> Win the Leibniz Confucius Institute Hanover and school choirs with China trips as partners for preparation workshops (parents, teachers, host families), with a view to travel in 2027.</li><li><strong>Strategic question:</strong> no</li><li><strong>Source:</strong> <a href="https://www.manilatimes.net/2026/10/31/tmt-newswire/globenewswire/cgtn-tea-tunes-and-ties-china-germany-cultural-exchanges-flourish/2458681">The Manila Times / CGTN via GlobeNewswire: Tea, tunes and ties, China-Germany cultural exchanges flourish (31 Oct 2026)</a></li></ul></div>
+    <div class="portal"><span class="card-title">4. Mayer &amp; Cie. (Albstadt, circular knitting machines, founded 1905) restarts after insolvency as Mayer &amp; Cie. Global under the Chinese knitting machine maker Huixing (Shishi, Quanzhou), with about 30 staff in design, product management and sales (Unternehmeredition, 16 Apr 2026)</span><ul><li><strong>New (for this observation):</strong> Asset deal with purchase agreement in February and closing on 16 Apr 2026, after approvals by Chinese authorities and a clearance certificate from the Federal Ministry for Economic Affairs.</li><li><strong>Plans:</strong> The buyer wants to keep the skills in Albstadt and use synergies with its group: procurement, access to Asian markets, software for knitting machines. M&amp;A adviser was Wintergerst Societät für Unternehmer-Beratung.</li><li><strong>Open:</strong> The report says nothing about integration, management or the works council.</li><li><strong>Relevance:</strong> After Perlon (known since 2 Nov) the second case this year: a German traditional manufacturer sold out of insolvency to a Chinese competitor in the same industry.</li><li><strong>Need:</strong> A small team in Albstadt now aligns procurement, sales and software with a Chinese headquarters. This is the cultural shield in small format.</li><li><strong>Action option:</strong> Offer Mayer &amp; Cie. Global a lean package (working with headquarters in Shishi, negotiation and reporting culture, bilingual coordination) and present the case to M&amp;A advisers such as Wintergerst as a model for further insolvency sales to China.</li><li><strong>Strategic question:</strong> yes</li><li><strong>Source:</strong> <a href="https://www.unternehmeredition.de/mayer-cie-global-startet-nach-verkauf-neu-in-albstadt/">Unternehmeredition: Mayer &amp; Cie. Global restarts in Albstadt after sale (16 Apr 2026)</a></li></ul></div>
+  </section>
+  <section class="list">
+    <h2>Bridge-Building &amp; Cooperation Opportunities</h2>
+    <ul class="plain">
+      <li><strong>Visa-free entry:</strong> 30-day visa-free entry for Germans applies until 31 Dec 2026 (known since 7 Sep). Last year the extension came on 3 Nov; none has been announced for 2027 so far. Sources: <a href="https://www.gtai.de/de/trade/china/recht/visafreie-einreise-nach-china-erneut-verlaengert-1946672">GTAI: Visa-free entry to China extended again</a> · <a href="https://reisetopia.de/news/china-visumfreiheit-30-tage/">reisetopia: China visa-free 30 days</a></li>
+      <li><strong>Intercultural training:</strong> No new offers in the DACH region; Bonn (27 Nov), Bern (12 Nov) and TU Berlin (from 12 Nov) are known since 28 Oct. <a href="https://www.uni-bonn.de/de/veranstaltungen/20261127-interkulturelles-training">University of Bonn: Deepening China competence (27 Nov 2026)</a></li>
+      <li><strong>Guanxi and mianzi:</strong> No new publication and no new date in recent days.</li>
+      <li><strong>School partnerships:</strong> No new school report in recent days; the autumn trips are known since 21 Oct and 30 Oct.</li>
+      <li><strong>Skilled immigration:</strong> Still no draft bill for the Work-and-Stay Agency (known since 28 Oct). <a href="https://www.bundesregierung.de/breg-de/bundesregierung/bundeskanzleramt/kabinett-work-and-stay-agentur-2391978">Federal Government: Cabinet adopts key points for Work-and-Stay Agency</a></li>
+      <li><strong>STEM autumn report:</strong> Not yet published (expected in November, known since 5 Oct). <a href="https://www.iwkoeln.de/themen/bildung-und-fachkraefte/fachkraefte/mint-report.html">IW Köln: MINT report</a></li>
+    </ul>
+  </section>
+  <section class="list">
+    <h2>Business Field Check</h2>
+    <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>The Fastmind lever</th></tr></thead><tbody>
+    <tr><td><strong>Education</strong></td><td><strong>confirmed:</strong> A university in Thuringia brings up to 40 Chinese students in electrical engineering and computer science a year, aiming for them to stay in regional companies. <a href="https://idw-online.de/de/news880162">idw / Hochschule Nordhausen (3 Nov 2026)</a></td><td><strong>adjusted:</strong> Besides missing knowledge of German standards, China now appears with its own recognition framework for vocational education, supported by 46 countries according to the ministry. <a href="https://www.thestar.com.my/news/world/2026/10/13/china-led-international-vocational-education-standards-set-for-release-to-promote-mutual-recognition">The Star / Xinhua (13 Oct 2026)</a></td><td><strong>confirmed:</strong> Language and staying are covered in Nordhausen; the programme does not mention cultural preparation before arrival. <a href="https://idw-online.de/de/news880162">idw / Hochschule Nordhausen (3 Nov 2026)</a></td></tr>
+    <tr><td><strong>Culture</strong></td><td><strong>confirmed:</strong> Insolvency takeovers by Chinese companies from the same industry continue, here Mayer &amp; Cie. to Huixing. <a href="https://www.unternehmeredition.de/mayer-cie-global-startet-nach-verkauf-neu-in-albstadt/">Unternehmeredition (16 Apr 2026)</a></td><td>no new evidence</td><td><strong>confirmed:</strong> The buyer relies on synergies in procurement, sales and software with headquarters in China; there is no statement on integration or management. <a href="https://www.unternehmeredition.de/mayer-cie-global-startet-nach-verkauf-neu-in-albstadt/">Unternehmeredition (16 Apr 2026)</a></td></tr>
+    </tbody></table></div>
+  </section>
+  <section class="list">
+    <h2>Client Outreach Ideas</h2>
+    <ul class="plain">
+      <li><strong>"Arriving from Datong to Nordhausen":</strong> Offer Nordhausen an arrival module between B2 in China and C1 in Germany, a parents' evening in Chinese in Datong and matching with companies in northern Thuringia.</li>
+      <li><strong>"Small takeover, clear cooperation":</strong> For Mayer &amp; Cie. Global and similar cases, a lean integration package for small teams under Chinese owners, sold via M&amp;A advisers and restructuring firms.</li>
+      <li><strong>"Preparing trips for 2027":</strong> Approach Confucius Institutes, school choirs and schools with Chinese partners about a preparation workshop for travel in the anniversary year, including a note on the open visa question.</li>
+    </ul>
+  </section>
+  <section class="list">
+    <h2>Strategic Question</h2>
+    <p><em>Which talents and cultural profiles do DACH schools and companies look for to implement China cooperations?</em></p>
+    <ul class="plain">
+      <li><strong>Universities in skills-short regions:</strong> They look for Chinese students in electrical engineering and computer science with German at C1 level who stay in regional companies after graduating (<a href="https://idw-online.de/de/news880162">idw / Hochschule Nordhausen, 3 Nov 2026</a>).</li>
+      <li><strong>Companies under Chinese owners:</strong> They look for people in design, product management and sales who can align procurement, Asian market access and software with a Chinese headquarters (<a href="https://www.unternehmeredition.de/mayer-cie-global-startet-nach-verkauf-neu-in-albstadt/">Unternehmeredition, 16 Apr 2026</a>).</li>
+    </ul>
+  </section>
+  <section class="list">
+    <h2>Recommendations to Jan</h2>
+    <ul class="plain">
+      <li><strong>Recommendation:</strong> Approach Nordhausen in November with an arrival module and a parents' format, because the first cohort has just started in Datong, the university explicitly wants graduates to stay and cultural preparation is missing from the programme.</li>
+      <li><strong>Recommendation:</strong> Offer Mayer &amp; Cie. Global a lean integration package and present the case together with Perlon to M&amp;A advisers, because two insolvency sales to Chinese buyers in one year show a pattern and no report covers cooperation after the purchase.</li>
+      <li><strong>Recommendation:</strong> Alert schools and delegations with China trips from January 2027 to the open visa question and combine this with the trip preparation offer, because visa-free entry expires on 31 Dec 2026 and last year's extension came in early November.</li>
+      <li><strong>Recommendation:</strong> Include the Chinese framework for vocational standards in outreach to vocational schools with Chinese partners, because it affects recognition of internships and degrees and no German body has commented yet.</li>
+    </ul>
+  </section>
+</main>
+<footer>Amy: Education &amp; Culture Signals · as of 06.11.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
