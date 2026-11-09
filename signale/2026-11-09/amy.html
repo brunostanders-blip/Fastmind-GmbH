@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy Education and Culture Signals</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+table.tracking td { white-space: normal; min-width: 12rem; vertical-align: top; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+ul { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+li { margin: 0.25rem 0; font-size: 0.9rem; }
+a { color: var(--color-heading); overflow-wrap: anywhere; }
+a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.portal h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--color-text); }
+@media (max-width: 600px) { main { padding: 1rem 1rem 2rem; } header { padding: 1.5rem 1rem 1rem; } }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Amy: Education and Culture Signals</h1>
+  <p class="subtitle">New developments in education and culture between China and Germany, Austria and Switzerland, 9 November 2026.</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+<hr class="divider">
+
+<div class="note"><strong>Fields:</strong> Education (university cooperation under security review, German-Chinese university networks) and Culture (integration after an acquisition).</div>
+
+<div class="note"><strong>Key finding:</strong> University cooperation with China is being re-measured. The federal government has set up a National Platform for Research Security, rejections of applications from Chinese researchers and students are rising, and BMFTR and HRK are briefing universities on the legal framework in November. On the Chinese side, the network of German-Chinese universities keeps growing. On the culture side, the EU gave the last approval on 3 November for JD.com's takeover of Ceconomy (MediaMarkt): around 50,000 employees in Europe get a Chinese majority owner.</div>
+
+<div class="note"><strong>Context note:</strong> Statements about Amy's positioning come from the document "Fastmind Dual-Gateway", not from own research.</div>
+
+<section class="list">
+<h2>Education and Culture Signals</h2>
+
+<div class="portal">
+<span class="tag">new</span>
+<h3>1. Germany sets up a National Platform for Research Security; in 2025 about 200 of some 2,300 research applications and about 200 of some 9,000 study applications from China were rejected (Euronews, 2 Nov 2026)</h3>
+<ul>
+<li><strong>New:</strong> The platform met for the first time in mid-October 2026. It advises on risk assessment, protective measures, critical partners and national risk analyses, funded by BMFTR.</li>
+<li><strong>Numbers with consequences:</strong> According to WDR, rejections rose compared with previous years; only applications from Iran are rejected more often. The debate was triggered by a case at the CISPA Helmholtz Center in Saarbrücken.</li>
+<li><strong>Context:</strong> That risk assessment and research security belong to China competence alongside language and culture has been known since 07.09.; the federal platform as a permanent body is new.</li>
+<li><strong>Relevance:</strong> Universities admitting Chinese students must accompany applications more carefully. Anyone placing students from China in Germany needs to know the review in advance and prepare documents accordingly.</li>
+<li><strong>Action option:</strong> Add preparation for the review process (field of study, documents, expectations) to the support for students and families in China, and offer universities a clean, documented pre-selection.</li>
+<li><strong>Strategic question:</strong> yes</li>
+<li><strong>Source:</strong> <a href="https://de.euronews.com/2026/11/02/spionage-wie-chinas-agenten-deutsche-hochschulen-unterwandern">Euronews: Spionage, wie Chinas Agenten deutsche Hochschulen unterwandern (02.11.2026)</a></li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">new</span>
+<h3>2. BMFTR and HRK offer universities an update on the legal framework for science cooperation with China on 26 Nov 2026, online, registration by 24 Nov 2026 (C-NET RNR, 4 Nov 2026)</h3>
+<ul>
+<li><strong>New:</strong> Next session of the series "Framework conditions for successful cooperation with China", 9:30 to 11:00 via WebEx, on current developments, legal challenges and laws in force in China.</li>
+<li><strong>Target group:</strong> Universities and science, funding and intermediary organisations; places are limited, registration via the China team at DLR.</li>
+<li><strong>Relevance:</strong> Participants are exactly the international offices and cooperation managers Amy addresses. The series delivers law, not support for people.</li>
+<li><strong>Action option:</strong> Take part through a partner university or intermediary organisation and use the questions raised as an opener with international offices.</li>
+<li><strong>Strategic question:</strong> yes</li>
+<li><strong>Source:</strong> <a href="https://www.cnetrnr.de/2026/11/04/bmftr-hrk-rahmenbedingungen-fuer-eine-erfolgreiche-kooperation-mit-china-7/">C-NET RNR: BMFTR-HRK, Rahmenbedingungen für eine erfolgreiche Kooperation mit China (04.11.2026)</a></li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">new</span>
+<h3>3. The China competence network Ruhr Niederrhein meets in Duisburg on 18 Nov 2026: "Cooperation under review", registration by 15 Nov 2026 (C-NET RNR, 5 Nov 2026)</h3>
+<ul>
+<li><strong>New:</strong> Network meeting from 10:30 to 14:15 in Duisburg on EU-China relations, Germany's role and cooperation in science and business, with keynotes, experience reports and news on the network's future.</li>
+<li><strong>Context:</strong> The network has been known since 07.09. (China Day in Bochum); the Duisburg date with a registration deadline is new.</li>
+<li><strong>Relevance:</strong> A meeting in North Rhine-Westphalia, close to Düsseldorf, with universities and companies currently reviewing their China cooperation. This is the circle that needs support and integration.</li>
+<li><strong>Action option:</strong> Sign up by 15 Nov and bring two offers: preparation and arrival of Chinese students, and China competence for teaching staff and employees.</li>
+<li><strong>Strategic question:</strong> yes</li>
+<li><strong>Source:</strong> <a href="https://www.cnetrnr.de/2026/11/05/kooperationen-auf-dem-pruefstand-neue-perspektiven-der-deutsch-chinesischen-zusammenarbeit-netzwerkveranstaltung-am-18-november-2026-in-duisburg/">C-NET RNR: Kooperationen auf dem Prüfstand, Netzwerkveranstaltung am 18. November 2026 in Duisburg (05.11.2026)</a></li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">new</span>
+<h3>4. Tenth China-Germany Forum on integrating education, science and industry in Hangzhou: more than 50 universities from both countries, launch of a "Munich Institute of Digital Innovation" at Zhejiang University of Science and Technology (Hangzhou municipal government, 20 Oct 2026)</h3>
+<ul>
+<li><strong>New:</strong> The forum took place on 16 Oct 2026 with more than 200 participants, over ten companies and a network of more than 60 member universities from China and Germany. The new institute is the university's third cooperative institution approved by China's Ministry of Education.</li>
+<li><strong>Open:</strong> The report names no German partner for the institute and no student numbers. A youth initiative on intelligent manufacturing and AI was also launched.</li>
+<li><strong>Context:</strong> This university's double degrees with HTW Dresden have been known since 30.10.</li>
+<li><strong>Relevance:</strong> An existing network of more than 60 universities with industry ties is a channel for students moving to Germany.</li>
+<li><strong>Action option:</strong> Identify the institute's German partner and the forum's German members and offer them support for students from application to arrival.</li>
+<li><strong>Strategic question:</strong> no</li>
+<li><strong>Source:</strong> <a href="https://www.ehangzhou.gov.cn/2026-10/20/c_299403.htm">Hangzhou Municipal People's Government: China-Germany forum advances collaboration in education, science, industry (20.10.2026)</a></li>
+</ul>
+</div>
+
+<div class="portal">
+<span class="tag">new</span>
+<h3>5. EU approves JD.com's takeover of Ceconomy (MediaMarkt, Saturn) with conditions on 3 Nov 2026; closing in the coming days, around 50,000 employees and more than 1,000 stores in eleven countries (Dr. Web, 4 Nov 2026; GamesWirtschaft, 3 Nov 2026)</h3>
+<ul>
+<li><strong>New:</strong> Approval under the Foreign Subsidies Regulation was the last one outstanding. Transactions between JD.com and Ceconomy must run on market terms for ten years.</li>
+<li><strong>Commitments:</strong> According to the December offer, Ceconomy is to stay independent in Europe with its own IT; no changes to staff, employee agreements or locations are planned. Ceconomy cites binding commitments to protect employees, brands and stores, without details.</li>
+<li><strong>Conditions:</strong> Germany cleared the deal in June with conditions on customer data and federal control rights; Austria in October, with conditions that also cover staff in sensitive areas.</li>
+<li><strong>Relevance:</strong> Independence plus a Chinese majority owner is the typical situation in which cooperation between two organisations without a shared culture has to be designed. Amy's cultural shield targets mid-sized companies; this case is a large group and therefore a reference, not a client.</li>
+<li><strong>Action option:</strong> Use the case in conversations with M&amp;A advisers and mid-sized companies: commitments on staff and sites are easy to give, day-to-day alignment with headquarters is the real work.</li>
+<li><strong>Strategic question:</strong> no</li>
+<li><strong>Sources:</strong> <a href="https://www.drweb.de/ceconomy-jd-com-eu-freigabe-vollzug/">Dr. Web: EU gibt Ceconomy-Übernahme durch JD.com frei, Vollzug in den nächsten Tagen (04.11.2026)</a> and <a href="https://www.gameswirtschaft.de/wirtschaft/ceconomy-jd-com-mediamarkt-saturn-uebernahme-031126/">GamesWirtschaft: EU genehmigt Übernahme von MediaMarkt-Saturn (03.11.2026)</a></li>
+</ul>
+</div>
+</section>
+
+<section class="list">
+<h2>Bridge-Building and Cooperation Opportunities</h2>
+<ul>
+<li><strong>University cooperation:</strong> Networks meet twice in November (Duisburg 18 Nov, online 26 Nov); both ask how cooperation continues under new security rules. Source: <a href="https://www.cnetrnr.de/2026/11/05/kooperationen-auf-dem-pruefstand-neue-perspektiven-der-deutsch-chinesischen-zusammenarbeit-netzwerkveranstaltung-am-18-november-2026-in-duisburg/">C-NET RNR (05.11.2026)</a></li>
+<li><strong>Visa exemption:</strong> The 30-day visa exemption for Germans runs until 31 Dec 2026 (known since 07.09.); no extension for 2027 has been announced so far. Source: <a href="https://www.gtai.de/de/trade/china/recht/visafreie-einreise-nach-china-erneut-verlaengert-1946672">GTAI: Visafreie Einreise nach China erneut verlängert</a></li>
+<li><strong>School partnerships:</strong> No new school report in recent days; the autumn trips are known since 21.10. and 30.10. The next window of the Bildungsnetzwerk China small grants (15 to 30 Nov) is known since 30.09.</li>
+<li><strong>Guanxi and Mianzi:</strong> No new publication and no new event in recent days.</li>
+<li><strong>Nursing corridors:</strong> No new report; the bilingual nursing training with Shenyang is known since 09.09.</li>
+<li><strong>MINT autumn report:</strong> The Nationales MINT Forum announces the report's presentation for November, focusing on "MINT skills in the AI era"; figures are not yet available (known since 05.10.). Source: <a href="https://www.innovative-frauen-im-fokus.de/aktuelles/termine/termin/veroeffentlichung-und-diskussion-des-mint-report-2026/">Innovative Frauen im Fokus: Veröffentlichung und Diskussion des MINT-Reports 2026</a></li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Business Field Check</h2>
+<div class="table-wrap">
+<table class="tracking">
+<thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>The Fastmind lever</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Education</strong></td>
+<td><strong>confirmed:</strong> Around 9,000 study applications from China in one year show strong demand. <a href="https://de.euronews.com/2026/11/02/spionage-wie-chinas-agenten-deutsche-hochschulen-unterwandern">Euronews (02.11.2026)</a></td>
+<td><strong>adjusted:</strong> The security review is added, rejections are rising. <a href="https://de.euronews.com/2026/11/02/spionage-wie-chinas-agenten-deutsche-hochschulen-unterwandern">Euronews (02.11.2026)</a></td>
+<td><strong>adjusted:</strong> Support includes preparing for the review; federal government and HRK brief only universities. <a href="https://www.cnetrnr.de/2026/11/04/bmftr-hrk-rahmenbedingungen-fuer-eine-erfolgreiche-kooperation-mit-china-7/">C-NET RNR (04.11.2026)</a></td>
+</tr>
+<tr>
+<td><strong>Culture</strong></td>
+<td><strong>confirmed:</strong> Chinese buyers keep acquiring, now Ceconomy with around 50,000 employees. <a href="https://www.drweb.de/ceconomy-jd-com-eu-freigabe-vollzug/">Dr. Web (04.11.2026)</a></td>
+<td><strong>adjusted:</strong> Conditions on customer data and staff in sensitive areas are added. <a href="https://www.drweb.de/ceconomy-jd-com-eu-freigabe-vollzug/">Dr. Web (04.11.2026)</a></td>
+<td><strong>confirmed:</strong> Commitments on staff and sites without details; day-to-day work remains to be shaped. <a href="https://www.drweb.de/ceconomy-jd-com-eu-freigabe-vollzug/">Dr. Web (04.11.2026)</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="list">
+<h2>Client Outreach Ideas</h2>
+<ul>
+<li><strong>"Well prepared for the review":</strong> Offer families and students in China preparation that includes the German review process for applications, and offer universities a documented pre-selection that relieves their international offices.</li>
+<li><strong>"Cooperation under review, people in focus":</strong> At the Duisburg network meeting on 18 Nov, approach universities and companies in North Rhine-Westphalia reviewing their China cooperation, offering to take on the human side (arrival, teaching staff, employees).</li>
+<li><strong>"Commitments are the start":</strong> Set up a short conversation format with M&amp;A advisers that uses Ceconomy to show what needs aligning day to day after a takeover by a Chinese buyer.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Strategic Question</h2>
+<p><em>Which talents and cultural profiles do DACH schools and companies look for to implement China cooperation?</em></p>
+<ul>
+<li><strong>Universities:</strong> They need people who can assess the risks of China cooperation and classify protective measures; the federal government has set up an advisory platform for this. Source: <a href="https://de.euronews.com/2026/11/02/spionage-wie-chinas-agenten-deutsche-hochschulen-unterwandern">Euronews, 02.11.2026</a></li>
+<li><strong>Cooperation managers:</strong> Universities and intermediary organisations need current knowledge of the laws in force in China and train their staff for it. Source: <a href="https://www.cnetrnr.de/2026/11/04/bmftr-hrk-rahmenbedingungen-fuer-eine-erfolgreiche-kooperation-mit-china-7/">C-NET RNR, 04.11.2026</a></li>
+<li><strong>Networks in North Rhine-Westphalia:</strong> Universities and companies discuss how cooperation in science and business continues despite political tensions. Source: <a href="https://www.cnetrnr.de/2026/11/05/kooperationen-auf-dem-pruefstand-neue-perspektiven-der-deutsch-chinesischen-zusammenarbeit-netzwerkveranstaltung-am-18-november-2026-in-duisburg/">C-NET RNR, 05.11.2026</a></li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Recommendations for Jan</h2>
+<ul>
+<li><strong>Recommendation:</strong> Sign Amy up by 15 Nov for the Duisburg network meeting on 18 Nov, because universities and companies from North Rhine-Westphalia reviewing their China cooperation meet there, close to Düsseldorf.</li>
+<li><strong>Recommendation:</strong> Add preparation for the German review process as a component of support for students from China, because rejections are rising and a clean pre-selection relieves universities.</li>
+<li><strong>Recommendation:</strong> Check via a partner university whether participation in the BMFTR-HRK session on 26 Nov (registration by 24 Nov) is possible, because the cooperation managers Amy wants to reach attend it.</li>
+<li><strong>Recommendation:</strong> Identify the German partner of the new institute in Hangzhou and the forum's German members, because more than 60 universities are a ready channel for students to Germany.</li>
+<li><strong>Recommendation:</strong> Use Ceconomy not as a client but as a reference case in post-merger conversations with M&amp;A advisers, because the commitments on staff and sites are public and day-to-day implementation remains open.</li>
+</ul>
+</section>
+</main>
+<footer>Amy: Education and Culture Signals · As of 09.11.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
