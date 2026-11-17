@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Innovation Days Roadmap</title>
+<style>
+:root {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding-block: 2rem 1rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); text-wrap: balance; }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding-block: 1.5rem 3rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; color: var(--color-text); }
+.card.active { border-left-color: var(--color-card-accent); }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+section.list > p { margin: 0 0 0.75rem; }
+section.list ul { margin: 0 0 0.75rem; padding-left: 1.2rem; }
+section.list li { margin-bottom: 0.35rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal strong { color: var(--color-heading); }
+.portal p, .portal ul { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal ul { padding-left: 1.2rem; }
+.portal a, section.list a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover, section.list a:hover { text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; background: var(--color-surface); }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+table.tracking td:first-child, table.tracking th:first-child { white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 16px 1rem; }
+:root[data-lang="de"] [data-l]:not([data-l="de"]),
+:root[data-lang="en"] [data-l]:not([data-l="en"]),
+:root[data-lang="zh"] [data-l]:not([data-l="zh"]) { display: none; }
+@media print {
+  :root, :root:not([data-theme="light"]), :root[data-theme="light"], :root[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+
+</head>
+<body>
+<header>
+  <h1>
+    <span data-l="de">Innovation Days: Shanghai und Shenzhen</span>
+    <span data-l="en">Innovation Days: Shanghai and Shenzhen</span>
+    <span data-l="zh">创新日：上海与深圳</span>
+  </h1>
+  <p class="subtitle">
+    <span data-l="de">Roadmap für Vorbereitung, Durchführung und Nachfassen</span>
+    <span data-l="en">Roadmap for preparation, delivery and follow-up</span>
+    <span data-l="zh">筹备、实施与后续跟进路线图</span>
+  </p>
+  <div class="theme-switcher" role="group" aria-label="Sprache / Language / 语言">
+    <button type="button" data-lang-choice="de" aria-pressed="true">DE</button>
+    <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang-choice="zh" aria-pressed="false">中文</button>
+  </div>
+  <div class="theme-switcher" role="group" aria-label="Darstellung / Display / 显示">
+    <button type="button" data-theme-choice="light" aria-pressed="false"><span data-l="de">Weißmodus</span><span data-l="en">Light mode</span><span data-l="zh">浅色</span></button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false"><span data-l="de">Dunkelmodus</span><span data-l="en">Dark mode</span><span data-l="zh">深色</span></button>
+  </div>
+</header>
+
+<main>
+  <hr class="divider">
+
+  <!-- 1 Auf einen Blick -->
+  <section class="list">
+    <h2><span data-l="de">Auf einen Blick</span><span data-l="en">At a glance</span><span data-l="zh">概览</span></h2>
+    <div class="grid">
+      <div class="card active"><div class="card-body">
+        <span class="tag"><span data-l="de">Was</span><span data-l="en">What</span><span data-l="zh">内容</span></span>
+        <h3 class="card-title"><span data-l="de">Fünf Tage in China</span><span data-l="en">Five days in China</span><span data-l="zh">中国五日行</span></h3>
+        <p><span data-l="de">Innovation Days in Shanghai und Shenzhen.</span><span data-l="en">Innovation Days in Shanghai and Shenzhen.</span><span data-l="zh">在上海和深圳举办的创新日。</span></p>
+      </div></div>
+      <div class="card active"><div class="card-body">
+        <span class="tag"><span data-l="de">Für wen</span><span data-l="en">For whom</span><span data-l="zh">面向</span></span>
+        <h3 class="card-title"><span data-l="de">Unternehmen aus Europa und China</span><span data-l="en">Companies from Europe and China</span><span data-l="zh">欧洲与中国企业</span></h3>
+        <p><span data-l="de">Europäische Unternehmen suchen Partner, Lieferanten und Kunden in China; chinesische Unternehmen suchen Partner in Europa.</span><span data-l="en">European companies look for partners, suppliers and customers in China; Chinese companies look for partners in Europe.</span><span data-l="zh">欧洲企业在中国寻找合作伙伴、供应商和客户；中国企业在欧洲寻找合作伙伴。</span></p>
+      </div></div>
+      <div class="card active"><div class="card-body">
+        <span class="tag"><span data-l="de">Ergebnis</span><span data-l="en">Result</span><span data-l="zh">成果</span></span>
+        <h3 class="card-title"><span data-l="de">Vom Termin zur Vereinbarung</span><span data-l="en">From meeting to agreement</span><span data-l="zh">从会面到协议</span></h3>
+        <p><span data-l="de">Termine vor der Reise, Firmenbesuche und Matchmaking vor Ort, Begleitung danach bis zu Besuchen, Angeboten und Vereinbarungen.</span><span data-l="en">Meetings before the trip, company visits and matchmaking on site, support afterwards until visits, offers and agreements follow.</span><span data-l="zh">行前预约会谈，现场企业参访与对接，会后持续跟进，直至实现互访、报价与协议。</span></p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 2 Ziel und Maßstab -->
+  <section class="list">
+    <h2><span data-l="de">Ziel und Maßstab</span><span data-l="en">Goal and benchmark</span><span data-l="zh">目标与衡量标准</span></h2>
+    <ul>
+      <li><strong><span data-l="de">Ziel:</span><span data-l="en">Goal:</span><span data-l="zh">目标：</span></strong> <span data-l="de">Unternehmen aus Europa lernen die Standorte kennen und kommen nach China. Chinesische Unternehmen finden Partner in Europa.</span><span data-l="en">European companies get to know the locations and come to China. Chinese companies find partners in Europe.</span><span data-l="zh">欧洲企业了解当地投资环境并来到中国；中国企业在欧洲找到合作伙伴。</span></li>
+      <li><strong><span data-l="de">Maßstab:</span><span data-l="en">Benchmark:</span><span data-l="zh">衡量标准：</span></strong> <span data-l="de">gegenseitige Besuche. Die Innovation Days sind erfolgreich, wenn aus den Treffen Gespräche und Besuche in beide Richtungen entstehen.</span><span data-l="en">mutual visits. The Innovation Days are successful when the meetings lead to talks and visits in both directions.</span><span data-l="zh">双向互访。会面带来双向的洽谈与访问，即为创新日的成功。</span></li>
+    </ul>
+  </section>
+
+  <!-- 3 Rollen -->
+  <section class="list">
+    <h2><span data-l="de">Rollen</span><span data-l="en">Roles</span><span data-l="zh">各方角色</span></h2>
+    <div class="portal">
+      <strong>Cushman &amp; Wakefield</strong>
+      <p><span data-l="de">Gesamtverantwortung. Klärt mit den chinesischen Behörden Kontakt und Regelungen, bringt Räume, Reichweite und nach dem Event die Standortsuche.</span><span data-l="en">Overall responsibility. Clarifies contact and regulations with the Chinese authorities, provides venues, reach and, after the event, site search.</span><span data-l="zh">总体负责。与中国政府部门对接并明确相关规定，提供场地与推广资源，并在活动后提供选址服务。</span></p>
+    </div>
+    <div class="portal">
+      <strong><span data-l="de">Chinesische Behörden</span><span data-l="en">Chinese authorities</span><span data-l="zh">中国政府部门</span></strong>
+      <p><span data-l="de">Gastgeber. Benennen die chinesischen Unternehmen mit Angebot und legen die Besuchsrouten fest.</span><span data-l="en">Hosts. Name the Chinese companies that have something to offer and set the visit routes.</span><span data-l="zh">东道主。推荐具备合作意向的中国企业，并确定参访路线。</span></p>
+    </div>
+    <div class="portal">
+      <strong>Fastmind</strong>
+      <p><span data-l="de">Die europäische Seite:</span><span data-l="en">The European side:</span><span data-l="zh">负责欧洲方：</span></p>
+      <ul>
+        <li><span data-l="de">Europäische Teilnehmer gewinnen, über ein Netz aus Kammern, Verbänden und Beratungen in Deutschland, Österreich und der Schweiz.</span><span data-l="en">Win European participants through a network of chambers, associations and consultancies in Germany, Austria and Switzerland.</span><span data-l="zh">通过德国、奥地利和瑞士的商会、行业协会及咨询机构网络招募欧洲参与企业。</span></li>
+        <li><span data-l="de">Matchmaking vor der Reise: Bedarf erfassen, passende chinesische Gesprächspartner finden, Termine vereinbaren.</span><span data-l="en">Matchmaking before the trip: record needs, find suitable Chinese counterparts, arrange meetings.</span><span data-l="zh">行前对接：了解需求，匹配合适的中方伙伴，预约会谈。</span></li>
+        <li><span data-l="de">Begleitung vor Ort, auch in der Geschäftskultur beider Seiten.</span><span data-l="en">Support on site, including the business culture of both sides.</span><span data-l="zh">现场陪同，包括双方商务文化的沟通与引导。</span></li>
+        <li><span data-l="de">Nachfassen und Begleitung nach dem Event.</span><span data-l="en">Follow-up and support after the event.</span><span data-l="zh">活动后的跟进与陪伴服务。</span></li>
+      </ul>
+    </div>
+    <div class="portal">
+      <strong><span data-l="de">Teilnehmende Unternehmen</span><span data-l="en">Participating companies</span><span data-l="zh">参与企业</span></strong>
+      <p><span data-l="de">Aus Europa und China, nach Branchen in Gruppen.</span><span data-l="en">From Europe and China, grouped by industry.</span><span data-l="zh">来自欧洲与中国，按行业分组。</span></p>
+    </div>
+  </section>
+
+  <!-- 4 Drei Phasen -->
+  <section class="list">
+    <h2><span data-l="de">Der Weg in drei Phasen</span><span data-l="en">The path in three phases</span><span data-l="zh">三个阶段</span></h2>
+    <p><span data-l="de">Die Zeiten zählen ab dem ersten Tag der Innovation Days (Tag 1).</span><span data-l="en">Times count from the first day of the Innovation Days (Day 1).</span><span data-l="zh">时间以创新日第一天（第1天）为基准。</span></p>
+    <div class="table-wrap">
+      <table class="tracking">
+        <thead><tr>
+          <th><span data-l="de">Phase</span><span data-l="en">Phase</span><span data-l="zh">阶段</span></th>
+          <th><span data-l="de">Zeitraum</span><span data-l="en">Period</span><span data-l="zh">时间</span></th>
+          <th><span data-l="de">Ergebnis</span><span data-l="en">Result</span><span data-l="zh">成果</span></th>
+          <th><span data-l="de">Wer trägt</span><span data-l="en">Responsible</span><span data-l="zh">负责方</span></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><span data-l="de">A Vorbereitung</span><span data-l="en">A Preparation</span><span data-l="zh">A 筹备</span></td>
+            <td><span data-l="de">16 bis 2 Wochen vor Tag 1</span><span data-l="en">16 to 2 weeks before Day 1</span><span data-l="zh">第1天前16至2周</span></td>
+            <td><span data-l="de">Rahmen, Teilnehmer, Programm, vereinbarte Gespräche</span><span data-l="en">Framework, participants, programme, agreed meetings</span><span data-l="zh">框架、参与者、日程、已预约会谈</span></td>
+            <td><span data-l="de">Cushman &amp; Wakefield, Behörden, Fastmind</span><span data-l="en">Cushman &amp; Wakefield, authorities, Fastmind</span><span data-l="zh">Cushman &amp; Wakefield、政府部门、Fastmind</span></td>
+          </tr>
+          <tr>
+            <td><span data-l="de">B Durchführung</span><span data-l="en">B Delivery</span><span data-l="zh">B 实施</span></td>
+            <td><span data-l="de">Tag 1 bis Tag 5</span><span data-l="en">Day 1 to Day 5</span><span data-l="zh">第1天至第5天</span></td>
+            <td><span data-l="de">Firmenbesuche, Foren, Matchmaking, vereinbarte nächste Schritte</span><span data-l="en">Company visits, forums, matchmaking, agreed next steps</span><span data-l="zh">企业参访、论坛、对接、确定后续步骤</span></td>
+            <td><span data-l="de">alle gemeinsam</span><span data-l="en">everyone together</span><span data-l="zh">各方共同</span></td>
+          </tr>
+          <tr>
+            <td><span data-l="de">C Nachfassen</span><span data-l="en">C Follow-up</span><span data-l="zh">C 后续跟进</span></td>
+            <td><span data-l="de">bis 180 Tage danach</span><span data-l="en">up to 180 days afterwards</span><span data-l="zh">活动后180天内</span></td>
+            <td><span data-l="de">Folgebesuche, Gegenbesuche, Vereinbarungen</span><span data-l="en">Follow-up visits, return visits, agreements</span><span data-l="zh">再次参访、回访、协议</span></td>
+            <td><span data-l="de">Fastmind, Cushman &amp; Wakefield, Behörden</span><span data-l="en">Fastmind, Cushman &amp; Wakefield, authorities</span><span data-l="zh">Fastmind、Cushman &amp; Wakefield、政府部门</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5 Vorbereitung -->
+  <section class="list">
+    <h2><span data-l="de">Phase A: Vorbereitung</span><span data-l="en">Phase A: Preparation</span><span data-l="zh">A阶段：筹备</span></h2>
+    <ul>
+      <li><strong><span data-l="de">Rahmen:</span><span data-l="en">Framework:</span><span data-l="zh">框架：</span></strong> <span data-l="de">Cushman &amp; Wakefield und die Behörden legen Zielbranchen, Größe, Orte und Datum fest.</span><span data-l="en">Cushman &amp; Wakefield and the authorities set target industries, size, venues and date.</span><span data-l="zh">Cushman &amp; Wakefield 与政府部门确定目标行业、规模、地点和日期。</span></li>
+      <li><strong><span data-l="de">Teilnehmer gewinnen:</span><span data-l="en">Winning participants:</span><span data-l="zh">招募参与者：</span></strong> <span data-l="de">Fastmind spricht europäische Unternehmen über Kammern, Verbände und Beratungen an. Die Behörden benennen die chinesischen Unternehmen mit Angebot.</span><span data-l="en">Fastmind approaches European companies through chambers, associations and consultancies. The authorities name the Chinese companies that have something to offer.</span><span data-l="zh">Fastmind 通过商会、行业协会和咨询机构联系欧洲企业；政府部门推荐具备合作意向的中国企业。</span></li>
+      <li><strong><span data-l="de">Delegationspaket:</span><span data-l="en">Delegation package:</span><span data-l="zh">代表团套餐：</span></strong> <span data-l="de">Anreise, Unterkunft, Verpflegung, Stand oder Tisch und Firmenbesuche aus einer Hand.</span><span data-l="en">Travel, accommodation, meals, a booth or table and company visits from a single source.</span><span data-l="zh">交通、住宿、餐饮、展位或洽谈桌及企业参访一站式安排。</span></li>
+      <li><strong><span data-l="de">Matchmaking vorab:</span><span data-l="en">Matchmaking in advance:</span><span data-l="zh">提前对接：</span></strong> <span data-l="de">Jeder Teilnehmer nennt seinen Bedarf. Fastmind sucht passende Gesprächspartner und vereinbart die Termine vor der Reise.</span><span data-l="en">Each participant states its needs. Fastmind finds suitable counterparts and arranges the meetings before the trip.</span><span data-l="zh">每位参与者提出需求，Fastmind 匹配合适的洽谈对象并在行前预约会谈。</span></li>
+      <li><strong><span data-l="de">Vorbereitung der Reise:</span><span data-l="en">Trip preparation:</span><span data-l="zh">行前准备：</span></strong> <span data-l="de">Briefing zu Markt und Geschäftskultur, Einladungsschreiben für das Visum, Unterlagen in Deutsch, Englisch und Chinesisch.</span><span data-l="en">Briefing on market and business culture, invitation letters for the visa, documents in German, English and Chinese.</span><span data-l="zh">市场与商务文化介绍、签证邀请函，以及德文、英文和中文资料。</span></li>
+    </ul>
+  </section>
+
+  <!-- 6 Durchführung -->
+  <section class="list">
+    <h2><span data-l="de">Phase B: Durchführung</span><span data-l="en">Phase B: Delivery</span><span data-l="zh">B阶段：实施</span></h2>
+    <div class="table-wrap">
+      <table class="tracking">
+        <thead><tr>
+          <th><span data-l="de">Tag</span><span data-l="en">Day</span><span data-l="zh">日程</span></th>
+          <th><span data-l="de">Ort</span><span data-l="en">City</span><span data-l="zh">城市</span></th>
+          <th><span data-l="de">Programm</span><span data-l="en">Programme</span><span data-l="zh">内容</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span data-l="de">Shanghai</span><span data-l="en">Shanghai</span><span data-l="zh">上海</span></td><td><span data-l="de">Ankunft, Firmenbesuche in Branchengruppen, Empfang am Abend</span><span data-l="en">Arrival, company visits in industry groups, evening reception</span><span data-l="zh">抵达，按行业分组参访企业，晚间欢迎酒会</span></td></tr>
+          <tr><td>2</td><td><span data-l="de">Shanghai</span><span data-l="en">Shanghai</span><span data-l="zh">上海</span></td><td><span data-l="de">Eröffnung, Fachforen zu Industrie und Umwelttechnik, Matchmaking</span><span data-l="en">Opening, specialist forums on industry and environmental technology, matchmaking</span><span data-l="zh">开幕式，工业与环保技术专题论坛，商务对接</span></td></tr>
+          <tr><td>3</td><td><span data-l="de">Shenzhen</span><span data-l="en">Shenzhen</span><span data-l="zh">深圳</span></td><td><span data-l="de">Firmenbesuche im „Robot Valley“ in Branchengruppen</span><span data-l="en">Company visits in the "Robot Valley" in industry groups</span><span data-l="zh">按行业分组参访“机器人谷”企业</span></td></tr>
+          <tr><td>4</td><td><span data-l="de">Shenzhen</span><span data-l="en">Shenzhen</span><span data-l="zh">深圳</span></td><td><span data-l="de">Eröffnung, Fachforen zu Robotik und Stadt der Zukunft, Matchmaking</span><span data-l="en">Opening, specialist forums on robotics and the city of the future, matchmaking</span><span data-l="zh">开幕式，机器人与未来城市专题论坛，商务对接</span></td></tr>
+          <tr><td>5</td><td><span data-l="de">Shenzhen</span><span data-l="en">Shenzhen</span><span data-l="zh">深圳</span></td><td><span data-l="de">Besuch der Stadt der Zukunft, Abschluss mit vereinbarten nächsten Schritten</span><span data-l="en">Visit to the city of the future, closing with agreed next steps</span><span data-l="zh">参观未来城市，闭幕并确定后续步骤</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong><span data-l="de">An allen Tagen:</span><span data-l="en">On all days:</span><span data-l="zh">全程：</span></strong> <span data-l="de">Begleitung in der Geschäftskultur, Dolmetschen bei Bedarf.</span><span data-l="en">guidance on business culture, interpreting where needed.</span><span data-l="zh">商务文化引导，按需提供翻译。</span></li>
+      <li><strong><span data-l="de">Ergebnis jedes Gesprächs:</span><span data-l="en">Result of every meeting:</span><span data-l="zh">每次会谈的成果：</span></strong> <span data-l="de">ein vereinbarter nächster Schritt: Besuch, Muster, Angebot oder Folgegespräch.</span><span data-l="en">an agreed next step: visit, samples, offer or follow-up meeting.</span><span data-l="zh">一个明确的后续步骤：参访、样品、报价或再次会谈。</span></li>
+      <li><strong><span data-l="de">Erfassung:</span><span data-l="en">Recording:</span><span data-l="zh">记录：</span></strong> <span data-l="de">Fastmind hält Gespräche und nächste Schritte fest, damit nichts verloren geht.</span><span data-l="en">Fastmind records meetings and next steps so that nothing gets lost.</span><span data-l="zh">Fastmind 记录所有会谈与后续步骤，确保不遗漏任何机会。</span></li>
+    </ul>
+  </section>
+
+  <!-- 7 Nachfassen -->
+  <section class="list">
+    <h2><span data-l="de">Phase C: Nachfassen und Begleitung</span><span data-l="en">Phase C: Follow-up and support</span><span data-l="zh">C阶段：后续跟进与陪伴</span></h2>
+    <p><span data-l="de">Folgebesuche, Gegenbesuche und Vereinbarungen entstehen nach dem Event. Deshalb ist diese Phase der Kern.</span><span data-l="en">Follow-up visits, return visits and agreements arise after the event. That is why this phase is the core.</span><span data-l="zh">再次参访、回访与协议都在活动之后产生，因此这一阶段是核心。</span></p>
+    <div class="table-wrap">
+      <table class="tracking">
+        <thead><tr>
+          <th><span data-l="de">Zeitraum</span><span data-l="en">Period</span><span data-l="zh">时间</span></th>
+          <th><span data-l="de">Was geschieht</span><span data-l="en">What happens</span><span data-l="zh">工作内容</span></th>
+          <th><span data-l="de">Ergebnis</span><span data-l="en">Result</span><span data-l="zh">成果</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span data-l="de">Tag 1 bis 14</span><span data-l="en">Day 1 to 14</span><span data-l="zh">第1至14天</span></td><td><span data-l="de">Nachfassen bei allen Gesprächen und Firmenbesuchen, Zusammenfassung an Cushman &amp; Wakefield und die Behörden</span><span data-l="en">Follow-up on all meetings and company visits, summary to Cushman &amp; Wakefield and the authorities</span><span data-l="zh">跟进所有会谈与企业参访，向 Cushman &amp; Wakefield 和政府部门提交总结</span></td><td><span data-l="de">Liste der Gespräche mit nächsten Schritten</span><span data-l="en">List of meetings with next steps</span><span data-l="zh">会谈清单及后续步骤</span></td></tr>
+          <tr><td><span data-l="de">Tag 15 bis 60</span><span data-l="en">Day 15 to 60</span><span data-l="zh">第15至60天</span></td><td><span data-l="de">Nächste Schritte der europäischen Unternehmen begleiten: Muster, Angebote, Folgebesuche in China</span><span data-l="en">Accompany the next steps of the European companies: samples, offers, follow-up visits to China</span><span data-l="zh">陪伴欧洲企业推进后续步骤：样品、报价、再次来华参访</span></td><td><span data-l="de">Folgebesuche und Angebote</span><span data-l="en">Follow-up visits and offers</span><span data-l="zh">再次参访与报价</span></td></tr>
+          <tr><td><span data-l="de">Tag 61 bis 120</span><span data-l="en">Day 61 to 120</span><span data-l="zh">第61至120天</span></td><td><span data-l="de">Gegenbesuche chinesischer Unternehmen in Europa anbahnen und begleiten</span><span data-l="en">Initiate and accompany return visits by Chinese companies to Europe</span><span data-l="zh">促成并陪同中国企业赴欧洲回访</span></td><td><span data-l="de">Gegenbesuche, erste Absichtserklärungen</span><span data-l="en">Return visits, first letters of intent</span><span data-l="zh">回访，首批合作意向书</span></td></tr>
+          <tr><td><span data-l="de">Tag 121 bis 180</span><span data-l="en">Day 121 to 180</span><span data-l="zh">第121至180天</span></td><td><span data-l="de">Ansiedlung und Zusammenarbeit begleiten: Gründung, Sitz, Standortsuche mit Cushman &amp; Wakefield</span><span data-l="en">Accompany establishment and cooperation: incorporation, registered office, site search with Cushman &amp; Wakefield</span><span data-l="zh">陪伴落地与合作：公司设立、注册地址，以及与 Cushman &amp; Wakefield 合作选址</span></td><td><span data-l="de">Bericht an Cushman &amp; Wakefield und die Behörden</span><span data-l="en">Report to Cushman &amp; Wakefield and the authorities</span><span data-l="zh">向 Cushman &amp; Wakefield 和政府部门提交报告</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 8 Belege -->
+  <section class="list">
+    <h2><span data-l="de">Warum das Format trägt</span><span data-l="en">Why the format works</span><span data-l="zh">为什么这一模式行之有效</span></h2>
+    <ul>
+      <li><strong><span data-l="de">Delegationsmessen wirken:</span><span data-l="en">Delegation fairs work:</span><span data-l="zh">代表团展会成效显著：</span></strong> <span data-l="de">Die InnovationFair von Messe Stuttgart und Messe Nanjing brachte 2025 über 150 Delegierte von 100 Organisationen aus 14 Ländern mit über 1.000 chinesischen Institutionen zusammen.</span><span data-l="en">In 2025, the InnovationFair of Messe Stuttgart and Messe Nanjing brought more than 150 delegates from 100 organisations in 14 countries together with more than 1,000 Chinese institutions.</span><span data-l="zh">2025年，斯图加特展览与南京展览共同举办的创新博览会，汇聚了来自14个国家、100家机构的150余名代表，并与1000余家中国机构对接。</span> <a href="https://innovationfair.net/downloads" target="_blank" rel="noopener">innovationfair.net</a></li>
+      <li><strong><span data-l="de">Matchmaking und Begleitung als eigene Leistungen:</span><span data-l="en">Matchmaking and support as services of their own:</span><span data-l="zh">对接与陪伴是独立的服务：</span></strong> <span data-l="de">Matchmaking vor dem Event und Begleitung danach werden dort als eigene Bausteine angeboten.</span><span data-l="en">Matchmaking before the event and support afterwards are offered there as separate modules.</span><span data-l="zh">该展会将活动前的对接与活动后的陪伴作为独立模块提供。</span> <a href="https://innovationfair.net/delegations" target="_blank" rel="noopener">innovationfair.net</a></li>
+      <li><strong><span data-l="de">Gegenbesuche folgen:</span><span data-l="en">Return visits follow:</span><span data-l="zh">回访随之而来：</span></strong> <span data-l="de">Nach einer Reise deutscher Mittelständler nach China im Januar 2026 kam im April ein Gegenbesuch.</span><span data-l="en">After a trip by German SMEs to China in January 2026, a return visit followed in April.</span><span data-l="zh">德国中小企业于2026年1月访华后，4月即迎来中方企业回访。</span> <a href="https://china.ahk.de/en/news/china-up-close-how-german-smes-connect-with-china-s-industrial-and-innovation-backbone" target="_blank" rel="noopener">AHK Greater China</a></li>
+      <li><strong><span data-l="de">Vertrauen entscheidet:</span><span data-l="en">Trust is decisive:</span><span data-l="zh">信任是关键：</span></strong> <span data-l="de">Teilnehmer nennen Vertrauen und neutrale Begleitung als entscheidend. Deshalb begleitet Fastmind beide Seiten in ihrer Sprache.</span><span data-l="en">Participants name trust and neutral support as decisive. That is why Fastmind accompanies both sides in their own language.</span><span data-l="zh">参与者认为信任与中立的陪伴至关重要，因此 Fastmind 以双方各自的语言提供陪伴服务。</span></li>
+    </ul>
+  </section>
+
+  <!-- 9 Kennzahlen -->
+  <section class="list">
+    <h2><span data-l="de">Kennzahlen</span><span data-l="en">Key figures</span><span data-l="zh">关键指标</span></h2>
+    <ul>
+      <li><span data-l="de">Zahl der europäischen Teilnehmer und der vereinbarten Gespräche vor der Reise</span><span data-l="en">Number of European participants and of meetings agreed before the trip</span><span data-l="zh">欧洲参与企业数量及行前预约会谈数量</span></li>
+      <li><span data-l="de">Zahl der Gespräche und Firmenbesuche während der Innovation Days</span><span data-l="en">Number of meetings and company visits during the Innovation Days</span><span data-l="zh">创新日期间的会谈与企业参访数量</span></li>
+      <li><span data-l="de">Zahl der Folgebesuche in China binnen 60 Tagen</span><span data-l="en">Number of follow-up visits to China within 60 days</span><span data-l="zh">60天内再次来华参访数量</span></li>
+      <li><span data-l="de">Zahl der Gegenbesuche binnen 120 Tagen</span><span data-l="en">Number of return visits within 120 days</span><span data-l="zh">120天内回访数量</span></li>
+      <li><span data-l="de">Zahl der Absichtserklärungen oder Vereinbarungen</span><span data-l="en">Number of letters of intent or agreements</span><span data-l="zh">合作意向书或协议数量</span></li>
+      <li><span data-l="de">Zufriedenheit der Teilnehmer, Ziel mindestens 90 Prozent</span><span data-l="en">Participant satisfaction, target at least 90 percent</span><span data-l="zh">参与者满意度，目标不低于90%</span></li>
+    </ul>
+  </section>
+
+  <!-- 10 Nächste Schritte -->
+  <section class="list">
+    <h2><span data-l="de">Nächste Schritte</span><span data-l="en">Next steps</span><span data-l="zh">下一步</span></h2>
+    <ul>
+      <li><span data-l="de">Aufgabenteilung zwischen Cushman &amp; Wakefield, den Behörden und Fastmind abstimmen.</span><span data-l="en">Agree the division of tasks between Cushman &amp; Wakefield, the authorities and Fastmind.</span><span data-l="zh">明确 Cushman &amp; Wakefield、政府部门与 Fastmind 之间的分工。</span></li>
+      <li><span data-l="de">Zielbranchen und Teilnehmerzahl festlegen.</span><span data-l="en">Set target industries and number of participants.</span><span data-l="zh">确定目标行业与参与规模。</span></li>
+      <li><span data-l="de">Datum und Orte in Shanghai und Shenzhen festlegen.</span><span data-l="en">Set the date and venues in Shanghai and Shenzhen.</span><span data-l="zh">确定上海与深圳的日期和场地。</span></li>
+      <li><span data-l="de">Rahmen und Budget klären.</span><span data-l="en">Clarify framework and budget.</span><span data-l="zh">明确整体框架与预算。</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>Innovation Days Roadmap · Fastmind GmbH · <span data-l="de">Stand 17.11.2026</span><span data-l="en">As of 17.11.2026</span><span data-l="zh">更新于2026年11月17日</span></footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const htmlLang = { de: 'de', en: 'en', zh: 'zh-CN' };
+  const langButtons = [...document.querySelectorAll('[data-lang-choice]')];
+  const applyLang = (lang) => {
+    if (!htmlLang[lang]) lang = 'de';
+    root.dataset.lang = lang;
+    root.lang = htmlLang[lang];
+    langButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.langChoice === lang)));
+  };
+  langButtons.forEach((b) => b.addEventListener('click', () => {
+    applyLang(b.dataset.langChoice);
+    try { history.replaceState(null, '', '#' + b.dataset.langChoice); } catch (e) { location.hash = b.dataset.langChoice; }
+  }));
+  const fromHash = () => applyLang(location.hash.replace('#', '') || 'de');
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
