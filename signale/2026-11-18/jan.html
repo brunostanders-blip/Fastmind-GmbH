@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Jan signals, 18 Nov 2026</title><style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--color-text); transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.card.active { border-left-color: var(--color-card-accent); }
+.card.active:hover, .card.active:focus-visible { box-shadow: 0 4px 16px var(--color-card-accent-soft); transform: translateY(-2px); }
+.card.active:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.card-bar { flex: none; width: 0.5rem; align-self: stretch; border-radius: 4px; background: var(--color-card-accent); }
+.card.placeholder { cursor: default; opacity: 0.75; }
+.card.placeholder .card-bar { background: var(--color-missing); opacity: 0.4; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.card.placeholder .tag { background: transparent; border: 1px dashed var(--color-border); color: var(--color-missing); }
+a.back { display: inline-block; margin-bottom: 1.5rem; color: var(--color-heading); text-decoration: none; font-size: 0.9rem; }
+a.back:hover { text-decoration: underline; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+.user-label { font-weight: 400; color: var(--color-muted); font-size: 0.6em; }
+.user-field { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: .5rem 0; }
+.user-field input { padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); }
+.user-field button { padding: .35rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style></head><body>
+<header><h1>Robotics from China, opportunities in DACH: 18 November 2026</h1><p class="subtitle">Signals for Jan from the Chinese robotics and humanoid market.</p>
+<div class="theme-switcher" role="group" aria-label="Colour mode"><button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button><button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button></div></header>
+<main><hr class="divider">
+<section class="list"><h2>China signals</h2>
+<div class="portal"><strong>1. Edge Medical's single-port surgical robot is used for the first time in European thoracic surgery</strong> (relevance: medium)
+<ul>
+<li><strong>What is new:</strong> the single-port system SP1000 by 精锋医疗 Edge Medical (Shenzhen) was used at Hospital Memorial Publio Cordón in Madrid, the first use in European thoracic surgery.</li>
+<li><strong>Scope:</strong> two lung procedures on the same day, through an incision of about 4 cm, lasting about 20 and about 50 minutes.</li>
+<li><strong>Source:</strong> „精锋单孔机器人完成欧洲胸外科首次临床应用！“ (Edge Medical single-port robot completes first clinical use in European thoracic surgery), 17 Nov 2026, <a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>. Type: company statement (Edge Medical, HKEX 02675) distributed by a news portal.</li>
+<li><strong>Conformity in the source:</strong> yes, the source names CE certification, without reference to the EU MDR.</li>
+<li><strong>Notified body and certificate number named:</strong> no.</li>
+<li><strong>Approval:</strong> with a CE mark the SP1000 can also be offered to hospitals in Germany and Austria. The notified body remains open in the source.</li>
+<li><strong>Sales:</strong> no European sales partner is named for the SP1000. For Edge Medical's multi-port system MP1000, Dornier MedTech (Weßling near Munich) runs a product page for Germany today (<a href="https://www.dornier.com/de/products-item/roboticsurgery/">Dornier MedTech</a>).</li>
+<li><strong>Switzerland:</strong> to sell to Swiss hospitals, Edge Medical needs a Swiss authorised representative and registration in swissdamed; Swissmedic supervises the market.</li>
+<li><strong>Opportunity for Fastmind:</strong> assess thoracic and general surgery in DACH as a field for the SP1000 and connect Edge Medical with hospitals and its existing DACH distribution.</li>
+<li><strong>Contributes to the strategic question:</strong> yes.</li>
+</ul></div>
+<div class="portal"><strong>2. China puts five humanoid standards into force, including joint modules and robot hands</strong> (relevance: medium)
+<ul>
+<li><strong>What is new:</strong> the Ministry of Industry and Information Technology (MIIT) published five humanoid robot standards with Announcement No. 30 of 2026 on 16 Nov 2026. They apply from publication.</li>
+<li><strong>Content:</strong> intelligence capability levels, electrically driven integrated joints, robot hands, building of training grounds and management of training data.</li>
+<li><strong>Joints:</strong> the integrated joint standard sets interfaces, performance values and test methods for torso and leg joints.</li>
+<li><strong>Source:</strong> „工信部发布5项人形机器人标准，涉及智能化能力分级、灵巧手及训练数据等“ (MIIT publishes five humanoid standards covering intelligence levels, robot hands and training data), 17 Nov 2026, <a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>, reprint <a href="https://www.163.com/dy/article/LBVHDJSN0514R9P4.html">NetEase</a>; the MIIT page could not be retrieved. Type: trade media citing the MIIT standards committee, confirmed by two reprints.</li>
+<li><strong>Conformity in the source:</strong> no, these are Chinese standards with no reference to CE or EN ISO 10218.</li>
+<li><strong>Notified body and certificate number named:</strong> no.</li>
+<li><strong>Supply:</strong> DACH makers of joints, gears, sensors and grippers that supply Chinese humanoid makers will be measured against these standards: interfaces and test values are now fixed.</li>
+<li><strong>Approval:</strong> for export to Europe the standards replace neither CE nor the EU Machinery Regulation from 20 Jan 2027 (<a href="https://eur-lex.europa.eu/eli/reg/2023/1230/oj">EUR-Lex</a>).</li>
+<li><strong>Switzerland:</strong> machines with CE marking are recognised in Switzerland.</li>
+<li><strong>Opportunity for Fastmind:</strong> offer DACH suppliers a comparison between the Chinese joint and hand standards and European evidence.</li>
+<li><strong>Contributes to the strategic question:</strong> no.</li>
+</ul></div>
+<div class="portal"><strong>Already known</strong>
+<ul>
+<li><strong>Edge Medical, exports:</strong> approvals in 37 jurisdictions and strong overseas business; known since 03.11.</li>
+<li><strong>Dornier MedTech and Edge Medical:</strong> distribution of the MP1000 in Germany and Austria; known since 31.10., the product page still shows the offer today (<a href="https://www.dornier.com/de/products-item/roboticsurgery/">Dornier MedTech</a>).</li>
+<li><strong>UKE Hamburg-Eppendorf:</strong> direct award of a multi-port surgical robot for cardiac surgery to Intuitive; known since 05.11.</li>
+<li><strong>Agile Robots:</strong> funding of more than 500 million US dollars and more production in Germany; known since 12.11.</li>
+</ul></div></section>
+<section class="list"><h2>Consequence for DACH</h2><ul>
+<li><strong>Approval:</strong> Chinese surgical robots with CE marks are used in European hospitals, now also in thoracic surgery (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>).</li>
+<li><strong>Supply:</strong> China fixes test values for joints and robot hands; DACH suppliers must serve both sets of standards (<a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>).</li>
+<li><strong>Demand in DACH:</strong> new tenders for surgical robots or humanoids: sources checked, no new find today.</li>
+</ul></section>
+<section class="list"><h2>Content angle</h2><div class="note"><strong>Thesis:</strong> China standardises the joints and hands of its humanoids, Europe tests the whole as a machine; anyone supplying or selling in DACH now needs both kinds of evidence.<br><strong>Evidence:</strong> five MIIT standards apply since 16 Nov 2026, including joint modules and robot hands (<a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>); the EU Machinery Regulation applies from 20 Jan 2027 (<a href="https://eur-lex.europa.eu/eli/reg/2023/1230/oj">EUR-Lex</a>).</div></section>
+<section class="list"><h2>Matchmaking</h2>
+<div class="table-wrap"><table class="tracking"><thead><tr><th>China side</th><th>DACH side</th><th>Direction</th><th>What Fastmind does</th><th>Next step</th></tr></thead><tbody>
+<tr><td>Edge Medical: single-port system SP1000 with CE, first use in European thoracic surgery (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>)</td><td>Dornier MedTech: distributes Edge Medical's MP1000 in Germany (<a href="https://www.dornier.com/de/products-item/roboticsurgery/">Dornier MedTech</a>)</td><td>China→DACH</td><td>Clarify whether the SP1000 joins the DACH distribution and find hospitals for a first use</td><td>Ask Dornier MedTech about plans for the SP1000 in Germany and Austria</td></tr>
+<tr><td>Chinese humanoid makers: new standard for integrated joints and robot hands (<a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>)</td><td>Schaeffler: partnership with Leju Robotics for industrial humanoids (<a href="https://www.schaeffler.com/en/media/press-releases/press-releases-detail.jsp?id=88174976">Schaeffler</a>)</td><td>DACH→China</td><td>Prepare a China and EU standards comparison for components and approach further Chinese buyers</td><td>Obtain the standard texts and compare them with the documents of German component makers</td></tr>
+<tr><td>Edge Medical: CE-certified surgical robots for Europe (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>)</td><td>UKE Hamburg-Eppendorf: awards cardiac surgery directly to one supplier (<a href="https://ted.europa.eu/de/notice/-/detail/773760-2026">TED</a>)</td><td>China→DACH</td><td>Show which specialties are open to a second supplier and approach hospitals with open tenders</td><td>Watch open tenders for thoracic and general surgery in DACH</td></tr>
+</tbody></table></div>
+<ul><li><strong>Chinese companies with plans for Europe:</strong> Edge Medical expands use in European hospitals and has no named DACH partner for the SP1000 yet (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>).</li></ul></section>
+<section class="list"><h2>Business field check</h2>
+<div class="table-wrap"><table class="tracking"><thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>Fastmind lever</th></tr></thead><tbody>
+<tr><td>Robotics</td><td><strong>confirmed:</strong> robot-assisted surgery from China grows in Europe, now also in thoracic surgery (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>)</td><td class="empty">no new evidence</td><td><strong>confirmed:</strong> Chinese makers need DACH partners for new systems, none is named for the SP1000 (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>)</td></tr>
+<tr><td>Humanoids</td><td><strong>confirmed:</strong> China sets standards for joints and hands; DACH components are measured against them (<a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>)</td><td><strong>adjusted:</strong> Chinese component standards come on top of the Machinery Regulation from 20 Jan 2027 (<a href="https://www.thepaper.cn/newsDetail_forward_34492647">The Paper</a>)</td><td class="empty">no new evidence</td></tr>
+<tr><td>Service automation</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+</tbody></table></div></section>
+<section class="list"><h2>Strategic question</h2><ul>
+<li><strong>China seeks DACH:</strong> Edge Medical brings another CE-certified system into European hospitals and names no DACH partner for it yet (<a href="https://m.stnn.cc/detail/6afc686e8f9d2b19dd927b79.html">星岛环球网</a>).</li>
+<li><strong>DACH seeks China:</strong> Dornier MedTech already offers an Edge Medical system in Germany (<a href="https://www.dornier.com/de/products-item/roboticsurgery/">Dornier MedTech</a>).</li>
+<li><strong>Trade fairs:</strong> no answer from the sources today.</li>
+</ul></section>
+<section class="list"><h2>Recommendations for Jan</h2><ul>
+<li><strong>Recommendation:</strong> ask Dornier MedTech about plans for the SP1000 in Germany and Austria, because the system carries CE and is now used in European thoracic surgery.</li>
+<li><strong>Recommendation:</strong> obtain the five MIIT standards in full and offer German joint and gripper makers a comparison with European evidence, because the standards apply since 16 Nov 2026.</li>
+<li><strong>Recommendation:</strong> prepare the post with the thesis "China standardises the parts, Europe tests the whole", because the standards are new and the Machinery Regulation applies in nine weeks.</li>
+</ul></section>
+</main><footer>Jan signals · as of 18.11.2026</footer>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body></html>
