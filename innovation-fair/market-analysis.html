@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Innovation Fair Nanjing Market Analysis</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--color-text); transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.card.active { border-left-color: var(--color-card-accent); }
+.card.active:hover { box-shadow: 0 4px 16px var(--color-card-accent-soft); transform: translateY(-2px); }
+.card-bar { flex: none; width: 0.5rem; align-self: stretch; border-radius: 4px; background: var(--color-card-accent); }
+.card.placeholder { opacity: 0.75; }
+.card.placeholder .card-bar { background: var(--color-missing); opacity: 0.4; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.card ul { margin: 0.5rem 0 0; padding-left: 1rem; font-size: 0.82rem; color: var(--color-text); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.card.placeholder .tag { background: transparent; border: 1px dashed var(--color-border); color: var(--color-missing); }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+section.list h3 { font-size: 1rem; color: var(--color-heading); margin: 1.25rem 0 0.5rem; }
+section.list ul { padding-left: 1.2rem; margin: 0.25rem 0 1rem; }
+section.list li { margin: 0.2rem 0; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.portal strong { color: var(--color-heading); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking td.wrap { white-space: normal; min-width: 13rem; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num, table.tracking th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2rem 0 0.5rem; }
+.tabs button.tab { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.tabs button.tab[aria-selected="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); font-weight: 700; }
+.tabs button.tab:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.js section.panel[hidden] { display: none; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+@media (max-width: 600px) { main { padding: 1rem 1rem 2rem; } header { padding: 1.5rem 1rem 0.5rem; } }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher, .tabs { display: none !important; }
+  section.panel[hidden] { display: block !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Innovation Fair Nanjing: Market Analysis</h1>
+  <p class="subtitle">The 18 Bulgarian SMEs of the trade mission as potential Fastmind clients: markets, key figures, forecast and one card per participant.</p>
+  <div class="theme-switcher" role="group" aria-label="Display mode">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+  </div>
+</header>
+<main>
+<hr class="divider">
+
+<section class="list">
+  <h2>At a glance</h2>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Event</td><td class="wrap">6th Innovation Fair, Sino-Euro Business Development Conference, Jiangsu (Nanjing), 26 to 30 Oct 2026</td></tr>
+      <tr><td>Participants</td><td class="wrap">18 companies plus the state agency BSMEPA as organiser</td></tr>
+      <tr><td>High potential</td><td class="wrap">NRJ Soft, AMET</td></tr>
+      <tr><td>Medium to high</td><td class="wrap">Turbo-C, STS</td></tr>
+      <tr><td>Medium</td><td class="wrap">Fadron (DACH only), DSI, INDUSTRIA, LOGISCARE and NeraDent</td></tr>
+      <tr><td>Bulgarian exporters to DE, AT, CH (2024)</td><td class="wrap">1,362, 632 and 960 companies</td></tr>
+      <tr><td>Bulgarian importers from China (2024)</td><td class="wrap">10,404 companies</td></tr>
+      <tr><td>TAM, SAM, SOM (estimate)</td><td class="wrap">about 3,300 firms; about 350 in 3 years; 6, 16, 28 clients after 12, 24, 36 months</td></tr>
+      <tr><td>Fastmind revenue 2027 and 2028 (estimate)</td><td class="wrap">Base EUR 39k and 93k; Bull EUR 101k and 241k; Bear EUR 6k and 11k</td></tr>
+      <tr><td>First engagements, ten target clients (estimate)</td><td class="wrap">EUR 15,000 to 60,000 in the first year</td></tr>
+      <tr><td>Funding</td><td class="wrap">BSMEPA funds the fair (EUR 5.11 m until 2028), not the work after it</td></tr>
+      <tr><td>Next deadlines</td><td class="wrap">2 Dec 2026 application for the funded stand at Global Industrie Lyon (AMET, Turbo-C); 18 Dec 2026 tender for pump spare parts in Burgas (Turbo-C); 29 Jan 2027 registration for the Defence Day in Sofia (Fadron)</td></tr>
+      <tr><td>Recommendation</td><td class="wrap">conditional GO, review end of May 2027</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>In one sentence:</strong> DACH is the sales market and China the sourcing market for these companies; the lever for Fastmind is a commission on recurring sourcing, not consulting alone.</div>
+</section>
+
+<div class="tabs" role="tablist" aria-label="Parts of the analysis">
+  <button type="button" class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">1 Participants</button>
+  <button type="button" class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">2 Market</button>
+  <button type="button" class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">3 Key figures and forecast</button>
+  <button type="button" class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false">4 Competitors</button>
+  <button type="button" class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false">5 Target clients</button>
+  <button type="button" class="tab" role="tab" id="t6" aria-controls="p6" aria-selected="false">6 SWOT</button>
+  <button type="button" class="tab" role="tab" id="t7" aria-controls="p7" aria-selected="false">7 Go-to-market</button>
+  <button type="button" class="tab" role="tab" id="t8" aria-controls="p8" aria-selected="false">8 Participant cards</button>
+</div>
+
+<section class="list panel" role="tabpanel" id="p1" aria-labelledby="t1">
+  <h2>1 Participants and clusters</h2>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Cluster</th><th>Participants</th><th>Fastmind team member</th></tr></thead>
+    <tbody>
+      <tr><td>A Medical and health tech</td><td class="wrap">AMET, MY Synergy, SmartDiet, LOGISCARE/NeraDent</td><td>Hanna, Jan</td></tr>
+      <tr><td>B Industry, pumps, energy</td><td class="wrap">Turbo-C, Team Experts, AMET (precision parts)</td><td>Hanna</td></tr>
+      <tr><td>C Drones and robotics</td><td class="wrap">Fadron, PetroffSoft/AvioFleet</td><td>Jan</td></tr>
+      <tr><td>D Security, IoT, hardware integration</td><td class="wrap">NRJ Soft, DSI, STS, INDUSTRIA</td><td>Jan</td></tr>
+      <tr><td>E Software, fintech, agency</td><td class="wrap">Algorithmity, Pytek, Payware, Fashion.bg</td><td>none at core</td></tr>
+      <tr><td>F Education, consulting, funding</td><td class="wrap">Examtic, Media Advisors, BSMEPA</td><td>Amy</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Register data of the ten target clients</h3>
+  <div class="table-wrap"><table class="tracking">
+    <caption>Revenue as a range from the Bulgarian commercial register, converted at EUR 1 = BGN 1.95583.</caption>
+    <thead><tr><th>Company</th><th>Founded</th><th>Revenue range</th><th>Public tenders</th></tr></thead>
+    <tbody>
+      <tr><td>NRJ Soft</td><td>2007</td><td>EUR 2.6 to 7.7 m</td><td class="wrap">15 awards 2024 to 2026, about 2.9 m (PV, fire alarm, video)</td></tr>
+      <tr><td>AMET</td><td>1995</td><td>EUR 0.5 to 2.6 m</td><td class="wrap">two small lots for hospital consumables</td></tr>
+      <tr><td>DSI</td><td>2014</td><td>EUR 0.5 to 2.6 m</td><td>none</td></tr>
+      <tr><td>INDUSTRIA</td><td>2002</td><td>EUR 0.5 to 2.6 m</td><td>none</td></tr>
+      <tr><td>Turbo-C</td><td>2008</td><td>EUR 51k to 511k</td><td class="wrap">pump spare parts for Varna water utility, 2024 about 150k, 2025 350k</td></tr>
+      <tr><td>STS</td><td>2015</td><td>EUR 51k to 511k</td><td>none</td></tr>
+      <tr><td>LOGISCARE</td><td>2016</td><td>EUR 51k to 511k</td><td>none</td></tr>
+      <tr><td>Team Experts</td><td>2009</td><td>EUR 51k to 511k</td><td>none</td></tr>
+      <tr><td>Fadron</td><td>2024</td><td>not stated</td><td>none</td></tr>
+      <tr><td>Examtic (SmarTest-BG)</td><td>2022</td><td>not stated</td><td>none</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="list panel" role="tabpanel" id="p2" aria-labelledby="t2">
+  <h2>2 Market by cluster</h2>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Cluster</th><th>DACH</th><th>China</th><th>Main hurdle</th></tr></thead>
+    <tbody>
+      <tr><td>Software and IT</td><td class="wrap">German software market about EUR 52.7 bn in 2025; Bulgarian ICT exports to DACH EUR 983 m (24 %)</td><td class="wrap">closed to foreign online information services</td><td class="wrap">China: PIPL; DACH: trust and German-speaking sales</td></tr>
+      <tr><td>IoT and security</td><td class="wrap">German camera imports EUR 3.4 bn, of which China 574 m</td><td class="wrap">domestic makers lead</td><td class="wrap">China: CCC; EU: Cyber Resilience Act from Dec 2027</td></tr>
+      <tr><td>Medical technology</td><td class="wrap">German imports of medical instruments EUR 14.7 bn; Austria 1.9 bn</td><td class="wrap">second largest market worldwide</td><td class="wrap">China: NMPA class III 12 to 14 months; EU: MDR</td></tr>
+      <tr><td>EdTech</td><td class="wrap">DigitalPakt 2.0 with EUR 5 bn until 2030</td><td class="wrap">AI in education about USD 846 m</td><td class="wrap">federal states, EU AI Act; China restricted</td></tr>
+      <tr><td>Drones</td><td class="wrap">German drone imports EUR 316 m, of which China 78 m</td><td class="wrap">low-altitude economy about CNY 1.5 tn</td><td class="wrap">EU dual-use 9A012, SORA; China closed</td></tr>
+      <tr><td>Energy efficiency</td><td class="wrap">German heat pump imports EUR 1.16 bn</td><td class="wrap">not verified</td><td class="wrap">partners and ISO 50001</td></tr>
+      <tr><td>Pumps and industry</td><td class="wrap">German pump imports EUR 5.2 bn; Bulgaria 1.5 %, China 8.4 %</td><td class="wrap">pump market about USD 13.9 bn</td><td class="wrap">sourcing: audit, inspection, customs</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Sourcing signal from China</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>EU imports from China</th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th></tr></thead>
+    <tbody>
+      <tr><td>Pumps (8413), EUR m</td><td class="num">1,567</td><td class="num">1,778</td><td class="num">1,899</td></tr>
+      <tr><td>Pump parts (841391), EUR m</td><td class="num">543</td><td class="num">547</td><td class="num">598</td></tr>
+      <tr><td>Iron castings (7325), EUR m</td><td class="num">388</td><td class="num">416</td><td class="num">441</td></tr>
+      <tr><td>Iron castings, EUR per kg</td><td class="num">1.88</td><td class="num">1.98</td><td class="num">1.82</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>Reading:</strong> Castings from China became 8 % cheaper per kg in 2025 while volume grew; this supports the sourcing offer to Turbo-C.</div>
+</section>
+
+<section class="list panel" role="tabpanel" id="p3" aria-labelledby="t3">
+  <h2>3 Key figures and forecast</h2>
+  <h3>Market size for Fastmind's offer (estimate)</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Level</th><th>Basis</th><th class="num">Firms</th><th class="num">Value per year</th></tr></thead>
+    <tbody>
+      <tr><td>TAM</td><td class="wrap">exporters to DACH, ICT SMEs with DACH exports, industry SMEs with export plans, exporters to China</td><td class="num">3,300</td><td class="num">EUR 26 m</td></tr>
+      <tr><td>SAM</td><td class="wrap">reachable via BSMEPA missions, EEN, chambers and the Nanjing fair</td><td class="num">350 in 3 years</td><td class="num">EUR 0.9 m</td></tr>
+      <tr><td>SOM (Base)</td><td class="wrap">8 % of SAM after 36 months</td><td class="num">6 / 16 / 28</td><td class="num">EUR 39k / 93k / 150k</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Revenue scenarios (estimate)</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Scenario</th><th>Year</th><th class="num">Contacts</th><th class="num">Conversion</th><th class="num">New clients</th><th class="num">Revenue</th><th class="num">Hours</th><th class="num">EUR per hour</th></tr></thead>
+    <tbody>
+      <tr><td>Bear</td><td>2027</td><td class="num">30</td><td class="num">7 %</td><td class="num">2</td><td class="num">6,000</td><td class="num">170</td><td class="num">35</td></tr>
+      <tr><td>Bear</td><td>2028</td><td class="num">40</td><td class="num">7 %</td><td class="num">3</td><td class="num">11,000</td><td class="num">260</td><td class="num">42</td></tr>
+      <tr><td>Base</td><td>2027</td><td class="num">50</td><td class="num">12 %</td><td class="num">6</td><td class="num">39,000</td><td class="num">430</td><td class="num">91</td></tr>
+      <tr><td>Base</td><td>2028</td><td class="num">80</td><td class="num">12 %</td><td class="num">10</td><td class="num">92,600</td><td class="num">860</td><td class="num">108</td></tr>
+      <tr><td>Bull</td><td>2027</td><td class="num">70</td><td class="num">18 %</td><td class="num">13</td><td class="num">100,500</td><td class="num">800</td><td class="num">126</td></tr>
+      <tr><td>Bull</td><td>2028</td><td class="num">120</td><td class="num">18 %</td><td class="num">22</td><td class="num">240,600</td><td class="num">1,960</td><td class="num">123</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><strong>Bear:</strong> only the 18 Nanjing firms, no role with BSMEPA, small checks only.</li>
+    <li><strong>Base:</strong> four target clients convert, plus contacts from two BSMEPA missions and EEN.</li>
+    <li><strong>Bull:</strong> Fastmind becomes the follow-up partner of BSMEPA missions, plus recurring sourcing orders.</li>
+  </ul>
+  <h3>Price list proposal (estimate)</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Service</th><th class="num">Price</th><th>Benchmark</th></tr></thead>
+    <tbody>
+      <tr><td>DACH market check</td><td class="num">EUR 2,900</td><td class="wrap">3 days at the median consultant rate of EUR 960</td></tr>
+      <tr><td>China supplier search, shortlist of three</td><td class="num">EUR 2,400</td><td class="wrap">audit and inspection at cost</td></tr>
+      <tr><td>DACH partner and pilot client search</td><td class="num">EUR 4,500</td><td class="wrap">below the AHK average of EUR 4,760</td></tr>
+      <tr><td>Ongoing support</td><td class="num">EUR 1,200 / month</td><td class="wrap">at least 6 months</td></tr>
+      <tr><td>Sourcing commission</td><td class="num">5 %</td><td class="wrap">sourcing agents take 5 to 10 %</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>Funding:</strong> BSMEPA pays 100 % of the first fair and 70 % from the second; follow-up consulting is not funded today. Up to 50 % would be possible only if BSMEPA commissions Fastmind or a call under GBER Art. 18 opens.</div>
+</section>
+
+<section class="list panel" role="tabpanel" id="p4" aria-labelledby="t4">
+  <h2>4 Competitors</h2>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Competitor</th><th>Offer</th><th>Price</th><th>Fastmind's difference</th></tr></thead>
+    <tbody>
+      <tr><td>BSMEPA and trade offices</td><td class="wrap">funded fairs, contacts, also outside DACH (Global Industrie Lyon 2027)</td><td class="wrap">funded, own share 0 to 30 %</td><td class="wrap">prepares the meetings and does the work after the fair</td></tr>
+      <tr><td>EU SME Centre</td><td class="wrap">advice, webinars</td><td>free</td><td class="wrap">win as a referrer</td></tr>
+      <tr><td>AHK</td><td class="wrap">address search, partner search, market study; AHK Bulgaria ran a sourcing tour for 8 to 12 German SMEs in Nov 2026, on behalf of the German economy ministry</td><td class="wrap">about EUR 1,360 / 4,760 / 10,000 (AHK Southern Africa); sourcing tour EUR 125 to 750 net</td><td class="wrap">direction Bulgaria to DACH plus China; competitor and referrer at once for AMET and Turbo-C</td></tr>
+      <tr><td>Germany Trade &amp; Invest</td><td class="wrap">advice for investors</td><td>free</td><td class="wrap">sales and trade partner, not settlement</td></tr>
+      <tr><td>Dezan Shira and similar</td><td class="wrap">incorporation, tax in China</td><td class="wrap">WFOE USD 3,000 to 15,000</td><td class="wrap">small, operational, sales</td></tr>
+      <tr><td>Sourcing agents</td><td class="wrap">supplier search, inspection</td><td class="wrap">5 to 10 %; audit GBP 300 to 600</td><td class="wrap">German responsibility, open fee</td></tr>
+      <tr><td>Fair organiser</td><td class="wrap">matchmaking, follow-up</td><td class="wrap">from EUR 1,000 each</td><td class="wrap">continuous support, plus DACH</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>Edge:</strong> None of them offers sales in DACH and sourcing in China from one partner.</div>
+</section>
+
+<section class="list panel" role="tabpanel" id="p5" aria-labelledby="t5">
+  <h2>5 Target clients</h2>
+  <div class="table-wrap"><table class="tracking">
+    <caption>Deal value is an estimate for the first 6 to 12 months.</caption>
+    <thead><tr><th class="num">Rank</th><th>Company</th><th>What Fastmind offers</th><th>Team member</th><th class="num">Deal value</th><th>Potential</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>NRJ Soft</td><td class="wrap">PV, fire alarm and camera hardware from China for public tenders</td><td>Jan, Hanna</td><td class="num">EUR 5k to 25k</td><td><span class="tag">high</span></td></tr>
+      <tr><td class="num">2</td><td>AMET</td><td class="wrap">contract manufacturing for DACH clients, parts from China, MDR</td><td>Hanna, Jan</td><td class="num">EUR 5k to 20k</td><td><span class="tag">high</span></td></tr>
+      <tr><td class="num">3</td><td>Turbo-C</td><td class="wrap">foundries in China for pump spare parts, audit, inspection</td><td>Hanna</td><td class="num">EUR 4k to 12k</td><td>medium to high</td></tr>
+      <tr><td class="num">4</td><td>STS</td><td class="wrap">POS hardware made in China, sales in DACH</td><td>Jan</td><td class="num">EUR 5k to 15k</td><td>medium to high</td></tr>
+      <tr><td class="num">5</td><td>Fadron</td><td class="wrap">inspection clients in DACH; no China (dual-use 9A012)</td><td>Jan</td><td class="num">EUR 8k to 25k</td><td>medium</td></tr>
+      <tr><td class="num">6</td><td>DSI</td><td class="wrap">facility management clients in DACH, IoT hardware</td><td>Jan</td><td class="num">EUR 4k to 12k</td><td>medium</td></tr>
+      <tr><td class="num">7</td><td>INDUSTRIA</td><td class="wrap">integration partner for Chinese robotics in Bulgaria</td><td>Jan</td><td class="num">EUR 3k to 10k</td><td>medium</td></tr>
+      <tr><td class="num">8</td><td>LOGISCARE and NeraDent</td><td class="wrap">dental equipment from China with MDR check</td><td>Jan, Hanna</td><td class="num">EUR 3k to 10k</td><td>medium</td></tr>
+      <tr><td class="num">9</td><td>Team Experts</td><td class="wrap">heat pumps, solar, insulation for its projects</td><td>Hanna</td><td class="num">EUR 2k to 6k</td><td>low to medium</td></tr>
+      <tr><td class="num">10</td><td>Examtic</td><td class="wrap">pilot schools in DACH, education cooperation</td><td>Amy</td><td class="num">EUR 1.5k to 5k</td><td>low to medium</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Lead score (addition to the ranking above)</h3>
+  <div class="table-wrap"><table class="tracking">
+    <caption>Points per criterion. Class A from 70 points, B from 50, C below. No contact with Fastmind yet, so all are at stage "Aware".</caption>
+    <thead><tr><th class="num">Rank</th><th>Company</th><th class="num">Score</th><th>Class</th><th class="num">Need</th><th class="num">Fit</th><th class="num">Occasion</th><th class="num">Access</th><th class="num">Size</th><th class="num">Deduction</th><th>Team member</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>AMET</td><td class="num">82</td><td><span class="tag">A</span></td><td class="num">15</td><td class="num">25</td><td class="num">20</td><td class="num">15</td><td class="num">7</td><td class="num">0</td><td>Hanna</td></tr>
+      <tr><td class="num">2</td><td>STS</td><td class="num">78</td><td><span class="tag">A</span></td><td class="num">15</td><td class="num">25</td><td class="num">20</td><td class="num">15</td><td class="num">3</td><td class="num">0</td><td>Jan</td></tr>
+      <tr><td class="num">3</td><td>Fadron</td><td class="num">72</td><td><span class="tag">A</span></td><td class="num">30</td><td class="num">15</td><td class="num">20</td><td class="num">15</td><td class="num">2</td><td class="num">−10</td><td>Jan</td></tr>
+      <tr><td class="num">4</td><td>Turbo-C</td><td class="num">68</td><td>B</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">15</td><td class="num">3</td><td class="num">0</td><td>Hanna</td></tr>
+      <tr><td class="num">5</td><td>NRJ Soft</td><td class="num">65</td><td>B</td><td class="num">15</td><td class="num">15</td><td class="num">10</td><td class="num">15</td><td class="num">10</td><td class="num">0</td><td>Jan</td></tr>
+      <tr><td class="num">6</td><td>DSI</td><td class="num">62</td><td>B</td><td class="num">15</td><td class="num">25</td><td class="num">0</td><td class="num">15</td><td class="num">7</td><td class="num">0</td><td>Jan</td></tr>
+      <tr><td class="num">7</td><td>Team Experts</td><td class="num">43</td><td>C</td><td class="num">0</td><td class="num">15</td><td class="num">10</td><td class="num">15</td><td class="num">3</td><td class="num">0</td><td>Hanna</td></tr>
+      <tr><td class="num">8</td><td>INDUSTRIA</td><td class="num">37</td><td>C</td><td class="num">0</td><td class="num">15</td><td class="num">0</td><td class="num">15</td><td class="num">7</td><td class="num">0</td><td>Jan</td></tr>
+      <tr><td class="num">9</td><td>LOGISCARE and NeraDent</td><td class="num">31</td><td>C</td><td class="num">15</td><td class="num">15</td><td class="num">0</td><td class="num">8</td><td class="num">3</td><td class="num">−10</td><td>Jan</td></tr>
+      <tr><td class="num">10</td><td>Examtic</td><td class="num">31</td><td>C</td><td class="num">0</td><td class="num">15</td><td class="num">0</td><td class="num">15</td><td class="num">1</td><td class="num">0</td><td>Amy</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><strong>Why the order differs:</strong> the lead score weights the occasion for a first contact and needs a company states itself; the ranking above weights revenue and deal value. Weighted pipeline of the six A and B leads (estimate): cautious EUR 5,590, base EUR 7,420, good EUR 5,715.</div>
+  <ul>
+    <li><strong>Sum of first engagements:</strong> EUR 40,500 to 140,000 across all ten; realistic with 3 to 4 deals: EUR 15,000 to 60,000 in the first year.</li>
+    <li><strong>Not clients but multipliers:</strong> BSMEPA for future missions; Media Advisors for EU funding applications.</li>
+    <li><strong>Link to the sales cases:</strong> DSI, STS, Fadron and AMET are possible European participants of the Innovation Days.</li>
+    <li><strong>Confirmed:</strong> NRJ Soft already buys directly from Hikvision, Dahua and SINO Energy; AMET carries instruments of the German maker HEBUmedical and supplies a pool control to Poolsana; Fadron publicly seeks distribution and integration partners for HALO AI.</li>
+    <li><strong>Still open:</strong> which company runs NeraDent (neither website nor company directory names one); whether the HALO AI software alone may be offered in China; exact revenue figures need a register login.</li>
+  </ul>
+</section>
+
+<section class="list panel" role="tabpanel" id="p6" aria-labelledby="t6">
+  <h2>6 SWOT for Fastmind</h2>
+  <h3>Strengths</h3>
+  <ul>
+    <li>Access to China and DACH at the same time, based in Düsseldorf.</li>
+    <li>Trades, brokers and advises without manufacturing, so neutral towards makers.</li>
+    <li>Robotics, automation and education as own fields.</li>
+  </ul>
+  <h3>Weaknesses</h3>
+  <ul>
+    <li>Small team, unknown among Bulgarian SMEs.</li>
+    <li>No presence in Bulgaria and no Bulgarian language (assumption).</li>
+    <li>No own expertise for NMPA, CCC, MDR or SORA; needs partners.</li>
+  </ul>
+  <h3>Opportunities</h3>
+  <ul>
+    <li>Funding covers the fair, not the work after it.</li>
+    <li>10,404 Bulgarian firms already import from China; castings got cheaper in 2025.</li>
+    <li>EU rules favour EU suppliers in DACH over Chinese competitors.</li>
+  </ul>
+  <h3>Threats</h3>
+  <ul>
+    <li>Low willingness to pay and free state competitors.</li>
+    <li>Only the Bull case beats the median consultant rate of EUR 120 per hour.</li>
+    <li>EU and China tensions, export controls, data law.</li>
+  </ul>
+</section>
+
+<section class="list panel" role="tabpanel" id="p7" aria-labelledby="t7">
+  <h2>7 Go-to-market</h2>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Company</th><th>Team member</th><th>Entry</th></tr></thead>
+    <tbody>
+      <tr><td>NRJ Soft</td><td>Jan, Hanna</td><td class="wrap">complementary suppliers from China with CE, for example for PV or fire alarms, and supplier checks; Hikvision, Dahua and SINO Energy are already direct suppliers</td></tr>
+      <tr><td>AMET</td><td>Hanna</td><td class="wrap">shortlist of DACH medtech makers looking for ISO 13485 contract manufacturing; preparing meetings for Global Industrie (application by 2 Dec 2026)</td></tr>
+      <tr><td>Turbo-C</td><td>Hanna</td><td class="wrap">shortlist of three foundries in China for pump castings; supplier comparison for the Burgas tender (deadline 18 Dec 2026)</td></tr>
+      <tr><td>STS</td><td>Jan</td><td class="wrap">talk on POS hardware made in China and a distributor in DACH; EuroCIS Düsseldorf, 16 to 18 Feb 2027</td></tr>
+      <tr><td>Fadron</td><td>Jan</td><td class="wrap">reply to its own partner search of 3 Nov 2026: contacts to road and airport operators in DACH for an inspection pilot</td></tr>
+      <tr><td>DSI</td><td>Jan</td><td class="wrap">invitation to the Innovation Days and facility management contacts</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Occasions for the first contact</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>Date</th><th>Occasion</th><th>Place</th><th>Company</th></tr></thead>
+    <tbody>
+      <tr><td>2 Dec 2026</td><td class="wrap">application deadline for the funded Bulgarian stand at Global Industrie, 15 to 18 Mar 2027</td><td>Lyon</td><td class="wrap">AMET, Turbo-C</td></tr>
+      <tr><td>18 Dec 2026</td><td class="wrap">tender deadline, spare parts for Wilo pumps and mixers, Burgas water utility</td><td>Burgas</td><td>Turbo-C</td></tr>
+      <tr><td>11 to 15 Jan 2027</td><td class="wrap">BAU 2027</td><td>Munich</td><td>Team Experts</td></tr>
+      <tr><td>27 Jan 2027</td><td class="wrap">German Business Award in Bulgaria (AHK)</td><td>Sofia</td><td>all</td></tr>
+      <tr><td>29 Jan 2027</td><td class="wrap">registration deadline, 2nd German-Bulgarian Defence Day on 3 Jun 2027</td><td>Sofia</td><td>Fadron</td></tr>
+      <tr><td>16 to 18 Feb 2027</td><td class="wrap">EuroCIS 2027</td><td>Düsseldorf</td><td class="wrap">STS, NRJ Soft</td></tr>
+    </tbody>
+  </table></div>
+  <h3>KPI for the first six months (Base, estimate)</h3>
+  <div class="table-wrap"><table class="tracking">
+    <thead><tr><th>KPI</th><th class="num">M1</th><th class="num">M2</th><th class="num">M3</th><th class="num">M4</th><th class="num">M5</th><th class="num">M6</th></tr></thead>
+    <tbody>
+      <tr><td>First contacts (cumulative)</td><td class="num">8</td><td class="num">14</td><td class="num">18</td><td class="num">24</td><td class="num">30</td><td class="num">36</td></tr>
+      <tr><td>Offers sent</td><td class="num">0</td><td class="num">2</td><td class="num">4</td><td class="num">6</td><td class="num">8</td><td class="num">10</td></tr>
+      <tr><td>Paid engagements</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td></tr>
+      <tr><td>Revenue, EUR (cumulative)</td><td class="num">0</td><td class="num">0</td><td class="num">2,900</td><td class="num">7,700</td><td class="num">12,500</td><td class="num">20,000</td></tr>
+      <tr><td>Hours (cumulative)</td><td class="num">30</td><td class="num">60</td><td class="num">100</td><td class="num">140</td><td class="num">180</td><td class="num">220</td></tr>
+    </tbody>
+  </table></div>
+  <div class="portal"><strong>Conditional GO</strong><p>Budget 240 hours and EUR 4,100 until end of May 2027. Expand with at least 4 paid engagements, EUR 20,000 and a commitment from BSMEPA; stop with at most 1 engagement or below EUR 40 per hour.</p></div>
+</section>
+
+<section class="list panel" role="tabpanel" id="p8" aria-labelledby="t8">
+  <h2>8 Participant cards</h2>
+  <div class="grid">
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">high</span><h3 class="card-title">NRJ Soft</h3><p>Ruse-based security and energy systems integrator with a strong public-tender record.</p><ul><li>Revenue EUR 2.6 to 7.7 m</li><li>Need: extra suppliers from China</li><li>Team: Jan, Hanna</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">high</span><h3 class="card-title">AMET</h3><p>ISO 13485 maker of HF electrosurgical devices, controls and CNC precision parts since 1995.</p><ul><li>Revenue EUR 0.5 to 2.6 m</li><li>Need: DACH contract work</li><li>Team: Hanna, Jan</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium to high</span><h3 class="card-title">Turbo-C</h3><p>Small maker of centrifugal pumps and repair, seeking foundries for small-batch castings.</p><ul><li>Revenue EUR 51k to 511k</li><li>Need: castings from China</li><li>Team: Hanna</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium to high</span><h3 class="card-title">STS</h3><p>POS, retail and hotel tech provider with own-brand hardware and 24/7 support in South-East Europe.</p><ul><li>Revenue EUR 51k to 511k</li><li>Need: OEM in China, DACH sales</li><li>Team: Jan</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium</span><h3 class="card-title">Fadron</h3><p>Drone-and-AI start-up with the Nimbus long-range VTOL and HALO AI pavement inspection.</p><ul><li>Founded 2024</li><li>Seeks partners for HALO AI</li><li>DACH only, dual-use 9A012</li><li>Team: Jan</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium</span><h3 class="card-title">DSI</h3><p>IoT and workforce software (Supervisor360, aControl) serving UK airports and facility firms.</p><ul><li>Revenue EUR 0.5 to 2.6 m</li><li>Need: DACH clients</li><li>Team: Jan</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium</span><h3 class="card-title">INDUSTRIA</h3><p>Systems integrator for Odoo ERP, industrial IoT, SCADA and applied AI.</p><ul><li>Revenue EUR 0.5 to 2.6 m</li><li>Role: integration partner</li><li>Team: Jan</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">medium</span><h3 class="card-title">LOGISCARE and NeraDent</h3><p>Partner of Czech fleet telematics firm LogisCarE; dental equipment under the NeraDent brand.</p><ul><li>Revenue EUR 51k to 511k</li><li>Need: dental equipment, MDR</li><li>Team: Jan, Hanna</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low to medium</span><h3 class="card-title">Team Experts</h3><p>Varna engineering consultancy for energy audits, HVAC design and EU-funded projects.</p><ul><li>Revenue EUR 51k to 511k</li><li>Role: specifier, referrer</li><li>Team: Hanna</li></ul></div></div>
+    <div class="card active"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low to medium</span><h3 class="card-title">Examtic</h3><p>EdTech start-up with an AI-assisted platform for school exams.</p><ul><li>Founded 2022</li><li>Need: pilot schools</li><li>Team: Amy</li></ul></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low to medium</span><h3 class="card-title">MY Synergy</h3><p>Health-tech firm and Microsoft partner with AI claims processing for insurers.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low to medium</span><h3 class="card-title">Algorithmity</h3><p>Software product engineering with embedded teams, EdTech and health references.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low to medium</span><h3 class="card-title">PetroffSoft (AvioFleet)</h3><p>Early-stage VTOL cargo drone platform for medical samples and remote areas.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low</span><h3 class="card-title">Pytek</h3><p>Software development house with its own office in Hamburg.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low</span><h3 class="card-title">Payware</h3><p>Account-to-account instant payment network.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low</span><h3 class="card-title">SmartDiet</h3><p>Online personalised nutrition programmes with medical supervision.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">low</span><h3 class="card-title">Fashion.bg</h3><p>Digital marketing studio with web design, SEO and merchandise.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">funding partner</span><h3 class="card-title">Media Advisors</h3><p>Consultancy for innovation, IP and EU funding; useful for funding applications.</p></div></div>
+    <div class="card placeholder"><span class="card-bar" aria-hidden="true"></span><div class="card-body"><span class="tag">multiplier</span><h3 class="card-title">BSMEPA</h3><p>State SME agency and organiser of the mission; access to future missions.</p></div></div>
+  </div>
+</section>
+
+<footer>Innovation Fair Nanjing Market Analysis · As of 21.11.2026</footer>
+</main>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+(() => {
+  document.documentElement.classList.add('js');
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const show = (tab) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => show(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      show(next); next.focus();
+    });
+  });
+  show(tabs[0]);
+})();
+</script>
+</body>
+</html>
