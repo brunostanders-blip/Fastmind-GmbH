@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fastmind Hanna Signals, 23.11.2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+.portal ul, section.list ul { margin: 0.4rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.portal h3 { margin: 0; font-size: 1.05rem; color: var(--color-heading); }
+section.list h3 { font-size: 1rem; margin: 1.25rem 0 0.5rem; color: var(--color-heading); }
+section.list a, .note a { color: var(--color-heading); word-break: break-word; }
+table.tracking td { white-space: normal; vertical-align: top; min-width: 9rem; }
+</style>
+</head>
+<body>
+<header>
+<h1>Fastmind Hanna Signals, 23.11.2026</h1>
+<p class="subtitle">For Jan. Signals of the past days on Hanna's three products: robotics, SKTEC polymer fibres for concrete and Beite agitators and aerators for wastewater plants, plus the textile side field.</p>
+<div class="theme-switcher" role="group" aria-label="Display mode">
+<button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+<button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+</div>
+</header>
+<main>
+<hr class="divider">
+
+<div class="note">
+<p><strong>Today:</strong> China extends the pause on its rare earth export controls until 10.01.2027; Troisdorf is building a new sludge digestion plant whose current agitators are described as outdated. For SKTEC and textiles only the status of known topics.</p>
+<p><strong>Context:</strong> Hanna's products and the positioning (China market access, regulation as a market door) are context from the "Fastmind Dual-Gateway" document. Everything else is publicly researched market knowledge with a source.</p>
+</div>
+
+<section class="list">
+<h2>Market signals</h2>
+
+<h3>Robotics</h3>
+<div class="portal">
+<h3>1. Rare earths: China extends the suspension of its expanded export controls until 10.01.2027</h3>
+<ul>
+<li><strong>New:</strong> China's Ministry of Commerce extended the suspension of the October 2025 measures until 10.01.2027 on 09.11.2026 (<a href="https://www.spglobal.com/energy/en/news-research/latest-news/metals/110926-china-extends-rare-earth-export-suspension-to-january-2027">S&amp;P Global</a>).</li>
+<li><strong>Timing:</strong> The notice came one day before the old deadline expired (<a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/09/china-extends-suspension-of-rare-earth-export-controls-until-january">The Star, 09.11.2026</a>).</li>
+<li><strong>Scope:</strong> Controls on five rare earths, processing technology and certain lithium batteries, graphite and products made abroad with Chinese rare earths remain suspended (<a href="https://source.benchmarkminerals.com/article/china-extends-pause-on-rare-earth-and-battery-export-controls-until-2027">Benchmark</a>).</li>
+<li><strong>What stays:</strong> The April 2025 licence requirement for seven heavy rare earths, including dysprosium and terbium, remains in force (<a href="https://source.benchmarkminerals.com/article/china-extends-pause-on-rare-earth-and-battery-export-controls-until-2027">Benchmark</a>).</li>
+<li><strong>Relevance for Hanna (robotics):</strong> Robot servo motors and joint drives need permanent magnets; the deadline only moves by two months, and the licence requirement for dysprosium and terbium stays.</li>
+<li><strong>Option:</strong> Approach DACH integrators and dealers of Chinese robots on the 10.01.2027 deadline and the supply chain of their drives.</li>
+<li><strong>Strategic question:</strong> yes.</li>
+</ul>
+</div>
+<p><strong>Status of known topics</strong></p>
+<ul>
+<li><strong>Pudu Robotics (known since 29.10.):</strong> Europe is now its largest regional market, with about 50 sales staff and 40 technical support staff (<a href="https://roboticsandautomationnews.com/2026/11/18/pudu-robotics-rides-the-tidal-wave-of-chinas-ai-revolution/107193/">Robotics &amp; Automation News, 18.11.2026</a>).</li>
+<li><strong>Robotic lawn mowers from China (known since 09.10.):</strong> The Commission must decide on definitive anti-dumping duties by 19.01.2027 (<a href="https://sovereignmagazine.com/article/eu-anti-dumping-investigation-robotic-lawnmowers-china">Sovereign Magazine</a>).</li>
+<li><strong>Registration:</strong> Imports have been registered since Regulation (EU) 2026/142 (<a href="https://eur-lex.europa.eu/eli/reg_impl/2026/142/oj">EUR-Lex</a>).</li>
+<li><strong>Universal Robots vs JAKA (known since 14.10.):</strong> The case on three patents before the Unified Patent Court in Copenhagen is ongoing; no ruling is known (<a href="https://www.therobotreport.com/teradyne-robotics-sues-jaka-over-3-universal-robots-patents/">The Robot Report</a>).</li>
+</ul>
+
+<h3>SKTEC fibres for concrete</h3>
+<p>Sources checked, no new finding today.</p>
+<ul>
+<li><strong>Status of approvals (known since 28.10.):</strong> For polymer fibres in transport infrastructure, the rules still require a declaration of performance and a national technical approval (<a href="https://wissen.deutsche-bauchemie.de/knowledge-base/polymerfaserbeton-im-verkehrswegebau/">Deutsche Bauchemie</a>).</li>
+<li><strong>Checked without finding:</strong> new approvals, tunnel or precast projects with polymer macro fibres in DACH; the hits are manufacturer documents and older research.</li>
+</ul>
+
+<h3>Beite wastewater technology</h3>
+<div class="portal">
+<h3>1. Troisdorf-Müllekoven wastewater plant (Abwasserbetrieb Troisdorf): new sludge digestion plant, agitators described as outdated</h3>
+<ul>
+<li><strong>New:</strong> Abwasserbetrieb Troisdorf is building a new sludge digestion plant at the Müllekoven plant (84,000 population equivalent) and describes the existing agitators as outdated (<a href="https://ted.europa.eu/en/notice/483027-2026/pdf">TED 483027-2026</a>).</li>
+<li><strong>Change:</strong> A change notice was published on 30.07.2026 (<a href="https://ted.europa.eu/en/notice/528247-2026/pdf">TED 528247-2026</a>).</li>
+<li><strong>Status:</strong> In 2026 the planning is awarded first, including technical equipment and structural design, with deadlines between August and October 2026 (<a href="https://www.bauportal-deutschland.de/oeffentliche_ausschreibung_vobvol_details_53840_Troisdorf_Neubau_Faulungsanlage_KA_Muellekoven_Los_03_Tragwerksplanung_3179379.html">Bauportal, lot 03</a>).</li>
+<li><strong>Gaps:</strong> Tender for the mechanical equipment, agitator type and schedule not found.</li>
+<li><strong>Relevance for Hanna (Beite):</strong> Whoever plans the technical equipment sets the agitator requirements before construction is tendered.</li>
+<li><strong>Option:</strong> Approach the appointed planning office with a Beite data sheet and CE documents for agitators in sludge and digestion tanks.</li>
+<li><strong>Strategic question:</strong> yes.</li>
+</ul>
+</div>
+<p><strong>Status of known topics</strong></p>
+<ul>
+<li><strong>Roßdorf (known since 16.11.):</strong> Lot 1 mechanical equipment with aeration and agitators, deadline 01.12.2026 (<a href="https://tendigo.de/ausschreibung/sanierung-der-biologie-der-klaeranlage-rossdorf-los-1-89ec8030ff">tendigo</a>).</li>
+<li><strong>Ahlbachgruppe (known since 06.11.):</strong> deadline 07.12.2026 (<a href="https://tendigo.de/ausschreibung/ahlbachgruppe-neubau-der-klaeranlage-geblaesestation-und-bel-f1f4ab9f9e">tendigo</a>).</li>
+<li><strong>Nordhausen (known since 20.11.):</strong> deadline 08.12.2026 (<a href="https://tendigo.de/ausschreibung/klaeranlage-nordhausen-schlammbehandlung-sanierung-nacheindi-324d779fce">tendigo</a>).</li>
+<li><strong>Roetgen (known since 16.11.):</strong> deadline 15.12.2026, award on price only (<a href="https://tendigo.de/ausschreibung/modernisierung-der-belebungsbecken-der-klaeranlage-roetgen-a-ac2bc6e122">tendigo</a>).</li>
+<li><strong>KW Ohligs (known since 03.11.):</strong> deadline 17.12.2026 (<a href="https://tendigo.de/ausschreibung/kw-ohligs-erneuerung-der-belueftung-der-belebungsgruppe-1-ab8fa70e3a">tendigo</a>).</li>
+</ul>
+
+<h3>Textiles (side field)</h3>
+<p>Sources checked, no new finding today.</p>
+<ul>
+<li><strong>ITMA ASIA + CITME (known since 27.10.):</strong> The fair runs in Shanghai until 24.11.2026; no results have been published yet (<a href="https://www.textileworld.com/textile-world/features/2026/09/itma-asia-citme-2026/">Textile World</a>).</li>
+<li><strong>KARL MAYER there:</strong> warp knitting and warp preparation technology for technical textiles (<a href="https://www.textileworld.com/?p=111313">Textile World</a>).</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Regulation and compliance update</h2>
+<ul>
+<li><strong>Machinery Regulation:</strong> The first list of harmonised standards under the Regulation is due before year end and is to take over almost all standards of the Machinery Directive (<a href="https://www.swissmem.ch/de/wissen/aktualisierte-liste-der-harmonisierten-en-normen.html">Swissmem</a>).</li>
+<li><strong>Cyber Resilience Act:</strong> Since 11.09.2026 actively exploited vulnerabilities and severe incidents must be reported; the remaining obligations apply from 11.12.2027 (<a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting">Commission</a>).</li>
+<li><strong>Assessment:</strong> Law firms differ on whether importers of connected robots must already report themselves (<a href="https://cms.law/en/bel/legal-updates/ready-respond-report-the-cyber-resilience-act-s-reporting-regime-is-here">CMS</a>).</li>
+<li><strong>Urban Wastewater Directive:</strong> The CJEU ruling on extended producer responsibility (C-193/25) is still pending (<a href="https://www.zfk.de/wasser-abwasser/abwasser/abwasser-richtlinie-karl-eugh-optionen">ZfK</a>).</li>
+<li><strong>EU MDR, LkSG, REACH:</strong> no new evidence.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Business field check</h2>
+<div class="table-wrap">
+<table class="tracking">
+<thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>The Fastmind lever</th></tr></thead>
+<tbody>
+<tr><td>Green energy</td><td class="empty">no new evidence</td><td><strong>adjusted:</strong> battery controls only suspended until 10.01.2027 (<a href="https://source.benchmarkminerals.com/article/china-extends-pause-on-rare-earth-and-battery-export-controls-until-2027">Benchmark</a>)</td><td class="empty">no new evidence</td></tr>
+<tr><td>Emission reduction</td><td><strong>confirmed:</strong> municipalities renew digestion and sludge treatment with new mechanical equipment (<a href="https://ted.europa.eu/en/notice/528247-2026/pdf">TED 528247-2026</a>)</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+<tr><td>Fibre innovation</td><td class="empty">no new evidence</td><td><strong>confirmed:</strong> polymer fibres still need an approval (<a href="https://wissen.deutsche-bauchemie.de/knowledge-base/polymerfaserbeton-im-verkehrswegebau/">Bauchemie</a>)</td><td class="empty">no new evidence</td></tr>
+<tr><td>Pipeline systems</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+<tr><td>Maritime technologies</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+<tr><td>Medical devices</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="list">
+<h2>Customer approach ideas</h2>
+<ul>
+<li><strong>"Magnets until 10.01.2027":</strong> Approach dealers and integrators of Chinese robots in DACH on the extended deadline and the remaining licence requirement for dysprosium and terbium, and offer a review of their drive supply chain.</li>
+<li><strong>"Agitator into the design":</strong> Give planning offices for the technical equipment of municipal digestion plants, starting with Troisdorf-Müllekoven, a Beite data sheet with CE documents before the mechanical equipment is tendered.</li>
+<li><strong>"Five deadlines in December":</strong> Present Roßdorf, Ahlbachgruppe, Nordhausen, Roetgen and KW Ohligs to plant builders as a package and offer Beite as the make for agitators and aerators.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Strategic question</h2>
+<ul>
+<li><strong>Wastewater:</strong> The early route via the planner is efficient, because in Troisdorf the technical equipment is designed first and built later (<a href="https://www.bauportal-deutschland.de/oeffentliche_ausschreibung_vobvol_details_53840_Troisdorf_Neubau_Faulungsanlage_KA_Muellekoven_Los_03_Tragwerksplanung_3179379.html">Bauportal</a>).</li>
+<li><strong>Robotics:</strong> Approval becomes economical when the documentation adopts the first list of standards under the Machinery Regulation, which is to take over almost all existing standards (<a href="https://www.swissmem.ch/de/wissen/aktualisierte-liste-der-harmonisierten-en-normen.html">Swissmem</a>).</li>
+<li><strong>Robotics, supply chain:</strong> A robust supply chain for the drives belongs to approval, because the licence requirement for heavy rare earths stays (<a href="https://source.benchmarkminerals.com/article/china-extends-pause-on-rare-earth-and-battery-export-controls-until-2027">Benchmark</a>).</li>
+<li><strong>Fibres:</strong> no answer from today's sources.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Recommendations for Jan</h2>
+<ul>
+<li>Recommendation: tackle Roßdorf (01.12.) and Ahlbachgruppe (07.12.) this week, because both deadlines end within the next two weeks.</li>
+<li>Recommendation: find out which office plans the technical equipment in Troisdorf-Müllekoven, because Beite gets into the design there before the construction tender.</li>
+<li>Recommendation: prepare the rare earth topic as a short note for robotics contacts, because the 10.01.2027 deadline gives a concrete reason for a conversation.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Sources read</h2>
+<ul>
+<li>spglobal.com, thestar.com.my, source.benchmarkminerals.com</li>
+<li>roboticsandautomationnews.com, sovereignmagazine.com, eur-lex.europa.eu, therobotreport.com</li>
+<li>wissen.deutsche-bauchemie.de, dibt.de</li>
+<li>ted.europa.eu, bauportal-deutschland.de, tendigo.de</li>
+<li>textileworld.com</li>
+<li>swissmem.ch, digital-strategy.ec.europa.eu, cms.law, zfk.de</li>
+</ul>
+</section>
+
+<footer>Fastmind Hanna Signals · as of 23.11.2026</footer>
+</main>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
