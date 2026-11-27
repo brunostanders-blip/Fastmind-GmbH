@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy: Education and Culture Signals, 27 November 2026</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+    --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+    --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+  }
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F1F3F5; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+  --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+  --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280; --color-focus: #005FCC;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111827; --color-surface: #1F2937; --color-text: #F3F4F6; --color-muted: #D1D5DB;
+  --color-border: #64748B; --color-heading: #ff9b55; --color-divider: #4da3ff;
+  --color-card-accent: #4da3ff; --color-card-accent-soft: rgba(77, 163, 255, 0.14); --color-missing: #9CA3AF; --color-focus: #93c5fd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.5; }
+header { padding: 2rem 2rem 1rem; text-align: center; }
+h1, h2, .card-title { color: var(--color-heading); }
+h1 { margin: 0 0 0.4rem; font-size: 1.9rem; letter-spacing: -0.01em; }
+header p.subtitle { margin: 0; color: var(--color-muted); }
+.theme-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; }
+.theme-switcher button { border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: var(--color-surface); color: var(--color-text); font-size: 0.85rem; cursor: pointer; }
+.theme-switcher button[aria-pressed="true"] { border-color: var(--color-divider); box-shadow: inset 0 0 0 1px var(--color-divider); color: var(--color-heading); }
+.theme-switcher button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.divider { border: none; border-top: 2px solid var(--color-divider); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); border-left: 5px solid transparent; border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--color-text); transition: box-shadow 0.15s ease, transform 0.15s ease; }
+.card.active { border-left-color: var(--color-card-accent); }
+.card.active:hover, .card.active:focus-visible { box-shadow: 0 4px 16px var(--color-card-accent-soft); transform: translateY(-2px); }
+.card.active:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.card-bar { flex: none; width: 0.5rem; align-self: stretch; border-radius: 4px; background: var(--color-card-accent); }
+.card.placeholder { cursor: default; opacity: 0.75; }
+.card.placeholder .card-bar { background: var(--color-missing); opacity: 0.4; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 700; }
+.card p { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--color-card-accent-soft); color: var(--color-card-accent); margin-bottom: 0.6rem; font-weight: 700; }
+.card.placeholder .tag { background: transparent; border: 1px dashed var(--color-border); color: var(--color-missing); }
+a.back { display: inline-block; margin-bottom: 1.5rem; color: var(--color-heading); text-decoration: none; font-size: 0.9rem; }
+a.back:hover { text-decoration: underline; }
+section.list h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.portal { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.portal a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+.portal a:hover { text-decoration: underline; }
+.portal p { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-text); }
+.note { font-size: 0.85rem; color: var(--color-muted); background: var(--color-card-accent-soft); border-radius: 8px; padding: 0.75rem 1rem; margin: 1.5rem 0; }
+.note strong { color: var(--color-text); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 1.5rem; }
+table.tracking { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.tracking caption { text-align: left; font-size: 0.78rem; color: var(--color-muted); padding: 0.6rem 1rem 0; }
+table.tracking th, table.tracking td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+table.tracking thead th { background: var(--color-card-accent-soft); color: var(--color-heading); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.tracking tbody tr:last-child td { border-bottom: none; }
+table.tracking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.tracking td.empty { color: var(--color-missing); font-style: italic; }
+table.tracking a { color: var(--color-heading); font-weight: 600; text-decoration: none; }
+table.tracking a:hover { text-decoration: underline; }
+.user-label { font-weight: 400; color: var(--color-muted); font-size: 0.6em; }
+.user-field { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: .5rem 0; }
+.user-field input { padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); }
+.user-field button { padding: .35rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+details { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-card-accent); border-radius: 8px; padding: 0.6rem 1rem; margin: 0.75rem 0 1rem; font-size: 0.9rem; }
+details summary { cursor: pointer; color: var(--color-heading); font-weight: 600; }
+details summary:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+details[open] summary { margin-bottom: 0.5rem; }
+details .table-wrap { margin-bottom: 0.75rem; }
+footer { text-align: center; color: var(--color-muted); font-size: 0.8rem; padding: 2rem 0 1rem; }
+footer code { background: var(--color-card-accent-soft); padding: 0.1rem 0.35rem; border-radius: 4px; }
+@media print {
+  :root, :root:not([data-theme]), html[data-theme="light"], html[data-theme="dark"] {
+    color-scheme: light;
+    --color-bg: #FFFFFF; --color-surface: #FFFFFF; --color-text: #1B1F24; --color-muted: #4B5563;
+    --color-border: #CBD5E1; --color-heading: #2f52c9; --color-divider: #2f52c9;
+    --color-card-accent: #d9711a; --color-card-accent-soft: #fdf1ec; --color-missing: #6B7280;
+  }
+  .theme-switcher { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Amy: Education and Culture Signals, 27 November 2026</h1>
+<p class="subtitle">New developments in education and culture between China and the DACH region, with sources.</p>
+<div class="theme-switcher" role="group" aria-label="Display mode">
+<button type="button" data-theme-choice="light" aria-pressed="false">Light mode</button>
+<button type="button" data-theme-choice="dark" aria-pressed="false">Dark mode</button>
+</div>
+</header>
+<main>
+<hr class="divider">
+<p><strong>Fields watched:</strong> Culture (Chinese employers in DACH, employer branding) and Education (university cooperation and double degrees with China)</p>
+<p><strong>Key finding:</strong> A Chinese plant in Thuringia trains its own apprentices and advertises an intercultural workplace, and a Brandenburg university is building a double degree with Shanghai. In both cases the sources mention no offer for arrival and for how people work together. The picture is thin: nothing new was found on Guanxi, Mianzi or new acquisitions.</p>
+<div class="note"><strong>Context note:</strong> statements about Amy's positioning come from the document "Fastmind Dual-Gateway", not from our own research.</div>
+
+<section class="list">
+<h2>Education and Culture Signals</h2>
+<p><strong>1. CATL trains apprentices in Arnstadt and plans a battery technology certificate course with the Chamber of Commerce (IHK) South Thuringia</strong> (<a href="https://www.ingenieur.de/karriere/berufsprofile/kommt-neuer-beruf-in-der-batteriebranche/">ingenieur.de, 5 Jan 2026</a>)</p>
+<ul>
+<li><strong>New:</strong> From autumn 2026 the Chinese battery maker again starts apprenticeships in production, maintenance and logistics in Arnstadt, paying EUR 1,150 gross per month in an "intercultural" workplace (<a href="https://www.catl-career.com/content/Ausbildung/?locale=de_DE">CATL careers</a>).</li>
+<li><strong>Course:</strong> For second-year apprentices CATL plans a certificate course with an IHK certificate; a separate specialisation in the dual system is under review, and no start date is given.</li>
+<li><strong>Size:</strong> About 1,700 people work at the site, including about 30 apprentices.</li>
+<li><strong>Relevance:</strong> A Chinese employer in DACH does employer branding through dual vocational training. German apprentices and trainers work in a German-Chinese plant, and the sources mention no intercultural preparation.</li>
+<li><strong>Action:</strong> Offer CATL and IHK South Thuringia a bilingual module on working in German-Chinese teams for apprentices and trainers, as part of the planned course.</li>
+<li><strong>Strategic question:</strong> yes</li>
+<li><strong>Source:</strong> <a href="https://www.ingenieur.de/karriere/berufsprofile/kommt-neuer-beruf-in-der-batteriebranche/">ingenieur.de (5 Jan 2026)</a> and <a href="https://www.catl-career.com/content/Ausbildung/?locale=de_DE">CATL careers page (as of 27 Nov 2026)</a></li>
+</ul>
+<p><strong>2. TH Wildau is developing a double degree in automation technology with Shanghai Dianji University</strong> (<a href="https://www.th-wildau.de/thinsights/verbunden-durch-ki-als-brueckenbauerin-fuer-internationale-kooperationen-wildau-und-shanghai">TH Wildau, 19 Dec 2025</a>)</p>
+<ul>
+<li><strong>New:</strong> The university is pushing ahead with a double degree programme in automation technology with its partner university in Shanghai; it is still in development.</li>
+<li><strong>Setting:</strong> For 2026 a two-week summer school in July and a German-Chinese conference in Shanghai at the end of October were announced.</li>
+<li><strong>Relevance:</strong> Another double degree in a STEM subject is emerging; Chinese students will then come to Brandenburg for part of their studies. This matches Amy's support up to arrival and during studies.</li>
+<li><strong>Action:</strong> Offer the university now, while the programme is being developed, a package for preparation, arrival and study support for the students from Shanghai.</li>
+<li><strong>Strategic question:</strong> yes</li>
+<li><strong>Source:</strong> <a href="https://www.th-wildau.de/thinsights/verbunden-durch-ki-als-brueckenbauerin-fuer-internationale-kooperationen-wildau-und-shanghai">TH Wildau (19 Dec 2025)</a></li>
+</ul>
+<p><strong>Known since 06.11.:</strong> In October 2026 Nordhausen University of Applied Sciences opened a double degree in electrical engineering and computer science with Shanxi Datong University, with up to 40 students a year and the final year in Nordhausen (<a href="https://idw-online.de/de/news880162">idw</a>).</p>
+<p><strong>Known since 14.10.:</strong> With about 39,000 students, China remains the second most important country of origin of international students in Germany (<a href="https://www.wissenschaft-weltoffen.de/content/uploads/2026/10/WWO_2026_web.pdf">Wissenschaft weltoffen 2026</a>).</p>
+</section>
+
+<section class="list">
+<h2>Bridge-building and Cooperation Opportunities</h2>
+<ul>
+<li><strong>Chinese employers as trainers:</strong> CATL trains apprentices in Thuringia and advertises an intercultural workplace (<a href="https://www.catl-career.com/content/Ausbildung/?locale=de_DE">CATL careers</a>).</li>
+<li><strong>Universities:</strong> A Brandenburg university is developing a double degree with Shanghai (<a href="https://www.th-wildau.de/thinsights/verbunden-durch-ki-als-brueckenbauerin-fuer-internationale-kooperationen-wildau-und-shanghai">TH Wildau</a>).</li>
+<li><strong>School partnerships:</strong> no new evidence today.</li>
+<li><strong>Guanxi and Mianzi:</strong> no new evidence today.</li>
+<li><strong>Post-merger integration:</strong> no new evidence today; no new acquisition by a Chinese buyer in DACH was found.</li>
+</ul>
+</section>
+
+<section class="list">
+<h2>Business Field Check</h2>
+<div class="table-wrap">
+<table class="tracking">
+<thead><tr><th>Sector</th><th>Market opportunity in DACH</th><th>Market challenge</th><th>The Fastmind lever</th></tr></thead>
+<tbody>
+<tr><td><strong>Education</strong></td><td><strong>confirmed:</strong> another STEM double degree with China is emerging. <a href="https://www.th-wildau.de/thinsights/verbunden-durch-ki-als-brueckenbauerin-fuer-internationale-kooperationen-wildau-und-shanghai">TH Wildau</a></td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+<tr><td><strong>Culture</strong></td><td><strong>adjusted:</strong> besides mergers, Chinese plants in DACH train their own staff. <a href="https://www.catl-career.com/content/Ausbildung/?locale=de_DE">CATL</a></td><td class="empty">no new evidence</td><td class="empty">no new evidence</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="list">
+<h2>Customer Outreach Ideas</h2>
+<ol>
+<li><strong>Chinese plants in DACH:</strong> CATL in Arnstadt and similar plants train their own apprentices. Amy offers a bilingual module for apprentices and trainers: ways of working, communication and expectations in German-Chinese teams.</li>
+<li><strong>Chambers with Chinese member companies:</strong> IHK South Thuringia is developing a course with CATL. Amy offers the chamber an intercultural module that it can also open to other companies.</li>
+<li><strong>Universities with a new double degree:</strong> TH Wildau is developing its programme with Shanghai. Amy offers student support as a fixed service, from application to daily life in Brandenburg.</li>
+</ol>
+</section>
+
+<section class="list">
+<h2>Strategic Question</h2>
+<p>Chinese employers in DACH look for apprentices in mechatronics, industrial mechanics, machine operation and warehouse logistics who work in an intercultural environment (<a href="https://www.catl-career.com/content/Ausbildung/?locale=de_DE">CATL careers</a>), and build their own qualifications in battery technology for this (<a href="https://www.ingenieur.de/karriere/berufsprofile/kommt-neuer-beruf-in-der-batteriebranche/">ingenieur.de</a>). Universities put China cooperation into practice through double degrees in automation technology (<a href="https://www.th-wildau.de/thinsights/verbunden-durch-ki-als-brueckenbauerin-fuer-internationale-kooperationen-wildau-und-shanghai">TH Wildau</a>). Which cultural profiles schools are looking for is not answered by today's sources.</p>
+</section>
+
+<section class="list">
+<h2>Recommendations for Jan</h2>
+<ul>
+<li>Recommendation: offer CATL in Arnstadt, via IHK South Thuringia, an intercultural module for apprentices and trainers, because the certificate course is still being set up and about 30 apprentices train in a German-Chinese plant.</li>
+<li>Recommendation: approach TH Wildau now about the planned double degree with Shanghai, because student support can still be built in while the programme is being developed.</li>
+</ul>
+</section>
+
+<footer>Amy: Education and Culture Signals · As of 27.11.2026</footer>
+</main>
+<script>
+(() => {
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let userChoice = null;
+  const updateButtons = () => {
+    buttons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(userChoice !== null && button.dataset.themeChoice === userChoice));
+    });
+  };
+  const applyUserChoice = (theme) => { userChoice = theme; root.dataset.theme = theme; updateButtons(); };
+  buttons.forEach((button) => { button.addEventListener('click', () => applyUserChoice(button.dataset.themeChoice)); });
+  systemPreference.addEventListener('change', () => { if (userChoice === null) root.removeAttribute('data-theme'); });
+  root.removeAttribute('data-theme');
+  updateButtons();
+})();
+</script>
+</body>
+</html>
